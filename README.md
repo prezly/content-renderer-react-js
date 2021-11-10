@@ -1,4 +1,4 @@
-# @prezly/slate-renderer
+# Prezly Content Renderer for React.js
 
 Render [Slate](https://www.slatejs.org/) documents used at [Prezly](https://www.prezly.com/?utm_source=github&utm_campaign=@prezly/content-renderer-react-js).
 
