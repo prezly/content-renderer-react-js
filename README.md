@@ -1,6 +1,6 @@
 # Prezly Content Renderer for React.js
 
-Render [Slate](https://www.slatejs.org/) documents used at [Prezly](https://www.prezly.com/?utm_source=github&utm_campaign=@prezly/content-renderer-react-js).
+Render [Prezly Content Format][prezly-content-format] documents used at [Prezly][prezly].
 
 ![Version](https://img.shields.io/npm/v/@prezly/content-renderer-react-js)
 ![License](https://img.shields.io/npm/l/@prezly/content-renderer-react-js)
@@ -70,4 +70,8 @@ export default MyComponent;
 
 ----
 
-Brought to you by [Prezly](https://www.prezly.com/?utm_source=github&utm_campaign=@prezly/content-renderer-react-js).
+Brought to you by [Prezly][prezly].
+
+
+[prezly]: https://www.prezly.com/?utm_source=github&utm_campaign=@prezly/content-renderer-react-js
+[prezly-content-format]: https://developers.prezly.com/docs/api/ZG9jOjU2NjAyNTY-prezly-content-format
