@@ -30,6 +30,10 @@
         "test": "jest --no-cache --coverage",
         "test:watch": "jest --no-cache --watch"
     },
+    "engines": {
+        "node": ">=14",
+        "npm": ">=7"
+    },
     "peerDependencies": {
         "react": "*",
         "react-dom": "*"
