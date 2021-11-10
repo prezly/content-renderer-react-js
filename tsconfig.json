@@ -1,12 +1,27 @@
 {
-    "extends": "../../tsconfig.json",
-
     "compilerOptions": {
+        "allowSyntheticDefaultImports": true,
+        "declaration": true,
+        "downlevelIteration": true,
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "lib": ["dom", "dom.iterable", "esnext"],
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "noImplicitAny": true,
+        "noImplicitReturns": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "sourceMap": true,
+        "strict": true,
+        "target": "es5",
+
         "jsx": "react",
         "outDir": "./build",
         "rootDir": "./src",
         "typeRoots": ["./node_modules/@types", "./src/@types"]
     },
+
     "exclude": ["node_modules", "**/*.test.*"],
     "files": ["./src/@types/scss.d.ts", "./src/@types/svg.d.ts"],
     "include": ["./src"]

@@ -2,6 +2,7 @@ import {
     DIVIDER_NODE_TYPE,
     DOCUMENT_NODE_TYPE,
     DocumentNode,
+    ElementNode,
     HEADING_1_NODE_TYPE,
 } from '@prezly/slate-types';
 import React from 'react';
@@ -14,11 +15,11 @@ const documentNode: DocumentNode = {
         {
             children: [{ text: 'Hello world!' }],
             type: HEADING_1_NODE_TYPE,
-        },
+        } as ElementNode,
         {
             children: [{ text: '' }],
             type: DIVIDER_NODE_TYPE,
-        },
+        } as ElementNode,
     ],
     type: DOCUMENT_NODE_TYPE,
     version: '0.50',
