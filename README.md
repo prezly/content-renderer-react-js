@@ -1,16 +1,16 @@
 # @prezly/slate-renderer
 
-Render [Slate](https://www.slatejs.org/) documents used at [Prezly](https://www.prezly.com/?utm_source=github&utm_campaign=@prezly/slate-renderer).
+Render [Slate](https://www.slatejs.org/) documents used at [Prezly](https://www.prezly.com/?utm_source=github&utm_campaign=@prezly/content-renderer-react-js).
 
-![Version](https://img.shields.io/npm/v/@prezly/slate-renderer)
-![License](https://img.shields.io/npm/l/@prezly/slate-renderer)
+![Version](https://img.shields.io/npm/v/@prezly/content-renderer-react-js)
+![License](https://img.shields.io/npm/l/@prezly/content-renderer-react-js)
 
 ## Setup
 
 ### npm
 
 ```Shell
-npm install --save @prezly/slate-renderer
+npm install --save @prezly/content-renderer-react-js
 ```
 
 #### peerDependencies
@@ -70,4 +70,4 @@ export default MyComponent;
 
 ----
 
-Brought to you by [Prezly](https://www.prezly.com/?utm_source=github&utm_campaign=@prezly/slate-renderer).
+Brought to you by [Prezly](https://www.prezly.com/?utm_source=github&utm_campaign=@prezly/content-renderer-react-js).
