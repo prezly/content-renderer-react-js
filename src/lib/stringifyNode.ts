@@ -1,4 +1,4 @@
-import { Node } from 'slate';
+import { Node } from '../types';
 
 /**
  * Stringify Slate node for debug purposes (e.g. error messages).
