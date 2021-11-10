@@ -14,7 +14,7 @@ interface Actions {
     onPrevious: () => void;
 }
 
-const useGallery = (images: UploadcareImage[]): [State, Actions] => {
+export function useGallery(images: UploadcareImage[]): [State, Actions] {
     const [image, setImage] = useState<UploadcareImage | null>(null);
     const currentIndex = image === null ? null : images.indexOf(image);
     const isNextEnabled = typeof currentIndex === 'number' && images.length > 1;
@@ -42,6 +42,4 @@ const useGallery = (images: UploadcareImage[]): [State, Actions] => {
         { image, isNextEnabled, isPreviousEnabled },
         { onClose, onNext, onOpen: setImage, onPrevious },
     ];
-};
-
-export default useGallery;
+}

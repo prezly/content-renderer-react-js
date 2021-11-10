@@ -1,4 +1,4 @@
-const openWindow = (url: string, width?: number, height?: number): Window | null => {
+export function openWindow(url: string, width?: number, height?: number): Window | null {
     let result: Window | null = null;
 
     if (width && height) {
@@ -25,6 +25,4 @@ const openWindow = (url: string, width?: number, height?: number): Window | null
     }
 
     return result;
-};
-
-export default openWindow;
+}

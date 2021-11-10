@@ -23,4 +23,4 @@ const Document: FunctionComponent<Props> = ({ children, className, node, ...prop
     );
 };
 
-export default Document;
+export { Document };

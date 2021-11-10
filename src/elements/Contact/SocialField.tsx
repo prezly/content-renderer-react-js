@@ -10,7 +10,7 @@ interface Props {
     value: string;
 }
 
-const SocialFields: FunctionComponent<Props> = ({ className, href, Icon, value }) => (
+const SocialField: FunctionComponent<Props> = ({ className, href, Icon, value }) => (
     <li className={classNames('prezly-slate-social-field', className)} title={value}>
         <a
             className="prezly-slate-social-field__link"
@@ -24,4 +24,4 @@ const SocialFields: FunctionComponent<Props> = ({ className, href, Icon, value }
     </li>
 );
 
-export default SocialFields;
+export { SocialField };

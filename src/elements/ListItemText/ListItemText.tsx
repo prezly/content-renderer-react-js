@@ -14,4 +14,4 @@ const ListItemText: FunctionComponent<Props> = ({ children, className, node, ...
     </div>
 );
 
-export default ListItemText;
+export { ListItemText };

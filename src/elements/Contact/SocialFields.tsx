@@ -6,7 +6,7 @@ import { Envelope, Facebook, Phone, Telephone, Twitter, Window } from '../../ico
 import { identity } from '../../lib';
 
 import { getMailtoHref, getTelHref, getFacebookHref, getTwitterHref } from './lib';
-import SocialField from './SocialField';
+import { SocialField } from './SocialField';
 import './SocialFields.scss';
 import { SocialFieldEntry } from './types';
 
@@ -48,4 +48,4 @@ const SocialFields: FunctionComponent<Props> = ({ className, contact }) => {
     );
 };
 
-export default SocialFields;
+export { SocialFields };

@@ -17,4 +17,4 @@ const Paragraph: FunctionComponent<Props> = ({ children, className, node, ...pro
     </p>
 );
 
-export default Paragraph;
+export { Paragraph };

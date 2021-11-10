@@ -3,9 +3,9 @@ import classNames from 'classnames';
 import React, { FunctionComponent, HTMLAttributes } from 'react';
 
 import './Embed.scss';
-import IframelyEmbed from './IframelyEmbed';
-import LinkEmbed from './LinkEmbed';
-import ScreenshotEmbed from './ScreenshotEmbed';
+import { IframelyEmbed } from './IframelyEmbed';
+import { LinkEmbed } from './LinkEmbed';
+import { ScreenshotEmbed } from './ScreenshotEmbed';
 
 interface Props extends HTMLAttributes<HTMLElement> {
     children?: never;
@@ -36,4 +36,4 @@ const Embed: FunctionComponent<Props> = ({ className, node, showAsScreenshot, ..
     );
 };
 
-export default Embed;
+export { Embed };

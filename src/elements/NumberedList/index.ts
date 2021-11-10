@@ -1,1 +1,1 @@
-export { default } from './NumberedList';
+export * from './NumberedList';

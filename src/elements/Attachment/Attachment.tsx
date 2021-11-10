@@ -44,4 +44,4 @@ const Attachment: FunctionComponent<Props> = ({ className, children, node, ...pr
     );
 };
 
-export default Attachment;
+export { Attachment };

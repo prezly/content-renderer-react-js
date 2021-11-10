@@ -14,4 +14,4 @@ const BulletedList: FunctionComponent<Props> = ({ children, className, ...props 
     </ul>
 );
 
-export default BulletedList;
+export { BulletedList };

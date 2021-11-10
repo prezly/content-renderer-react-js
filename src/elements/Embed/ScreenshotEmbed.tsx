@@ -21,4 +21,4 @@ const ScreenshotEmbed: FunctionComponent<Props> = ({ className, node, ...props }
     );
 };
 
-export default ScreenshotEmbed;
+export { ScreenshotEmbed };

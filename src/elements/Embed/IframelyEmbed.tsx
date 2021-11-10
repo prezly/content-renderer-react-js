@@ -35,4 +35,4 @@ const IframelyEmbed: FunctionComponent<Props> = ({ className, node, ...props }) 
     );
 };
 
-export default IframelyEmbed;
+export { IframelyEmbed };

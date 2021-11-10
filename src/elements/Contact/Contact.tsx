@@ -2,9 +2,9 @@ import { ContactNode } from '@prezly/slate-types';
 import classNames from 'classnames';
 import React, { FunctionComponent, HTMLAttributes } from 'react';
 
-import Avatar from './Avatar';
+import { Avatar } from './Avatar';
 import './Contact.scss';
-import SocialFields from './SocialFields';
+import { SocialFields } from './SocialFields';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
     children?: never;
@@ -38,4 +38,4 @@ const Contact: FunctionComponent<Props> = ({ children, className, node, ...props
     );
 };
 
-export default Contact;
+export { Contact };

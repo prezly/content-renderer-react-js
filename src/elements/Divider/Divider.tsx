@@ -13,4 +13,4 @@ const Divider: FunctionComponent<Props> = ({ className }) => (
     <hr className={classNames('prezly-slate-divider', className)} />
 );
 
-export default Divider;
+export { Divider };

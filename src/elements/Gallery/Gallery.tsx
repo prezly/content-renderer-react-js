@@ -7,7 +7,7 @@ import { Lightbox } from '../../components';
 
 import { DEFAULT_MAX_VIEWPORT_WIDTH, IMAGE_PADDING, IMAGE_SIZE } from './constants';
 import './Gallery.scss';
-import GalleryImage from './GalleryImage';
+import { GalleryImage } from './GalleryImage';
 import { calculateLayout, prepareImages, useGallery } from './lib';
 
 interface Props extends HTMLAttributes<HTMLElement> {
@@ -72,4 +72,4 @@ const Gallery: FunctionComponent<Props> = ({
     );
 };
 
-export default Gallery;
+export { Gallery };

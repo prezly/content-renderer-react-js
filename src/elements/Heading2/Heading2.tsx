@@ -14,4 +14,4 @@ const Heading2: FunctionComponent<Props> = ({ children, className, node, ...prop
     </h2>
 );
 
-export default Heading2;
+export { Heading2 };

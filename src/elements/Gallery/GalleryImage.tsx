@@ -45,4 +45,4 @@ const GalleryImage: FunctionComponent<Props> = ({ height, image, margin, onClick
     );
 };
 
-export default GalleryImage;
+export { GalleryImage };

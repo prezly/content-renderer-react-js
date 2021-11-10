@@ -13,4 +13,4 @@ const Mention: FunctionComponent<Props> = ({ className, node, ...props }) => (
     </span>
 );
 
-export default Mention;
+export { Mention };

@@ -8,4 +8,4 @@ interface Props {
 
 const Placeholder: FunctionComponent<Props> = ({ children }) => <>{children}</>;
 
-export default Placeholder;
+export { Placeholder };

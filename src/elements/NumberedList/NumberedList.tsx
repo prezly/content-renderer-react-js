@@ -14,4 +14,4 @@ const NumberedList: FunctionComponent<Props> = ({ children, className, ...props 
     </ol>
 );
 
-export default NumberedList;
+export { NumberedList };

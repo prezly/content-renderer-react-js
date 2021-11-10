@@ -14,4 +14,4 @@ const Link: FunctionComponent<Props> = ({ children, className, node, ...props })
     </a>
 );
 
-export default Link;
+export { Link };

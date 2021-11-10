@@ -26,4 +26,4 @@ const LinkEmbed: FunctionComponent<Props> = ({ className, node, ...props }) => {
     );
 };
 
-export default LinkEmbed;
+export { LinkEmbed };

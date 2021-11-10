@@ -22,4 +22,4 @@ const Avatar: FunctionComponent<Props> = ({ alt, className, name, src, title, ..
     );
 };
 
-export default Avatar;
+export { Avatar };

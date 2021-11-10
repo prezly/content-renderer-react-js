@@ -14,4 +14,4 @@ const ListItem: FunctionComponent<Props> = ({ children, className, node, ...prop
     </li>
 );
 
-export default ListItem;
+export { ListItem };

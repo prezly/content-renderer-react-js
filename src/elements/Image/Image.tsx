@@ -77,4 +77,4 @@ const Image: FunctionComponent<Props> = ({ children, className, node, ...props }
     );
 };
 
-export default Image;
+export { Image };

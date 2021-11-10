@@ -14,4 +14,4 @@ const Quote: FunctionComponent<Props> = ({ children, className, node, ...props }
     </blockquote>
 );
 
-export default Quote;
+export { Quote };
