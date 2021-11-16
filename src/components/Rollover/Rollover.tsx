@@ -1,6 +1,6 @@
+import { useMeasure } from '@react-hookz/web';
 import classNames from 'classnames';
 import React, { ButtonHTMLAttributes, FunctionComponent } from 'react';
-import { useMeasure } from 'react-use';
 
 import { MultilineEllipsis } from '../../components';
 import { ArrowsAngleExpand } from '../../icons';
@@ -25,7 +25,8 @@ const Rollover: FunctionComponent<Props> = ({
     disabled,
     ...props
 }) => {
-    const [ref, { height }] = useMeasure<HTMLSpanElement>();
+    const [rect, ref] = useMeasure<HTMLSpanElement>();
+    const height = rect?.height || 0;
     const captionHeight = height - CAPTION_PADDING_VERTICAL;
     const maxHeight = height > 0 ? Math.min(IDEAL_MAX_HEIGHT, captionHeight) : IDEAL_MAX_HEIGHT;
 

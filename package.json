@@ -41,9 +41,9 @@
     "dependencies": {
         "@prezly/linear-partition": "^1.0.0",
         "@prezly/slate-types": "^0.3.0",
+        "@react-hookz/web": "^12.0.0",
         "classnames": "^2.2.6",
         "react-modal": "^3.12.1",
-        "react-use": "^15.3.8",
         "shave": "^2.5.10",
         "slate": "^0.66.5",
         "striptags": "^3.1.1"

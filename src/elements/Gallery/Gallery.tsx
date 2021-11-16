@@ -1,7 +1,7 @@
 import { GalleryNode } from '@prezly/slate-types';
+import { useMeasure } from '@react-hookz/web';
 import classNames from 'classnames';
 import React, { FunctionComponent, HTMLAttributes, useMemo } from 'react';
-import useMeasure from 'react-use/lib/useMeasure';
 
 import { Lightbox } from '../../components';
 
@@ -22,7 +22,8 @@ const Gallery: FunctionComponent<Props> = ({
     node,
     ...props
 }) => {
-    const [ref, { width }] = useMeasure<HTMLDivElement>();
+    const [rect, ref] = useMeasure<HTMLDivElement>();
+    const width = rect?.width || 0;
     const margin = IMAGE_PADDING[node.padding];
     const idealHeight = IMAGE_SIZE[node.thumbnail_size] + 2 * margin;
     const images = useMemo(() => prepareImages(node, maxViewportWidth), [node]);

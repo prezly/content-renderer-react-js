@@ -1,8 +1,8 @@
 import { UploadcareImage } from '@prezly/slate-types';
+import { useEventListener } from '@react-hookz/web';
 import classNames from 'classnames';
 import React, { FunctionComponent, KeyboardEvent, ReactNode } from 'react';
 import Modal from 'react-modal';
-import useEvent from 'react-use/lib/useEvent';
 
 import { ChevronLeft, ChevronRight, Close } from '../../icons';
 import { noop } from '../../lib';
@@ -33,7 +33,7 @@ const Lightbox: FunctionComponent<Props> = ({
     onNext = noop,
     onPrevious = noop,
 }) => {
-    useEvent('keydown', (event: KeyboardEvent) => {
+    useEventListener(window, 'keydown', (event: KeyboardEvent) => {
         if (image === null) {
             return;
         }
