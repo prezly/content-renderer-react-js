@@ -1,0 +1,24 @@
+{
+    "name": "@prezly/content-renderer-react-js-example",
+    "private": true,
+    "version": "0.0.0",
+    "engines": {
+        "node": ">=12.4.0"
+    },
+    "scripts": {
+        "dev": "next dev",
+        "clean": "rimraf ./build ./node_modules"
+    },
+    "dependencies": {
+        "@prezly/content-renderer-react-js": "^0.4.0",
+        "next": "^12.0.4",
+        "normalize.css": "^8.0.1",
+        "react": "^17.0.2"
+    },
+    "devDependencies": {
+        "@types/react": "^17.0.35",
+        "rimraf": "^3.0.2",
+        "sass": "^1.32.4",
+        "typescript": "^4.4.4"
+    }
+}
