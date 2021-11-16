@@ -30,10 +30,14 @@
         "test": "jest --no-cache --coverage",
         "test:watch": "jest --no-cache --watch"
     },
-    "engines": {
+    "devEngines": {
         "node": ">=14",
         "npm": ">=7"
     },
+    "workspaces": [
+        "./",
+        "./example"
+    ],
     "peerDependencies": {
         "react": "*",
         "react-dom": "*"
