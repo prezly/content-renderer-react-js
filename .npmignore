@@ -1,5 +1,6 @@
 coverage/
 .github/
+.idea/
 **/node_modules/**
 *.eslintcache
 *.db
