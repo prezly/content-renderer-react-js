@@ -24,7 +24,13 @@ const getStyle = (props: Pick<Props, 'height' | 'margin' | 'width'>): CSSPropert
     };
 };
 
-export const GalleryImage: FunctionComponent<Props> = ({ height, image, margin, onClick, width }) => {
+export const GalleryImage: FunctionComponent<Props> = ({
+    height,
+    image,
+    margin,
+    onClick,
+    width,
+}) => {
     const handleClick = () => {
         onClick(image);
     };

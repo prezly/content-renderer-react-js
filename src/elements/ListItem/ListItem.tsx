@@ -13,4 +13,3 @@ export const ListItem: FunctionComponent<Props> = ({ children, className, node, 
         {children}
     </li>
 );
-

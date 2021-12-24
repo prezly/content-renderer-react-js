@@ -13,7 +13,12 @@ interface Props extends HTMLAttributes<HTMLElement> {
     showAsScreenshot?: boolean;
 }
 
-export const Embed: FunctionComponent<Props> = ({ className, node, showAsScreenshot, ...props }) => {
+export const Embed: FunctionComponent<Props> = ({
+    className,
+    node,
+    showAsScreenshot,
+    ...props
+}) => {
     const { oembed, url } = node;
 
     const commonProps = {
