@@ -16,11 +16,14 @@ module.exports = (api) => {
             '@babel/typescript',
             ['@babel/react', { development: !isProduction, runtime: 'automatic' }],
             '@dr.pogodin/babel-preset-svgr',
-            ['@babel/env', {
-                useBuiltIns: false,
-                modules: 'commonjs',
-                targets: isTest ? { esmodules: false } : undefined,
-            }],
+            [
+                '@babel/env',
+                {
+                    useBuiltIns: false,
+                    modules: 'commonjs',
+                    targets: isTest ? { esmodules: false } : undefined,
+                },
+            ],
         ],
 
         plugins: [
@@ -38,7 +41,7 @@ module.exports = (api) => {
                         { importInterop: 'none', strict: true },
                     ],
                 ],
-            }
+            },
         ],
     };
 };

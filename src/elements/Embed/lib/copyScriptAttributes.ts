@@ -1,4 +1,7 @@
-export const copyScriptAttributes = (source: HTMLScriptElement, target: HTMLScriptElement): void => {
+export const copyScriptAttributes = (
+    source: HTMLScriptElement,
+    target: HTMLScriptElement,
+): void => {
     Array.from(source.attributes).forEach(({ name, value }) => {
         target.setAttribute(name, value);
     });
