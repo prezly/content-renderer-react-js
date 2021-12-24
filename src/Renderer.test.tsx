@@ -6,7 +6,7 @@ import {
     HEADING_1_NODE_TYPE,
 } from '@prezly/slate-types';
 import React from 'react';
-import { renderToString } from 'react-dom/server';
+import { renderToString } from 'react-dom/server.js';
 
 import { Renderer } from './Renderer';
 
