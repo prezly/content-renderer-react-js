@@ -2,8 +2,13 @@ import React from 'react';
 
 import { Renderer } from '@prezly/content-renderer-react-js';
 
-export const App = ({ document }) => (
+import '@prezly/content-renderer-react-js/styles.css'
+import './styles.css';
+
+import story from './story.json';
+
+export const App = () => (
     <div className="App">
-        <Renderer nodes={document} />
+        <Renderer nodes={story} />
     </div>
 )

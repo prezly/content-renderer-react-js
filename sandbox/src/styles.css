@@ -9,7 +9,7 @@
 
 html,
 body {
-    margin: 0 auto;
+    margin: 20px;
     padding: 0;
 }
 
@@ -25,4 +25,9 @@ h4 {
     -webkit-margin-before: 0;
     -webkit-margin-after: 0;
     margin: 0;
+}
+
+.App {
+    width: 700px;
+    margin: 0 auto;
 }

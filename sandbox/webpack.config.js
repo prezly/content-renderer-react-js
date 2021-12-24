@@ -20,6 +20,13 @@ module.exports = {
                 include: path.join(__dirname, 'src'),
                 use: 'babel-loader',
             },
+            {
+                test: /\.css$/,
+                use: [
+                    { loader: 'style-loader' },
+                    { loader: 'css-loader' }
+                ],
+            }
         ],
     },
     plugins: [
