@@ -19,10 +19,12 @@
     "homepage": "https://github.com/prezly/content-renderer-react-js#readme",
     "scripts": {
         "build": "NODE_ENV=production webpack",
+        "build:esm": "gulp build:esm",
         "build:types": "tsc-fancy --preserveConsoleOutput --project .",
         "build:watch": "NODE_ENV=development webpack",
         "build:svg": "gulp build:svg",
         "build:sass": "gulp build:sass",
+        "watch:esm": "gulp watch:esm",
         "watch:types": "npm run build:types -- --watch --pretty",
         "watch:svg": "gulp watch:svg",
         "watch:sass": "gulp watch:sass",

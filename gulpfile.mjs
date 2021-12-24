@@ -20,6 +20,22 @@ const SASS_SOURCES = 'src/**/*.scss';
 const SASS_DECLARATIONS = 'src/styles/**/*.scss';
 const SASS_MODULES_STYLESHEETS = ['src/**/*.scss', '!src/styles/**/*.scss'];
 const SVG_ICONS = 'src/**/*.svg';
+const TYPESCRIPT_SOURCES = 'src/**/*.{ts,tsx}';
+
+gulp.task('build:esm', function () {
+    return gulp
+        .src(TYPESCRIPT_SOURCES)
+        .pipe(babel({ extends: './babel.config.js' }))
+        .pipe(rename((file) => file.extname = '.mjs'))
+        .pipe(gulp.dest('build/esm/'));
+});
+
+gulp.task('watch:esm', gulp.series('build:esm', function () {
+    return gulp
+        .watch(TYPESCRIPT_SOURCES, gulp.series('build:esm'))
+        .on('ready', () => console.log('Watching files'))
+        .on('all', (event, path) => console.log(`[${event}] ${path}`));
+}));
 
 gulp.task('build:svg', function () {
     return gulp
