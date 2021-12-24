@@ -1,5 +1,9 @@
 module.exports = (api) => {
-    const isTest = api.env('test');
+    // This caches the Babel config
+    api.cache.using(() => process.env.NODE_ENV);
+
+    const isProduction = api.env('production');
+    const isDevelopment = api.env('development');
 
     return {
         targets: {
@@ -8,12 +12,14 @@ module.exports = (api) => {
         },
         presets: [
             '@babel/typescript',
-            '@babel/react',
+            ['@babel/react', { development: !isProduction, runtime: 'automatic' }],
             '@dr.pogodin/babel-preset-svgr',
             ['@babel/env', { useBuiltIns: false,  modules: 'commonjs' }],
         ],
         plugins: [
             ['babel-plugin-transform-remove-imports', { test: '\\.scss$' }],
+            // Applies the react-refresh Babel plugin on non-production modes only
+            isDevelopment && 'react-refresh/babel',
         ].filter(Boolean),
     };
 };
