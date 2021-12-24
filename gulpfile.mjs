@@ -24,30 +24,24 @@ const TYPESCRIPT_SOURCES = 'src/**/*.{ts,tsx}';
 
 gulp.task('build:esm', function () {
     return gulp
-        .src(TYPESCRIPT_SOURCES)
-        .pipe(babel({ extends: './babel.config.js' }))
-        .pipe(rename((file) => file.extname = '.mjs'))
-        .pipe(gulp.dest('build/esm/'));
+        .src([TYPESCRIPT_SOURCES, SVG_ICONS])
+        .pipe(
+            branch.obj((src) => [
+                src.pipe(filter(TYPESCRIPT_SOURCES))
+                    .pipe(babel({ extends: './babel.config.js' }))
+                    .pipe(rename((file) => file.extname = '.mjs')),
+
+                src.pipe(filter(SVG_ICONS))
+                    .pipe(babel({ extends: './babel.config.js' }))
+                    .pipe(rename((file) => file.extname = '.svg.mjs')),
+            ]),
+        )
+        .pipe(gulp.dest('build/esm/'))
 });
 
 gulp.task('watch:esm', gulp.series('build:esm', function () {
     return gulp
-        .watch(TYPESCRIPT_SOURCES, gulp.series('build:esm'))
-        .on('ready', () => console.log('Watching files'))
-        .on('all', (event, path) => console.log(`[${event}] ${path}`));
-}));
-
-gulp.task('build:svg', function () {
-    return gulp
-        .src(SVG_ICONS)
-        .pipe(babel({ extends: './babel.config.js' }))
-        .pipe(rename((file) => file.extname = '.svg.mjs'))
-        .pipe(gulp.dest('build/esm/'));
-});
-
-gulp.task('watch:svg', gulp.series('build:svg', function () {
-    return gulp
-        .watch(SVG_ICONS, gulp.series('build:svg'))
+        .watch([TYPESCRIPT_SOURCES, SVG_ICONS], gulp.series('build:esm'))
         .on('ready', () => console.log('Watching files'))
         .on('all', (event, path) => console.log(`[${event}] ${path}`));
 }));
