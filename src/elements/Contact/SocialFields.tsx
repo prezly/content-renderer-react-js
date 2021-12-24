@@ -15,7 +15,7 @@ interface Props {
     contact: ContactNode['contact'];
 }
 
-const SocialFields: FunctionComponent<Props> = ({ className, contact }) => {
+export const SocialFields: FunctionComponent<Props> = ({ className, contact }) => {
     const socialFields = Object.entries({
         email: { getHref: getMailtoHref, Icon: Envelope, value: contact.email },
         phone: { getHref: getTelHref, Icon: Telephone, value: contact.phone },
@@ -47,5 +47,3 @@ const SocialFields: FunctionComponent<Props> = ({ className, contact }) => {
         </ul>
     );
 };
-
-export { SocialFields };

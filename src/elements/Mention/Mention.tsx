@@ -7,10 +7,8 @@ interface Props extends HTMLAttributes<HTMLSpanElement> {
     node: MentionNode;
 }
 
-const Mention: FunctionComponent<Props> = ({ className, node, ...props }) => (
+export const Mention: FunctionComponent<Props> = ({ className, node, ...props }) => (
     <span className={classNames('prezly-slate-mention', className)} {...props}>
         {node.user.name}
     </span>
 );
-
-export { Mention };

@@ -8,10 +8,8 @@ interface Props extends HTMLAttributes<HTMLQuoteElement> {
     node: QuoteNode;
 }
 
-const Quote: FunctionComponent<Props> = ({ children, className, node, ...props }) => (
+export const Quote: FunctionComponent<Props> = ({ children, className, node, ...props }) => (
     <blockquote className={classNames('prezly-slate-quote', className)} {...props}>
         {children}
     </blockquote>
 );
-
-export { Quote };

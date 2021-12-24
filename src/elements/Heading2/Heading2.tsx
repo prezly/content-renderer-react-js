@@ -8,10 +8,8 @@ interface Props extends HTMLAttributes<HTMLHeadingElement> {
     node: HeadingNode;
 }
 
-const Heading2: FunctionComponent<Props> = ({ children, className, node, ...props }) => (
+export const Heading2: FunctionComponent<Props> = ({ children, className, node, ...props }) => (
     <h2 className={classNames('prezly-slate-heading-2', className)} {...props}>
         {children}
     </h2>
 );
-
-export { Heading2 };

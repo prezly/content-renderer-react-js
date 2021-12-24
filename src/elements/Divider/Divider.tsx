@@ -9,8 +9,6 @@ interface Props extends HTMLAttributes<HTMLHRElement> {
     node: DividerNode;
 }
 
-const Divider: FunctionComponent<Props> = ({ className }) => (
+export const Divider: FunctionComponent<Props> = ({ className }) => (
     <hr className={classNames('prezly-slate-divider', className)} />
 );
-
-export { Divider };

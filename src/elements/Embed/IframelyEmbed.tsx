@@ -9,7 +9,8 @@ interface Props extends HTMLAttributes<HTMLElement> {
     children?: never;
     node: EmbedNode;
 }
-const IframelyEmbed: FunctionComponent<Props> = ({ className, node, ...props }) => {
+
+export const IframelyEmbed: FunctionComponent<Props> = ({ className, node, ...props }) => {
     const contentRef = useRef<HTMLDivElement>(null);
     const [isValid, setIsValid] = useState<boolean>(true);
     const { oembed } = node;
@@ -34,5 +35,3 @@ const IframelyEmbed: FunctionComponent<Props> = ({ className, node, ...props }) 
         />
     );
 };
-
-export { IframelyEmbed };

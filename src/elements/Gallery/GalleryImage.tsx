@@ -24,7 +24,7 @@ const getStyle = (props: Pick<Props, 'height' | 'margin' | 'width'>): CSSPropert
     };
 };
 
-const GalleryImage: FunctionComponent<Props> = ({ height, image, margin, onClick, width }) => {
+export const GalleryImage: FunctionComponent<Props> = ({ height, image, margin, onClick, width }) => {
     const handleClick = () => {
         onClick(image);
     };
@@ -44,5 +44,3 @@ const GalleryImage: FunctionComponent<Props> = ({ height, image, margin, onClick
         </Rollover>
     );
 };
-
-export { GalleryImage };

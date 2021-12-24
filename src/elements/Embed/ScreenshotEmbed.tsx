@@ -8,7 +8,8 @@ interface Props extends ImgHTMLAttributes<HTMLImageElement> {
     children?: never;
     node: EmbedNode;
 }
-const ScreenshotEmbed: FunctionComponent<Props> = ({ className, node, ...props }) => {
+
+export const ScreenshotEmbed: FunctionComponent<Props> = ({ className, node, ...props }) => {
     const { oembed } = node;
 
     return (
@@ -20,5 +21,3 @@ const ScreenshotEmbed: FunctionComponent<Props> = ({ className, node, ...props }
         />
     );
 };
-
-export { ScreenshotEmbed };

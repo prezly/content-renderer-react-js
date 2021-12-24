@@ -6,6 +6,4 @@ interface Props {
     node: PlaceholderNode;
 }
 
-const Placeholder: FunctionComponent<Props> = ({ children }) => <>{children}</>;
-
-export { Placeholder };
+export const Placeholder: FunctionComponent<Props> = ({ children }) => <>{children}</>;

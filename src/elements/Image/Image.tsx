@@ -24,7 +24,7 @@ const getContainerStyle = (node: ImageNode): CSSProperties => {
     return { width };
 };
 
-const Image: FunctionComponent<Props> = ({ children, className, node, ...props }) => {
+export const Image: FunctionComponent<Props> = ({ children, className, node, ...props }) => {
     const { file, href, layout } = node;
     const [isPreviewOpen, setIsPreviewOpen] = useState<boolean>(false);
     const image = UploadcareImage.createFromPrezlyStoragePayload(file);
@@ -76,5 +76,3 @@ const Image: FunctionComponent<Props> = ({ children, className, node, ...props }
         </figure>
     );
 };
-
-export { Image };

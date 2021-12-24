@@ -9,7 +9,7 @@ interface Props extends HTMLAttributes<HTMLElement> {
     node: DocumentNode;
 }
 
-const Document: FunctionComponent<Props> = ({ children, className, node, ...props }) => {
+export const Document: FunctionComponent<Props> = ({ children, className, node, ...props }) => {
     const { version } = node;
 
     return (
@@ -22,5 +22,3 @@ const Document: FunctionComponent<Props> = ({ children, className, node, ...prop
         </section>
     );
 };
-
-export { Document };

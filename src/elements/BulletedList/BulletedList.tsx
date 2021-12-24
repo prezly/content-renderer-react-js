@@ -8,10 +8,8 @@ interface Props extends HTMLAttributes<HTMLUListElement> {
     node: ListNode;
 }
 
-const BulletedList: FunctionComponent<Props> = ({ children, className, ...props }) => (
+export const BulletedList: FunctionComponent<Props> = ({ children, className, ...props }) => (
     <ul className={classNames('prezly-slate-bulleted-list', className)} {...props}>
         {children}
     </ul>
 );
-
-export { BulletedList };

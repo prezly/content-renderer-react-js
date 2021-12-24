@@ -16,7 +16,7 @@ interface Props extends HTMLAttributes<HTMLElement> {
     maxViewportWidth?: number;
 }
 
-const Gallery: FunctionComponent<Props> = ({
+export const Gallery: FunctionComponent<Props> = ({
     className,
     maxViewportWidth = DEFAULT_MAX_VIEWPORT_WIDTH,
     node,
@@ -70,5 +70,3 @@ const Gallery: FunctionComponent<Props> = ({
         </figure>
     );
 };
-
-export { Gallery };
