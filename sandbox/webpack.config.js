@@ -10,10 +10,8 @@ module.exports = {
         main: './src/index.jsx',
     },
     resolve: {
+        symlinks: false,
         extensions: ['.js', '.jsx', '.mjs', '.cjs'],
-        alias: {
-            '#content-renderer-react-js': path.resolve(__dirname, '../build/esm'),
-        },
     },
     module: {
         rules: [

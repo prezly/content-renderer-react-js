@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Renderer } from '#content-renderer-react-js';
+import { Renderer } from '@prezly/content-renderer-react-js';
 
 export const App = ({ document }) => (
     <div className="App">
