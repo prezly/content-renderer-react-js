@@ -3,21 +3,17 @@ module.exports = (api) => {
 
     return {
         targets: {
-            esmodules: !isTest,
+            esmodules: false,
             node: '12',
         },
         presets: [
             '@babel/typescript',
             '@babel/react',
             '@dr.pogodin/babel-preset-svgr',
-            ['@babel/env', {
-                useBuiltIns: false,
-                modules: isTest ? 'commonjs' : false,
-            }],
+            ['@babel/env', { useBuiltIns: false,  modules: 'commonjs' }],
         ],
         plugins: [
             ['babel-plugin-transform-remove-imports', { test: '\\.scss$' }],
-            !isTest && ['babel-plugin-add-import-extension', { extension: 'mjs' }],
         ].filter(Boolean),
     };
 };

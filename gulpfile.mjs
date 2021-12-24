@@ -22,17 +22,60 @@ const SASS_MODULES_STYLESHEETS = ['src/**/*.scss', '!src/styles/**/*.scss'];
 const SVG_ICONS = 'src/**/*.svg';
 const TYPESCRIPT_SOURCES = 'src/**/*.{ts,tsx}';
 
+const createCommonjsCompiler = () => babel({
+    extends: './babel.config.js',
+    presets: [
+        ['@babel/env', { modules: 'commonjs' }],
+    ],
+    plugins: [
+        ['babel-plugin-add-import-extension', { extension: 'cjs' }],
+        ['@babel/plugin-transform-modules-commonjs', { importInterop: 'none', strict: true }],
+    ],
+})
+
+const createEsmCompiler = () => babel({
+    extends: './babel.config.js',
+    targets: {
+        esmodules: true,
+    },
+    presets: [
+        ['@babel/env', { modules: false }],
+    ],
+    plugins: [
+        ['babel-plugin-add-import-extension', { extension: 'mjs' }],
+    ],
+})
+
+gulp.task('build:cjs', function () {
+    return gulp
+        .src([TYPESCRIPT_SOURCES, SVG_ICONS])
+        .pipe(
+            branch.obj((src) => [
+                src.pipe(filter(TYPESCRIPT_SOURCES))
+                    .pipe(createCommonjsCompiler())
+                    .pipe(rename((file) => file.extname = '.cjs')),
+
+                src.pipe(filter(SVG_ICONS))
+                    .pipe(createCommonjsCompiler())
+                    .pipe(rename((file) => file.extname = '.svg.cjs')),
+            ]),
+        )
+        .pipe(gulp.dest('build/cjs/'))
+});
+
+gulp.task('watch:cjs', watch([TYPESCRIPT_SOURCES, SVG_ICONS], 'build:cjs'));
+
 gulp.task('build:esm', function () {
     return gulp
         .src([TYPESCRIPT_SOURCES, SVG_ICONS])
         .pipe(
             branch.obj((src) => [
                 src.pipe(filter(TYPESCRIPT_SOURCES))
-                    .pipe(babel({ extends: './babel.config.js' }))
+                    .pipe(createEsmCompiler())
                     .pipe(rename((file) => file.extname = '.mjs')),
 
                 src.pipe(filter(SVG_ICONS))
-                    .pipe(babel({ extends: './babel.config.js' }))
+                    .pipe(createEsmCompiler())
                     .pipe(rename((file) => file.extname = '.svg.mjs')),
             ]),
         )
