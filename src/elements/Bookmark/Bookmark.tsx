@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import './Bookmark.scss';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
-    children: never;
+    children?: never;
     node: BookmarkNode;
 }
 
