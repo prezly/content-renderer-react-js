@@ -22,7 +22,7 @@
         "build:watch": "NODE_ENV=development webpack",
         "clean": "rimraf build/ node_modules/",
         "check": "npm run prettier && npm run test",
-        "prettier": "prettier --check './**/*.(js|ts|scss)'",
+        "prettier": "prettier --check './**/*.(js|ts|tsx|scss)'",
         "prettier:fix": "npm run prettier -- --write --no-list-different",
         "release": "npm run release:prepare && npm run release:publish",
         "release:prepare": "npm run clean && npm install && npm run build && npm run check",
