@@ -1,8 +1,8 @@
-import { isElementNode } from '@prezly/slate-types';
+import { isElementNode, isTextNode } from '@prezly/slate-types';
 import React, { Fragment, FunctionComponent } from 'react';
 
 import defaultOptions from './defaultOptions';
-import { isTextNode, stringifyNode } from './lib';
+import { stringifyNode } from './lib';
 import { Node, Options } from './types';
 
 interface Props {
