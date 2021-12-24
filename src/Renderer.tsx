@@ -39,7 +39,7 @@ const Renderer: FunctionComponent<Props> = ({ nodes, options: userOptions = {} }
 
                 if (process.env.NODE_ENV === 'development') {
                     console.warn(
-                        `[@prezly/slate-renderer] Unknown node type encountered: ${stringifyNode(
+                        `[@prezly/content-renderer-react-js] Unknown node type encountered: ${stringifyNode(
                             node,
                         )}`,
                     );
