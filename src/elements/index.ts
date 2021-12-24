@@ -1,4 +1,5 @@
 export * from './Attachment';
+export * from './Bookmark';
 export * from './BulletedList';
 export * from './Contact';
 export * from './Divider';
@@ -16,3 +17,4 @@ export * from './NumberedList';
 export * from './Paragraph';
 export * from './Placeholder';
 export * from './Quote';
+export * from './Video';

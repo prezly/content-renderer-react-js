@@ -1,5 +1,6 @@
 import {
     ATTACHMENT_NODE_TYPE,
+    BOOKMARK_NODE_TYPE,
     BULLETED_LIST_NODE_TYPE,
     CONTACT_NODE_TYPE,
     COVERAGE_NODE_TYPE,
@@ -18,7 +19,9 @@ import {
     PARAGRAPH_NODE_TYPE,
     PLACEHOLDER_NODE_TYPE,
     QUOTE_NODE_TYPE,
+    VIDEO_NODE_TYPE,
     AttachmentNode,
+    BookmarkNode,
     ContactNode,
     CoverageNode,
     DividerNode,
@@ -37,6 +40,7 @@ import {
     PlaceholderNode,
     QuoteNode,
     TextNode,
+    VideoNode,
 } from '@prezly/slate-types';
 import { FunctionComponent } from 'react';
 
@@ -48,6 +52,7 @@ export type TextRenderer = FunctionComponent<TextNode & { children?: never }>;
 
 export interface Options {
     [ATTACHMENT_NODE_TYPE]?: NodeRenderer<AttachmentNode>;
+    [BOOKMARK_NODE_TYPE]?: NodeRenderer<BookmarkNode>;
     [BULLETED_LIST_NODE_TYPE]?: NodeRenderer<ListNode>;
     [CONTACT_NODE_TYPE]?: NodeRenderer<ContactNode>;
     [COVERAGE_NODE_TYPE]?: NodeRenderer<CoverageNode>;
@@ -66,5 +71,6 @@ export interface Options {
     [PARAGRAPH_NODE_TYPE]?: NodeRenderer<ParagraphNode>;
     [PLACEHOLDER_NODE_TYPE]?: NodeRenderer<PlaceholderNode>;
     [QUOTE_NODE_TYPE]?: NodeRenderer<QuoteNode>;
+    [VIDEO_NODE_TYPE]?: NodeRenderer<VideoNode>;
     text?: TextRenderer;
 }
