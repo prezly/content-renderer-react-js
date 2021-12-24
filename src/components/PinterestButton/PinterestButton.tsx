@@ -14,7 +14,7 @@ interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
     url?: string;
 }
 
-const PinterestButton: FunctionComponent<Props> = ({
+export const PinterestButton: FunctionComponent<Props> = ({
     className,
     description,
     image,
@@ -55,5 +55,3 @@ const PinterestButton: FunctionComponent<Props> = ({
         </a>
     );
 };
-
-export default PinterestButton;

@@ -21,7 +21,7 @@ import {
 } from '@prezly/slate-types';
 import React from 'react';
 
-import DefaultTextRenderer from './DefaultTextRenderer';
+import { DefaultTextRenderer } from './DefaultTextRenderer';
 import {
     Attachment,
     BulletedList,
@@ -44,7 +44,7 @@ import {
 } from './elements';
 import type { Options } from './types';
 
-const defaultOptions: Required<Options> = {
+export const defaultOptions: Required<Options> = {
     [ATTACHMENT_NODE_TYPE]: Attachment,
     [BULLETED_LIST_NODE_TYPE]: BulletedList,
     [CONTACT_NODE_TYPE]: Contact,
@@ -66,5 +66,3 @@ const defaultOptions: Required<Options> = {
     [QUOTE_NODE_TYPE]: Quote,
     text: DefaultTextRenderer,
 };
-
-export default defaultOptions;

@@ -13,7 +13,7 @@ interface Props {
     style?: CSSProperties;
 }
 
-const Media: FunctionComponent<Props> = ({ children, className, image, style }) => {
+export const Media: FunctionComponent<Props> = ({ children, className, image, style }) => {
     const title = stringifyReactNode(children);
     const computedClassName = classNames('prezly-slate-media', className, {
         'prezly-slate-media--image': !image.isGif(),
@@ -56,5 +56,3 @@ const Media: FunctionComponent<Props> = ({ children, className, image, style }) 
         />
     );
 };
-
-export default Media;

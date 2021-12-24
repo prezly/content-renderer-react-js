@@ -1,7 +1,7 @@
 import { isElementNode, isTextNode } from '@prezly/slate-types';
 import React, { Fragment, FunctionComponent } from 'react';
 
-import defaultOptions from './defaultOptions';
+import { defaultOptions } from './defaultOptions';
 import { stringifyNode } from './lib';
 import type { Node, Options } from './types';
 
@@ -10,7 +10,7 @@ interface Props {
     options?: Options;
 }
 
-const Renderer: FunctionComponent<Props> = ({ nodes, options: userOptions = {} }) => {
+export const Renderer: FunctionComponent<Props> = ({ nodes, options: userOptions = {} }) => {
     const nodesArray = Array.isArray(nodes) ? nodes : [nodes];
     const options = { ...defaultOptions, ...userOptions };
 
@@ -50,5 +50,3 @@ const Renderer: FunctionComponent<Props> = ({ nodes, options: userOptions = {} }
         </>
     );
 };
-
-export default Renderer;

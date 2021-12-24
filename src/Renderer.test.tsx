@@ -8,7 +8,7 @@ import {
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 
-import Renderer from './Renderer';
+import { Renderer } from './Renderer';
 
 const documentNode: DocumentNode = {
     children: [
