@@ -6,6 +6,7 @@ import sassBackend from 'sass';
 import { Transform } from 'stream';
 
 // Processors
+import babel from 'gulp-babel';
 import concat from 'gulp-concat';
 import filter from 'gulp-filter';
 import map from 'gulp-map';
@@ -18,6 +19,22 @@ const sass = createSassProcessor(sassBackend);
 const SASS_SOURCES = 'src/**/*.scss';
 const SASS_DECLARATIONS = 'src/styles/**/*.scss';
 const SASS_MODULES_STYLESHEETS = ['src/**/*.scss', '!src/styles/**/*.scss'];
+const SVG_ICONS = 'src/**/*.svg';
+
+gulp.task('build:svg', function () {
+    return gulp
+        .src(SVG_ICONS)
+        .pipe(babel({ extends: './babel.config.js' }))
+        .pipe(rename((file) => file.extname = '.svg.mjs'))
+        .pipe(gulp.dest('build/esm/'));
+});
+
+gulp.task('watch:svg', gulp.series('build:svg', function () {
+    return gulp
+        .watch(SVG_ICONS, gulp.series('build:svg'))
+        .on('ready', () => console.log('Watching files'))
+        .on('all', (event, path) => console.log(`[${event}] ${path}`));
+}));
 
 gulp.task('build:sass', function () {
     return gulp
