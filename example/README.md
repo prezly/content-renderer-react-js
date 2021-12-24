@@ -1,18 +1,21 @@
-# @prezly/slate-examples
+# @prezly/content-renderer-react-js example
 
 http://localhost:3000/
 
 ## Setup
 
-```Shell
+```shell
+npm install --workspace=..
 npm install
 ```
 
 ## Scripts
 
-### `npm run dev`
+### Run development server with hot-reload
 
-Run development server with hot-reload.
+```shell
+npm run dev
+```
 
 ---
 
