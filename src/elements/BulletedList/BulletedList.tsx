@@ -1,4 +1,4 @@
-import { ListNode } from '@prezly/slate-types';
+import type { ListNode } from '@prezly/slate-types';
 import classNames from 'classnames';
 import React, { FunctionComponent, HTMLAttributes } from 'react';
 

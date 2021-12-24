@@ -1,4 +1,4 @@
-import { ContactNode } from '@prezly/slate-types';
+import type { ContactNode } from '@prezly/slate-types';
 import classNames from 'classnames';
 import React, { FunctionComponent } from 'react';
 
@@ -8,7 +8,7 @@ import { identity } from '../../lib';
 import { getMailtoHref, getTelHref, getFacebookHref, getTwitterHref } from './lib';
 import { SocialField } from './SocialField';
 import './SocialFields.scss';
-import { SocialFieldEntry } from './types';
+import type { SocialFieldEntry } from './types';
 
 interface Props {
     className?: string;

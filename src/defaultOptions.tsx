@@ -42,7 +42,7 @@ import {
     Placeholder,
     Quote,
 } from './elements';
-import { Options } from './types';
+import type { Options } from './types';
 
 const defaultOptions: Required<Options> = {
     [ATTACHMENT_NODE_TYPE]: Attachment,

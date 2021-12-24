@@ -1,4 +1,4 @@
-import { ContactNode } from '@prezly/slate-types';
+import type { ContactNode } from '@prezly/slate-types';
 import classNames from 'classnames';
 import React, { FunctionComponent, HTMLAttributes } from 'react';
 

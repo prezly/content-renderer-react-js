@@ -1,4 +1,4 @@
-import { DividerNode } from '@prezly/slate-types';
+import type { DividerNode } from '@prezly/slate-types';
 import classNames from 'classnames';
 import React, { FunctionComponent, HTMLAttributes } from 'react';
 

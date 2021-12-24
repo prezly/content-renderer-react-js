@@ -1,4 +1,4 @@
-import { UploadcareImage } from '@prezly/slate-types';
+import type { UploadcareImage } from '@prezly/slate-types';
 import classNames from 'classnames';
 import React, { CSSProperties, FunctionComponent } from 'react';
 

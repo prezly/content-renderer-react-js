@@ -1,4 +1,4 @@
-import { UploadcareImage } from '@prezly/slate-types';
+import type { UploadcareImage } from '@prezly/slate-types';
 import { useEventListener } from '@react-hookz/web';
 import classNames from 'classnames';
 import React, { FunctionComponent, KeyboardEvent, ReactNode } from 'react';

@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { UploadcareImage } from '@prezly/slate-types';
+import type { UploadcareImage } from '@prezly/slate-types';
 import React, { CSSProperties, FunctionComponent, ReactNode } from 'react';
 
 import { stringifyReactNode } from '../../lib';

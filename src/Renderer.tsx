@@ -3,7 +3,7 @@ import React, { Fragment, FunctionComponent } from 'react';
 
 import defaultOptions from './defaultOptions';
 import { stringifyNode } from './lib';
-import { Node, Options } from './types';
+import type { Node, Options } from './types';
 
 interface Props {
     nodes: Node | Node[];

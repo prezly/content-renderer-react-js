@@ -1,4 +1,4 @@
-import { QuoteNode } from '@prezly/slate-types';
+import type { QuoteNode } from '@prezly/slate-types';
 import classNames from 'classnames';
 import React, { FunctionComponent, HTMLAttributes } from 'react';
 

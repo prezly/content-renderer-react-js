@@ -1,4 +1,4 @@
-import { GalleryNode } from '@prezly/slate-types';
+import type { GalleryNode } from '@prezly/slate-types';
 import { useMeasure } from '@react-hookz/web';
 import classNames from 'classnames';
 import React, { FunctionComponent, HTMLAttributes, useMemo } from 'react';

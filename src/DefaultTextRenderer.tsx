@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 
-import { TextRenderer } from './types';
+import type { TextRenderer } from './types';
 
 const DefaultTextRenderer: TextRenderer = ({
     bold,

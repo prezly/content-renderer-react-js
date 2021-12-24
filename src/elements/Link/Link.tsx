@@ -1,4 +1,4 @@
-import { LinkNode } from '@prezly/slate-types';
+import type { LinkNode } from '@prezly/slate-types';
 import classNames from 'classnames';
 import React, { AnchorHTMLAttributes, FunctionComponent } from 'react';
 
