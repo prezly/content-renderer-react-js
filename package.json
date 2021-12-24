@@ -4,7 +4,7 @@
     "description": "Render Prezly Content Format documents with React.js",
     "license": "MIT",
     "main": "build/index.js",
-    "types": "build/index.d.ts",
+    "types": "build/types/index.d.ts",
     "files": [
         "build",
         "src"
