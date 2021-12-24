@@ -28,10 +28,8 @@ const Gallery: FunctionComponent<Props> = ({
     const idealHeight = IMAGE_SIZE[node.thumbnail_size] + 2 * margin;
     const images = useMemo(() => prepareImages(node, maxViewportWidth), [node]);
     const calculatedLayout = calculateLayout({ idealHeight, images, viewportWidth: width });
-    const [
-        { image, isNextEnabled, isPreviousEnabled },
-        { onClose, onNext, onOpen, onPrevious },
-    ] = useGallery(images);
+    const [{ image, isNextEnabled, isPreviousEnabled }, { onClose, onNext, onOpen, onPrevious }] =
+        useGallery(images);
 
     return (
         <figure
