@@ -15,5 +15,5 @@ module.exports = {
     transform: {
         '^.+\\.(ts|tsx|js|jsx|mjs)$': 'babel-jest',
     },
-    transformIgnorePatterns: ['/node_modules/(?!@prezly/slate-)(.*)/'],
+    transformIgnorePatterns: ['/node_modules/(?!@prezly/slate-)(.*)'],
 };
