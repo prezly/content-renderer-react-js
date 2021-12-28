@@ -9,5 +9,5 @@
 }
 
 .prezly-slate-paragraph:empty::before {
-    content: '\00a0'; // prevent completely empty paragraph from collapsing
+    content: "\00a0"; // prevent completely empty paragraph from collapsing
 }
