@@ -5,6 +5,13 @@
     "license": "MIT",
     "main": "build/index.js",
     "types": "build/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./build/index.d.ts",
+            "default": "./build/index.js"
+        },
+        "./styles.css": "./build/styles/styles.css"
+    },
     "files": [
         "build",
         "src"
