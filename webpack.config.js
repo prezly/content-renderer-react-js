@@ -13,7 +13,12 @@ export default {
         rules: [
             {
                 test: /\.tsx?$/,
-                use: 'ts-loader',
+                use: {
+                    loader: 'ts-loader',
+                    options: {
+                        configFile: path.resolve('./tsconfig.build.json'),
+                    }
+                },
                 exclude: /node_modules/,
             },
             {
