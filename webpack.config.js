@@ -1,12 +1,11 @@
-const fs = require('fs');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const path = require('path');
+import fs from 'fs';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import path from 'path';
 
 const isDev = process.env.NODE_ENV === 'development';
-const packageJson = fs.readFileSync('./package.json', 'utf-8');
-const { peerDependencies } = JSON.parse(packageJson);
+const { peerDependencies } = JSON.parse(fs.readFileSync('./package.json', 'utf-8'));
 
-module.exports = {
+export default {
     mode: isDev ? 'development' : 'production',
     entry: './src/index.ts',
     externals: Object.fromEntries(Object.keys(peerDependencies).map((name) => [name, name])),
@@ -14,7 +13,12 @@ module.exports = {
         rules: [
             {
                 test: /\.tsx?$/,
-                use: 'ts-loader',
+                use: {
+                    loader: 'ts-loader',
+                    options: {
+                        configFile: path.resolve('./tsconfig.build.json'),
+                    },
+                },
                 exclude: /node_modules/,
             },
             {
@@ -26,7 +30,7 @@ module.exports = {
                         loader: 'sass-loader',
                         options: {
                             sassOptions: {
-                                includePaths: [path.resolve(__dirname, 'src')],
+                                includePaths: [path.resolve('./src')],
                             },
                         },
                     },
@@ -42,10 +46,10 @@ module.exports = {
         extensions: ['.tsx', '.ts', '.js', '.scss', '.svg'],
     },
     output: {
-        filename: 'index.js',
+        filename: 'index.cjs',
         globalObject: 'this',
         libraryTarget: 'umd',
-        path: path.resolve(__dirname, 'build'),
+        path: path.resolve('./build'),
         publicPath: '/',
     },
     plugins: [
