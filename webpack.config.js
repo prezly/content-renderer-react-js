@@ -46,7 +46,7 @@ export default {
         extensions: ['.tsx', '.ts', '.js', '.scss', '.svg'],
     },
     output: {
-        filename: 'index.js',
+        filename: 'index.cjs',
         globalObject: 'this',
         libraryTarget: 'umd',
         path: path.resolve('./build'),

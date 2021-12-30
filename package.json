@@ -4,12 +4,12 @@
     "description": "Render Prezly Content Format documents with React.js",
     "license": "MIT",
     "type": "module",
-    "main": "build/index.js",
+    "main": "build/index.cjs",
     "types": "build/index.d.ts",
     "exports": {
         ".": {
             "types": "./build/index.d.ts",
-            "default": "./build/index.js"
+            "default": "./build/index.cjs"
         },
         "./styles.css": "./build/styles.css"
     },
