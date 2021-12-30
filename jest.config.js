@@ -1,19 +1,18 @@
-module.exports = {
+export default {
     coveragePathIgnorePatterns: ['/node_modules/', '/build/'],
+    extensionsToTreatAsEsm: ['.ts', '.tsx'],
     globals: {
         'ts-jest': {
+            type: 'module',
             tsconfig: 'tsconfig.jest.json',
+            useESM: true,
         },
     },
     moduleFileExtensions: ['ts', 'tsx', 'js', 'mjs', 'jsx', 'json'],
     moduleNameMapper: {
-        '\\.(scss|svg)$': '<rootDir>/universalMock',
+        '\\.(scss|svg)$': '<rootDir>/universalMock.js',
     },
     preset: 'ts-jest',
     testEnvironment: 'jsdom',
     testPathIgnorePatterns: ['/node_modules/', '/build/'],
-    transform: {
-        '^.+\\.(ts|tsx|js|jsx|mjs)$': 'babel-jest',
-    },
-    transformIgnorePatterns: ['/node_modules/(?!@prezly/slate-)(.*)'],
 };

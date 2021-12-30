@@ -1,10 +1,10 @@
-const path = require('path');
-const ReactRefreshPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+import path from 'path';
+import ReactRefreshPlugin from '@pmmmwh/react-refresh-webpack-plugin';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
-module.exports = {
+export default {
     mode: isDevelopment ? 'development' : 'production',
     entry: {
         main: './sandbox/index.jsx',
