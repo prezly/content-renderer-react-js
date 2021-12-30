@@ -22,29 +22,8 @@ const SASS_MODULES_STYLESHEETS = ['src/**/*.scss', '!src/styles/**/*.scss'];
 const SVG_ICONS = 'src/**/*.svg';
 const TYPESCRIPT_SOURCES = 'src/**/*.{ts,tsx}';
 
-const createCommonjsCompiler = () => babel({
-    extends: './babel.config.js',
-    presets: [
-        ['@babel/env', { modules: 'commonjs' }],
-    ],
-    plugins: [
-        ['babel-plugin-add-import-extension', { extension: 'cjs' }],
-        ['@babel/plugin-transform-modules-commonjs', { importInterop: 'none', strict: true }],
-    ],
-})
-
-const createEsmCompiler = () => babel({
-    extends: './babel.config.js',
-    targets: {
-        esmodules: true,
-    },
-    presets: [
-        ['@babel/env', { modules: false }],
-    ],
-    plugins: [
-        ['babel-plugin-add-import-extension', { extension: 'mjs' }],
-    ],
-})
+const createCommonjsCompiler = () => babel({ extends: './babel.commonjs.config.js' });
+const createEsmCompiler = () => babel({ extends: './babel.esm.config.js' })
 
 gulp.task('build:cjs', function () {
     return gulp
