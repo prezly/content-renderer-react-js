@@ -20,14 +20,14 @@ const SASS_SOURCES = 'src/**/*.scss';
 const SASS_DECLARATIONS = 'src/styles/**/*.scss';
 const SASS_MODULES_STYLESHEETS = ['src/**/*.scss', '!src/styles/**/*.scss'];
 const SVG_ICONS = 'src/**/*.svg';
-const TYPESCRIPT_SOURCES = 'src/**/*.{ts,tsx}';
+const TYPESCRIPT_SOURCES = ['src/**/*.{ts,tsx}', '!src/**/*.test.*'];
 
 const createCommonjsCompiler = () => babel({ extends: './babel.commonjs.config.js' });
 const createEsmCompiler = () => babel({ extends: './babel.esm.config.js' })
 
 gulp.task('build:cjs', function () {
     return gulp
-        .src([TYPESCRIPT_SOURCES, SVG_ICONS])
+        .src([...TYPESCRIPT_SOURCES, SVG_ICONS])
         .pipe(
             branch.obj((src) => [
                 src.pipe(filter(TYPESCRIPT_SOURCES))
@@ -42,11 +42,11 @@ gulp.task('build:cjs', function () {
         .pipe(gulp.dest('build/cjs/'))
 });
 
-gulp.task('watch:cjs', watch([TYPESCRIPT_SOURCES, SVG_ICONS], 'build:cjs'));
+gulp.task('watch:cjs', watch([...TYPESCRIPT_SOURCES, SVG_ICONS], 'build:cjs'));
 
 gulp.task('build:esm', function () {
     return gulp
-        .src([TYPESCRIPT_SOURCES, SVG_ICONS])
+        .src([...TYPESCRIPT_SOURCES, SVG_ICONS])
         .pipe(
             branch.obj((src) => [
                 src.pipe(filter(TYPESCRIPT_SOURCES))
@@ -61,7 +61,7 @@ gulp.task('build:esm', function () {
         .pipe(gulp.dest('build/esm/'))
 });
 
-gulp.task('watch:esm', watch([TYPESCRIPT_SOURCES, SVG_ICONS], 'build:esm'));
+gulp.task('watch:esm', watch([...TYPESCRIPT_SOURCES, SVG_ICONS], 'build:esm'));
 
 gulp.task('build:sass', function () {
     return gulp
