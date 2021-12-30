@@ -1,7 +1,4 @@
 export default (api) => {
-    // This caches the Babel config
-    api.cache.using(() => process.env.NODE_ENV);
-
     const isProduction = api.env('production');
     const isDevelopment = api.env('development');
     const isTest = api.env('testing');
@@ -31,17 +28,5 @@ export default (api) => {
             // Applies the react-refresh Babel plugin on non-production modes only
             isDevelopment && 'react-refresh/babel',
         ].filter(Boolean),
-
-        overrides: [
-            {
-                test: './node_modules/@prezly/**/*.mjs',
-                plugins: [
-                    [
-                        '@babel/plugin-transform-modules-commonjs',
-                        { importInterop: 'none', strict: true },
-                    ],
-                ],
-            },
-        ],
     };
 };
