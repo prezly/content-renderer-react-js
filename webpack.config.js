@@ -15,7 +15,7 @@ export default {
         alias: {
             'react/jsx-dev-runtime': path.resolve('node_modules/react/jsx-dev-runtime.js'),
             '@prezly/content-renderer-react-js/styles.css': path.resolve('build/styles/styles.css'),
-            '@prezly/content-renderer-react-js': path.resolve('build/cjs/index.cjs'),
+            '@prezly/content-renderer-react-js': path.resolve('build/esm/index.mjs'),
         },
     },
     module: {
