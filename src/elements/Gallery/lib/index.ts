@@ -1,3 +1,3 @@
-export * from './calculateLayout';
-export * from './prepareImages';
-export * from './useGallery';
+export { calculateLayout } from './calculateLayout';
+export { prepareImages } from './prepareImages';
+export { useGallery } from './useGallery';

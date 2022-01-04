@@ -1,4 +1,4 @@
-import { PlaceholderNode } from '@prezly/slate-types';
+import type { PlaceholderNode } from '@prezly/slate-types';
 import React, { FunctionComponent, ReactNode } from 'react';
 
 interface Props {
@@ -6,6 +6,4 @@ interface Props {
     node: PlaceholderNode;
 }
 
-const Placeholder: FunctionComponent<Props> = ({ children }) => <>{children}</>;
-
-export { Placeholder };
+export const Placeholder: FunctionComponent<Props> = ({ children }) => <>{children}</>;

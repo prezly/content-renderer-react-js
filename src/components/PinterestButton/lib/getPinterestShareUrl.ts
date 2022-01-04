@@ -4,7 +4,7 @@ interface Options {
     image?: string;
 }
 
-const getPinterestShareUrl = ({
+export const getPinterestShareUrl = ({
     description = document.title,
     url = document.location.href,
     image,
@@ -21,5 +21,3 @@ const getPinterestShareUrl = ({
 
     return `https://pinterest.com/pin/create/button/?${parametersString}`;
 };
-
-export default getPinterestShareUrl;

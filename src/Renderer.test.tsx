@@ -8,7 +8,7 @@ import {
 import React from 'react';
 import ReactDOMServer from 'react-dom/server.js';
 
-import Renderer from './Renderer';
+import { Renderer } from './Renderer';
 
 const documentNode: DocumentNode = {
     children: [

@@ -1,4 +1,4 @@
-import { UploadcareImage } from '@prezly/slate-types';
+import type { UploadcareImage } from '@prezly/slate-types';
 import { useEventListener } from '@react-hookz/web';
 import classNames from 'classnames';
 import React, { FunctionComponent, KeyboardEvent, ReactNode } from 'react';
@@ -7,8 +7,8 @@ import Modal from 'react-modal';
 import { ChevronLeft, ChevronRight, Close } from '../../icons';
 import { noop } from '../../lib';
 
-import Media from '../Media';
-import PinterestButton from '../PinterestButton';
+import { Media } from '../Media';
+import { PinterestButton } from '../PinterestButton';
 
 import './Lightbox.scss';
 
@@ -23,7 +23,7 @@ interface Props {
     onPrevious?: () => void;
 }
 
-const Lightbox: FunctionComponent<Props> = ({
+export const Lightbox: FunctionComponent<Props> = ({
     children,
     className,
     image,
@@ -121,5 +121,3 @@ const Lightbox: FunctionComponent<Props> = ({
         </Modal>
     );
 };
-
-export default Lightbox;

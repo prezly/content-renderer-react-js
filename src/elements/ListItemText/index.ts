@@ -1,1 +1,1 @@
-export * from './ListItemText';
+export { ListItemText } from './ListItemText';

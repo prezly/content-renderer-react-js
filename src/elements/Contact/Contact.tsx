@@ -1,4 +1,4 @@
-import { ContactNode } from '@prezly/slate-types';
+import type { ContactNode } from '@prezly/slate-types';
 import classNames from 'classnames';
 import React, { FunctionComponent, HTMLAttributes } from 'react';
 
@@ -11,7 +11,7 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
     node: ContactNode;
 }
 
-const Contact: FunctionComponent<Props> = ({ children, className, node, ...props }) => {
+export const Contact: FunctionComponent<Props> = ({ children, className, node, ...props }) => {
     const { contact } = node;
     const jobDescription = [contact.description, contact.company].filter(Boolean).join(', ');
 
@@ -37,5 +37,3 @@ const Contact: FunctionComponent<Props> = ({ children, className, node, ...props
         </div>
     );
 };
-
-export { Contact };

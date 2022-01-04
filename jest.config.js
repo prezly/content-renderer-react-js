@@ -8,6 +8,7 @@ export default {
             useESM: true,
         },
     },
+    moduleFileExtensions: ['ts', 'tsx', 'js', 'mjs', 'jsx', 'json'],
     moduleNameMapper: {
         '\\.(scss|svg)$': '<rootDir>/universalMock.js',
     },

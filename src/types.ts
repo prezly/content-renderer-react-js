@@ -38,7 +38,7 @@ import {
     QuoteNode,
     TextNode,
 } from '@prezly/slate-types';
-import { FunctionComponent } from 'react';
+import type { FunctionComponent } from 'react';
 
 export type Node = ElementNode | TextNode;
 

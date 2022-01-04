@@ -1,4 +1,4 @@
-import { ContactNode } from '@prezly/slate-types';
+import type { ContactNode } from '@prezly/slate-types';
 import classNames from 'classnames';
 import React, { FunctionComponent } from 'react';
 
@@ -8,14 +8,14 @@ import { identity } from '../../lib';
 import { getMailtoHref, getTelHref, getFacebookHref, getTwitterHref } from './lib';
 import { SocialField } from './SocialField';
 import './SocialFields.scss';
-import { SocialFieldEntry } from './types';
+import type { SocialFieldEntry } from './types';
 
 interface Props {
     className?: string;
     contact: ContactNode['contact'];
 }
 
-const SocialFields: FunctionComponent<Props> = ({ className, contact }) => {
+export const SocialFields: FunctionComponent<Props> = ({ className, contact }) => {
     const socialFields = Object.entries({
         email: { getHref: getMailtoHref, Icon: Envelope, value: contact.email },
         phone: { getHref: getTelHref, Icon: Telephone, value: contact.phone },
@@ -47,5 +47,3 @@ const SocialFields: FunctionComponent<Props> = ({ className, contact }) => {
         </ul>
     );
 };
-
-export { SocialFields };

@@ -12,7 +12,7 @@ interface Props extends HTMLAttributes<HTMLAnchorElement> {
     node: AttachmentNode;
 }
 
-const Attachment: FunctionComponent<Props> = ({ className, children, node, ...props }) => {
+export const Attachment: FunctionComponent<Props> = ({ className, children, node, ...props }) => {
     const { description, file } = node;
     const attachment = UploadcareFile.createFromPrezlyStoragePayload(file);
     const isUsingCustomTitle = Boolean(description);
@@ -43,5 +43,3 @@ const Attachment: FunctionComponent<Props> = ({ className, children, node, ...pr
         </a>
     );
 };
-
-export { Attachment };

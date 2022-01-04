@@ -1,1 +1,1 @@
-export * from './Embed';
+export { Embed } from './Embed';

@@ -1,4 +1,4 @@
-import { GalleryNode } from '@prezly/slate-types';
+import type { GalleryNode } from '@prezly/slate-types';
 
 export const DEFAULT_MAX_VIEWPORT_WIDTH = 800;
 

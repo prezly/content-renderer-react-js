@@ -1,4 +1,4 @@
-import { ListNode } from '@prezly/slate-types';
+import type { ListNode } from '@prezly/slate-types';
 import classNames from 'classnames';
 import React, { FunctionComponent, HTMLAttributes } from 'react';
 
@@ -8,10 +8,8 @@ interface Props extends HTMLAttributes<HTMLUListElement> {
     node: ListNode;
 }
 
-const BulletedList: FunctionComponent<Props> = ({ children, className, ...props }) => (
+export const BulletedList: FunctionComponent<Props> = ({ children, className, ...props }) => (
     <ul className={classNames('prezly-slate-bulleted-list', className)} {...props}>
         {children}
     </ul>
 );
-
-export { BulletedList };

@@ -1,4 +1,4 @@
-import copyScriptAttributes from './copyScriptAttributes';
+import { copyScriptAttributes } from './copyScriptAttributes';
 
 interface Parameters {
     html: string | undefined;
@@ -6,7 +6,7 @@ interface Parameters {
     target: HTMLElement;
 }
 
-const injectOembedMarkup = ({ html, onError, target }: Parameters): void => {
+export const injectOembedMarkup = ({ html, onError, target }: Parameters): void => {
     const container = document.createElement('div');
     container.innerHTML = html || '';
     const embedScripts = Array.from(container.getElementsByTagName('script'));
@@ -24,5 +24,3 @@ const injectOembedMarkup = ({ html, onError, target }: Parameters): void => {
     // eslint-disable-next-line no-param-reassign
     target.innerHTML = container.innerHTML;
 };
-
-export default injectOembedMarkup;

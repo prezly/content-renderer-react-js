@@ -1,1 +1,1 @@
-export { default as getPinterestShareUrl } from './getPinterestShareUrl';
+export { getPinterestShareUrl } from './getPinterestShareUrl';

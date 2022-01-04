@@ -5,7 +5,7 @@ Render [Prezly Content Format][prezly-content-format] documents used at [Prezly]
 ![Version](https://img.shields.io/npm/v/@prezly/content-renderer-react-js)
 ![License](https://img.shields.io/npm/l/@prezly/content-renderer-react-js)
 
-## Setup
+## Installation
 
 ### npm
 
@@ -66,6 +66,17 @@ const MyComponent = () => (
 );
 
 export default MyComponent;
+```
+
+# Development
+
+There is a sandbox app in this repository with Hot Module Replacement.
+It will automatically include updates of any code changes you make locally.
+To start it, simply run `npm run start`:
+
+```shell
+npm install
+npm run start
 ```
 
 ----
