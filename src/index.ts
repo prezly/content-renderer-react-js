@@ -1,3 +1,6 @@
+import * as Transformations from './transformations';
+
+export type { NodeRenderer, TextRenderer, ComponentRenderers } from './types';
 export { defaultComponents } from './defaultComponents';
 export {
     Attachment,
@@ -20,4 +23,4 @@ export {
     Placeholder,
 } from './elements';
 export { Renderer } from './Renderer';
-export type { Node, NodeRenderer, TextRenderer, ComponentRenderers } from './types';
+export { Transformations };

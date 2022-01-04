@@ -23,7 +23,6 @@ import {
     CoverageNode,
     DividerNode,
     DocumentNode,
-    ElementNode,
     EmbedNode,
     GalleryNode,
     HeadingNode,
@@ -33,14 +32,13 @@ import {
     ListItemTextNode,
     ListNode,
     MentionNode,
+    Node,
     ParagraphNode,
     PlaceholderNode,
     QuoteNode,
     TextNode,
 } from '@prezly/slate-types';
 import type { FunctionComponent } from 'react';
-
-export type Node = ElementNode | TextNode;
 
 export type NodeRenderer<T extends Node> = FunctionComponent<{ node: T }>;
 
@@ -68,3 +66,5 @@ export interface ComponentRenderers {
     [QUOTE_NODE_TYPE]?: NodeRenderer<QuoteNode>;
     text?: TextRenderer;
 }
+
+export type Transformation = (node: Node) => Node | null;

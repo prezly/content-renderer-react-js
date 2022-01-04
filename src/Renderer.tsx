@@ -1,22 +1,31 @@
-import { isElementNode, isTextNode } from '@prezly/slate-types';
+import { isElementNode, isTextNode, Node } from '@prezly/slate-types';
 import React, { Fragment, FunctionComponent } from 'react';
 
 import { defaultComponents } from './defaultComponents';
-import { stringifyNode } from './lib';
-import type { Node, ComponentRenderers } from './types';
+import { applyTransformations, stringifyNode } from './lib';
+import * as Transformations from './transformations';
+import type { ComponentRenderers, Transformation } from './types';
 
 interface Props {
     nodes: Node | Node[];
     components?: ComponentRenderers;
+    transformations?: Transformation[];
 }
 
-export const Renderer: FunctionComponent<Props> = ({ nodes, components: userComponents = {} }) => {
-    const nodesArray = Array.isArray(nodes) ? nodes : [nodes];
+export const Renderer: FunctionComponent<Props> = ({
+    nodes,
+    components: userComponents = {},
+    transformations = Object.values(Transformations),
+}) => {
     const components = { ...defaultComponents, ...userComponents };
+    const transformedNodes = applyTransformations(
+        Array.isArray(nodes) ? nodes : [nodes],
+        transformations,
+    );
 
     return (
         <>
-            {nodesArray.map((node, index) => {
+            {transformedNodes.map((node, index) => {
                 if (isTextNode(node)) {
                     const TextRenderer = components.text;
                     return <TextRenderer key={index} {...node} />;
