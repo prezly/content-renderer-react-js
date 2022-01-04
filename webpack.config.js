@@ -13,22 +13,16 @@ export default {
         symlinks: false,
         extensions: ['.js', '.jsx', '.mjs', '.cjs'],
         alias: {
-            'react/jsx-dev-runtime': path.resolve(
-                __dirname,
-                'node_modules/react/jsx-dev-runtime.js',
-            ),
-            '@prezly/content-renderer-react-js/styles.css': path.resolve(
-                __dirname,
-                'build/styles/styles.css',
-            ),
-            '@prezly/content-renderer-react-js': path.resolve(__dirname, 'build/esm/index.mjs'),
+            'react/jsx-dev-runtime': path.resolve('node_modules/react/jsx-dev-runtime.js'),
+            '@prezly/content-renderer-react-js/styles.css': path.resolve('build/styles/styles.css'),
+            '@prezly/content-renderer-react-js': path.resolve('build/cjs/index.cjs'),
         },
     },
     module: {
         rules: [
             {
                 test: /\.jsx?$/,
-                include: path.join(__dirname, 'sandbox'),
+                include: path.resolve('sandbox'),
                 use: 'babel-loader',
             },
             {

@@ -1,7 +1,6 @@
-export default (api) => {
-    const isProduction = api.env('production');
-    const isDevelopment = api.env('development');
-    const isTest = api.env('testing');
+export default () => {
+    const isProduction = process.env.NODE_ENV === 'production';
+    const isDevelopment = process.env.NODE_ENV === 'development';
 
     return {
         targets: {
@@ -13,14 +12,7 @@ export default (api) => {
             '@babel/typescript',
             ['@babel/react', { development: !isProduction, runtime: 'automatic' }],
             '@dr.pogodin/babel-preset-svgr',
-            [
-                '@babel/env',
-                {
-                    useBuiltIns: false,
-                    modules: 'commonjs',
-                    targets: isTest ? { esmodules: false } : undefined,
-                },
-            ],
+            '@babel/env',
         ],
 
         plugins: [
