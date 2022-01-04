@@ -122,9 +122,7 @@ describe('applyTransformations', () => {
         };
         const expected = {
             type: 'paragraph',
-            children: [
-                { text: 'hello', bold: true },
-            ],
+            children: [{ text: 'hello', bold: true }],
         };
 
         Object.freeze(input);
