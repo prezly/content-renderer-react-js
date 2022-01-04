@@ -33,15 +33,19 @@ export const Renderer: FunctionComponent<Props> = ({
 
                 if (isElementNode(node)) {
                     const { children, type } = node;
-                    const NodeRenderer = components[type as keyof ComponentRenderers];
+                    const ComponentRenderer = components[type as keyof ComponentRenderers];
 
-                    if (NodeRenderer) {
+                    if (ComponentRenderer) {
                         return (
-                            // @ts-ignore
-                            <NodeRenderer key={index} node={node}>
+                            /* @ts-ignore */
+                            <ComponentRenderer key={index} node={node}>
                                 {/* @ts-ignore */}
-                                <Renderer nodes={children} components={components} />
-                            </NodeRenderer>
+                                <Renderer
+                                    nodes={children as Node[]}
+                                    components={components}
+                                    transformations={transformations}
+                                />
+                            </ComponentRenderer>
                         );
                     }
                 }
