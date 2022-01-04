@@ -48,7 +48,11 @@
         "release": "npm run release:prepare && npm run release:publish",
         "release:prepare": "npm run clean && npm install && npm run build && npm run check",
         "release:publish": "np",
-        "test": "NODE_OPTIONS=--experimental-vm-modules jest --no-cache --coverage",
+        "test": "npm run test:unit && npm run test:build",
+        "test:build": "npm run test:cjs && npm run test:esm",
+        "test:cjs": "node build/cjs/index.cjs",
+        "test:esm": "node build/esm/index.mjs",
+        "test:unit": "NODE_OPTIONS=--experimental-vm-modules jest --no-cache --coverage",
         "test:watch": "NODE_OPTIONS=--experimental-vm-modules jest --no-cache --watch"
     },
     "devEngines": {
