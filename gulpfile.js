@@ -23,23 +23,25 @@ const SVG_ICONS = 'src/**/*.svg';
 const TYPESCRIPT_SOURCES = ['src/**/*.{ts,tsx}', '!src/**/*.test.*'];
 
 const createCommonjsCompiler = () => babel({ extends: './babel.commonjs.config.js' });
-const createEsmCompiler = () => babel({ extends: './babel.esm.config.js' })
+const createEsmCompiler = () => babel({ extends: './babel.esm.config.js' });
 
 gulp.task('build:cjs', function () {
     return gulp
         .src([...TYPESCRIPT_SOURCES, SVG_ICONS])
         .pipe(
             branch.obj((src) => [
-                src.pipe(filter(TYPESCRIPT_SOURCES))
+                src
+                    .pipe(filter(TYPESCRIPT_SOURCES))
                     .pipe(createCommonjsCompiler())
-                    .pipe(rename((file) => file.extname = '.cjs')),
+                    .pipe(rename((file) => (file.extname = '.cjs'))),
 
-                src.pipe(filter(SVG_ICONS))
+                src
+                    .pipe(filter(SVG_ICONS))
                     .pipe(createCommonjsCompiler())
-                    .pipe(rename((file) => file.extname = '.svg.cjs')),
+                    .pipe(rename((file) => (file.extname = '.svg.cjs'))),
             ]),
         )
-        .pipe(gulp.dest('build/cjs/'))
+        .pipe(gulp.dest('build/cjs/'));
 });
 
 gulp.task('watch:cjs', watch([...TYPESCRIPT_SOURCES, SVG_ICONS], 'build:cjs'));
@@ -49,16 +51,18 @@ gulp.task('build:esm', function () {
         .src([...TYPESCRIPT_SOURCES, SVG_ICONS])
         .pipe(
             branch.obj((src) => [
-                src.pipe(filter(TYPESCRIPT_SOURCES))
+                src
+                    .pipe(filter(TYPESCRIPT_SOURCES))
                     .pipe(createEsmCompiler())
-                    .pipe(rename((file) => file.extname = '.mjs')),
+                    .pipe(rename((file) => (file.extname = '.mjs'))),
 
-                src.pipe(filter(SVG_ICONS))
+                src
+                    .pipe(filter(SVG_ICONS))
                     .pipe(createEsmCompiler())
-                    .pipe(rename((file) => file.extname = '.svg.mjs')),
+                    .pipe(rename((file) => (file.extname = '.svg.mjs'))),
             ]),
         )
-        .pipe(gulp.dest('build/esm/'))
+        .pipe(gulp.dest('build/esm/'));
 });
 
 gulp.task('watch:esm', watch([...TYPESCRIPT_SOURCES, SVG_ICONS], 'build:esm'));
@@ -66,12 +70,7 @@ gulp.task('watch:esm', watch([...TYPESCRIPT_SOURCES, SVG_ICONS], 'build:esm'));
 gulp.task('build:sass', function () {
     return gulp
         .src(SASS_SOURCES)
-        .pipe(
-            branch.obj((src) => [
-                copySassDeclarations(src),
-                compileComponentsStylesheets(src),
-            ]),
-        )
+        .pipe(branch.obj((src) => [copySassDeclarations(src), compileComponentsStylesheets(src)]))
         .pipe(gulp.dest('build/'));
 });
 
