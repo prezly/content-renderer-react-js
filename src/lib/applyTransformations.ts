@@ -28,7 +28,7 @@ export function applyTransformations(
             .map((node) => applyTransformations(node, transformations))
             .filter((node): node is Node => Boolean(node));
 
-        if (nodes.every((node, index) => input[index] === node)) {
+        if (nodes.length === input.length && nodes.every((node, index) => input[index] === node)) {
             // No changes => return exactly the same input array
             return input;
         }

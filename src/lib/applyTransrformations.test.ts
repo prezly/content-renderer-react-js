@@ -10,6 +10,13 @@ function makeBold(node: Node): Node {
     return node;
 }
 
+function removeWorld(node: Node): Node | null {
+    if (isTextNode(node) && node.text === 'world') {
+        return null;
+    }
+    return node;
+}
+
 describe('applyTransformations', () => {
     it('should return exactly the same input if no transformations provided', () => {
         const input: Node[] = [
@@ -103,5 +110,25 @@ describe('applyTransformations', () => {
         Object.freeze(input);
 
         expect(applyTransformations(input, [makeBold])).toEqual(expected);
+    });
+
+    it('should remove node if transformation returned null', () => {
+        const input: Node = {
+            type: 'paragraph',
+            children: [
+                { text: 'hello', bold: true } as TextNode,
+                { text: 'world', italic: true } as TextNode,
+            ],
+        };
+        const expected = {
+            type: 'paragraph',
+            children: [
+                { text: 'hello', bold: true },
+            ],
+        };
+
+        Object.freeze(input);
+
+        expect(applyTransformations(input, [removeWorld])).toEqual(expected);
     });
 });
