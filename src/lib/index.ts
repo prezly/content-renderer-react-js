@@ -1,3 +1,4 @@
+export { applyTransformations } from './applyTransformations';
 export { formatBytes } from './formatBytes';
 export { identity } from './identity';
 export { noop } from './noop';

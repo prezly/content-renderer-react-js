@@ -1,4 +1,7 @@
-export { defaultOptions } from './defaultOptions';
+import * as Transformations from './transformations';
+
+export type { NodeRenderer, TextRenderer, ComponentRenderers } from './types';
+export { defaultComponents } from './defaultComponents';
 export {
     Attachment,
     BulletedList,
@@ -20,4 +23,4 @@ export {
     Placeholder,
 } from './elements';
 export { Renderer } from './Renderer';
-export type { Node, NodeRenderer, TextRenderer, Options } from './types';
+export { Transformations };
