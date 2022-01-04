@@ -29,6 +29,22 @@
             "type": "paragraph",
             "children": [
                 {
+                    "text": ""
+                }
+            ]
+        },
+        {
+            "type": "paragraph",
+            "children": [
+                {
+                    "text": "Paragraph    with   additional    whitespaces."
+                }
+            ]
+        },
+        {
+            "type": "paragraph",
+            "children": [
+                {
                     "text": "Placeholder: "
                 },
                 {
