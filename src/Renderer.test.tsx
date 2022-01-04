@@ -30,7 +30,7 @@ describe('Renderer', () => {
         const asString = ReactDOMServer.renderToString(
             <Renderer
                 nodes={documentNode}
-                options={{
+                components={{
                     [DIVIDER_NODE_TYPE]: () => <section>divider</section>,
                 }}
             />,

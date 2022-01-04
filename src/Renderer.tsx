@@ -1,37 +1,37 @@
 import { isElementNode, isTextNode } from '@prezly/slate-types';
 import React, { Fragment, FunctionComponent } from 'react';
 
-import { defaultOptions } from './defaultOptions';
+import { defaultComponents } from './defaultComponents';
 import { stringifyNode } from './lib';
-import type { Node, Options } from './types';
+import type { Node, ComponentRenderers } from './types';
 
 interface Props {
     nodes: Node | Node[];
-    options?: Options;
+    components?: ComponentRenderers;
 }
 
-export const Renderer: FunctionComponent<Props> = ({ nodes, options: userOptions = {} }) => {
+export const Renderer: FunctionComponent<Props> = ({ nodes, components: userComponents = {} }) => {
     const nodesArray = Array.isArray(nodes) ? nodes : [nodes];
-    const options = { ...defaultOptions, ...userOptions };
+    const components = { ...defaultComponents, ...userComponents };
 
     return (
         <>
             {nodesArray.map((node, index) => {
                 if (isTextNode(node)) {
-                    const TextRenderer = options.text;
+                    const TextRenderer = components.text;
                     return <TextRenderer key={index} {...node} />;
                 }
 
                 if (isElementNode(node)) {
                     const { children, type } = node;
-                    const NodeRenderer = options[type as keyof Options];
+                    const NodeRenderer = components[type as keyof ComponentRenderers];
 
                     if (NodeRenderer) {
                         return (
                             // @ts-ignore
                             <NodeRenderer key={index} node={node}>
                                 {/* @ts-ignore */}
-                                <Renderer nodes={children} options={options} />
+                                <Renderer nodes={children} components={components} />
                             </NodeRenderer>
                         );
                     }

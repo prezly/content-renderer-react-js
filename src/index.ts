@@ -1,4 +1,4 @@
-export { defaultOptions } from './defaultOptions';
+export { defaultComponents } from './defaultComponents';
 export {
     Attachment,
     BulletedList,
@@ -20,4 +20,4 @@ export {
     Placeholder,
 } from './elements';
 export { Renderer } from './Renderer';
-export type { Node, NodeRenderer, TextRenderer, Options } from './types';
+export type { Node, NodeRenderer, TextRenderer, ComponentRenderers } from './types';

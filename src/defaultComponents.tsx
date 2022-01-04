@@ -42,9 +42,9 @@ import {
     Placeholder,
     Quote,
 } from './elements';
-import type { Options } from './types';
+import type { ComponentRenderers } from './types';
 
-export const defaultOptions: Required<Options> = {
+export const defaultComponents: Required<ComponentRenderers> = {
     [ATTACHMENT_NODE_TYPE]: Attachment,
     [BULLETED_LIST_NODE_TYPE]: BulletedList,
     [CONTACT_NODE_TYPE]: Contact,

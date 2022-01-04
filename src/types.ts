@@ -46,7 +46,7 @@ export type NodeRenderer<T extends Node> = FunctionComponent<{ node: T }>;
 
 export type TextRenderer = FunctionComponent<TextNode & { children?: never }>;
 
-export interface Options {
+export interface ComponentRenderers {
     [ATTACHMENT_NODE_TYPE]?: NodeRenderer<AttachmentNode>;
     [BULLETED_LIST_NODE_TYPE]?: NodeRenderer<ListNode>;
     [CONTACT_NODE_TYPE]?: NodeRenderer<ContactNode>;
