@@ -33,7 +33,7 @@ export const Lightbox: FunctionComponent<Props> = ({
     onNext = noop,
     onPrevious = noop,
 }) => {
-    useEventListener(window, 'keydown', (event: KeyboardEvent) => {
+    useEventListener(typeof window !== 'undefined' ? window : globalThis, 'keydown', (event: KeyboardEvent) => {
         if (image === null) {
             return;
         }
@@ -50,6 +50,11 @@ export const Lightbox: FunctionComponent<Props> = ({
             onNext();
         }
     });
+
+    if (typeof window === 'undefined') {
+        // Do not render Lightbox outside of browser environment (i.e. SSR)
+        return null;
+    }
 
     if (image === null) {
         return <Modal className={classNames('prezly-slate-lightbox', className)} isOpen={false} />;
