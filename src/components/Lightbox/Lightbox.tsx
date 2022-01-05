@@ -33,23 +33,27 @@ export const Lightbox: FunctionComponent<Props> = ({
     onNext = noop,
     onPrevious = noop,
 }) => {
-    useEventListener(typeof window !== 'undefined' ? window : globalThis, 'keydown', (event: KeyboardEvent) => {
-        if (image === null) {
-            return;
-        }
+    useEventListener(
+        typeof window !== 'undefined' ? window : globalThis,
+        'keydown',
+        (event: KeyboardEvent) => {
+            if (image === null) {
+                return;
+            }
 
-        if (event.key === 'Esc') {
-            onClose();
-        }
+            if (event.key === 'Esc') {
+                onClose();
+            }
 
-        if (event.key === 'ArrowLeft') {
-            onPrevious();
-        }
+            if (event.key === 'ArrowLeft') {
+                onPrevious();
+            }
 
-        if (event.key === 'ArrowRight') {
-            onNext();
-        }
-    });
+            if (event.key === 'ArrowRight') {
+                onNext();
+            }
+        },
+    );
 
     if (typeof window === 'undefined') {
         // Do not render Lightbox outside of browser environment (i.e. SSR)
