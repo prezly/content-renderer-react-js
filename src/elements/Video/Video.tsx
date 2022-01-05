@@ -1,4 +1,4 @@
-import { VideoNode } from '@prezly/slate-types';
+import type { VideoNode } from '@prezly/slate-types';
 import React, {FunctionComponent, HTMLAttributes, useState} from 'react';
 import classNames from 'classnames';
 

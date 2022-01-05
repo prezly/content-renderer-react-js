@@ -1,4 +1,4 @@
-import { BookmarkNode } from '@prezly/slate-types';
+import type { BookmarkNode } from '@prezly/slate-types';
 import React, { FunctionComponent, HTMLAttributes } from 'react';
 import classNames from 'classnames';
 

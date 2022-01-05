@@ -1,5 +1,6 @@
 export { applyTransformations } from './applyTransformations';
 export { formatBytes } from './formatBytes';
+export * from './hooks';
 export { identity } from './identity';
 export { injectHtmlMarkup } from './injectHtmlMarkup';
 export { noop } from './noop';
