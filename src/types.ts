@@ -38,11 +38,11 @@ import {
     QuoteNode,
     TextNode,
 } from '@prezly/slate-types';
-import type { FunctionComponent } from 'react';
+import type { ComponentType } from 'react';
 
-export type NodeRenderer<T extends Node> = FunctionComponent<{ node: T }>;
+export type NodeRenderer<T extends Node> = ComponentType<{ node: T }>;
 
-export type TextRenderer = FunctionComponent<TextNode & { children?: never }>;
+export type TextRenderer = ComponentType<TextNode & { children?: never }>;
 
 export interface ComponentRenderers {
     [ATTACHMENT_NODE_TYPE]?: NodeRenderer<AttachmentNode>;
