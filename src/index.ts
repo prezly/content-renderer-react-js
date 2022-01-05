@@ -1,6 +1,6 @@
 import * as Transformations from './transformations';
 
-export type { NodeRenderer, TextRenderer, ComponentRenderers } from './types';
+export type { ComponentRenderers, NodeRenderer, TextRenderer, Transformation } from './types';
 export { defaultComponents } from './defaultComponents';
 export {
     Attachment,
