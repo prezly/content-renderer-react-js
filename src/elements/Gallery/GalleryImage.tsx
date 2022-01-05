@@ -1,4 +1,4 @@
-import { UploadcareImage } from '@prezly/slate-types';
+import type { UploadcareImage } from '@prezly/slate-types';
 import classNames from 'classnames';
 import React, { CSSProperties, FunctionComponent } from 'react';
 
@@ -24,7 +24,13 @@ const getStyle = (props: Pick<Props, 'height' | 'margin' | 'width'>): CSSPropert
     };
 };
 
-const GalleryImage: FunctionComponent<Props> = ({ height, image, margin, onClick, width }) => {
+export const GalleryImage: FunctionComponent<Props> = ({
+    height,
+    image,
+    margin,
+    onClick,
+    width,
+}) => {
     const handleClick = () => {
         onClick(image);
     };
@@ -44,5 +50,3 @@ const GalleryImage: FunctionComponent<Props> = ({ height, image, margin, onClick
         </Rollover>
     );
 };
-
-export { GalleryImage };

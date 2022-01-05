@@ -1,38 +1,51 @@
-import { isElementNode } from '@prezly/slate-types';
+import { isElementNode, isTextNode, Node } from '@prezly/slate-types';
 import React, { Fragment, FunctionComponent } from 'react';
 
-import defaultOptions from './defaultOptions';
-import { isTextNode, stringifyNode } from './lib';
-import { Node, Options } from './types';
+import { defaultComponents } from './defaultComponents';
+import { applyTransformations, stringifyNode } from './lib';
+import * as Transformations from './transformations';
+import type { ComponentRenderers, Transformation } from './types';
 
 interface Props {
     nodes: Node | Node[];
-    options?: Options;
+    components?: ComponentRenderers;
+    transformations?: Transformation[];
 }
 
-const Renderer: FunctionComponent<Props> = ({ nodes, options: userOptions = {} }) => {
-    const nodesArray = Array.isArray(nodes) ? nodes : [nodes];
-    const options = { ...defaultOptions, ...userOptions };
+export const Renderer: FunctionComponent<Props> = ({
+    nodes,
+    components: userComponents = {},
+    transformations = Object.values(Transformations),
+}) => {
+    const components = { ...defaultComponents, ...userComponents };
+    const transformedNodes = applyTransformations(
+        Array.isArray(nodes) ? nodes : [nodes],
+        transformations,
+    );
 
     return (
         <>
-            {nodesArray.map((node, index) => {
+            {transformedNodes.map((node, index) => {
                 if (isTextNode(node)) {
-                    const TextRenderer = options.text;
+                    const TextRenderer = components.text;
                     return <TextRenderer key={index} {...node} />;
                 }
 
                 if (isElementNode(node)) {
                     const { children, type } = node;
-                    const NodeRenderer = options[type as keyof Options];
+                    const ComponentRenderer = components[type as keyof ComponentRenderers];
 
-                    if (NodeRenderer) {
+                    if (ComponentRenderer) {
                         return (
-                            // @ts-ignore
-                            <NodeRenderer key={index} node={node}>
+                            /* @ts-ignore */
+                            <ComponentRenderer key={index} node={node}>
                                 {/* @ts-ignore */}
-                                <Renderer nodes={children} options={options} />
-                            </NodeRenderer>
+                                <Renderer
+                                    nodes={children as Node[]}
+                                    components={components}
+                                    transformations={transformations}
+                                />
+                            </ComponentRenderer>
                         );
                     }
                 }
@@ -50,5 +63,3 @@ const Renderer: FunctionComponent<Props> = ({ nodes, options: userOptions = {} }
         </>
     );
 };
-
-export default Renderer;

@@ -26,7 +26,6 @@ import {
     CoverageNode,
     DividerNode,
     DocumentNode,
-    ElementNode,
     EmbedNode,
     GalleryNode,
     HeadingNode,
@@ -36,21 +35,20 @@ import {
     ListItemTextNode,
     ListNode,
     MentionNode,
+    Node,
     ParagraphNode,
     PlaceholderNode,
     QuoteNode,
     TextNode,
     VideoNode,
 } from '@prezly/slate-types';
-import { FunctionComponent } from 'react';
+import type { ComponentType } from 'react';
 
-export type Node = ElementNode | TextNode;
+export type NodeRenderer<T extends Node> = ComponentType<{ node: T }>;
 
-export type NodeRenderer<T extends Node> = FunctionComponent<{ node: T }>;
+export type TextRenderer = ComponentType<TextNode & { children?: never }>;
 
-export type TextRenderer = FunctionComponent<TextNode & { children?: never }>;
-
-export interface Options {
+export interface ComponentRenderers {
     [ATTACHMENT_NODE_TYPE]?: NodeRenderer<AttachmentNode>;
     [BOOKMARK_NODE_TYPE]?: NodeRenderer<BookmarkNode>;
     [BULLETED_LIST_NODE_TYPE]?: NodeRenderer<ListNode>;
@@ -74,3 +72,5 @@ export interface Options {
     [VIDEO_NODE_TYPE]?: NodeRenderer<VideoNode>;
     text?: TextRenderer;
 }
+
+export type Transformation = (node: Node) => Node | null;

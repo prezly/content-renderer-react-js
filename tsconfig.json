@@ -1,30 +1,32 @@
 {
     "compilerOptions": {
         "allowSyntheticDefaultImports": true,
-        "composite": true,
         "declaration": true,
         "downlevelIteration": true,
+        "emitDeclarationOnly": true,
         "esModuleInterop": true,
+        "isolatedModules": true,
+        "importsNotUsedAsValues": "error",
         "forceConsistentCasingInFileNames": true,
         "lib": ["dom", "dom.iterable", "esnext"],
-        "module": "commonjs",
+        "module": "es6",
         "moduleResolution": "node",
+        "noEmit": false,
         "noImplicitAny": true,
         "noImplicitReturns": true,
         "noUnusedLocals": true,
         "noUnusedParameters": true,
         "sourceMap": true,
         "strict": true,
-        "target": "es5",
+        "target": "es6",
 
         "jsx": "react",
-        "outDir": "./build",
-        "declarationDir": "./build",
+        "declarationDir": "./build/types",
         "rootDir": "./src",
         "typeRoots": ["./node_modules/@types", "./src/@types"]
     },
 
-    "exclude": ["node_modules", "**/*.test.*"],
-    "files": ["./src/@types/scss.d.ts", "./src/@types/svg.d.ts"],
-    "include": ["./src"]
+    "include": ["./src"],
+    "exclude": ["node_modules"],
+    "files": ["./src/@types/scss.d.ts", "./src/@types/svg.d.ts"]
 }

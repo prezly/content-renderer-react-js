@@ -1,4 +1,4 @@
-import { UploadcareImage } from '@prezly/slate-types';
+import type { UploadcareImage } from '@prezly/slate-types';
 import { useEventListener } from '@react-hookz/web';
 import classNames from 'classnames';
 import React, { FunctionComponent, KeyboardEvent, ReactNode } from 'react';
@@ -7,8 +7,8 @@ import Modal from 'react-modal';
 import { ChevronLeft, ChevronRight, Close } from '../../icons';
 import { noop } from '../../lib';
 
-import Media from '../Media';
-import PinterestButton from '../PinterestButton';
+import { Media } from '../Media';
+import { PinterestButton } from '../PinterestButton';
 
 import './Lightbox.scss';
 
@@ -23,7 +23,7 @@ interface Props {
     onPrevious?: () => void;
 }
 
-const Lightbox: FunctionComponent<Props> = ({
+export const Lightbox: FunctionComponent<Props> = ({
     children,
     className,
     image,
@@ -33,23 +33,32 @@ const Lightbox: FunctionComponent<Props> = ({
     onNext = noop,
     onPrevious = noop,
 }) => {
-    useEventListener(window, 'keydown', (event: KeyboardEvent) => {
-        if (image === null) {
-            return;
-        }
+    useEventListener(
+        typeof window !== 'undefined' ? window : globalThis,
+        'keydown',
+        (event: KeyboardEvent) => {
+            if (image === null) {
+                return;
+            }
 
-        if (event.key === 'Esc') {
-            onClose();
-        }
+            if (event.key === 'Esc') {
+                onClose();
+            }
 
-        if (event.key === 'ArrowLeft') {
-            onPrevious();
-        }
+            if (event.key === 'ArrowLeft') {
+                onPrevious();
+            }
 
-        if (event.key === 'ArrowRight') {
-            onNext();
-        }
-    });
+            if (event.key === 'ArrowRight') {
+                onNext();
+            }
+        },
+    );
+
+    if (typeof window === 'undefined') {
+        // Do not render Lightbox outside of browser environment (i.e. SSR)
+        return null;
+    }
 
     if (image === null) {
         return <Modal className={classNames('prezly-slate-lightbox', className)} isOpen={false} />;
@@ -121,5 +130,3 @@ const Lightbox: FunctionComponent<Props> = ({
         </Modal>
     );
 };
-
-export default Lightbox;

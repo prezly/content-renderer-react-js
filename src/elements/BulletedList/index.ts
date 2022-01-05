@@ -1,1 +1,1 @@
-export * from './BulletedList';
+export { BulletedList } from './BulletedList';

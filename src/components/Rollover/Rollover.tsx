@@ -18,7 +18,7 @@ const CAPTION_PADDING_BOTTOM = 8;
 const CAPTION_PADDING_VERTICAL = CAPTION_PADDING_BOTTOM + CAPTION_PADDING_TOP;
 const IDEAL_MAX_HEIGHT = MAX_CAPTION_LINES * LINE_HEIGHT;
 
-const Rollover: FunctionComponent<Props> = ({
+export const Rollover: FunctionComponent<Props> = ({
     caption = '',
     children,
     className,
@@ -64,5 +64,3 @@ const Rollover: FunctionComponent<Props> = ({
         </button>
     );
 };
-
-export default Rollover;

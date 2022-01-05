@@ -1,4 +1,4 @@
-import { DividerNode } from '@prezly/slate-types';
+import type { DividerNode } from '@prezly/slate-types';
 import classNames from 'classnames';
 import React, { FunctionComponent, HTMLAttributes } from 'react';
 
@@ -9,8 +9,6 @@ interface Props extends HTMLAttributes<HTMLHRElement> {
     node: DividerNode;
 }
 
-const Divider: FunctionComponent<Props> = ({ className }) => (
+export const Divider: FunctionComponent<Props> = ({ className }) => (
     <hr className={classNames('prezly-slate-divider', className)} />
 );
-
-export { Divider };

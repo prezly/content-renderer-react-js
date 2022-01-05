@@ -1,1 +1,1 @@
-export { default } from './MultilineEllipsis';
+export { MultilineEllipsis } from './MultilineEllipsis';

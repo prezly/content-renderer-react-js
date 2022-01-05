@@ -6,9 +6,9 @@ import {
     HEADING_1_NODE_TYPE,
 } from '@prezly/slate-types';
 import React from 'react';
-import { renderToString } from 'react-dom/server';
+import ReactDOMServer from 'react-dom/server.js';
 
-import Renderer from './Renderer';
+import { Renderer } from './Renderer';
 
 const documentNode: DocumentNode = {
     children: [
@@ -27,10 +27,10 @@ const documentNode: DocumentNode = {
 
 describe('Renderer', () => {
     it('Renders a <h1> for a heading and a <section> for a divider', () => {
-        const asString = renderToString(
+        const asString = ReactDOMServer.renderToString(
             <Renderer
                 nodes={documentNode}
-                options={{
+                components={{
                     [DIVIDER_NODE_TYPE]: () => <section>divider</section>,
                 }}
             />,

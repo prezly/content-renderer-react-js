@@ -23,7 +23,7 @@ import {
 } from '@prezly/slate-types';
 import React from 'react';
 
-import DefaultTextRenderer from './DefaultTextRenderer';
+import { DefaultTextRenderer } from './DefaultTextRenderer';
 import {
     Attachment,
     Bookmark,
@@ -46,9 +46,9 @@ import {
     Quote,
     Video,
 } from './elements';
-import { Options } from './types';
+import type { ComponentRenderers } from './types';
 
-const defaultOptions: Required<Options> = {
+export const defaultComponents: Required<ComponentRenderers> = {
     [ATTACHMENT_NODE_TYPE]: Attachment,
     [BOOKMARK_NODE_TYPE]: Bookmark,
     [BULLETED_LIST_NODE_TYPE]: BulletedList,
@@ -72,5 +72,3 @@ const defaultOptions: Required<Options> = {
     [VIDEO_NODE_TYPE]: Video,
     text: DefaultTextRenderer,
 };
-
-export default defaultOptions;

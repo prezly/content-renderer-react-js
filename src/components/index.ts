@@ -1,6 +1,6 @@
 export { HtmlInjection } from './HtmlInjection';
-export { default as Lightbox } from './Lightbox';
-export { default as Media } from './Media';
-export { default as MultilineEllipsis } from './MultilineEllipsis';
-export { default as PinterestButton } from './PinterestButton';
-export { default as Rollover } from './Rollover';
+export { Lightbox } from './Lightbox';
+export { Media } from './Media';
+export { MultilineEllipsis } from './MultilineEllipsis';
+export { PinterestButton } from './PinterestButton';
+export { Rollover } from './Rollover';

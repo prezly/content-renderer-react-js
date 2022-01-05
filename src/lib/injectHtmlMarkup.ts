@@ -11,7 +11,7 @@ export function injectHtmlMarkup(parameters: {
     onError: () => void;
     target: HTMLElement;
 }): void {
-    const { html, onError, target } = parameters;
+    export const { html, onError, target } = parameters;
     const container = document.createElement('div');
     container.innerHTML = html || '';
     const embedScripts = Array.from(container.getElementsByTagName('script'));

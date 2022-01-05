@@ -1,4 +1,4 @@
-import { EmbedNode } from '@prezly/slate-types';
+import type { EmbedNode } from '@prezly/slate-types';
 import classNames from 'classnames';
 import React, { AnchorHTMLAttributes, FunctionComponent } from 'react';
 
@@ -8,7 +8,8 @@ interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
     children?: never;
     node: EmbedNode;
 }
-const LinkEmbed: FunctionComponent<Props> = ({ className, node, ...props }) => {
+
+export const LinkEmbed: FunctionComponent<Props> = ({ className, node, ...props }) => {
     const { oembed, url } = node;
 
     return (
@@ -25,5 +26,3 @@ const LinkEmbed: FunctionComponent<Props> = ({ className, node, ...props }) => {
         </a>
     );
 };
-
-export { LinkEmbed };

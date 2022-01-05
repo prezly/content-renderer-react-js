@@ -1,1 +1,1 @@
-export { default } from './Rollover';
+export { Rollover } from './Rollover';

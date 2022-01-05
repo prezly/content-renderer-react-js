@@ -1,4 +1,4 @@
-import { EmbedNode } from '@prezly/slate-types';
+import type { EmbedNode } from '@prezly/slate-types';
 import classNames from 'classnames';
 import React, { FunctionComponent, HTMLAttributes } from 'react';
 
@@ -12,7 +12,13 @@ interface Props extends HTMLAttributes<HTMLElement> {
     node: EmbedNode;
     showAsScreenshot?: boolean;
 }
-const Embed: FunctionComponent<Props> = ({ className, node, showAsScreenshot, ...props }) => {
+
+export const Embed: FunctionComponent<Props> = ({
+    className,
+    node,
+    showAsScreenshot,
+    ...props
+}) => {
     const { oembed, url } = node;
 
     const commonProps = {
@@ -35,5 +41,3 @@ const Embed: FunctionComponent<Props> = ({ className, node, showAsScreenshot, ..
         </div>
     );
 };
-
-export { Embed };

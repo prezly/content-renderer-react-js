@@ -1,4 +1,4 @@
-import { ListNode } from '@prezly/slate-types';
+import type { ListNode } from '@prezly/slate-types';
 import classNames from 'classnames';
 import React, { FunctionComponent, HTMLAttributes } from 'react';
 
@@ -8,10 +8,8 @@ interface Props extends HTMLAttributes<HTMLUListElement> {
     node: ListNode;
 }
 
-const NumberedList: FunctionComponent<Props> = ({ children, className, ...props }) => (
+export const NumberedList: FunctionComponent<Props> = ({ children, className, ...props }) => (
     <ol className={classNames('prezly-slate-numbered-list', className)} {...props}>
         {children}
     </ol>
 );
-
-export { NumberedList };

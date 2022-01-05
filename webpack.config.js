@@ -1,57 +1,41 @@
-const fs = require('fs');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const path = require('path');
+import path from 'path';
+import ReactRefreshPlugin from '@pmmmwh/react-refresh-webpack-plugin';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
-const isDev = process.env.NODE_ENV === 'development';
-const packageJson = fs.readFileSync('./package.json', 'utf-8');
-const { peerDependencies } = JSON.parse(packageJson);
+const isDevelopment = process.env.NODE_ENV !== 'production';
 
-module.exports = {
-    mode: isDev ? 'development' : 'production',
-    entry: './src/index.ts',
-    externals: Object.fromEntries(Object.keys(peerDependencies).map((name) => [name, name])),
+export default {
+    mode: isDevelopment ? 'development' : 'production',
+    entry: {
+        main: './sandbox/index.jsx',
+    },
+    resolve: {
+        symlinks: false,
+        extensions: ['.js', '.jsx', '.mjs', '.cjs'],
+        alias: {
+            'react/jsx-dev-runtime': path.resolve('node_modules/react/jsx-dev-runtime.js'),
+            '@prezly/content-renderer-react-js/styles.css': path.resolve('build/styles/styles.css'),
+            '@prezly/content-renderer-react-js': path.resolve('build/esm/index.mjs'),
+        },
+    },
     module: {
         rules: [
             {
-                test: /\.tsx?$/,
-                use: 'ts-loader',
-                exclude: /node_modules/,
+                test: /\.jsx?$/,
+                include: path.resolve('sandbox'),
+                use: 'babel-loader',
             },
             {
-                test: /\.scss$/,
-                use: [
-                    MiniCssExtractPlugin.loader,
-                    'css-loader',
-                    {
-                        loader: 'sass-loader',
-                        options: {
-                            sassOptions: {
-                                includePaths: [path.resolve(__dirname, 'src')],
-                            },
-                        },
-                    },
-                ],
-            },
-            {
-                test: /\.svg$/,
-                use: '@svgr/webpack',
+                test: /\.css$/,
+                use: [{ loader: 'style-loader' }, { loader: 'css-loader' }],
             },
         ],
     },
-    resolve: {
-        extensions: ['.tsx', '.ts', '.js', '.scss', '.svg'],
-    },
-    output: {
-        filename: 'index.js',
-        globalObject: 'this',
-        libraryTarget: 'umd',
-        path: path.resolve(__dirname, 'build'),
-        publicPath: '/',
-    },
     plugins: [
-        new MiniCssExtractPlugin({
-            filename: 'styles.css',
+        isDevelopment && new ReactRefreshPlugin(),
+        new HtmlWebpackPlugin({
+            filename: './index.html',
+            template: './sandbox/index.html',
         }),
-    ],
-    watch: isDev,
+    ].filter(Boolean),
 };

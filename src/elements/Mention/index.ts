@@ -1,1 +1,1 @@
-export * from './Mention';
+export { Mention } from './Mention';
