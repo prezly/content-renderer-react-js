@@ -1,5 +1,5 @@
 import type { VideoNode } from '@prezly/slate-types';
-import React, {FunctionComponent, HTMLAttributes, useState} from 'react';
+import React, { FunctionComponent, HTMLAttributes, useState } from 'react';
 import classNames from 'classnames';
 
 import { HtmlInjection } from '../../components';
@@ -46,11 +46,7 @@ const Thumbnail: FunctionComponent<{ src?: string; width?: number; height?: numb
     const paddingBottom = width && height ? `${Math.round((100 * height) / width)}%` : undefined;
     return (
         <div className="prezly-slate-video__thumbnail" style={{ paddingBottom }}>
-            <img
-                className="prezly-slate-video__thumbnail-image"
-                src={src}
-                alt="Video thumbnail"
-            />
+            <img className="prezly-slate-video__thumbnail-image" src={src} alt="Video thumbnail" />
         </div>
     );
 };
@@ -60,7 +56,12 @@ const ThumbnailPlaceholder: FunctionComponent = () => (
 );
 
 const PlayButtonOverlay: FunctionComponent<{ href: string }> = ({ href }) => (
-    <a className="prezly-slate-video__play-button-overlay" href={href} rel="noopener noreferer" target="blank">
+    <a
+        className="prezly-slate-video__play-button-overlay"
+        href={href}
+        rel="noopener noreferer"
+        target="blank"
+    >
         <PlayButton className="prezly-slate-video__play-button-icon" />
     </a>
 );
