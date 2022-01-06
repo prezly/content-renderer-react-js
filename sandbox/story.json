@@ -5,7 +5,7 @@
             "type": "heading-one",
             "children": [
                 {
-                    "text": "Heading 1"
+                    "text": "Prezly Content Renderer React.js"
                 }
             ]
         },
@@ -13,7 +13,7 @@
             "type": "heading-two",
             "children": [
                 {
-                    "text": "Heading 2"
+                    "text": "Regular paragraph of text"
                 }
             ]
         },
@@ -21,7 +21,31 @@
             "type": "paragraph",
             "children": [
                 {
-                    "text": "Paragraph"
+                    "text": "Prezly is a very user-friendly system. Uploading lists that you have made over the years, making attractive press files, selecting and contacting journalists, the system does it all. It's quick, it's updated regularly, the help desk is swift and friendly if ever you need them."
+                }
+            ]
+        },
+        {
+            "type": "heading-two",
+            "children": [
+                {
+                    "text": "Whitespace collapsing test"
+                }
+            ]
+        },
+        {
+            "type": "paragraph",
+            "children": [
+                {
+                    "text": "This paragraph   has       additional    whitespaces    between   words, which are   expected to be    preserved."
+                }
+            ]
+        },
+        {
+            "type": "paragraph",
+            "children": [
+                {
+                    "text": "The next paragraph has no inner text, but it is expected to still occupy the vertical space, as normally:"
                 }
             ]
         },
@@ -34,10 +58,10 @@
             ]
         },
         {
-            "type": "paragraph",
+            "type": "heading-two",
             "children": [
                 {
-                    "text": "Paragraph    with   additional    whitespaces."
+                    "text": "Placeholders"
                 }
             ]
         },
@@ -45,7 +69,7 @@
             "type": "paragraph",
             "children": [
                 {
-                    "text": "Placeholder: "
+                    "text": "Publication date placeholder: "
                 },
                 {
                     "type": "placeholder",
@@ -58,6 +82,14 @@
                 },
                 {
                     "text": ""
+                }
+            ]
+        },
+        {
+            "type": "heading-two",
+            "children": [
+                {
+                    "text": "Styled text"
                 }
             ]
         },
@@ -185,10 +217,34 @@
             ]
         },
         {
+            "type": "heading-two",
+            "children": [
+                {
+                    "text": "Block quote"
+                }
+            ]
+        },
+        {
             "type": "block-quote",
             "children": [
                 {
-                    "text": "Quote"
+                    "text": "I love how Prezly has been created by people who really understand the needs of PR professionals. Its features and functionality are just right for our business."
+                }
+            ]
+        },
+        {
+            "type": "heading-two",
+            "children": [
+                {
+                    "text": "Lists"
+                }
+            ]
+        },
+        {
+            "type": "paragraph",
+            "children": [
+                {
+                    "text": "It's that time of year when we look back and plan for what comes in 2022. Here's a bit about what we decided to fix before the end of this year:"
                 }
             ]
         },
@@ -202,7 +258,11 @@
                             "type": "list-item-text",
                             "children": [
                                 {
-                                    "text": "Unordered list A"
+                                    "text": "Better overview of your campaign sending status",
+                                    "bold": true
+                                },
+                                {
+                                    "text": " When your campaign needs to be sent to many (and I mean really many, like 500k) contacts, we improved the process from the point you send the campaign to the full report creation. You can see 'Delivering' status and know when to expect the full report to be ready"
                                 }
                             ]
                         }
@@ -215,11 +275,74 @@
                             "type": "list-item-text",
                             "children": [
                                 {
-                                    "text": "Unordered list B"
+                                    "text": "Email presentation in Outlook",
+                                    "bold": true
+                                },
+                                {
+                                    "text": " Because every email application is special, we need to make sure that your emails look equally special in every single one of them. There were some issues with the content alinement when viewing in some versions of Outlook - we fix that! Your content looks good in all email clients \uD83D\uDC8E"
                                 }
                             ]
                         }
                     ]
+                },
+                {
+                    "type": "list-item",
+                    "children": [
+                        {
+                            "type": "list-item-text",
+                            "children": [
+                                {
+                                    "text": "Add embed and add link/bookmark",
+                                    "bold": true
+                                },
+                                {
+                                    "text": " For users that have these features, we improved the code behind them. We're planning to expand both features in a near future - for example, have more options for embedded story cards. Now we're ready to add more power to them soon!"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "list-item",
+                    "children": [
+                        {
+                            "type": "list-item-text",
+                            "children": [
+                                {
+                                    "text": "Unsubscribe from a licence",
+                                    "bold": true
+                                },
+                                {
+                                    "text": " Currently users can unsubscribe from one newsroom at the time. We now support the option to unsubscribe from all communication from that licence. You can also check our new Privacy portal and if it's available for your newsroom - enable it!"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "list-item",
+                    "children": [
+                        {
+                            "type": "list-item-text",
+                            "children": [
+                                {
+                                    "text": "Selecting a time to publish or send in Firefox",
+                                    "bold": true
+                                },
+                                {
+                                    "text": " This was a browser specific problem that we fixed when users told us about it. "
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "paragraph",
+            "children": [
+                {
+                    "text": "And a bit about things that are coming soon in 2022 \uD83C\uDF81"
                 }
             ]
         },
@@ -233,7 +356,11 @@
                             "type": "list-item-text",
                             "children": [
                                 {
-                                    "text": "Ordered list A"
+                                    "text": "Introducing a new type of stories - 'Confidential' \uD83D\uDD0D",
+                                    "bold": true
+                                },
+                                {
+                                    "text": " When you need to work on a story that is dealing with a sensitive information, you might need to hide it even from your colleagues. With a new type of a Prezly story called 'Confidential' you'll be able to write your content directly in Prezly with full confidence it'll stay private to you only until you decide to share it with the world."
                                 }
                             ]
                         }
@@ -246,11 +373,23 @@
                             "type": "list-item-text",
                             "children": [
                                 {
-                                    "text": "Ordered list B"
+                                    "text": "New default Prezly theme",
+                                    "bold": true
+                                },
+                                {
+                                    "text": " It's modern, pretty, and it makes your content look great! The new theme is coming real soon, it'll have all the features you need - cool stories, categories, search, and more! Here's a sneak peek."
                                 }
                             ]
                         }
                     ]
+                }
+            ]
+        },
+        {
+            "type": "divider",
+            "children": [
+                {
+                    "text": ""
                 }
             ]
         },
@@ -264,7 +403,8 @@
                             "type": "list-item-text",
                             "children": [
                                 {
-                                    "text": "Nested Lists A"
+                                    "text": "Account switching is officially here!",
+                                    "bold": true
                                 }
                             ]
                         },
@@ -278,7 +418,20 @@
                                             "type": "list-item-text",
                                             "children": [
                                                 {
-                                                    "text": "Nested Lists A1"
+                                                    "text": "You can now log in to multiple Prezly accounts using your one email and password, and switch between them without having to do the run-of-the-mill work of logging out and back in again."
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "list-item",
+                                    "children": [
+                                        {
+                                            "type": "list-item-text",
+                                            "children": [
+                                                {
+                                                    "text": "Give it a try!"
                                                 }
                                             ]
                                         },
@@ -292,7 +445,7 @@
                                                             "type": "list-item-text",
                                                             "children": [
                                                                 {
-                                                                    "text": "Nested Lists A1a"
+                                                                    "text": "Once you’ve been invited to another account, click on your name or avatar on the top right corner of Prezly (the user menu)."
                                                                 }
                                                             ]
                                                         }
@@ -305,38 +458,7 @@
                                                             "type": "list-item-text",
                                                             "children": [
                                                                 {
-                                                                    "text": "Nested Lists A1b"
-                                                                }
-                                                            ]
-                                                        }
-                                                    ]
-                                                }
-                                            ]
-                                        }
-                                    ]
-                                },
-                                {
-                                    "type": "list-item",
-                                    "children": [
-                                        {
-                                            "type": "list-item-text",
-                                            "children": [
-                                                {
-                                                    "text": "Nested Lists A2"
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "type": "bulleted-list",
-                                            "children": [
-                                                {
-                                                    "type": "list-item",
-                                                    "children": [
-                                                        {
-                                                            "type": "list-item-text",
-                                                            "children": [
-                                                                {
-                                                                    "text": "Nested Lists A2a"
+                                                                    "text": "Select the account you would like to work in."
                                                                 }
                                                             ]
                                                         }
@@ -349,7 +471,7 @@
                                                             "type": "list-item-text",
                                                             "children": [
                                                                 {
-                                                                    "text": "Nested Lists A2b"
+                                                                    "text": "When you have switched to another account, you will see a green notification bar confirming that the switch has been made. Simples!"
                                                                 }
                                                             ]
                                                         }
@@ -359,6 +481,7 @@
                                         }
                                     ]
                                 },
+
                                 {
                                     "type": "list-item",
                                     "children": [
@@ -366,7 +489,13 @@
                                             "type": "list-item-text",
                                             "children": [
                                                 {
-                                                    "text": "Nested Lists A3"
+                                                    "type": "link",
+                                                    "href": "https://www.prezly.com/news/introducing-account-switching",
+                                                    "children": [
+                                                        {
+                                                            "text": "Read the full write up, where we go into the feature in more detail and cover how this helps Prezly users →"
+                                                        }
+                                                    ]
                                                 }
                                             ]
                                         }
@@ -375,94 +504,30 @@
                             ]
                         }
                     ]
-                },
+                }
+            ]
+        },
+        {
+            "type": "heading-two",
+            "children": [
                 {
-                    "type": "list-item",
-                    "children": [
-                        {
-                            "type": "list-item-text",
-                            "children": [
-                                {
-                                    "text": "Nested Lists B"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "numbered-list",
-                            "children": [
-                                {
-                                    "type": "list-item",
-                                    "children": [
-                                        {
-                                            "type": "list-item-text",
-                                            "children": [
-                                                {
-                                                    "text": "Nested Lists B1"
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "type": "bulleted-list",
-                                            "children": [
-                                                {
-                                                    "type": "list-item",
-                                                    "children": [
-                                                        {
-                                                            "type": "list-item-text",
-                                                            "children": [
-                                                                {
-                                                                    "text": "Nested Lists B1a"
-                                                                }
-                                                            ]
-                                                        }
-                                                    ]
-                                                },
-                                                {
-                                                    "type": "list-item",
-                                                    "children": [
-                                                        {
-                                                            "type": "list-item-text",
-                                                            "children": [
-                                                                {
-                                                                    "text": "Nested Lists B1b"
-                                                                }
-                                                            ]
-                                                        }
-                                                    ]
-                                                }
-                                            ]
-                                        }
-                                    ]
-                                },
-                                {
-                                    "type": "list-item",
-                                    "children": [
-                                        {
-                                            "type": "list-item-text",
-                                            "children": [
-                                                {
-                                                    "text": "Nested Lists B2"
-                                                }
-                                            ]
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    ]
-                },
+                    "text": "Divider"
+                }
+            ]
+        },
+        {
+            "type": "divider",
+            "children": [
                 {
-                    "type": "list-item",
-                    "children": [
-                        {
-                            "type": "list-item-text",
-                            "children": [
-                                {
-                                    "text": "Nested Lists C"
-                                }
-                            ]
-                        }
-                    ]
+                    "text": ""
+                }
+            ]
+        },
+        {
+            "type": "heading-two",
+            "children": [
+                {
+                    "text": "Images"
                 }
             ]
         },
@@ -484,15 +549,7 @@
             "width_factor": "100%",
             "children": [
                 {
-                    "text": "098080808888 08098 080 809 08 080 8098 080809808 080808 08 00uoiuasdoaudoisaudo uasodu asoidu asoiduoaisduoaiud oasudoa sudouas oduasodu asoiduaso duosaudaosuduasdoiusauuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuo quweq oeuqoue oqueoiqu eouq oeuqoieuuqoiweuoiq oeoq uioqo uo"
-                }
-            ]
-        },
-        {
-            "type": "paragraph",
-            "children": [
-                {
-                    "text": "popopo"
+                    "text": "The software is incredibly user friendly and intuitive. The Prezly team is really quick and always available, which was a huge help during my onboarding. The ability to manage and update contacts, develop content and issue press releases all on one platform is great. This is truly an all-in-one, streamlined PR solution."
                 }
             ]
         },
@@ -514,15 +571,7 @@
             "width_factor": "100%",
             "children": [
                 {
-                    "text": "08908808"
-                }
-            ]
-        },
-        {
-            "type": "paragraph",
-            "children": [
-                {
-                    "text": "opopo"
+                    "text": "Contained 100% width"
                 }
             ]
         },
@@ -540,19 +589,11 @@
                 "effects": []
             },
             "layout": "contained",
-            "width": "44.93%",
+            "width": "45%",
             "width_factor": "100%",
             "children": [
                 {
-                    "text": "cat-1200x1199"
-                }
-            ]
-        },
-        {
-            "type": "paragraph",
-            "children": [
-                {
-                    "text": "popopo"
+                    "text": "Contained 45% width"
                 }
             ]
         },
@@ -574,15 +615,7 @@
             "width_factor": "100%",
             "children": [
                 {
-                    "text": ""
-                }
-            ]
-        },
-        {
-            "type": "paragraph",
-            "children": [
-                {
-                    "text": ""
+                    "text": "Contained 100% width"
                 }
             ]
         },
@@ -591,15 +624,14 @@
             "href": "https://rock.prezly.com",
             "file": {
                 "version": 2,
-                "uuid": "920c7059-bbbb-4db2-9d5d-45382f8eb4d2",
-                "filename": "cat-1200x1199.jpg",
+                "uuid": "52a78e73-cea4-43d5-91a3-fd9182160f5b",
+                "filename": "merttalayKYZoOmpn1Awunsplash.jpg",
                 "mime_type": "image/jpeg",
-                "size": 156145,
-                "original_width": 1200,
-                "original_height": 1199,
+                "size": 1762479,
+                "original_width": 3994,
+                "original_height": 2246,
                 "effects": [
-                    "/crop/1200x767/0,103/",
-                    "/preview/"
+                    "/crop/3994x1359/0,454/"
                 ]
             },
             "layout": "full-width",
@@ -607,7 +639,23 @@
             "width_factor": "100%",
             "children": [
                 {
-                    "text": "Image with a caption and a link"
+                    "text": "Full width image with a caption and a link"
+                }
+            ]
+        },
+        {
+            "type": "heading-two",
+            "children": [
+                {
+                    "text": "Gallery"
+                }
+            ]
+        },
+        {
+            "type": "paragraph",
+            "children": [
+                {
+                    "text": "Contained gallery with small paddings and small images:"
                 }
             ]
         },
@@ -681,7 +729,7 @@
             "type": "paragraph",
             "children": [
                 {
-                    "text": ""
+                    "text": "Expanded gallery with medium paddings and medium images:"
                 }
             ]
         },
@@ -755,7 +803,7 @@
             "type": "paragraph",
             "children": [
                 {
-                    "text": ""
+                    "text": "Full width gallery with large paddings and small images:"
                 }
             ]
         },
@@ -826,6 +874,22 @@
             "thumbnail_size": "S"
         },
         {
+            "type": "heading-two",
+            "children": [
+                {
+                    "text": "Embeds"
+                }
+            ]
+        },
+        {
+            "type": "paragraph",
+            "children": [
+                {
+                    "text": "Video embed (iframe):"
+                }
+            ]
+        },
+        {
             "type": "embed",
             "children": [
                 {
@@ -868,68 +932,12 @@
             }
         },
         {
-            "type": "attachment",
+            "type": "paragraph",
             "children": [
                 {
-                    "text": ""
-                }
-            ],
-            "description": "example",
-            "file": {
-                "version": 2,
-                "uuid": "8b4308af-6e4b-450e-aaee-34a39f35556b",
-                "filename": "example.pdf",
-                "mime_type": "application/pdf",
-                "size": 433994
-            }
-        },
-        {
-            "type": "embed",
-            "children": [
-                {
-                    "text": ""
-                }
-            ],
-            "uuid": "da744513-8fe7-4e22-9e85-6f5e122b93a1",
-            "url": "http://example.com",
-            "oembed": {
-                "cache_age": 86400,
-                "html": "<a class=\"embed embed--link\" href=\"http://example.com\" target=\"_blank\" rel=\"noopener noreferrer\">Example Domain</a>",
-                "title": "Example Domain",
-                "type": "link",
-                "url": "http://example.com",
-                "version": "1.0"
-            }
-        },
-        {
-            "type": "divider",
-            "children": [
-                {
-                    "text": ""
+                    "text": "Twitter post embed (iframe):"
                 }
             ]
-        },
-        {
-            "type": "contact",
-            "children": [
-                {
-                    "text": ""
-                }
-            ],
-            "uuid": "a456b750-65cb-49da-8f4a-7f53906bce28",
-            "contact": {
-                "id": 233967,
-                "avatar_url": "",
-                "company": "fff",
-                "description": "Cccc",
-                "email": "ddd@example.com",
-                "facebook": "ggg",
-                "mobile": "5566778899",
-                "name": "Aaaa Bbbb",
-                "phone": "0011223344",
-                "twitter": "eee",
-                "website": "http://rock.prezly.com"
-            }
         },
         {
             "type": "embed",
@@ -967,6 +975,14 @@
             }
         },
         {
+            "type": "paragraph",
+            "children": [
+                {
+                    "text": "Rich website card (iframe):"
+                }
+            ]
+        },
+        {
             "type": "embed",
             "children": [
                 {
@@ -994,25 +1010,81 @@
             "type": "paragraph",
             "children": [
                 {
-                    "text": ""
+                    "text": "Minimal details embed (link only):"
                 }
             ]
         },
         {
-            "type": "paragraph",
+            "type": "embed",
             "children": [
                 {
                     "text": ""
+                }
+            ],
+            "uuid": "da744513-8fe7-4e22-9e85-6f5e122b93a1",
+            "url": "https://www.prezly.com/",
+            "oembed": {
+                "cache_age": 86400,
+                "html": "<a class=\"embed embed--link\" href=\"http://example.com\" target=\"_blank\" rel=\"noopener noreferrer\">Example Domain</a>",
+                "title": "Prezly: PR Software for better, faster PR",
+                "type": "link",
+                "url": "https://www.prezly.com/",
+                "version": "1.0"
+            }
+        },
+        {
+            "type": "heading-two",
+            "children": [
+                {
+                    "text": "File attachment"
                 }
             ]
         },
         {
-            "type": "paragraph",
+            "type": "attachment",
             "children": [
                 {
                     "text": ""
                 }
+            ],
+            "description": "example",
+            "file": {
+                "version": 2,
+                "uuid": "8b4308af-6e4b-450e-aaee-34a39f35556b",
+                "filename": "example.pdf",
+                "mime_type": "application/pdf",
+                "size": 433994
+            }
+        },
+        {
+            "type": "heading-two",
+            "children": [
+                {
+                    "text": "Press contacts"
+                }
             ]
+        },
+        {
+            "type": "contact",
+            "children": [
+                {
+                    "text": ""
+                }
+            ],
+            "uuid": "a456b750-65cb-49da-8f4a-7f53906bce28",
+            "contact": {
+                "id": 233967,
+                "avatar_url": "https://ucarecdn.com/da3ea88f-ddfe-4593-a6e4-07c9f9467d5e/PhilipCooper.jpg",
+                "company": "TechCrunch",
+                "description": "PR Manager",
+                "email": "phil@techcrunch.com",
+                "facebook": "https://facebook.com/PhilipCooper",
+                "mobile": "+1 555 012 751",
+                "name": "Philip Cooper",
+                "phone": "+1 555 991 229",
+                "twitter": "@PhilipCooper",
+                "website": "https://techcrunch.com/"
+            }
         }
     ],
     "version": "0.50"
