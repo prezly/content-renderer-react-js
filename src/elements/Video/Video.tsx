@@ -27,7 +27,7 @@ export const Video: FunctionComponent<Props> = ({ className, node }) => {
                         width={oembed.thumbnail_width}
                         height={oembed.thumbnail_height}
                     />
-                    <PlayButtonOverlay href={url} />
+                    <PlayButtonOverlay href={url} title={node.oembed.title} />
                 </>
             )}
         </div>
@@ -55,12 +55,13 @@ const ThumbnailPlaceholder: FunctionComponent = () => (
     <div className="prezly-slate-video__thumbnail-placeholder" />
 );
 
-const PlayButtonOverlay: FunctionComponent<{ href: string }> = ({ href }) => (
+const PlayButtonOverlay: FunctionComponent<{ href: string, title?: string }> = ({ href, title }) => (
     <a
         className="prezly-slate-video__play-button-overlay"
         href={href}
         rel="noopener noreferer"
         target="blank"
+        title={title}
     >
         <PlayButton className="prezly-slate-video__play-button-icon" />
     </a>
