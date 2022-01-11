@@ -1,4 +1,5 @@
 export { applyTransformations } from './applyTransformations';
+export { describeNode } from './describeNode';
 export { formatBytes } from './formatBytes';
 export * from './hooks';
 export { identity } from './identity';
