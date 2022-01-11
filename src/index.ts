@@ -22,5 +22,6 @@ export {
     Quote,
     Placeholder,
 } from './elements';
+export { stringifyNode } from './lib';
 export { Renderer } from './Renderer';
 export { Transformations };
