@@ -6,7 +6,7 @@ import type { Node } from '@prezly/slate-types';
  * Node structure will be dumped as JSON-like output, with "text" and
  * "children" properties collapsed to `...` to keep the message clean.
  */
-export function stringifyNode(node: Node): string {
+export function describeNode(node: Node): string {
     const parts = Object.entries(node).map(([key, value]) => {
         if (key === 'text' && typeof value === 'string' && value.length > 3) {
             return `${JSON.stringify(key)}: "..."`;

@@ -2,7 +2,7 @@ import { isElementNode, isTextNode, Node } from '@prezly/slate-types';
 import React, { Fragment, FunctionComponent } from 'react';
 
 import { defaultComponents } from './defaultComponents';
-import { applyTransformations, stringifyNode } from './lib';
+import { applyTransformations, describeNode } from './lib';
 import * as Transformations from './transformations';
 import type { ComponentRenderers, Transformation } from './types';
 
@@ -52,7 +52,7 @@ export const Renderer: FunctionComponent<Props> = ({
 
                 if (process.env.NODE_ENV === 'development') {
                     console.warn(
-                        `[@prezly/content-renderer-react-js] Unknown node type encountered: ${stringifyNode(
+                        `[@prezly/content-renderer-react-js] Unknown node type encountered: ${describeNode(
                             node,
                         )}`,
                     );
