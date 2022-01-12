@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import React, { FunctionComponent, HTMLAttributes } from 'react';
 
 import './Embed.scss';
-import { IframelyEmbed } from './IframelyEmbed';
+import { Iframe } from './Iframe';
 import { LinkEmbed } from './LinkEmbed';
 import { ScreenshotEmbed } from './ScreenshotEmbed';
 
@@ -36,7 +36,7 @@ export const Embed: FunctionComponent<Props> = ({
             {showAsScreenshot ? (
                 <ScreenshotEmbed className="prezly-slate-embed__screenshot" node={node} />
             ) : (
-                <IframelyEmbed node={node} />
+                <Iframe html={node.oembed.html || ''} />
             )}
         </div>
     );

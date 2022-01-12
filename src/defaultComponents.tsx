@@ -1,5 +1,6 @@
 import {
     ATTACHMENT_NODE_TYPE,
+    BOOKMARK_NODE_TYPE,
     BULLETED_LIST_NODE_TYPE,
     CONTACT_NODE_TYPE,
     COVERAGE_NODE_TYPE,
@@ -18,12 +19,14 @@ import {
     PARAGRAPH_NODE_TYPE,
     PLACEHOLDER_NODE_TYPE,
     QUOTE_NODE_TYPE,
+    VIDEO_NODE_TYPE,
 } from '@prezly/slate-types';
 import React from 'react';
 
 import { DefaultTextRenderer } from './DefaultTextRenderer';
 import {
     Attachment,
+    Bookmark,
     BulletedList,
     Contact,
     Divider,
@@ -41,11 +44,13 @@ import {
     Paragraph,
     Placeholder,
     Quote,
+    Video,
 } from './elements';
 import type { ComponentRenderers } from './types';
 
 export const defaultComponents: Required<ComponentRenderers> = {
     [ATTACHMENT_NODE_TYPE]: Attachment,
+    [BOOKMARK_NODE_TYPE]: Bookmark,
     [BULLETED_LIST_NODE_TYPE]: BulletedList,
     [CONTACT_NODE_TYPE]: Contact,
     [COVERAGE_NODE_TYPE]: () => <span>TODO</span>, // TODO
@@ -64,5 +69,6 @@ export const defaultComponents: Required<ComponentRenderers> = {
     [PARAGRAPH_NODE_TYPE]: Paragraph,
     [PLACEHOLDER_NODE_TYPE]: Placeholder,
     [QUOTE_NODE_TYPE]: Quote,
+    [VIDEO_NODE_TYPE]: Video,
     text: DefaultTextRenderer,
 };

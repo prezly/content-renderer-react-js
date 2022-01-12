@@ -1,4 +1,5 @@
 export { Attachment } from './Attachment';
+export { Bookmark } from './Bookmark';
 export { BulletedList } from './BulletedList';
 export { Contact } from './Contact';
 export { Divider } from './Divider';
@@ -16,3 +17,4 @@ export { NumberedList } from './NumberedList';
 export { Paragraph } from './Paragraph';
 export { Placeholder } from './Placeholder';
 export { Quote } from './Quote';
+export { Video } from './Video';

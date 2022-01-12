@@ -1,12 +1,17 @@
-import { copyScriptAttributes } from './copyScriptAttributes';
+function copyScriptAttributes(source: HTMLScriptElement, target: HTMLScriptElement): void {
+    Array.from(source.attributes).forEach(({ name, value }) => {
+        target.setAttribute(name, value);
+    });
+    // eslint-disable-next-line no-param-reassign
+    target.innerText = source.innerText;
+}
 
-interface Parameters {
+export function injectHtmlMarkup(parameters: {
     html: string | undefined;
     onError: () => void;
     target: HTMLElement;
-}
-
-export const injectOembedMarkup = ({ html, onError, target }: Parameters): void => {
+}): void {
+    const { html, onError, target } = parameters;
     const container = document.createElement('div');
     container.innerHTML = html || '';
     const embedScripts = Array.from(container.getElementsByTagName('script'));
@@ -23,4 +28,4 @@ export const injectOembedMarkup = ({ html, onError, target }: Parameters): void 
 
     // eslint-disable-next-line no-param-reassign
     target.innerHTML = container.innerHTML;
-};
+}

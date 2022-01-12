@@ -1,3 +1,4 @@
+export { HtmlInjection } from './HtmlInjection';
 export { Lightbox } from './Lightbox';
 export { Media } from './Media';
 export { MultilineEllipsis } from './MultilineEllipsis';

@@ -5,7 +5,7 @@
             "type": "heading-one",
             "children": [
                 {
-                    "text": "Heading 1"
+                    "text": "Prezly Content Renderer React.js"
                 }
             ]
         },
@@ -13,7 +13,7 @@
             "type": "heading-two",
             "children": [
                 {
-                    "text": "Heading 2"
+                    "text": "Regular paragraph of text"
                 }
             ]
         },
@@ -21,7 +21,31 @@
             "type": "paragraph",
             "children": [
                 {
-                    "text": "Paragraph"
+                    "text": "Prezly is a very user-friendly system. Uploading lists that you have made over the years, making attractive press files, selecting and contacting journalists, the system does it all. It's quick, it's updated regularly, the help desk is swift and friendly if ever you need them."
+                }
+            ]
+        },
+        {
+            "type": "heading-two",
+            "children": [
+                {
+                    "text": "Whitespace collapsing test"
+                }
+            ]
+        },
+        {
+            "type": "paragraph",
+            "children": [
+                {
+                    "text": "This paragraph   has       additional    whitespaces    between   words, which are   expected to be    preserved."
+                }
+            ]
+        },
+        {
+            "type": "paragraph",
+            "children": [
+                {
+                    "text": "The next paragraph has no inner text, but it is expected to still occupy the vertical space, as normally:"
                 }
             ]
         },
@@ -34,10 +58,10 @@
             ]
         },
         {
-            "type": "paragraph",
+            "type": "heading-two",
             "children": [
                 {
-                    "text": "Paragraph    with   additional    whitespaces."
+                    "text": "Placeholders"
                 }
             ]
         },
@@ -45,7 +69,7 @@
             "type": "paragraph",
             "children": [
                 {
-                    "text": "Placeholder: "
+                    "text": "Publication date placeholder: "
                 },
                 {
                     "type": "placeholder",
@@ -58,6 +82,14 @@
                 },
                 {
                     "text": ""
+                }
+            ]
+        },
+        {
+            "type": "heading-two",
+            "children": [
+                {
+                    "text": "Styled text"
                 }
             ]
         },
@@ -185,10 +217,34 @@
             ]
         },
         {
+            "type": "heading-two",
+            "children": [
+                {
+                    "text": "Block quote"
+                }
+            ]
+        },
+        {
             "type": "block-quote",
             "children": [
                 {
-                    "text": "Quote"
+                    "text": "I love how Prezly has been created by people who really understand the needs of PR professionals. Its features and functionality are just right for our business."
+                }
+            ]
+        },
+        {
+            "type": "heading-two",
+            "children": [
+                {
+                    "text": "Lists"
+                }
+            ]
+        },
+        {
+            "type": "paragraph",
+            "children": [
+                {
+                    "text": "It's that time of year when we look back and plan for what comes in 2022. Here's a bit about what we decided to fix before the end of this year:"
                 }
             ]
         },
@@ -202,7 +258,11 @@
                             "type": "list-item-text",
                             "children": [
                                 {
-                                    "text": "Unordered list A"
+                                    "text": "Better overview of your campaign sending status",
+                                    "bold": true
+                                },
+                                {
+                                    "text": " When your campaign needs to be sent to many (and I mean really many, like 500k) contacts, we improved the process from the point you send the campaign to the full report creation. You can see 'Delivering' status and know when to expect the full report to be ready"
                                 }
                             ]
                         }
@@ -215,11 +275,74 @@
                             "type": "list-item-text",
                             "children": [
                                 {
-                                    "text": "Unordered list B"
+                                    "text": "Email presentation in Outlook",
+                                    "bold": true
+                                },
+                                {
+                                    "text": " Because every email application is special, we need to make sure that your emails look equally special in every single one of them. There were some issues with the content alinement when viewing in some versions of Outlook - we fix that! Your content looks good in all email clients \uD83D\uDC8E"
                                 }
                             ]
                         }
                     ]
+                },
+                {
+                    "type": "list-item",
+                    "children": [
+                        {
+                            "type": "list-item-text",
+                            "children": [
+                                {
+                                    "text": "Add embed and add link/bookmark",
+                                    "bold": true
+                                },
+                                {
+                                    "text": " For users that have these features, we improved the code behind them. We're planning to expand both features in a near future - for example, have more options for embedded story cards. Now we're ready to add more power to them soon!"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "list-item",
+                    "children": [
+                        {
+                            "type": "list-item-text",
+                            "children": [
+                                {
+                                    "text": "Unsubscribe from a licence",
+                                    "bold": true
+                                },
+                                {
+                                    "text": " Currently users can unsubscribe from one newsroom at the time. We now support the option to unsubscribe from all communication from that licence. You can also check our new Privacy portal and if it's available for your newsroom - enable it!"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "list-item",
+                    "children": [
+                        {
+                            "type": "list-item-text",
+                            "children": [
+                                {
+                                    "text": "Selecting a time to publish or send in Firefox",
+                                    "bold": true
+                                },
+                                {
+                                    "text": " This was a browser specific problem that we fixed when users told us about it. "
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "paragraph",
+            "children": [
+                {
+                    "text": "And a bit about things that are coming soon in 2022 \uD83C\uDF81"
                 }
             ]
         },
@@ -233,7 +356,11 @@
                             "type": "list-item-text",
                             "children": [
                                 {
-                                    "text": "Ordered list A"
+                                    "text": "Introducing a new type of stories - 'Confidential' \uD83D\uDD0D",
+                                    "bold": true
+                                },
+                                {
+                                    "text": " When you need to work on a story that is dealing with a sensitive information, you might need to hide it even from your colleagues. With a new type of a Prezly story called 'Confidential' you'll be able to write your content directly in Prezly with full confidence it'll stay private to you only until you decide to share it with the world."
                                 }
                             ]
                         }
@@ -246,11 +373,23 @@
                             "type": "list-item-text",
                             "children": [
                                 {
-                                    "text": "Ordered list B"
+                                    "text": "New default Prezly theme",
+                                    "bold": true
+                                },
+                                {
+                                    "text": " It's modern, pretty, and it makes your content look great! The new theme is coming real soon, it'll have all the features you need - cool stories, categories, search, and more! Here's a sneak peek."
                                 }
                             ]
                         }
                     ]
+                }
+            ]
+        },
+        {
+            "type": "divider",
+            "children": [
+                {
+                    "text": ""
                 }
             ]
         },
@@ -264,7 +403,8 @@
                             "type": "list-item-text",
                             "children": [
                                 {
-                                    "text": "Nested Lists A"
+                                    "text": "Account switching is officially here!",
+                                    "bold": true
                                 }
                             ]
                         },
@@ -278,7 +418,20 @@
                                             "type": "list-item-text",
                                             "children": [
                                                 {
-                                                    "text": "Nested Lists A1"
+                                                    "text": "You can now log in to multiple Prezly accounts using your one email and password, and switch between them without having to do the run-of-the-mill work of logging out and back in again."
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "list-item",
+                                    "children": [
+                                        {
+                                            "type": "list-item-text",
+                                            "children": [
+                                                {
+                                                    "text": "Give it a try!"
                                                 }
                                             ]
                                         },
@@ -292,7 +445,7 @@
                                                             "type": "list-item-text",
                                                             "children": [
                                                                 {
-                                                                    "text": "Nested Lists A1a"
+                                                                    "text": "Once you’ve been invited to another account, click on your name or avatar on the top right corner of Prezly (the user menu)."
                                                                 }
                                                             ]
                                                         }
@@ -305,7 +458,20 @@
                                                             "type": "list-item-text",
                                                             "children": [
                                                                 {
-                                                                    "text": "Nested Lists A1b"
+                                                                    "text": "Select the account you would like to work in."
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "type": "list-item",
+                                                    "children": [
+                                                        {
+                                                            "type": "list-item-text",
+                                                            "children": [
+                                                                {
+                                                                    "text": "When you have switched to another account, you will see a green notification bar confirming that the switch has been made. Simples!"
                                                                 }
                                                             ]
                                                         }
@@ -322,51 +488,13 @@
                                             "type": "list-item-text",
                                             "children": [
                                                 {
-                                                    "text": "Nested Lists A2"
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "type": "bulleted-list",
-                                            "children": [
-                                                {
-                                                    "type": "list-item",
+                                                    "type": "link",
+                                                    "href": "https://www.prezly.com/news/introducing-account-switching",
                                                     "children": [
                                                         {
-                                                            "type": "list-item-text",
-                                                            "children": [
-                                                                {
-                                                                    "text": "Nested Lists A2a"
-                                                                }
-                                                            ]
+                                                            "text": "Read the full write up, where we go into the feature in more detail and cover how this helps Prezly users →"
                                                         }
                                                     ]
-                                                },
-                                                {
-                                                    "type": "list-item",
-                                                    "children": [
-                                                        {
-                                                            "type": "list-item-text",
-                                                            "children": [
-                                                                {
-                                                                    "text": "Nested Lists A2b"
-                                                                }
-                                                            ]
-                                                        }
-                                                    ]
-                                                }
-                                            ]
-                                        }
-                                    ]
-                                },
-                                {
-                                    "type": "list-item",
-                                    "children": [
-                                        {
-                                            "type": "list-item-text",
-                                            "children": [
-                                                {
-                                                    "text": "Nested Lists A3"
                                                 }
                                             ]
                                         }
@@ -375,94 +503,30 @@
                             ]
                         }
                     ]
-                },
+                }
+            ]
+        },
+        {
+            "type": "heading-two",
+            "children": [
                 {
-                    "type": "list-item",
-                    "children": [
-                        {
-                            "type": "list-item-text",
-                            "children": [
-                                {
-                                    "text": "Nested Lists B"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "numbered-list",
-                            "children": [
-                                {
-                                    "type": "list-item",
-                                    "children": [
-                                        {
-                                            "type": "list-item-text",
-                                            "children": [
-                                                {
-                                                    "text": "Nested Lists B1"
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "type": "bulleted-list",
-                                            "children": [
-                                                {
-                                                    "type": "list-item",
-                                                    "children": [
-                                                        {
-                                                            "type": "list-item-text",
-                                                            "children": [
-                                                                {
-                                                                    "text": "Nested Lists B1a"
-                                                                }
-                                                            ]
-                                                        }
-                                                    ]
-                                                },
-                                                {
-                                                    "type": "list-item",
-                                                    "children": [
-                                                        {
-                                                            "type": "list-item-text",
-                                                            "children": [
-                                                                {
-                                                                    "text": "Nested Lists B1b"
-                                                                }
-                                                            ]
-                                                        }
-                                                    ]
-                                                }
-                                            ]
-                                        }
-                                    ]
-                                },
-                                {
-                                    "type": "list-item",
-                                    "children": [
-                                        {
-                                            "type": "list-item-text",
-                                            "children": [
-                                                {
-                                                    "text": "Nested Lists B2"
-                                                }
-                                            ]
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    ]
-                },
+                    "text": "Divider"
+                }
+            ]
+        },
+        {
+            "type": "divider",
+            "children": [
                 {
-                    "type": "list-item",
-                    "children": [
-                        {
-                            "type": "list-item-text",
-                            "children": [
-                                {
-                                    "text": "Nested Lists C"
-                                }
-                            ]
-                        }
-                    ]
+                    "text": ""
+                }
+            ]
+        },
+        {
+            "type": "heading-two",
+            "children": [
+                {
+                    "text": "Images"
                 }
             ]
         },
@@ -484,15 +548,7 @@
             "width_factor": "100%",
             "children": [
                 {
-                    "text": "098080808888 08098 080 809 08 080 8098 080809808 080808 08 00uoiuasdoaudoisaudo uasodu asoidu asoiduoaisduoaiud oasudoa sudouas oduasodu asoiduaso duosaudaosuduasdoiusauuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuo quweq oeuqoue oqueoiqu eouq oeuqoieuuqoiweuoiq oeoq uioqo uo"
-                }
-            ]
-        },
-        {
-            "type": "paragraph",
-            "children": [
-                {
-                    "text": "popopo"
+                    "text": "The software is incredibly user friendly and intuitive. The Prezly team is really quick and always available, which was a huge help during my onboarding. The ability to manage and update contacts, develop content and issue press releases all on one platform is great. This is truly an all-in-one, streamlined PR solution."
                 }
             ]
         },
@@ -514,15 +570,7 @@
             "width_factor": "100%",
             "children": [
                 {
-                    "text": "08908808"
-                }
-            ]
-        },
-        {
-            "type": "paragraph",
-            "children": [
-                {
-                    "text": "opopo"
+                    "text": "Contained 100% width"
                 }
             ]
         },
@@ -540,19 +588,11 @@
                 "effects": []
             },
             "layout": "contained",
-            "width": "44.93%",
+            "width": "45%",
             "width_factor": "100%",
             "children": [
                 {
-                    "text": "cat-1200x1199"
-                }
-            ]
-        },
-        {
-            "type": "paragraph",
-            "children": [
-                {
-                    "text": "popopo"
+                    "text": "Contained 45% width"
                 }
             ]
         },
@@ -574,15 +614,7 @@
             "width_factor": "100%",
             "children": [
                 {
-                    "text": ""
-                }
-            ]
-        },
-        {
-            "type": "paragraph",
-            "children": [
-                {
-                    "text": ""
+                    "text": "Contained 100% width"
                 }
             ]
         },
@@ -591,15 +623,14 @@
             "href": "https://rock.prezly.com",
             "file": {
                 "version": 2,
-                "uuid": "920c7059-bbbb-4db2-9d5d-45382f8eb4d2",
-                "filename": "cat-1200x1199.jpg",
+                "uuid": "52a78e73-cea4-43d5-91a3-fd9182160f5b",
+                "filename": "merttalayKYZoOmpn1Awunsplash.jpg",
                 "mime_type": "image/jpeg",
-                "size": 156145,
-                "original_width": 1200,
-                "original_height": 1199,
+                "size": 1762479,
+                "original_width": 3994,
+                "original_height": 2246,
                 "effects": [
-                    "/crop/1200x767/0,103/",
-                    "/preview/"
+                    "/crop/3994x1359/0,454/"
                 ]
             },
             "layout": "full-width",
@@ -607,7 +638,23 @@
             "width_factor": "100%",
             "children": [
                 {
-                    "text": "Image with a caption and a link"
+                    "text": "Full width image with a caption and a link"
+                }
+            ]
+        },
+        {
+            "type": "heading-two",
+            "children": [
+                {
+                    "text": "Gallery"
+                }
+            ]
+        },
+        {
+            "type": "paragraph",
+            "children": [
+                {
+                    "text": "Contained gallery with small paddings and small images:"
                 }
             ]
         },
@@ -681,7 +728,7 @@
             "type": "paragraph",
             "children": [
                 {
-                    "text": ""
+                    "text": "Expanded gallery with medium paddings and medium images:"
                 }
             ]
         },
@@ -755,7 +802,7 @@
             "type": "paragraph",
             "children": [
                 {
-                    "text": ""
+                    "text": "Full width gallery with large paddings and small images:"
                 }
             ]
         },
@@ -826,6 +873,460 @@
             "thumbnail_size": "S"
         },
         {
+            "type": "heading-two",
+            "children": [
+                {
+                    "text": "Web Bookmarks"
+                }
+            ]
+        },
+        {
+            "type": "paragraph",
+            "children": [
+                {
+                    "text": "Big vertical web bookmark card:"
+                }
+            ]
+        },
+        {
+            "type": "bookmark",
+            "children": [
+                {
+                    "text": ""
+                }
+            ],
+            "uuid": "3d497238-9bb3-478c-89e0-13dda44977cd",
+            "url": "https://www.washingtonpost.com/travel/tips/france-travel-us-covid-restrictions/",
+            "oembed": {
+                "url": "https://www.washingtonpost.com/travel/tips/france-travel-us-covid-restrictions/",
+                "html": "<div class=\"iframely-embed\"><div class=\"iframely-responsive\" style=\"padding-bottom: 66.6667%; padding-top: 120px;\"><a href=\"https://www.washingtonpost.com/travel/tips/france-travel-us-covid-restrictions/\" data-iframely-url=\"//cdn.iframe.ly/api/iframe?url=https%3A%2F%2Fwww.washingtonpost.com%2Ftravel%2Ftips%2Ffrance-travel-us-covid-restrictions%2F&key=8fe6cdec03482ac31f27a6ae8ea2fb3f\"></a></div></div><script async src=\"//cdn.iframe.ly/embed.js\" charset=\"utf-8\"></script>",
+                "type": "rich",
+                "title": "Everything you need to know about traveling to France",
+                "author": "Natalie B. Compton",
+                "options": {
+                    "card": {
+                        "value": "",
+                        "values": {
+                            "small": "Make it a small card"
+                        }
+                    }
+                },
+                "version": "1.0",
+                "cache_age": 86400,
+                "description": "Here's some essential advice for visiting France, including how to navigate the country's vaccination requirements. Here's some essential advice for visiting France, including how to navigate the country's vaccination requirements.",
+                "provider_name": "Washington Post",
+                "thumbnail_url": "https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/RJAEBZMIKJHPFHDOXCPNIF4VJI.jpg&w=1440",
+                "thumbnail_width": 1440,
+                "thumbnail_height": 960
+            },
+            "show_thumbnail": true,
+            "layout": "vertical",
+            "new_tab": true
+        },
+        {
+            "type": "paragraph",
+            "children": [
+                {
+                    "text": "Smaller horizontal web bookmark card:"
+                }
+            ]
+        },
+        {
+            "type": "bookmark",
+            "children": [
+                {
+                    "text": ""
+                }
+            ],
+            "uuid": "3d497238-9bb3-478c-89e0-13dda44977cd",
+            "url": "https://www.washingtonpost.com/travel/tips/france-travel-us-covid-restrictions/",
+            "oembed": {
+                "url": "https://www.washingtonpost.com/travel/tips/france-travel-us-covid-restrictions/",
+                "html": "<div class=\"iframely-embed\"><div class=\"iframely-responsive\" style=\"padding-bottom: 66.6667%; padding-top: 120px;\"><a href=\"https://www.washingtonpost.com/travel/tips/france-travel-us-covid-restrictions/\" data-iframely-url=\"//cdn.iframe.ly/api/iframe?url=https%3A%2F%2Fwww.washingtonpost.com%2Ftravel%2Ftips%2Ffrance-travel-us-covid-restrictions%2F&key=8fe6cdec03482ac31f27a6ae8ea2fb3f\"></a></div></div><script async src=\"//cdn.iframe.ly/embed.js\" charset=\"utf-8\"></script>",
+                "type": "rich",
+                "title": "Everything you need to know about traveling to France",
+                "author": "Natalie B. Compton",
+                "options": {
+                    "card": {
+                        "value": "",
+                        "values": {
+                            "small": "Make it a small card"
+                        }
+                    }
+                },
+                "version": "1.0",
+                "cache_age": 86400,
+                "description": "Here's some essential advice for visiting France, including how to navigate the country's vaccination requirements. Here's some essential advice for visiting France, including how to navigate the country's vaccination requirements.",
+                "provider_name": "Washington Post",
+                "thumbnail_url": "https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/RJAEBZMIKJHPFHDOXCPNIF4VJI.jpg&w=1440",
+                "thumbnail_width": 1440,
+                "thumbnail_height": 960
+            },
+            "show_thumbnail": true,
+            "layout": "horizontal",
+            "new_tab": true
+        },
+        {
+            "type": "paragraph",
+            "children": [
+                {
+                    "text": "Horizontal web bookmark card without thumbnail:"
+                }
+            ]
+        },
+        {
+            "type": "bookmark",
+            "children": [
+                {
+                    "text": ""
+                }
+            ],
+            "uuid": "3d497238-9bb3-478c-89e0-13dda44977cd",
+            "url": "https://www.washingtonpost.com/travel/tips/france-travel-us-covid-restrictions/",
+            "oembed": {
+                "url": "https://www.washingtonpost.com/travel/tips/france-travel-us-covid-restrictions/",
+                "html": "<div class=\"iframely-embed\"><div class=\"iframely-responsive\" style=\"padding-bottom: 66.6667%; padding-top: 120px;\"><a href=\"https://www.washingtonpost.com/travel/tips/france-travel-us-covid-restrictions/\" data-iframely-url=\"//cdn.iframe.ly/api/iframe?url=https%3A%2F%2Fwww.washingtonpost.com%2Ftravel%2Ftips%2Ffrance-travel-us-covid-restrictions%2F&key=8fe6cdec03482ac31f27a6ae8ea2fb3f\"></a></div></div><script async src=\"//cdn.iframe.ly/embed.js\" charset=\"utf-8\"></script>",
+                "type": "rich",
+                "title": "Everything you need to know about traveling to France",
+                "author": "Natalie B. Compton",
+                "options": {
+                    "card": {
+                        "value": "",
+                        "values": {
+                            "small": "Make it a small card"
+                        }
+                    }
+                },
+                "version": "1.0",
+                "cache_age": 86400,
+                "description": "Here's some essential advice for visiting France, including how to navigate the country's vaccination requirements. Here's some essential advice for visiting France, including how to navigate the country's vaccination requirements.",
+                "provider_name": "Washington Post",
+                "thumbnail_url": "https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/RJAEBZMIKJHPFHDOXCPNIF4VJI.jpg&w=1440",
+                "thumbnail_width": 1440,
+                "thumbnail_height": 960
+            },
+            "show_thumbnail": false,
+            "layout": "horizontal",
+            "new_tab": true
+        },
+        {
+            "type": "paragraph",
+            "children": [
+                {
+                    "text": "Horizontal web bookmark card without description, opening in a new tab:"
+                }
+            ]
+        },
+        {
+            "type": "bookmark",
+            "children": [
+                {
+                    "text": ""
+                }
+            ],
+            "uuid": "3d497238-9bb3-478c-89e0-13dda44977cd",
+            "url": "https://www.washingtonpost.com/travel/tips/france-travel-us-covid-restrictions/",
+            "oembed": {
+                "url": "https://www.washingtonpost.com/travel/tips/france-travel-us-covid-restrictions/",
+                "html": "<div class=\"iframely-embed\"><div class=\"iframely-responsive\" style=\"padding-bottom: 66.6667%; padding-top: 120px;\"><a href=\"https://www.washingtonpost.com/travel/tips/france-travel-us-covid-restrictions/\" data-iframely-url=\"//cdn.iframe.ly/api/iframe?url=https%3A%2F%2Fwww.washingtonpost.com%2Ftravel%2Ftips%2Ffrance-travel-us-covid-restrictions%2F&key=8fe6cdec03482ac31f27a6ae8ea2fb3f\"></a></div></div><script async src=\"//cdn.iframe.ly/embed.js\" charset=\"utf-8\"></script>",
+                "type": "rich",
+                "title": "Everything you need to know about traveling to France",
+                "author": "Natalie B. Compton",
+                "options": {
+                    "card": {
+                        "value": "",
+                        "values": {
+                            "small": "Make it a small card"
+                        }
+                    }
+                },
+                "version": "1.0",
+                "cache_age": 86400,
+                "provider_name": "Washington Post",
+                "thumbnail_url": "https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/RJAEBZMIKJHPFHDOXCPNIF4VJI.jpg&w=1440",
+                "thumbnail_width": 1440,
+                "thumbnail_height": 960
+            },
+            "show_thumbnail": true,
+            "layout": "horizontal",
+            "new_tab": true
+        },
+        {
+            "type": "paragraph",
+            "children": [
+                {
+                    "text": "Vertical web bookmark card opening in a new tab:"
+                }
+            ]
+        },
+        {
+            "type": "bookmark",
+            "children": [
+                {
+                    "text": ""
+                }
+            ],
+            "uuid": "3d497238-9bb3-478c-89e0-13dda44977cd",
+            "url": "https://www.economist.com",
+            "oembed": {
+                "url": "https://www.economist.com",
+                "html": "<div class=\"iframely-embed\"><div class=\"iframely-responsive\" style=\"height: 140px; padding-bottom: 0;\"><a href=\"https://www.economist.com\" data-iframely-url=\"//cdn.iframe.ly/api/iframe?url=https%3A%2F%2Fwww.economist.com&key=8fe6cdec03482ac31f27a6ae8ea2fb3f\"></a></div></div><script async src=\"//cdn.iframe.ly/embed.js\" charset=\"utf-8\"></script>",
+                "type": "rich",
+                "title": "The Economist - World News, Politics, Economics, Business & Finance",
+                "version": "1.0",
+                "cache_age": 86400,
+                "description": "Authoritative global news and analysis. The Economist offers fair-minded, fact-checked coverage of world politics, economics, business, science, culture and more. Here's some essential advice for visiting France, including how to navigate the country's vaccination requirements.",
+                "provider_name": "The Economist",
+                "thumbnail_url": "https://www.economist.com/engassets/google-search-logo.f1ea908894.png",
+                "thumbnail_width": 384,
+                "thumbnail_height": 384
+            },
+            "show_thumbnail": true,
+            "layout": "vertical",
+            "new_tab": true
+        },
+        {
+            "type": "paragraph",
+            "children": [
+                {
+                    "text": "Minimal bookmark with no details apart from the URL:"
+                }
+            ]
+        },
+        {
+            "type": "bookmark",
+            "children": [
+                {
+                    "text": ""
+                }
+            ],
+            "uuid": "3d497238-9bb3-478c-89e0-13dda44977cd",
+            "url": "https://www.economist.com",
+            "oembed": {
+                "url": "https://www.economist.com",
+                "type": "rich",
+                "version": "1.0",
+                "cache_age": 86400,
+                "thumbnail_url": "https://www.economist.com/engassets/google-search-logo.f1ea908894.png",
+                "thumbnail_width": 384,
+                "thumbnail_height": 384
+            },
+            "show_thumbnail": false,
+            "layout": "horizontal",
+            "new_tab": true
+        },
+        {
+            "type": "heading-two",
+            "children": [
+                {
+                    "text": "Videos"
+                }
+            ]
+        },
+        {
+            "type": "paragraph",
+            "children": [
+                {
+                    "text": "Regular video block:"
+                }
+            ]
+        },
+        {
+            "type": "video",
+            "children": [
+                {
+                    "text": ""
+                }
+            ],
+            "uuid": "eb427552-4110-487a-b1ed-228c5173ea37",
+            "url": "https://www.youtube.com/watch?v=OYMLjqoYhdw",
+            "oembed": {
+                "url": "https://www.youtube.com/watch?v=OYMLjqoYhdw",
+                "html": "<div><div style=\"left: 0; width: 100%; height: 0; position: relative; padding-bottom: 56.25%;\"><iframe src=\"//cdn.iframe.ly/api/iframe?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DOYMLjqoYhdw&key=8fe6cdec03482ac31f27a6ae8ea2fb3f\" style=\"top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;\" allowfullscreen scrolling=\"no\" allow=\"accelerometer *; clipboard-write *; encrypted-media *; gyroscope *; picture-in-picture *;\"></iframe></div></div>",
+                "type": "video",
+                "title": "Guardians of the Galaxy Awesome Mix Vol 1 Vol 2",
+                "author": "Alternitive Videos",
+                "options": {
+                    "_end": {
+                        "label": "End on",
+                        "value": "",
+                        "placeholder": "ex.: 11, 1m10s"
+                    },
+                    "_start": {
+                        "label": "Start from",
+                        "value": "",
+                        "placeholder": "ex.: 11, 1m10s"
+                    },
+                    "click_to_play": {
+                        "label": "Hold load & play until clicked",
+                        "value": false
+                    },
+                    "_cc_load_policy": {
+                        "label": "Closed captions",
+                        "value": false
+                    }
+                },
+                "version": "1.0",
+                "cache_age": 86400,
+                "author_url": "https://www.youtube.com/channel/UCF9XGmwnpitwBIUlQkQZOgA",
+                "description": "Diese Aufzeichnung dient lediglich zu Schulungszwecken und  Bereicherung an alle, die diese Folge verpasst haben oder sie aus dem Ausland nicht verfolgen konnten !\nBei Problemen bitte unter Alternative Videos melden!",
+                "provider_name": "YouTube",
+                "thumbnail_url": "https://i.ytimg.com/vi/OYMLjqoYhdw/sddefault.jpg",
+                "thumbnail_width": 640,
+                "thumbnail_height": 480
+            }
+        },
+        {
+            "type": "paragraph",
+            "children": [
+                {
+                    "text": "Video with non-standard aspect ratio:"
+                }
+            ]
+        },
+        {
+            "type": "video",
+            "children": [
+                {
+                    "text": ""
+                }
+            ],
+            "uuid": "a2c539d4-b9a0-4ecb-acf9-0e6167b30e0e",
+            "url": "https://youtu.be/PU5xxh5UX4U?list=RDMMPU5xxh5UX4U",
+            "oembed": {
+                "url": "https://www.youtube.com/watch?v=PU5xxh5UX4U",
+                "html": "<div><div style=\"left: 0; width: 100%; height: 0; position: relative; padding-bottom: 75%;\"><iframe src=\"//cdn.iframe.ly/api/iframe?url=https%3A%2F%2Fyoutu.be%2FPU5xxh5UX4U%3Flist%3DRDMMPU5xxh5UX4U&key=8fe6cdec03482ac31f27a6ae8ea2fb3f\" style=\"top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;\" allowfullscreen scrolling=\"no\" allow=\"accelerometer *; clipboard-write *; encrypted-media *; gyroscope *; picture-in-picture *;\"></iframe></div></div>",
+                "type": "video",
+                "title": "Elvis Presley - Return To Sender [Video]",
+                "author": "Reigh Phillip Clayton channel",
+                "options": {
+                    "_end": {
+                        "label": "End on",
+                        "value": "",
+                        "placeholder": "ex.: 11, 1m10s"
+                    },
+                    "_start": {
+                        "label": "Start from",
+                        "value": "",
+                        "placeholder": "ex.: 11, 1m10s"
+                    },
+                    "click_to_play": {
+                        "label": "Hold load & play until clicked",
+                        "value": false
+                    },
+                    "_cc_load_policy": {
+                        "label": "Closed captions",
+                        "value": false
+                    }
+                },
+                "version": "1.0",
+                "cache_age": 86400,
+                "author_url": "https://www.youtube.com/channel/UC7dL8Suw0BKad30H2kddLnQ",
+                "description": "My favorite Elvis song.",
+                "provider_name": "YouTube",
+                "thumbnail_url": "https://i.ytimg.com/vi/PU5xxh5UX4U/hqdefault.jpg",
+                "thumbnail_width": 480,
+                "thumbnail_height": 360
+            }
+        },
+        {
+            "type": "paragraph",
+            "children": [
+                {
+                    "text": "Video without iframe embed code:"
+                }
+            ]
+        },
+        {
+            "type": "video",
+            "children": [
+                {
+                    "text": ""
+                }
+            ],
+            "uuid": "379f74f1-44cd-4d6b-8716-181dc5654a14",
+            "url": "https://youtu.be/PU5xxh5UX4U?list=RDMMPU5xxh5UX4U",
+            "oembed": {
+                "url": "https://www.youtube.com/watch?v=PU5xxh5UX4U",
+                "type": "video",
+                "title": "Elvis Presley - Return To Sender [Video]",
+                "author": "Reigh Phillip Clayton channel",
+                "options": {
+                    "_end": {
+                        "label": "End on",
+                        "value": "",
+                        "placeholder": "ex.: 11, 1m10s"
+                    },
+                    "_start": {
+                        "label": "Start from",
+                        "value": "",
+                        "placeholder": "ex.: 11, 1m10s"
+                    },
+                    "click_to_play": {
+                        "label": "Hold load & play until clicked",
+                        "value": false
+                    },
+                    "_cc_load_policy": {
+                        "label": "Closed captions",
+                        "value": false
+                    }
+                },
+                "version": "1.0",
+                "cache_age": 86400,
+                "author_url": "https://www.youtube.com/channel/UC7dL8Suw0BKad30H2kddLnQ",
+                "description": "My favorite Elvis song.",
+                "provider_name": "YouTube",
+                "thumbnail_url": "https://i.ytimg.com/vi/PU5xxh5UX4U/hqdefault.jpg",
+                "thumbnail_width": 480,
+                "thumbnail_height": 360
+            }
+        },
+        {
+            "type": "paragraph",
+            "children": [
+                {
+                    "text": "Video without thumbnail and without iframe embed code:"
+                }
+            ]
+        },
+        {
+            "type": "video",
+            "children": [
+                {
+                    "text": ""
+                }
+            ],
+            "uuid": "abcb7f08-d323-495f-ae4b-9a9b927b3ac1",
+            "url": "https://youtu.be/PU5xxh5UX4U?list=RDMMPU5xxh5UX4U",
+            "oembed": {
+                "url": "https://www.youtube.com/watch?v=PU5xxh5UX4U",
+                "type": "video",
+                "title": "Elvis Presley - Return To Sender [Video]",
+                "author": "Reigh Phillip Clayton channel",
+                "version": "1.0",
+                "cache_age": 86400,
+                "author_url": "https://www.youtube.com/channel/UC7dL8Suw0BKad30H2kddLnQ",
+                "description": "My favorite Elvis song.",
+                "provider_name": "YouTube"
+            }
+        },
+        {
+            "type": "heading-two",
+            "children": [
+                {
+                    "text": "Embeds"
+                }
+            ]
+        },
+        {
+            "type": "paragraph",
+            "children": [
+                {
+                    "text": "Video embed (iframe):"
+                }
+            ]
+        },
+        {
             "type": "embed",
             "children": [
                 {
@@ -868,68 +1369,12 @@
             }
         },
         {
-            "type": "attachment",
+            "type": "paragraph",
             "children": [
                 {
-                    "text": ""
-                }
-            ],
-            "description": "example",
-            "file": {
-                "version": 2,
-                "uuid": "8b4308af-6e4b-450e-aaee-34a39f35556b",
-                "filename": "example.pdf",
-                "mime_type": "application/pdf",
-                "size": 433994
-            }
-        },
-        {
-            "type": "embed",
-            "children": [
-                {
-                    "text": ""
-                }
-            ],
-            "uuid": "da744513-8fe7-4e22-9e85-6f5e122b93a1",
-            "url": "http://example.com",
-            "oembed": {
-                "cache_age": 86400,
-                "html": "<a class=\"embed embed--link\" href=\"http://example.com\" target=\"_blank\" rel=\"noopener noreferrer\">Example Domain</a>",
-                "title": "Example Domain",
-                "type": "link",
-                "url": "http://example.com",
-                "version": "1.0"
-            }
-        },
-        {
-            "type": "divider",
-            "children": [
-                {
-                    "text": ""
+                    "text": "Twitter post embed (iframe):"
                 }
             ]
-        },
-        {
-            "type": "contact",
-            "children": [
-                {
-                    "text": ""
-                }
-            ],
-            "uuid": "a456b750-65cb-49da-8f4a-7f53906bce28",
-            "contact": {
-                "id": 233967,
-                "avatar_url": "",
-                "company": "fff",
-                "description": "Cccc",
-                "email": "ddd@example.com",
-                "facebook": "ggg",
-                "mobile": "5566778899",
-                "name": "Aaaa Bbbb",
-                "phone": "0011223344",
-                "twitter": "eee",
-                "website": "http://rock.prezly.com"
-            }
         },
         {
             "type": "embed",
@@ -967,6 +1412,14 @@
             }
         },
         {
+            "type": "paragraph",
+            "children": [
+                {
+                    "text": "Rich website card (iframe):"
+                }
+            ]
+        },
+        {
             "type": "embed",
             "children": [
                 {
@@ -994,25 +1447,81 @@
             "type": "paragraph",
             "children": [
                 {
-                    "text": ""
+                    "text": "Minimal details embed (link only):"
                 }
             ]
         },
         {
-            "type": "paragraph",
+            "type": "embed",
             "children": [
                 {
                     "text": ""
+                }
+            ],
+            "uuid": "da744513-8fe7-4e22-9e85-6f5e122b93a1",
+            "url": "https://www.prezly.com/",
+            "oembed": {
+                "cache_age": 86400,
+                "html": "<a class=\"embed embed--link\" href=\"http://example.com\" target=\"_blank\" rel=\"noopener noreferrer\">Example Domain</a>",
+                "title": "Prezly: PR Software for better, faster PR",
+                "type": "link",
+                "url": "https://www.prezly.com/",
+                "version": "1.0"
+            }
+        },
+        {
+            "type": "heading-two",
+            "children": [
+                {
+                    "text": "File attachment"
                 }
             ]
         },
         {
-            "type": "paragraph",
+            "type": "attachment",
             "children": [
                 {
                     "text": ""
                 }
+            ],
+            "description": "example",
+            "file": {
+                "version": 2,
+                "uuid": "8b4308af-6e4b-450e-aaee-34a39f35556b",
+                "filename": "example.pdf",
+                "mime_type": "application/pdf",
+                "size": 433994
+            }
+        },
+        {
+            "type": "heading-two",
+            "children": [
+                {
+                    "text": "Press contacts"
+                }
             ]
+        },
+        {
+            "type": "contact",
+            "children": [
+                {
+                    "text": ""
+                }
+            ],
+            "uuid": "a456b750-65cb-49da-8f4a-7f53906bce28",
+            "contact": {
+                "id": 233967,
+                "avatar_url": "https://ucarecdn.com/da3ea88f-ddfe-4593-a6e4-07c9f9467d5e/PhilipCooper.jpg",
+                "company": "TechCrunch",
+                "description": "PR Manager",
+                "email": "phil@techcrunch.com",
+                "facebook": "https://facebook.com/PhilipCooper",
+                "mobile": "+1 555 012 751",
+                "name": "Philip Cooper",
+                "phone": "+1 555 991 229",
+                "twitter": "@PhilipCooper",
+                "website": "https://techcrunch.com/"
+            }
         }
     ],
     "version": "0.50"
