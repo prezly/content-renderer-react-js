@@ -107,9 +107,7 @@ export const Bookmark: FunctionComponent<Props> = ({ node, className, ...attribu
                     </a>
                 )}
                 {!isEmptyText(oembed.description) && (
-                    <div className="prezly-slate-bookmark__description">
-                        {oembed.description}
-                    </div>
+                    <div className="prezly-slate-bookmark__description">{oembed.description}</div>
                 )}
                 <Provider oembed={oembed} showUrl={isEmpty} />
             </div>

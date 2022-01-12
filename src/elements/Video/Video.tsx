@@ -55,7 +55,10 @@ const ThumbnailPlaceholder: FunctionComponent = () => (
     <div className="prezly-slate-video__thumbnail-placeholder" />
 );
 
-const PlayButtonOverlay: FunctionComponent<{ href: string, title?: string }> = ({ href, title }) => (
+const PlayButtonOverlay: FunctionComponent<{ href: string; title?: string }> = ({
+    href,
+    title,
+}) => (
     <a
         className="prezly-slate-video__play-button-overlay"
         href={href}
