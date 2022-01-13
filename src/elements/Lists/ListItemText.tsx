@@ -9,7 +9,7 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 }
 
 export const ListItemText: FunctionComponent<Props> = ({ children, className, node, ...props }) => (
-    <div className={classNames('prezly-slate-list-item-text', className)} {...props}>
+    <span className={classNames('prezly-slate-list-item-text', className)} {...props}>
         {children}
-    </div>
+    </span>
 );

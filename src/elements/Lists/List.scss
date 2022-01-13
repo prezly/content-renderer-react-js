@@ -1,11 +1,18 @@
 @import "styles/variables.scss";
 
-.prezly-slate-paragraph {
+.prezly-slate-list {
     margin: $spacing-2 0;
+    padding: 0;
+    padding-left: $spacing-4;
     color: $color-text;
-    font-weight: 500;
     font-size: $font-size-m;
     line-height: $line-height;
+
+    &--align-left,
+    &--align-right,
+    &--align-center {
+        list-style-position: inside;
+    }
 
     &--align-left {
         text-align: left;
@@ -15,5 +22,9 @@
     }
     &--align-right {
         text-align: right;
+    }
+
+    .prezly-slate-list {
+        margin: 0;
     }
 }

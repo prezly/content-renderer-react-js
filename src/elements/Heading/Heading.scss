@@ -1,0 +1,28 @@
+@import "styles/variables.scss";
+
+.prezly-slate-heading {
+    color: $color-text;
+
+    &--heading-1 {
+        margin: $block-spacing-vertical 0 $spacing-3 0;
+        font-size: 28px;
+        line-height: 34px;
+        font-weight: bold;
+    }
+
+    &--heading-2 {
+        margin: $spacing-3 0;
+        font-size: 22px;
+        line-height: 28px;
+    }
+
+    &--align-left {
+        text-align: left;
+    }
+    &--align-center {
+        text-align: center;
+    }
+    &--align-right {
+        text-align: right;
+    }
+}

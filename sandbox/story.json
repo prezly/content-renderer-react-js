@@ -510,6 +510,149 @@
             "type": "heading-two",
             "children": [
                 {
+                    "text": "Text alignment"
+                }
+            ]
+        },
+        {
+            "type": "paragraph",
+            "align": "center",
+            "children": [
+                {
+                    "text": "Top-level text blocks can be centered now"
+                }
+            ]
+        },
+        {
+            "type": "paragraph",
+            "align": "right",
+            "children": [
+                {
+                    "text": "... or aligned to right"
+                }
+            ]
+        },
+        {
+            "type": "heading-one",
+            "align": "center",
+            "children": [
+                {
+                    "text": "Headings can be centered too"
+                }
+            ]
+        },
+        {
+            "type": "heading-two",
+            "align": "right",
+            "children": [
+                {
+                    "text": "... or right-aligned!"
+                }
+            ]
+        },
+        {
+            "type": "block-quote",
+            "align": "center",
+            "children": [
+                {
+                    "text": "Same goes for blockquotes"
+                }
+            ]
+        },
+        {
+            "type": "bulleted-list",
+            "align": "center",
+            "children": [
+                {
+                    "type": "list-item",
+                    "children": [
+                        {
+                            "type": "list-item-text",
+                            "children": [
+                                {
+                                    "text": "Lists"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "list-item",
+                    "children": [
+                        {
+                            "type": "list-item-text",
+                            "children": [
+                                {
+                                    "text": "Can be centered"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "list-item",
+                    "children": [
+                        {
+                            "type": "list-item-text",
+                            "children": [
+                                {
+                                    "text": "as well"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "numbered-list",
+            "align": "right",
+            "children": [
+                {
+                    "type": "list-item",
+                    "children": [
+                        {
+                            "type": "list-item-text",
+                            "children": [
+                                {
+                                    "text": "Or even"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "list-item",
+                    "children": [
+                        {
+                            "type": "list-item-text",
+                            "children": [
+                                {
+                                    "text": "aligned"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "list-item",
+                    "children": [
+                        {
+                            "type": "list-item-text",
+                            "children": [
+                                {
+                                    "text": "to the right"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "heading-two",
+            "children": [
+                {
                     "text": "Divider"
                 }
             ]
