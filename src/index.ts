@@ -10,7 +10,7 @@ export {
     Document,
     Embed,
     Gallery,
-    Heading1,
+    Heading,
     Heading2,
     Image,
     Link,
