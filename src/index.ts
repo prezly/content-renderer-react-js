@@ -4,7 +4,7 @@ export type { ComponentRenderers, NodeRenderer, TextRenderer, Transformation } f
 export { defaultComponents } from './defaultComponents';
 export {
     Attachment,
-    BulletedList,
+    List,
     Contact,
     Divider,
     Document,

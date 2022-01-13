@@ -27,7 +27,6 @@ import { DefaultTextRenderer } from './DefaultTextRenderer';
 import {
     Attachment,
     Bookmark,
-    BulletedList,
     Contact,
     Divider,
     Document,
@@ -37,10 +36,10 @@ import {
     Heading2,
     Image,
     Link,
+    List,
     ListItem,
     ListItemText,
     Mention,
-    NumberedList,
     Paragraph,
     Placeholder,
     Quote,
@@ -51,7 +50,7 @@ import type { ComponentRenderers } from './types';
 export const defaultComponents: Required<ComponentRenderers> = {
     [ATTACHMENT_NODE_TYPE]: Attachment,
     [BOOKMARK_NODE_TYPE]: Bookmark,
-    [BULLETED_LIST_NODE_TYPE]: BulletedList,
+    [BULLETED_LIST_NODE_TYPE]: List,
     [CONTACT_NODE_TYPE]: Contact,
     [COVERAGE_NODE_TYPE]: () => <span>TODO</span>, // TODO
     [DIVIDER_NODE_TYPE]: Divider,
@@ -65,7 +64,7 @@ export const defaultComponents: Required<ComponentRenderers> = {
     [LIST_ITEM_NODE_TYPE]: ListItem,
     [LIST_ITEM_TEXT_NODE_TYPE]: ListItemText,
     [MENTION_NODE_TYPE]: Mention,
-    [NUMBERED_LIST_NODE_TYPE]: NumberedList,
+    [NUMBERED_LIST_NODE_TYPE]: List,
     [PARAGRAPH_NODE_TYPE]: Paragraph,
     [PLACEHOLDER_NODE_TYPE]: Placeholder,
     [QUOTE_NODE_TYPE]: Quote,

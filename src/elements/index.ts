@@ -10,7 +10,7 @@ export { Heading2 } from './Heading2';
 export { Image } from './Image';
 export { Mention } from './Mention';
 export { Link } from './Link';
-export { BulletedList, NumberedList, ListItem, ListItemText } from './Lists';
+export { List, ListItem, ListItemText } from './Lists';
 export { Paragraph } from './Paragraph';
 export { Placeholder } from './Placeholder';
 export { Quote } from './Quote';
