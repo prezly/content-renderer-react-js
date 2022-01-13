@@ -1,6 +1,5 @@
 export { Attachment } from './Attachment';
 export { Bookmark } from './Bookmark';
-export { BulletedList } from './BulletedList';
 export { Contact } from './Contact';
 export { Divider } from './Divider';
 export { Document } from './Document';
@@ -11,9 +10,7 @@ export { Heading2 } from './Heading2';
 export { Image } from './Image';
 export { Mention } from './Mention';
 export { Link } from './Link';
-export { ListItem } from './ListItem';
-export { ListItemText } from './ListItemText';
-export { NumberedList } from './NumberedList';
+export { BulletedList, NumberedList, ListItem, ListItemText } from './Lists';
 export { Paragraph } from './Paragraph';
 export { Placeholder } from './Placeholder';
 export { Quote } from './Quote';
