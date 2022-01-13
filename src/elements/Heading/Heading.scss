@@ -15,4 +15,14 @@
         font-size: 22px;
         line-height: 28px;
     }
+
+    &--align-left {
+        text-align: left;
+    }
+    &--align-center {
+        text-align: center;
+    }
+    &--align-right {
+        text-align: right;
+    }
 }

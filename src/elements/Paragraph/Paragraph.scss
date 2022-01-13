@@ -6,4 +6,14 @@
     font-weight: 500;
     font-size: $font-size-m;
     line-height: $line-height;
+
+    &--align-left {
+        text-align: left;
+    }
+    &--align-center {
+        text-align: center;
+    }
+    &--align-right {
+        text-align: right;
+    }
 }

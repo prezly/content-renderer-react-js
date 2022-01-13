@@ -8,4 +8,14 @@
     font-size: $font-size-m;
     line-height: $line-height;
     font-style: italic;
+
+    &--align-left {
+        text-align: left;
+    }
+    &--align-center {
+        text-align: center;
+    }
+    &--align-right {
+        text-align: right;
+    }
 }
