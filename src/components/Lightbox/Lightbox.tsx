@@ -1,7 +1,7 @@
 import type { UploadcareImage } from '@prezly/slate-types';
 import { useEventListener } from '@react-hookz/web';
 import classNames from 'classnames';
-import React, { FunctionComponent, KeyboardEvent, ReactNode } from 'react';
+import React, { FunctionComponent, KeyboardEvent, ReactNode, useEffect } from 'react';
 import Modal from 'react-modal';
 
 import { ChevronLeft, ChevronRight, Close } from '../../icons';
@@ -19,7 +19,9 @@ interface Props {
     isNextEnabled?: boolean;
     isPreviousEnabled?: boolean;
     onClose: () => void;
+    onDownload?: (image: UploadcareImage) => void;
     onNext?: () => void;
+    onOpen?: (image: UploadcareImage) => void;
     onPrevious?: () => void;
 }
 
@@ -30,7 +32,9 @@ export const Lightbox: FunctionComponent<Props> = ({
     isNextEnabled,
     isPreviousEnabled,
     onClose,
+    onDownload = noop,
     onNext = noop,
+    onOpen = noop,
     onPrevious = noop,
 }) => {
     useEventListener(
@@ -54,6 +58,12 @@ export const Lightbox: FunctionComponent<Props> = ({
             }
         },
     );
+
+    useEffect(() => {
+        if (image) {
+            onOpen(image);
+        }
+    }, [image]);
 
     if (typeof window === 'undefined') {
         // Do not render Lightbox outside of browser environment (i.e. SSR)
@@ -105,6 +115,7 @@ export const Lightbox: FunctionComponent<Props> = ({
                             rel="noreferrer noopener"
                             target="_blank"
                             title="Download"
+                            onClick={() => onDownload(image)}
                         >
                             Download
                         </a>
