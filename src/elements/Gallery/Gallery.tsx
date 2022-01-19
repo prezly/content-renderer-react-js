@@ -1,4 +1,4 @@
-import type { GalleryNode } from '@prezly/slate-types';
+import type { GalleryNode, UploadcareImage } from '@prezly/slate-types';
 import { useMeasure } from '@react-hookz/web';
 import classNames from 'classnames';
 import React, { FunctionComponent, HTMLAttributes, useMemo } from 'react';
@@ -14,12 +14,16 @@ interface Props extends HTMLAttributes<HTMLElement> {
     children?: never;
     node: GalleryNode;
     maxViewportWidth?: number;
+    onImageDownload?: (image: UploadcareImage) => void;
+    onPreviewOpen?: (image: UploadcareImage) => void;
 }
 
 export const Gallery: FunctionComponent<Props> = ({
     className,
     maxViewportWidth = DEFAULT_MAX_VIEWPORT_WIDTH,
     node,
+    onImageDownload,
+    onPreviewOpen,
     ...props
 }) => {
     const [rect, ref] = useMeasure<HTMLDivElement>();
@@ -62,7 +66,9 @@ export const Gallery: FunctionComponent<Props> = ({
                 isNextEnabled={isNextEnabled}
                 isPreviousEnabled={isPreviousEnabled}
                 onClose={onClose}
+                onDownload={onImageDownload}
                 onNext={onNext}
+                onOpen={onPreviewOpen}
                 onPrevious={onPrevious}
             >
                 {image?.caption}
