@@ -140,7 +140,9 @@
         @include vertical-layout();
     }
     &--horizontal {
-        @include horizontal-layout();
+        @media (min-width: $screen-s) {
+            @include horizontal-layout();
+        }
 
         @media (max-width: $screen-xs-max) {
             @include vertical-layout();
