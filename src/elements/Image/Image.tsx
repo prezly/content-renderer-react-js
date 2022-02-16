@@ -53,6 +53,7 @@ export const Image: FunctionComponent<Props> = ({
         >
             {href && (
                 <a
+                    id={`image-${file.uuid}`}
                     href={href}
                     className="prezly-slate-image__link"
                     target="_blank"
@@ -67,6 +68,7 @@ export const Image: FunctionComponent<Props> = ({
 
             {!href && (
                 <Rollover
+                    id={`image-${file.uuid}`}
                     disabled={image.isGif()}
                     onClick={handleRolloverClick}
                     style={containerStyle}

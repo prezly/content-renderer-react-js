@@ -19,6 +19,7 @@ export const Attachment: FunctionComponent<Props> = ({ className, children, node
 
     return (
         <a
+            id={`attachment-${file.uuid}`}
             className={classNames('prezly-slate-attachment', className)}
             href={attachment.downloadUrl}
             {...props}

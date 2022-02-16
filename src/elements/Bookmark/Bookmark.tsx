@@ -45,10 +45,11 @@ const Thumbnail: FunctionComponent<{
     </a>
 );
 
-const Provider: FunctionComponent<{ oembed: BookmarkNode['oembed']; showUrl: boolean }> = ({
-    oembed,
-    showUrl,
-}) => {
+const Provider: FunctionComponent<{
+    oembed: BookmarkNode['oembed'];
+    showUrl: boolean;
+    uuid?: string;
+}> = ({ oembed, showUrl, uuid }) => {
     const { url } = oembed;
     const favicon = `https://avatars-cdn.prezly.com/favicon?url=${url}?ideal_height=32`;
     const providerUrl = showUrl ? url : homepage(oembed.provider_url || url);
@@ -56,6 +57,7 @@ const Provider: FunctionComponent<{ oembed: BookmarkNode['oembed']; showUrl: boo
 
     return (
         <a
+            id={uuid ? `bookmark-${uuid}` : undefined}
             className="prezly-slate-bookmark__provider"
             rel="noopener noreferrer"
             target="_blank"
@@ -73,7 +75,7 @@ const Provider: FunctionComponent<{ oembed: BookmarkNode['oembed']; showUrl: boo
 };
 
 export const Bookmark: FunctionComponent<Props> = ({ node, className, ...attributes }) => {
-    const { url, oembed, layout } = node;
+    const { url, oembed, layout, uuid } = node;
     const showThumbnail = node.show_thumbnail && oembed.thumbnail_url;
     const isEmpty = !showThumbnail && isEmptyText(oembed.title) && isEmptyText(oembed.description);
     const actualLayout = showThumbnail ? layout : BookmarkCardLayout.HORIZONTAL;
@@ -98,6 +100,7 @@ export const Bookmark: FunctionComponent<Props> = ({ node, className, ...attribu
             <div className="prezly-slate-bookmark__details">
                 {!isEmptyText(oembed.title) && (
                     <a
+                        id={`bookmark-${uuid}`}
                         className="prezly-slate-bookmark__title"
                         href={url}
                         rel="noopener noreferrer"
@@ -109,7 +112,7 @@ export const Bookmark: FunctionComponent<Props> = ({ node, className, ...attribu
                 {!isEmptyText(oembed.description) && (
                     <div className="prezly-slate-bookmark__description">{oembed.description}</div>
                 )}
-                <Provider oembed={oembed} showUrl={isEmpty} />
+                <Provider oembed={oembed} showUrl={isEmpty} uuid={isEmptyText(oembed.title) ? uuid : undefined} />
             </div>
         </div>
     );

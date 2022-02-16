@@ -22,6 +22,7 @@ export const Embed: FunctionComponent<Props> = ({
     const { oembed, url } = node;
 
     const commonProps = {
+        id: `embed-${node.uuid}`,
         className: classNames('prezly-slate-embed', className),
         title: oembed.title || url,
         ...props,

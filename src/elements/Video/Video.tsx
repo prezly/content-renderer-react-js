@@ -19,7 +19,11 @@ export const Video: FunctionComponent<Props> = ({ className, node }) => {
     return (
         <div className={classNames('prezly-slate-video', className)}>
             {!isHtmlEmbeddedWithErrors && oembed.html ? (
-                <HtmlInjection html={oembed.html} onError={() => setHtmlEmbeddedWithErrors(true)} />
+                <HtmlInjection
+                    id={`video-${node.uuid}`}
+                    html={oembed.html}
+                    onError={() => setHtmlEmbeddedWithErrors(true)}
+                />
             ) : (
                 <>
                     <Thumbnail
@@ -27,7 +31,11 @@ export const Video: FunctionComponent<Props> = ({ className, node }) => {
                         width={oembed.thumbnail_width}
                         height={oembed.thumbnail_height}
                     />
-                    <PlayButtonOverlay href={url} title={node.oembed.title} />
+                    <PlayButtonOverlay
+                        id={`video-${node.uuid}`}
+                        href={url}
+                        title={node.oembed.title}
+                    />
                 </>
             )}
         </div>
@@ -55,11 +63,13 @@ const ThumbnailPlaceholder: FunctionComponent = () => (
     <div className="prezly-slate-video__thumbnail-placeholder" />
 );
 
-const PlayButtonOverlay: FunctionComponent<{ href: string; title?: string }> = ({
+const PlayButtonOverlay: FunctionComponent<{ id?: string; href: string; title?: string }> = ({
+    id,
     href,
     title,
 }) => (
     <a
+        id={id}
         className="prezly-slate-video__play-button-overlay"
         href={href}
         rel="noopener noreferer"
