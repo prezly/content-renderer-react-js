@@ -10,6 +10,7 @@ export {
     Embed,
     Gallery,
     Heading,
+    Html,
     Image,
     Link,
     List,
