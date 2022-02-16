@@ -62,7 +62,7 @@ export interface ComponentRenderers {
     [GALLERY_NODE_TYPE]?: NodeRenderer<GalleryNode>;
     [HEADING_1_NODE_TYPE]?: NodeRenderer<HeadingNode>;
     [HEADING_2_NODE_TYPE]?: NodeRenderer<HeadingNode>;
-    [HTML_NODE_TYPE]: NodeRenderer<HtmlNode>;
+    [HTML_NODE_TYPE]?: NodeRenderer<HtmlNode>;
     [IMAGE_NODE_TYPE]?: NodeRenderer<ImageNode>;
     [LINK_NODE_TYPE]?: NodeRenderer<LinkNode>;
     [LIST_ITEM_NODE_TYPE]?: NodeRenderer<ListItemNode>;
