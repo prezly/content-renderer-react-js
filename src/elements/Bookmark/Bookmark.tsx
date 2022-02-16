@@ -46,10 +46,10 @@ const Thumbnail: FunctionComponent<{
 );
 
 const Provider: FunctionComponent<{
+    id?: string;
     oembed: BookmarkNode['oembed'];
     showUrl: boolean;
-    uuid?: string;
-}> = ({ oembed, showUrl, uuid }) => {
+}> = ({ oembed, showUrl, id }) => {
     const { url } = oembed;
     const favicon = `https://avatars-cdn.prezly.com/favicon?url=${url}?ideal_height=32`;
     const providerUrl = showUrl ? url : homepage(oembed.provider_url || url);
@@ -57,7 +57,7 @@ const Provider: FunctionComponent<{
 
     return (
         <a
-            id={uuid ? `bookmark-${uuid}` : undefined}
+            id={id}
             className="prezly-slate-bookmark__provider"
             rel="noopener noreferrer"
             target="_blank"
@@ -79,6 +79,7 @@ export const Bookmark: FunctionComponent<Props> = ({ node, className, ...attribu
     const showThumbnail = node.show_thumbnail && oembed.thumbnail_url;
     const isEmpty = !showThumbnail && isEmptyText(oembed.title) && isEmptyText(oembed.description);
     const actualLayout = showThumbnail ? layout : BookmarkCardLayout.HORIZONTAL;
+    const id = `bookmark-${uuid}`;
 
     return (
         <div
@@ -100,7 +101,7 @@ export const Bookmark: FunctionComponent<Props> = ({ node, className, ...attribu
             <div className="prezly-slate-bookmark__details">
                 {!isEmptyText(oembed.title) && (
                     <a
-                        id={`bookmark-${uuid}`}
+                        id={id}
                         className="prezly-slate-bookmark__title"
                         href={url}
                         rel="noopener noreferrer"
@@ -112,7 +113,11 @@ export const Bookmark: FunctionComponent<Props> = ({ node, className, ...attribu
                 {!isEmptyText(oembed.description) && (
                     <div className="prezly-slate-bookmark__description">{oembed.description}</div>
                 )}
-                <Provider oembed={oembed} showUrl={isEmpty} uuid={isEmptyText(oembed.title) ? uuid : undefined} />
+                <Provider
+                    oembed={oembed}
+                    showUrl={isEmpty}
+                    id={isEmptyText(oembed.title) ? id : undefined}
+                />
             </div>
         </div>
     );
