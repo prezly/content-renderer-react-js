@@ -37,6 +37,7 @@ export const Gallery: FunctionComponent<Props> = ({
 
     return (
         <figure
+            id={`gallery-${node.uuid}`}
             className={classNames('prezly-slate-gallery', className, {
                 'prezly-slate-gallery--contained': node.layout === 'contained',
                 'prezly-slate-gallery--expanded': node.layout === 'expanded',

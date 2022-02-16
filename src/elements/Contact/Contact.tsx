@@ -16,7 +16,11 @@ export const Contact: FunctionComponent<Props> = ({ children, className, node, .
     const jobDescription = [contact.description, contact.company].filter(Boolean).join(', ');
 
     return (
-        <div className={classNames('prezly-slate-contact', className)} {...props}>
+        <div
+            id={`contact-${node.uuid}`}
+            className={classNames('prezly-slate-contact', className)}
+            {...props}
+        >
             <div className="prezly-slate-contact__wrapper">
                 <Avatar name={contact.name} src={contact.avatar_url} />
 

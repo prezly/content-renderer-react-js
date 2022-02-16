@@ -37,6 +37,7 @@ export const GalleryImage: FunctionComponent<Props> = ({
 
     return (
         <Rollover
+            id={`gallery-image-${image.uuid}`}
             className={classNames('prezly-slate-gallery-image', {
                 'prezly-slate-gallery-image--with-border-radius': margin > 0,
             })}
