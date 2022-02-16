@@ -6,6 +6,7 @@ export { Document } from './Document';
 export { Embed } from './Embed';
 export { Gallery } from './Gallery';
 export { Heading } from './Heading';
+export { Html } from './Html';
 export { Image } from './Image';
 export { Mention } from './Mention';
 export { Link } from './Link';

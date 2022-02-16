@@ -10,6 +10,7 @@ import {
     GALLERY_NODE_TYPE,
     HEADING_1_NODE_TYPE,
     HEADING_2_NODE_TYPE,
+    HTML_NODE_TYPE,
     IMAGE_NODE_TYPE,
     LINK_NODE_TYPE,
     LIST_ITEM_NODE_TYPE,
@@ -29,6 +30,7 @@ import {
     EmbedNode,
     GalleryNode,
     HeadingNode,
+    HtmlNode,
     ImageNode,
     LinkNode,
     ListItemNode,
@@ -60,6 +62,7 @@ export interface ComponentRenderers {
     [GALLERY_NODE_TYPE]?: NodeRenderer<GalleryNode>;
     [HEADING_1_NODE_TYPE]?: NodeRenderer<HeadingNode>;
     [HEADING_2_NODE_TYPE]?: NodeRenderer<HeadingNode>;
+    [HTML_NODE_TYPE]: NodeRenderer<HtmlNode>;
     [IMAGE_NODE_TYPE]?: NodeRenderer<ImageNode>;
     [LINK_NODE_TYPE]?: NodeRenderer<LinkNode>;
     [LIST_ITEM_NODE_TYPE]?: NodeRenderer<ListItemNode>;
