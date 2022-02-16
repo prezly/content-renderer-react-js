@@ -67,12 +67,12 @@
     },
     "dependencies": {
         "@prezly/linear-partition": "^1.0.2",
-        "@prezly/slate-types": "^0.14.0",
+        "@prezly/slate-types": "^0.16.0",
         "@react-hookz/web": "^12.0.0",
         "classnames": "^2.2.6",
         "react-modal": "^3.12.1",
         "shave": "^2.5.10",
-        "slate": "^0.70.0",
+        "slate": "^0.71.0",
         "striptags": "^3.1.1"
     },
     "devDependencies": {
