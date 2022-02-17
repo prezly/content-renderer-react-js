@@ -24,7 +24,6 @@ import {
 } from '@prezly/slate-types';
 import React from 'react';
 
-import { DefaultTextRenderer } from './DefaultTextRenderer';
 import {
     Attachment,
     Bookmark,
@@ -44,6 +43,7 @@ import {
     Paragraph,
     Placeholder,
     Quote,
+    Text,
     Video,
 } from './elements';
 import type { ComponentRenderers } from './types';
@@ -71,5 +71,5 @@ export const defaultComponents: Required<ComponentRenderers> = {
     [PLACEHOLDER_NODE_TYPE]: Placeholder,
     [QUOTE_NODE_TYPE]: Quote,
     [VIDEO_NODE_TYPE]: Video,
-    text: DefaultTextRenderer,
+    text: Text,
 };
