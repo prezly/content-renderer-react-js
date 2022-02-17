@@ -1,18 +1,10 @@
+import type { TextNode } from '@prezly/slate-types';
 import React, { ReactNode } from 'react';
-
-import type { TextRenderer } from '../types';
 
 const LINE_BREAKS = /\r\n|\r|\n/;
 
-export const Text: TextRenderer = ({
-    bold,
-    italic,
-    subscript,
-    superscript,
-    text,
-    underlined,
-}) => {
-    let children: ReactNode = preserveSoftBreaks(text);
+export function Text({ bold, italic, subscript, superscript, text, underlined }: TextNode) {
+    let children: ReactNode = Text.preserveSoftBreaks(text);
 
     if (bold) {
         children = <strong>{children}</strong>;
@@ -35,10 +27,9 @@ export const Text: TextRenderer = ({
     }
 
     return <>{children}</>;
-};
+}
 
-
-function preserveSoftBreaks(text: string): ReactNode {
+Text.preserveSoftBreaks = function(text: string): ReactNode {
     const nodes = text.split(LINE_BREAKS).reduce<ReactNode[]>(function (result, part) {
         return result.length === 0 ? [part] : [...result, <br />, part];
     }, []);
