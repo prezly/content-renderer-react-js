@@ -1,10 +1,10 @@
 import React, { ReactNode } from 'react';
 
-import type { TextRenderer } from './types';
+import type { TextRenderer } from '../types';
 
 const LINE_BREAKS = /\r\n|\r|\n/;
 
-export const DefaultTextRenderer: TextRenderer = ({
+export const Text: TextRenderer = ({
     bold,
     italic,
     subscript,

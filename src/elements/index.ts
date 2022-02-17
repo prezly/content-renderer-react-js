@@ -14,4 +14,5 @@ export { List, ListItem, ListItemText } from './Lists';
 export { Paragraph } from './Paragraph';
 export { Placeholder } from './Placeholder';
 export { Quote } from './Quote';
+export { Text } from './Text';
 export { Video } from './Video';
