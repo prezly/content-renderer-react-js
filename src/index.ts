@@ -19,6 +19,7 @@ export {
     Mention,
     Paragraph,
     Quote,
+    Text,
     Placeholder,
 } from './elements';
 export { stringifyNode } from './lib';
