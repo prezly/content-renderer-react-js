@@ -2,6 +2,8 @@ import React, { ReactNode } from 'react';
 
 import type { TextRenderer } from './types';
 
+const LINE_BREAKS = /\r\n|\r|\n/;
+
 export const DefaultTextRenderer: TextRenderer = ({
     bold,
     italic,
@@ -10,27 +12,36 @@ export const DefaultTextRenderer: TextRenderer = ({
     text,
     underlined,
 }) => {
-    let spanChildren: ReactNode = text;
+    let children: ReactNode = preserveSoftBreaks(text);
 
     if (bold) {
-        spanChildren = <strong>{spanChildren}</strong>;
+        children = <strong>{children}</strong>;
     }
 
     if (italic) {
-        spanChildren = <em>{spanChildren}</em>;
+        children = <em>{children}</em>;
     }
 
     if (subscript) {
-        spanChildren = <sub>{spanChildren}</sub>;
+        children = <sub>{children}</sub>;
     }
 
     if (superscript) {
-        spanChildren = <sup>{spanChildren}</sup>;
+        children = <sup>{children}</sup>;
     }
 
     if (underlined) {
-        spanChildren = <u>{spanChildren}</u>;
+        children = <u>{children}</u>;
     }
 
-    return <>{spanChildren}</>;
+    return <>{children}</>;
 };
+
+
+function preserveSoftBreaks(text: string): ReactNode {
+    const nodes = text.split(LINE_BREAKS).reduce<ReactNode[]>(function (result, part) {
+        return result.length === 0 ? [part] : [...result, <br />, part];
+    }, []);
+
+    return <>{nodes}</>;
+}

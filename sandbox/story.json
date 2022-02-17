@@ -61,6 +61,22 @@
             "type": "heading-two",
             "children": [
                 {
+                    "text": "Soft line-breaks"
+                }
+            ]
+        },
+        {
+            "type": "paragraph",
+            "children": [
+                {
+                    "text": "There is a soft-line break after this text:\nthis should appear on the next line"
+                }
+            ]
+        },
+        {
+            "type": "heading-two",
+            "children": [
+                {
                     "text": "Placeholders"
                 }
             ]
