@@ -29,10 +29,10 @@ export function Text({ bold, italic, subscript, superscript, text, underlined }:
     return <>{children}</>;
 }
 
-Text.preserveSoftBreaks = function(text: string): ReactNode {
+Text.preserveSoftBreaks = function (text: string): ReactNode {
     const nodes = text.split(LINE_BREAKS).reduce<ReactNode[]>(function (result, part) {
         return result.length === 0 ? [part] : [...result, <br />, part];
     }, []);
 
     return <>{nodes}</>;
-}
+};
