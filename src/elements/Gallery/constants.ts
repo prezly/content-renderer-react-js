@@ -2,6 +2,8 @@ import type { GalleryNode } from '@prezly/slate-types';
 
 export const DEFAULT_MAX_VIEWPORT_WIDTH = 800;
 
+export const DEFAULT_GALLERY_WIDTH_SSR = 700;
+
 export const IMAGE_PADDING: Record<GalleryNode['padding'], number> = {
     S: 0,
     M: 2,

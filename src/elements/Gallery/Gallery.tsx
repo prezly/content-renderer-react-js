@@ -5,7 +5,12 @@ import React, { FunctionComponent, HTMLAttributes, useMemo } from 'react';
 
 import { Lightbox } from '../../components';
 
-import { DEFAULT_MAX_VIEWPORT_WIDTH, IMAGE_PADDING, IMAGE_SIZE } from './constants';
+import {
+    DEFAULT_GALLERY_WIDTH_SSR,
+    DEFAULT_MAX_VIEWPORT_WIDTH,
+    IMAGE_PADDING,
+    IMAGE_SIZE,
+} from './constants';
 import './Gallery.scss';
 import { GalleryImage } from './GalleryImage';
 import { calculateLayout, prepareImages, useGallery } from './lib';
@@ -27,7 +32,7 @@ export const Gallery: FunctionComponent<Props> = ({
     ...props
 }) => {
     const [rect, ref] = useMeasure<HTMLDivElement>();
-    const width = rect?.width || 0;
+    const width = rect?.width || DEFAULT_GALLERY_WIDTH_SSR;
     const margin = IMAGE_PADDING[node.padding];
     const idealHeight = IMAGE_SIZE[node.thumbnail_size] + 2 * margin;
     const images = useMemo(() => prepareImages(node, maxViewportWidth), [node]);
