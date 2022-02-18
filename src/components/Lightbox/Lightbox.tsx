@@ -23,6 +23,7 @@ interface Props {
     onNext?: () => void;
     onOpen?: (image: UploadcareImage) => void;
     onPrevious?: () => void;
+    previewImage?: (image: UploadcareImage) => UploadcareImage;
 }
 
 export const Lightbox: FunctionComponent<Props> = ({
@@ -36,6 +37,7 @@ export const Lightbox: FunctionComponent<Props> = ({
     onNext = noop,
     onOpen = noop,
     onPrevious = noop,
+    previewImage = defaultPreviewImage,
 }) => {
     useEventListener(
         typeof window !== 'undefined' ? window : globalThis,
@@ -104,7 +106,7 @@ export const Lightbox: FunctionComponent<Props> = ({
                 </div>
 
                 <div className="prezly-slate-lightbox__image-container">
-                    <Media className="prezly-slate-lightbox__image" image={image}>
+                    <Media className="prezly-slate-lightbox__image" image={previewImage(image)}>
                         {children}
                     </Media>
 
@@ -141,3 +143,7 @@ export const Lightbox: FunctionComponent<Props> = ({
         </Modal>
     );
 };
+
+function defaultPreviewImage(image: UploadcareImage): UploadcareImage {
+    return image.preview(2000, 2000);
+}

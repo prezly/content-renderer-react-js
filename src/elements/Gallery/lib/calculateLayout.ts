@@ -4,25 +4,24 @@ interface Image {
     aspectRatio: number;
 }
 
-interface Parameters<T extends Image> {
+interface Parameters {
     idealHeight: number;
-    images: T[];
+    images: Image[];
     viewportWidth: number;
 }
 
-interface Tile<T extends Image> {
-    image: T;
+interface Tile {
+    /**
+     * Image index in the original images array.
+     */
+    index: number;
     width: number;
     height: number;
 }
 
-type Layout<T extends Image> = Tile<T>[][];
+type Layout = Tile[][];
 
-export function calculateLayout<T extends Image>({
-    idealHeight,
-    images,
-    viewportWidth,
-}: Parameters<T>): Layout<T> {
+export function calculateLayout({ idealHeight, images, viewportWidth }: Parameters): Layout {
     if (idealHeight <= 0 || viewportWidth <= 0 || images.length === 0) {
         return [];
     }
@@ -35,27 +34,28 @@ export function calculateLayout<T extends Image>({
 
     const weights = images.map((image) => 100 * image.aspectRatio);
     const partition = linearPartition(weights, rowsCount);
-    const computedRows: Layout<T> = [];
+    const computedLayout: Layout = [];
 
-    let index = 0;
-    partition.forEach((row) => {
-        const rowBuffer = row.map((_, rowImageIndex) => images[index + rowImageIndex]);
-        const aspectRatioSum = rowBuffer.reduce((sum, image) => sum + image.aspectRatio, 0);
-        let widthSum = 0;
-        const computedRow: Tile<T>[] = [];
+    let offset = 0;
 
-        rowBuffer.forEach((image, rowImageIndex) => {
+    for (const row of partition) {
+        const rowImages = row.map((_, index) => images[offset + index]);
+        const aspectRatioSum = rowImages.reduce((sum, image) => sum + image.aspectRatio, 0);
+        let availableWidth = viewportWidth;
+        const computedRow: Tile[] = [];
+
+        rowImages.forEach((image, index) => {
             const width =
-                rowImageIndex === rowBuffer.length - 1
-                    ? viewportWidth - widthSum
+                index === rowImages.length - 1
+                    ? availableWidth
                     : (viewportWidth / aspectRatioSum) * image.aspectRatio;
             const height = viewportWidth / aspectRatioSum;
-            widthSum += width;
-            computedRow.push({ width, height, image });
+            availableWidth -= width;
+            computedRow.push({ index: offset + index, width, height });
         });
-        computedRows.push(computedRow);
-        index += row.length;
-    });
+        computedLayout.push(computedRow);
+        offset += row.length;
+    }
 
-    return computedRows;
+    return computedLayout;
 }
