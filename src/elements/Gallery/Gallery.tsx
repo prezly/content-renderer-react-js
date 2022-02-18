@@ -9,7 +9,7 @@ import { Lightbox } from '../../components';
 import { DEFAULT_GALLERY_WIDTH_SSR, IMAGE_PADDING, IMAGE_SIZE } from './constants';
 import './Gallery.scss';
 import { GalleryImage } from './GalleryImage';
-import { calculateLayout, useGallery } from './lib';
+import { calculateLayout, useLightboxNavigation } from './lib';
 
 interface Props extends HTMLAttributes<HTMLElement> {
     node: GalleryNode;
@@ -39,8 +39,7 @@ export function Gallery({ className, node, onImageDownload, onPreviewOpen, ...pr
             originalImages[index].preview(ceil(width * 2, 500), ceil(height * 2, 500)),
         ),
     );
-    const [{ image, isNextEnabled, isPreviousEnabled }, { onClose, onNext, onOpen, onPrevious }] =
-        useGallery(originalImages);
+    const lightbox = useLightboxNavigation(originalImages);
 
     return (
         <figure
@@ -60,22 +59,22 @@ export function Gallery({ className, node, onImageDownload, onPreviewOpen, ...pr
                         previewImages={previewImages}
                         tiles={tiles}
                         margin={margin}
-                        onClick={onOpen}
+                        onClick={lightbox.onOpen}
                     />
                 ))}
             </div>
 
             <Lightbox
-                image={image}
-                isNextEnabled={isNextEnabled}
-                isPreviousEnabled={isPreviousEnabled}
-                onClose={onClose}
+                image={lightbox.image}
+                isNextEnabled={lightbox.hasNext}
+                isPreviousEnabled={lightbox.hasPrevious}
+                onClose={lightbox.onClose}
                 onDownload={onImageDownload}
-                onNext={onNext}
+                onNext={lightbox.onNext}
                 onOpen={onPreviewOpen}
-                onPrevious={onPrevious}
+                onPrevious={lightbox.onPrevious}
             >
-                {image?.caption}
+                {lightbox.image?.caption}
             </Lightbox>
         </figure>
     );
