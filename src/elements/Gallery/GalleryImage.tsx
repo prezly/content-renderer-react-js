@@ -7,29 +7,32 @@ import { Media, Rollover } from '../../components';
 import './GalleryImage.scss';
 
 interface Props {
-    image: UploadcareImage;
+    originalImage: UploadcareImage;
+    previewImage: UploadcareImage;
     onClick: (image: UploadcareImage) => void;
     rounded?: boolean;
     style?: CSSProperties;
 }
 
-export function GalleryImage({ image, onClick, rounded = false, style }: Props) {
-    const handleClick = () => {
-        onClick(image);
-    };
-
+export function GalleryImage({
+    originalImage,
+    previewImage,
+    onClick,
+    rounded = false,
+    style,
+}: Props) {
     return (
         <Rollover
-            id={`gallery-image-${image.uuid}`}
+            id={`gallery-image-${originalImage.uuid}`}
             className={classNames('prezly-slate-gallery-image', {
                 'prezly-slate-gallery-image--with-border-radius': rounded,
             })}
-            caption={image.caption}
-            onClick={handleClick}
+            caption={originalImage.caption}
+            onClick={() => onClick(originalImage)}
             style={style}
         >
-            <Media className="prezly-slate-gallery-image__media" image={image}>
-                {image.caption}
+            <Media className="prezly-slate-gallery-image__media" image={previewImage}>
+                {originalImage.caption}
             </Media>
         </Rollover>
     );

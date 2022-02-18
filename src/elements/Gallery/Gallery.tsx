@@ -23,7 +23,7 @@ interface Props extends HTMLAttributes<HTMLElement> {
 }
 
 interface Tile {
-    image: UploadcareImage;
+    index: number;
     width: number;
     height: number;
 }
@@ -40,10 +40,19 @@ export function Gallery({
     const width = rect?.width || DEFAULT_GALLERY_WIDTH_SSR[node.layout];
     const margin = IMAGE_PADDING[node.padding];
     const idealHeight = IMAGE_SIZE[node.thumbnail_size] + 2 * margin;
-    const images = useMemo(() => extractImages(node), [node]);
-    const calculatedLayout = calculateLayout({ idealHeight, images, viewportWidth: width });
+    const originalImages = useMemo(() => extractImages(node), [node]);
+    const calculatedLayout = calculateLayout({
+        idealHeight,
+        images: originalImages,
+        viewportWidth: width,
+    });
+    const previewImages = calculatedLayout.flatMap((row) =>
+        row.map(({ index, width, height }) =>
+            originalImages[index].preview(ceil(width * 2, 500), ceil(height * 2, 500)),
+        ),
+    );
     const [{ image, isNextEnabled, isPreviousEnabled }, { onClose, onNext, onOpen, onPrevious }] =
-        useGallery(images);
+        useGallery(originalImages);
 
     return (
         <figure
@@ -57,7 +66,14 @@ export function Gallery({
         >
             <div className="prezly-slate-gallery__images" ref={ref} style={{ margin: -margin }}>
                 {calculatedLayout.map((tiles, index) => (
-                    <Row key={index} tiles={tiles} margin={margin} onClick={onOpen} />
+                    <Row
+                        key={index}
+                        originalImages={originalImages}
+                        previewImages={previewImages}
+                        tiles={tiles}
+                        margin={margin}
+                        onClick={onOpen}
+                    />
                 ))}
             </div>
 
@@ -77,8 +93,14 @@ export function Gallery({
     );
 }
 
-function Row(props: { tiles: Tile[]; margin: number; onClick: (image: UploadcareImage) => void }) {
-    const { margin, onClick, tiles } = props;
+function Row(props: {
+    originalImages: UploadcareImage[];
+    previewImages: UploadcareImage[];
+    tiles: Tile[];
+    margin: number;
+    onClick: (image: UploadcareImage) => void;
+}) {
+    const { originalImages, previewImages, tiles, margin, onClick } = props;
 
     if (tiles.length === 0) {
         return null;
@@ -88,10 +110,11 @@ function Row(props: { tiles: Tile[]; margin: number; onClick: (image: Uploadcare
 
     return (
         <div className="prezly-slate-gallery__row">
-            {tiles.map(({ height, image, width }) => (
+            {tiles.map(({ height, index, width }) => (
                 <GalleryImage
-                    key={image.uuid}
-                    image={image}
+                    key={originalImages[index].uuid}
+                    originalImage={originalImages[index]}
+                    previewImage={previewImages[index]}
                     onClick={onClick}
                     rounded={margin > 0}
                     style={{
@@ -104,4 +127,15 @@ function Row(props: { tiles: Tile[]; margin: number; onClick: (image: Uploadcare
             ))}
         </div>
     );
+}
+
+/**
+ * Round the number with the given base.
+ *
+ * - ceil(0.5) === 1
+ * - ceil(15, 100) === 100
+ * - ceil(1250, 1000) === 2000
+ */
+function ceil(number: number, base: number = 1): number {
+    return Math.ceil(number / base) * base;
 }
