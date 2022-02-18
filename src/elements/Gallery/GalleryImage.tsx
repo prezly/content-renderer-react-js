@@ -1,36 +1,19 @@
 import type { UploadcareImage } from '@prezly/slate-types';
 import classNames from 'classnames';
-import React, { CSSProperties, FunctionComponent } from 'react';
+import React, { CSSProperties } from 'react';
 
 import { Media, Rollover } from '../../components';
 
 import './GalleryImage.scss';
 
 interface Props {
-    height: number;
     image: UploadcareImage;
-    margin: number;
     onClick: (image: UploadcareImage) => void;
-    width: number;
+    rounded?: boolean;
+    style?: CSSProperties;
 }
 
-const getStyle = (props: Pick<Props, 'height' | 'margin' | 'width'>): CSSProperties => {
-    const { height, margin, width } = props;
-
-    return {
-        height: height - 2 * margin,
-        margin,
-        width: width - 2 * margin,
-    };
-};
-
-export const GalleryImage: FunctionComponent<Props> = ({
-    height,
-    image,
-    margin,
-    onClick,
-    width,
-}) => {
+export function GalleryImage({ image, onClick, rounded = false, style }: Props) {
     const handleClick = () => {
         onClick(image);
     };
@@ -39,15 +22,15 @@ export const GalleryImage: FunctionComponent<Props> = ({
         <Rollover
             id={`gallery-image-${image.uuid}`}
             className={classNames('prezly-slate-gallery-image', {
-                'prezly-slate-gallery-image--with-border-radius': margin > 0,
+                'prezly-slate-gallery-image--with-border-radius': rounded,
             })}
             caption={image.caption}
             onClick={handleClick}
-            style={getStyle({ height, margin, width })}
+            style={style}
         >
             <Media className="prezly-slate-gallery-image__media" image={image}>
                 {image.caption}
             </Media>
         </Rollover>
     );
-};
+}

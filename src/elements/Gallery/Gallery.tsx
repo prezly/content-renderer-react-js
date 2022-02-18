@@ -23,6 +23,12 @@ interface Props extends HTMLAttributes<HTMLElement> {
     onPreviewOpen?: (image: UploadcareImage) => void;
 }
 
+interface Tile {
+    image: UploadcareImage;
+    width: number;
+    height: number;
+}
+
 export const Gallery: FunctionComponent<Props> = ({
     className,
     maxViewportWidth = DEFAULT_MAX_VIEWPORT_WIDTH,
@@ -32,7 +38,7 @@ export const Gallery: FunctionComponent<Props> = ({
     ...props
 }) => {
     const [rect, ref] = useMeasure<HTMLDivElement>();
-    const width = rect?.width || DEFAULT_GALLERY_WIDTH_SSR;
+    const width = rect?.width || DEFAULT_GALLERY_WIDTH_SSR[node.layout];
     const margin = IMAGE_PADDING[node.padding];
     const idealHeight = IMAGE_SIZE[node.thumbnail_size] + 2 * margin;
     const images = useMemo(() => prepareImages(node, maxViewportWidth), [node]);
@@ -51,19 +57,8 @@ export const Gallery: FunctionComponent<Props> = ({
             {...props}
         >
             <div className="prezly-slate-gallery__images" ref={ref} style={{ margin: -margin }}>
-                {calculatedLayout.map((row, index) => (
-                    <div className="prezly-slate-gallery__row" key={index}>
-                        {row.map(({ height, image, width }) => (
-                            <GalleryImage
-                                height={height}
-                                image={image}
-                                key={image.uuid}
-                                margin={margin}
-                                onClick={onOpen}
-                                width={width}
-                            />
-                        ))}
-                    </div>
+                {calculatedLayout.map((tiles, index) => (
+                    <Row key={index} tiles={tiles} margin={margin} onClick={onOpen} />
                 ))}
             </div>
 
@@ -82,3 +77,32 @@ export const Gallery: FunctionComponent<Props> = ({
         </figure>
     );
 };
+
+function Row(props: { tiles: Tile[]; margin: number; onClick: (image: UploadcareImage) => void }) {
+    const { margin, onClick, tiles } = props;
+
+    if (tiles.length === 0) {
+        return null;
+    }
+
+    const tilesWidth = tiles.map(({ width }) => width).reduce((sum, width) => sum + width, 0);
+
+    return (
+        <div className="prezly-slate-gallery__row">
+            {tiles.map(({ height, image, width }) => (
+                <GalleryImage
+                    key={image.uuid}
+                    image={image}
+                    onClick={onClick}
+                    rounded={margin > 0}
+                    style={{
+                        flexBasis: `${(100 * width) / tilesWidth}%`,
+                        width: `${(100 * width) / tilesWidth}%`,
+                        height: `${(100 * height) / tilesWidth}%`,
+                        margin: margin,
+                    }}
+                />
+            ))}
+        </div>
+    );
+}
