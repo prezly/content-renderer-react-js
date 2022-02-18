@@ -1,2 +1,2 @@
 export { calculateLayout } from './calculateLayout';
-export { useGallery } from './useGallery';
+export { useLightboxNavigation } from './useLightboxNavigation';
