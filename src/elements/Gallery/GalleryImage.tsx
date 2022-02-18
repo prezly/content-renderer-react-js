@@ -28,7 +28,7 @@ export function GalleryImage({
                 'prezly-slate-gallery-image--with-border-radius': rounded,
             })}
             caption={originalImage.caption}
-            href="#"
+            href={originalImage.rawCdnUrl}
             onClick={() => onClick(originalImage)}
             style={style}
         >

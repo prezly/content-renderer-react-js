@@ -70,7 +70,7 @@ export const Image: FunctionComponent<Props> = ({
                 <Rollover
                     id={`image-${file.uuid}`}
                     disabled={image.isGif()}
-                    href="#"
+                    href={image.rawCdnUrl}
                     onClick={handleRolloverClick}
                     style={containerStyle}
                 >
