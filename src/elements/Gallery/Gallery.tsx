@@ -13,7 +13,7 @@ import {
 } from './constants';
 import './Gallery.scss';
 import { GalleryImage } from './GalleryImage';
-import { calculateLayout, prepareImages, useGallery } from './lib';
+import { calculateLayout, extractImages, useGallery } from './lib';
 
 interface Props extends HTMLAttributes<HTMLElement> {
     node: GalleryNode;
@@ -40,7 +40,7 @@ export function Gallery({
     const width = rect?.width || DEFAULT_GALLERY_WIDTH_SSR[node.layout];
     const margin = IMAGE_PADDING[node.padding];
     const idealHeight = IMAGE_SIZE[node.thumbnail_size] + 2 * margin;
-    const images = useMemo(() => prepareImages(node, maxViewportWidth), [node]);
+    const images = useMemo(() => extractImages(node), [node]);
     const calculatedLayout = calculateLayout({ idealHeight, images, viewportWidth: width });
     const [{ image, isNextEnabled, isPreviousEnabled }, { onClose, onNext, onOpen, onPrevious }] =
         useGallery(images);

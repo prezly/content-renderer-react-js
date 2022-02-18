@@ -1,3 +1,3 @@
 export { calculateLayout } from './calculateLayout';
-export { prepareImages } from './prepareImages';
+export { extractImages } from './extractImages';
 export { useGallery } from './useGallery';
