@@ -144,7 +144,6 @@ export const Lightbox: FunctionComponent<Props> = ({
     );
 };
 
-
 function defaultPreviewImage(image: UploadcareImage): UploadcareImage {
     return image.preview(2000, 2000);
 }
