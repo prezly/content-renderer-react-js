@@ -7,8 +7,10 @@ import { ArrowsAngleExpand } from '../../icons';
 
 import './Rollover.scss';
 
-interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface Props extends ButtonHTMLAttributes<HTMLAnchorElement> {
     caption?: string;
+    href: string;
+    onClick: () => void;
 }
 
 const LINE_HEIGHT = 22;
@@ -23,6 +25,7 @@ export const Rollover: FunctionComponent<Props> = ({
     children,
     className,
     disabled,
+    onClick,
     ...props
 }) => {
     const [rect, ref] = useMeasure<HTMLSpanElement>();
@@ -35,9 +38,12 @@ export const Rollover: FunctionComponent<Props> = ({
     }
 
     return (
-        <button
+        <a
             className={classNames('prezly-slate-image-rollover', className)}
-            type="button"
+            onClick={function (event) {
+                event.preventDefault();
+                onClick();
+            }}
             {...props}
         >
             <span className="prezly-slate-image-rollover__content">
@@ -61,6 +67,6 @@ export const Rollover: FunctionComponent<Props> = ({
                     </span>
                 </span>
             </span>
-        </button>
+        </a>
     );
 };
