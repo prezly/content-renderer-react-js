@@ -1,4 +1,5 @@
-import type { GalleryNode, UploadcareImage } from '@prezly/slate-types';
+import type { GalleryNode } from '@prezly/slate-types';
+import { UploadcareImage } from '@prezly/slate-types';
 import { useMeasure } from '@react-hookz/web';
 import classNames from 'classnames';
 import React, { HTMLAttributes, useMemo } from 'react';
@@ -13,7 +14,7 @@ import {
 } from './constants';
 import './Gallery.scss';
 import { GalleryImage } from './GalleryImage';
-import { calculateLayout, extractImages, useGallery } from './lib';
+import { calculateLayout, useGallery } from './lib';
 
 interface Props extends HTMLAttributes<HTMLElement> {
     node: GalleryNode;
@@ -128,6 +129,12 @@ function Row(props: {
         </div>
     );
 }
+
+function extractImages(node: GalleryNode): UploadcareImage[] {
+    return node.images
+        .map(({ caption, file }) => UploadcareImage.createFromPrezlyStoragePayload(file, caption));
+}
+
 
 /**
  * Round the number with the given base.
