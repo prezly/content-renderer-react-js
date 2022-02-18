@@ -1,7 +1,7 @@
 import type { GalleryNode, UploadcareImage } from '@prezly/slate-types';
 import { useMeasure } from '@react-hookz/web';
 import classNames from 'classnames';
-import React, { HTMLAttributes, useMemo } from 'react';
+import React, {HTMLAttributes, useMemo} from 'react';
 
 import { Lightbox } from '../../components';
 
@@ -16,7 +16,6 @@ import { GalleryImage } from './GalleryImage';
 import { calculateLayout, prepareImages, useGallery } from './lib';
 
 interface Props extends HTMLAttributes<HTMLElement> {
-    children?: never;
     node: GalleryNode;
     maxViewportWidth?: number;
     onImageDownload?: (image: UploadcareImage) => void;
