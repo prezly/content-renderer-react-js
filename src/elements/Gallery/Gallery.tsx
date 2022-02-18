@@ -1,7 +1,7 @@
 import type { GalleryNode, UploadcareImage } from '@prezly/slate-types';
 import { useMeasure } from '@react-hookz/web';
 import classNames from 'classnames';
-import React, {HTMLAttributes, useMemo} from 'react';
+import React, { HTMLAttributes, useMemo } from 'react';
 
 import { Lightbox } from '../../components';
 
