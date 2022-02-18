@@ -1,7 +1,7 @@
 import type { GalleryNode, UploadcareImage } from '@prezly/slate-types';
 import { useMeasure } from '@react-hookz/web';
 import classNames from 'classnames';
-import React, { FunctionComponent, HTMLAttributes, useMemo } from 'react';
+import React, { HTMLAttributes, useMemo } from 'react';
 
 import { Lightbox } from '../../components';
 
@@ -29,14 +29,14 @@ interface Tile {
     height: number;
 }
 
-export const Gallery: FunctionComponent<Props> = ({
+export function Gallery({
     className,
     maxViewportWidth = DEFAULT_MAX_VIEWPORT_WIDTH,
     node,
     onImageDownload,
     onPreviewOpen,
     ...props
-}) => {
+}: Props) {
     const [rect, ref] = useMeasure<HTMLDivElement>();
     const width = rect?.width || DEFAULT_GALLERY_WIDTH_SSR[node.layout];
     const margin = IMAGE_PADDING[node.padding];
@@ -76,7 +76,7 @@ export const Gallery: FunctionComponent<Props> = ({
             </Lightbox>
         </figure>
     );
-};
+}
 
 function Row(props: { tiles: Tile[]; margin: number; onClick: (image: UploadcareImage) => void }) {
     const { margin, onClick, tiles } = props;
