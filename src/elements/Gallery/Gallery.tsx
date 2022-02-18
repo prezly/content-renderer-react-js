@@ -6,19 +6,13 @@ import React, { HTMLAttributes, useMemo } from 'react';
 
 import { Lightbox } from '../../components';
 
-import {
-    DEFAULT_GALLERY_WIDTH_SSR,
-    DEFAULT_MAX_VIEWPORT_WIDTH,
-    IMAGE_PADDING,
-    IMAGE_SIZE,
-} from './constants';
+import { DEFAULT_GALLERY_WIDTH_SSR, IMAGE_PADDING, IMAGE_SIZE } from './constants';
 import './Gallery.scss';
 import { GalleryImage } from './GalleryImage';
 import { calculateLayout, useGallery } from './lib';
 
 interface Props extends HTMLAttributes<HTMLElement> {
     node: GalleryNode;
-    maxViewportWidth?: number;
     onImageDownload?: (image: UploadcareImage) => void;
     onPreviewOpen?: (image: UploadcareImage) => void;
 }
@@ -29,14 +23,7 @@ interface Tile {
     height: number;
 }
 
-export function Gallery({
-    className,
-    maxViewportWidth = DEFAULT_MAX_VIEWPORT_WIDTH,
-    node,
-    onImageDownload,
-    onPreviewOpen,
-    ...props
-}: Props) {
+export function Gallery({ className, node, onImageDownload, onPreviewOpen, ...props }: Props) {
     const [rect, ref] = useMeasure<HTMLDivElement>();
     const width = rect?.width || DEFAULT_GALLERY_WIDTH_SSR[node.layout];
     const margin = IMAGE_PADDING[node.padding];
@@ -131,10 +118,10 @@ function Row(props: {
 }
 
 function extractImages(node: GalleryNode): UploadcareImage[] {
-    return node.images
-        .map(({ caption, file }) => UploadcareImage.createFromPrezlyStoragePayload(file, caption));
+    return node.images.map(({ caption, file }) =>
+        UploadcareImage.createFromPrezlyStoragePayload(file, caption),
+    );
 }
-
 
 /**
  * Round the number with the given base.

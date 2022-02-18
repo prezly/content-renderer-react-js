@@ -1,8 +1,6 @@
 import type { GalleryNode } from '@prezly/slate-types';
 import { GalleryLayout } from '@prezly/slate-types';
 
-export const DEFAULT_MAX_VIEWPORT_WIDTH = 800;
-
 export const DEFAULT_GALLERY_WIDTH_SSR: Record<GalleryNode['layout'], number> = {
     [GalleryLayout.CONTAINED]: 700,
     [GalleryLayout.EXPANDED]: 840,
