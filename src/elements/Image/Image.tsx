@@ -17,7 +17,7 @@ const getContainerStyle = (node: ImageNode): CSSProperties => {
         return {};
     }
 
-    const width = `${((parseFloat(node.width) * parseFloat(node.width_factor)) / 100).toFixed(2)}%`;
+    const width = `${parseFloat(node.width).toFixed(2)}%`;
 
     if (width === `${(100).toFixed(2)}%`) {
         return {};
