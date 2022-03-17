@@ -9,7 +9,12 @@ interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
 }
 
 export const Link: FunctionComponent<Props> = ({ children, className, node, ...props }) => (
-    <a className={classNames('prezly-slate-link', className)} href={node.href} {...props}>
+    <a
+        className={classNames('prezly-slate-link', className)}
+        href={node.href}
+        target={node.new_tab ? '_blank' : '_self'}
+        {...props}
+    >
         {children}
     </a>
 );

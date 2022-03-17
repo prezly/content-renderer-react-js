@@ -1,4 +1,5 @@
 .idea/
+.history
 build/
 coverage/
 node_modules/
