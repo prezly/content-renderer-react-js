@@ -1,6 +1,13 @@
 import { ImageNode, UploadcareImage } from '@prezly/slate-types';
 import classNames from 'classnames';
-import React, { CSSProperties, FunctionComponent, HTMLAttributes, useMemo, useState } from 'react';
+import React, {
+    AnchorHTMLAttributes,
+    CSSProperties,
+    FunctionComponent,
+    HTMLAttributes,
+    useMemo,
+    useState,
+} from 'react';
 
 import { Lightbox, Media, Rollover } from '../../components';
 
@@ -12,7 +19,7 @@ interface Props extends HTMLAttributes<HTMLElement> {
     onPreviewOpen?: (image: UploadcareImage) => void;
 }
 
-const getContainerStyle = (node: ImageNode): CSSProperties => {
+function getContainerStyle(node: ImageNode): CSSProperties {
     if (node.layout !== 'contained') {
         return {};
     }
@@ -24,6 +31,11 @@ const getContainerStyle = (node: ImageNode): CSSProperties => {
     }
 
     return { width };
+}
+
+const NEW_TAB_ATTRIBUTES: Partial<AnchorHTMLAttributes<HTMLAnchorElement>> = {
+    target: '_blank',
+    rel: 'noopener noreferrer',
 };
 
 export const Image: FunctionComponent<Props> = ({
@@ -35,6 +47,7 @@ export const Image: FunctionComponent<Props> = ({
     ...props
 }) => {
     const { file, href, layout } = node;
+    const isNewTab = node.new_tab ?? true;
     const [isPreviewOpen, setIsPreviewOpen] = useState<boolean>(false);
     const image = useMemo(() => UploadcareImage.createFromPrezlyStoragePayload(file), [file.uuid]);
     const containerStyle = getContainerStyle(node);
@@ -56,8 +69,7 @@ export const Image: FunctionComponent<Props> = ({
                     id={`image-${file.uuid}`}
                     href={href}
                     className="prezly-slate-image__link"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    {...(isNewTab ? NEW_TAB_ATTRIBUTES : {})}
                     style={containerStyle}
                 >
                     <Media className="prezly-slate-image__media" image={image}>
