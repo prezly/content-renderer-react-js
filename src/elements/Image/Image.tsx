@@ -69,7 +69,7 @@ export const Image: FunctionComponent<Props> = ({
                     id={`image-${file.uuid}`}
                     href={href}
                     className="prezly-slate-image__link"
-                    {...(isNewTab ? NEW_TAB_ATTRIBUTES : [])}
+                    {...(isNewTab ? NEW_TAB_ATTRIBUTES : {})}
                     style={containerStyle}
                 >
                     <Media className="prezly-slate-image__media" image={image}>
