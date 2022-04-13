@@ -20,6 +20,7 @@ import {
     PARAGRAPH_NODE_TYPE,
     PLACEHOLDER_NODE_TYPE,
     QUOTE_NODE_TYPE,
+    STORY_BOOKMARK_NODE_TYPE,
     VIDEO_NODE_TYPE,
 } from '@prezly/slate-types';
 import React from 'react';
@@ -43,6 +44,7 @@ import {
     Paragraph,
     Placeholder,
     Quote,
+    StoryBookmark,
     Text,
     Video,
 } from './elements';
@@ -70,6 +72,7 @@ export const defaultComponents: Required<ComponentRenderers> = {
     [PARAGRAPH_NODE_TYPE]: Paragraph,
     [PLACEHOLDER_NODE_TYPE]: Placeholder,
     [QUOTE_NODE_TYPE]: Quote,
+    [STORY_BOOKMARK_NODE_TYPE]: StoryBookmark,
     [VIDEO_NODE_TYPE]: Video,
     text: Text,
 };

@@ -20,6 +20,7 @@ import {
     PARAGRAPH_NODE_TYPE,
     PLACEHOLDER_NODE_TYPE,
     QUOTE_NODE_TYPE,
+    STORY_BOOKMARK_NODE_TYPE,
     VIDEO_NODE_TYPE,
     AttachmentNode,
     BookmarkNode,
@@ -41,6 +42,7 @@ import {
     ParagraphNode,
     PlaceholderNode,
     QuoteNode,
+    StoryBookmarkNode,
     TextNode,
     VideoNode,
 } from '@prezly/slate-types';
@@ -72,6 +74,7 @@ export interface ComponentRenderers {
     [PARAGRAPH_NODE_TYPE]?: NodeRenderer<ParagraphNode>;
     [PLACEHOLDER_NODE_TYPE]?: NodeRenderer<PlaceholderNode>;
     [QUOTE_NODE_TYPE]?: NodeRenderer<QuoteNode>;
+    [STORY_BOOKMARK_NODE_TYPE]?: NodeRenderer<StoryBookmarkNode>;
     [VIDEO_NODE_TYPE]?: NodeRenderer<VideoNode>;
     text?: TextRenderer;
 }

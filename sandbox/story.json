@@ -788,9 +788,7 @@
                 "size": 1762479,
                 "original_width": 3994,
                 "original_height": 2246,
-                "effects": [
-                    "/crop/3994x1359/0,454/"
-                ]
+                "effects": ["/crop/3994x1359/0,454/"]
             },
             "layout": "full-width",
             "width": "100%",
@@ -1681,6 +1679,66 @@
                 "twitter": "@PhilipCooper",
                 "website": "https://techcrunch.com/"
             }
+        },
+        {
+            "type": "story-bookmark",
+            "children": [
+                {
+                    "text": ""
+                }
+            ],
+            "uuid": "f89e507f-4707-4005-9556-72a4a7e65d70",
+            "story": {
+                "uuid": "b26212eb-d290-49c5-995b-def2d1218546"
+            },
+            "show_thumbnail": true,
+            "layout": "vertical",
+            "new_tab": true
+        },
+        {
+            "type": "story-bookmark",
+            "children": [
+                {
+                    "text": ""
+                }
+            ],
+            "uuid": "f89e507f-4707-4005-9556-72a4a7e65d71",
+            "story": {
+                "uuid": "b26212eb-d290-49c5-995b-def2d1218546"
+            },
+            "show_thumbnail": true,
+            "layout": "horizontal",
+            "new_tab": true
+        },
+        {
+            "type": "story-bookmark",
+            "children": [
+                {
+                    "text": ""
+                }
+            ],
+            "uuid": "f89e507f-4707-4005-9556-72a4a7e65d72",
+            "story": {
+                "uuid": "b26212eb-d290-49c5-995b-def2d1218546"
+            },
+            "show_thumbnail": false,
+            "layout": "vertical",
+            "new_tab": true
+        },
+        {
+            "type": "story-bookmark",
+            "children": [
+                {
+                    "text": ""
+                }
+            ],
+            "uuid": "f89e507f-4707-4005-9556-72a4a7e65d73",
+            "story": {
+                "uuid": "b26212eb-d290-49c5-995b-def2d1218546"
+            },
+            "show_thumbnail": false,
+            "layout": "horizontal",
+            "new_tab": true
         }
     ],
     "version": "0.50"

@@ -67,10 +67,13 @@
     },
     "dependencies": {
         "@prezly/linear-partition": "^1.0.2",
+        "@prezly/sdk": "^6.21.0",
         "@prezly/slate-types": "^0.28.0",
         "@react-hookz/web": "^12.0.0",
         "classnames": "^2.2.6",
         "react-modal": "^3.12.1",
+        "react-use": "^17.3.2",
+        "resize-observer-polyfill": "^1.5.1",
         "shave": "^2.5.10",
         "slate": "^0.71.0",
         "striptags": "^3.1.1"

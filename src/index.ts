@@ -19,6 +19,7 @@ export {
     Mention,
     Paragraph,
     Quote,
+    StoryBookmark,
     Text,
     Placeholder,
 } from './elements';
