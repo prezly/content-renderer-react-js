@@ -48,7 +48,11 @@ export function StoryBookmark({ node }: StoryBookmarkBlockProps) {
     }, [showThumbnail, isSmallViewport, node.layout]);
 
     return (
-        <BookmarkCard.Container layout={actualLayout} ref={card}>
+        <BookmarkCard.Container
+            layout={actualLayout}
+            ref={card}
+            className="prezly-slate-story-bookmark"
+        >
             {showThumbnail && story.oembed.thumbnail_url && (
                 <BookmarkCard.Thumbnail
                     href={story.oembed.url}

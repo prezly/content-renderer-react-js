@@ -6,17 +6,22 @@ type ContainerLayout = 'vertical' | 'horizontal';
 
 interface ContainerProps {
     layout: ContainerLayout;
+    className?: string;
 }
 
 export const Container = forwardRef<HTMLDivElement, PropsWithChildren<ContainerProps>>(
-    ({ layout, children }, ref) => {
+    ({ layout, children, className }, ref) => {
         return (
             <div
                 ref={ref}
-                className={classNames('prezly-slate-bookmark-card-component__container', {
-                    vertical: layout === 'vertical',
-                    horizontal: layout === 'horizontal',
-                })}
+                className={classNames(
+                    className,
+                    'prezly-slate-bookmark-card-component__container',
+                    {
+                        vertical: layout === 'vertical',
+                        horizontal: layout === 'horizontal',
+                    },
+                )}
             >
                 {children}
             </div>
