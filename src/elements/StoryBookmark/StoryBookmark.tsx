@@ -1,21 +1,20 @@
-import type { Story } from '@prezly/sdk';
-import type { StoryBookmarkNode } from '@prezly/slate-types';
+import { StoryBookmarkNode, STORY_BOOKMARK_NODE_TYPE } from '@prezly/slate-types';
 import { StoryBookmarkLayout } from '@prezly/slate-types';
 import React, { useRef, useState, useMemo } from 'react';
 
 import { useResizeObserver, utils } from '../../lib';
 
 import { BookmarkCard } from '../../components';
+import { useElementContext } from '../../RendererContext';
 
 interface StoryBookmarkBlockProps {
     node: StoryBookmarkNode;
-    getStory?: (uuid: string) => Story;
 }
 
 const HORIZONTAL_LAYOUT_MIN_WIDTH = 480;
 
-export function StoryBookmark({ node, getStory }: StoryBookmarkBlockProps) {
-    const story = getStory?.(node.story.uuid);
+export function StoryBookmark({ node }: StoryBookmarkBlockProps) {
+    const ctx = useElementContext(STORY_BOOKMARK_NODE_TYPE);
     const card = useRef<HTMLDivElement | null>(null);
     const [isSmallViewport, setSmallViewport] = useState(false);
 
@@ -25,9 +24,11 @@ export function StoryBookmark({ node, getStory }: StoryBookmarkBlockProps) {
         });
     });
 
-    if (!story) {
+    if (!ctx) {
         return null;
     }
+
+    const story = ctx.getStory(node.story.uuid);
 
     const showThumbnail = node.show_thumbnail && story.oembed.thumbnail_url;
 
