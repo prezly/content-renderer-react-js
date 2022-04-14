@@ -4,20 +4,30 @@ import React from 'react';
 import { utils } from '../../lib';
 
 interface DetailsProps {
+    id: string;
+    href: string;
+    newTab: boolean;
     title?: string;
     description?: string;
-    href: string;
 }
 
-export function Details({ title, description, href, children }: PropsWithChildren<DetailsProps>) {
+export function Details({
+    title,
+    description,
+    href,
+    id,
+    newTab,
+    children,
+}: PropsWithChildren<DetailsProps>) {
     return (
         <div className={'prezly-slate-bookmark-card-component__details'}>
             {!utils.isEmptyText(title) && (
                 <a
+                    id={id}
                     className={'prezly-slate-bookmark-card-component__title'}
                     href={href}
                     rel="noopener noreferrer"
-                    target="_blank"
+                    target={newTab ? '_blank' : '_self'}
                 >
                     {title}
                 </a>

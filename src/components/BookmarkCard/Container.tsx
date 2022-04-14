@@ -1,30 +1,54 @@
 import classNames from 'classnames';
+import { useResizeObserver } from '../../lib';
 import type { PropsWithChildren } from 'react';
-import React, { forwardRef } from 'react';
+import React, { useRef, useState } from 'react';
+import { StoryBookmarkLayout } from '@prezly/slate-types';
 
 type ContainerLayout = 'vertical' | 'horizontal';
 
 interface ContainerProps {
-    layout: ContainerLayout;
+    defaultLayout: ContainerLayout;
+    hasThumbnail: boolean;
     className?: string;
 }
 
-export const Container = forwardRef<HTMLDivElement, PropsWithChildren<ContainerProps>>(
-    ({ layout, children, className }, ref) => {
-        return (
-            <div
-                ref={ref}
-                className={classNames(
-                    className,
-                    'prezly-slate-bookmark-card-component__container',
-                    {
-                        vertical: layout === 'vertical',
-                        horizontal: layout === 'horizontal',
-                    },
-                )}
-            >
-                {children}
-            </div>
-        );
-    },
-);
+const HORIZONTAL_LAYOUT_MIN_WIDTH = 480;
+
+export function Container({
+    defaultLayout,
+    children,
+    className,
+    hasThumbnail,
+}: PropsWithChildren<ContainerProps>) {
+    const card = useRef<HTMLDivElement | null>(null);
+    const [isSmallViewport, setSmallViewport] = useState(false);
+
+    useResizeObserver(card.current, function (entries) {
+        entries.forEach(function (entry) {
+            setSmallViewport(entry.contentRect.width < HORIZONTAL_LAYOUT_MIN_WIDTH);
+        });
+    });
+
+    const actualLayout = getActualLayout(hasThumbnail, isSmallViewport, defaultLayout);
+
+    return (
+        <div
+            ref={card}
+            className={classNames(className, 'prezly-slate-bookmark-card-component__container', {
+                vertical: actualLayout === 'vertical',
+                horizontal: actualLayout === 'horizontal',
+            })}
+        >
+            {children}
+        </div>
+    );
+}
+function getActualLayout(hasThumbnail: boolean, isSmallViewport: boolean, defaultLayout: string) {
+    if (!hasThumbnail) {
+        return StoryBookmarkLayout.HORIZONTAL;
+    } else if (isSmallViewport) {
+        return StoryBookmarkLayout.VERTICAL;
+    } else {
+        return defaultLayout;
+    }
+}

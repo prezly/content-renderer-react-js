@@ -7,7 +7,7 @@ import '@prezly/content-renderer-react-js/styles.css';
 import './styles.css';
 
 import story from './story.json';
-import storySample from './storySample.json';
+import referencedStory from './referencedStory.json';
 
 export const App = () => (
     <div className="App">

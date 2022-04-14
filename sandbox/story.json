@@ -1078,7 +1078,7 @@
             },
             "show_thumbnail": true,
             "layout": "vertical",
-            "new_tab": true
+            "new_tab": false
         },
         {
             "type": "paragraph",
@@ -1121,7 +1121,7 @@
             },
             "show_thumbnail": true,
             "layout": "horizontal",
-            "new_tab": true
+            "new_tab": false
         },
         {
             "type": "paragraph",
@@ -1164,7 +1164,7 @@
             },
             "show_thumbnail": false,
             "layout": "horizontal",
-            "new_tab": true
+            "new_tab": false
         },
         {
             "type": "paragraph",
@@ -1681,6 +1681,22 @@
             }
         },
         {
+            "type": "heading-one",
+            "children": [
+                {
+                    "text": "Story bookmarks"
+                }
+            ]
+        },
+        {
+            "type": "paragraph",
+            "children": [
+                {
+                    "text": "Vertical story bookmark with thumbnail"
+                }
+            ]
+        },
+        {
             "type": "story-bookmark",
             "children": [
                 {
@@ -1694,6 +1710,37 @@
             "show_thumbnail": true,
             "layout": "vertical",
             "new_tab": true
+        },
+        {
+            "type": "paragraph",
+            "children": [
+                {
+                    "text": "Story bookmark which opens in this tab"
+                }
+            ]
+        },
+        {
+            "type": "story-bookmark",
+            "children": [
+                {
+                    "text": ""
+                }
+            ],
+            "uuid": "f89e507f-4707-4005-9556-72a4a7e65d70",
+            "story": {
+                "uuid": "b26212eb-d290-49c5-995b-def2d1218546"
+            },
+            "show_thumbnail": true,
+            "layout": "vertical",
+            "new_tab": false
+        },
+        {
+            "type": "paragraph",
+            "children": [
+                {
+                    "text": "Horizontal story bookmark with thumbnail"
+                }
+            ]
         },
         {
             "type": "story-bookmark",
@@ -1711,6 +1758,14 @@
             "new_tab": true
         },
         {
+            "type": "paragraph",
+            "children": [
+                {
+                    "text": "Vertical story bookmark without thumbnail"
+                }
+            ]
+        },
+        {
             "type": "story-bookmark",
             "children": [
                 {
@@ -1724,6 +1779,14 @@
             "show_thumbnail": false,
             "layout": "vertical",
             "new_tab": true
+        },
+        {
+            "type": "paragraph",
+            "children": [
+                {
+                    "text": "Horizontal story bookmark without thumbnail"
+                }
+            ]
         },
         {
             "type": "story-bookmark",
