@@ -1,7 +1,7 @@
 import classNames from 'classnames';
-import { useResizeObserver } from '../../lib';
 import type { PropsWithChildren } from 'react';
 import React, { useRef, useState } from 'react';
+import { useResizeObserver } from '@react-hookz/web';
 import { StoryBookmarkLayout } from '@prezly/slate-types';
 
 type ContainerLayout = 'vertical' | 'horizontal';
@@ -23,10 +23,8 @@ export function Container({
     const card = useRef<HTMLDivElement | null>(null);
     const [isSmallViewport, setSmallViewport] = useState(false);
 
-    useResizeObserver(card.current, function (entries) {
-        entries.forEach(function (entry) {
-            setSmallViewport(entry.contentRect.width < HORIZONTAL_LAYOUT_MIN_WIDTH);
-        });
+    useResizeObserver(card.current, function (entry) {
+        setSmallViewport(entry.contentRect.width < HORIZONTAL_LAYOUT_MIN_WIDTH);
     });
 
     const actualLayout = getActualLayout(hasThumbnail, isSmallViewport, defaultLayout);

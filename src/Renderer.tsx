@@ -5,8 +5,9 @@ import { defaultComponents } from './defaultComponents';
 import { applyTransformations, describeNode } from './lib';
 import * as Transformations from './transformations';
 import type { ComponentRenderers, Transformation } from './types';
+import { RendererContextProvider, RendererContextProps } from './RendererContext';
 
-interface Props {
+interface Props extends RendererContextProps {
     nodes: Node | Node[];
     components?: ComponentRenderers;
     transformations?: Transformation[];
@@ -16,6 +17,7 @@ export const Renderer: FunctionComponent<Props> = ({
     nodes,
     components: userComponents = {},
     transformations = Object.values(Transformations),
+    elementsContext,
 }) => {
     const components = { ...defaultComponents, ...userComponents };
     const transformedNodes = applyTransformations(
@@ -24,7 +26,7 @@ export const Renderer: FunctionComponent<Props> = ({
     );
 
     return (
-        <>
+        <RendererContextProvider elementsContext={elementsContext}>
             {transformedNodes.map((node, index) => {
                 if (isTextNode(node)) {
                     const TextRenderer = components.text;
@@ -60,6 +62,6 @@ export const Renderer: FunctionComponent<Props> = ({
 
                 return <Fragment key={index} />;
             })}
-        </>
+        </RendererContextProvider>
     );
 };

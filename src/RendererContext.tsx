@@ -7,8 +7,8 @@ interface ElementsContexts {
     [STORY_BOOKMARK_NODE_TYPE]?: StoryBookmarkContext;
 }
 
-interface RendererContextProps {
-    elements?: ElementsContexts;
+export interface RendererContextProps {
+    elementsContext?: ElementsContexts;
 }
 
 const RendererContext = createContext<RendererContextProps>({});
@@ -23,5 +23,6 @@ export function useRendererContext() {
 
 export function useElementContext<T extends keyof ElementsContexts>(type: T) {
     const ctx = useRendererContext();
-    return ctx.elements?.[type];
+    debugger
+    return ctx.elementsContext?.[type];
 }

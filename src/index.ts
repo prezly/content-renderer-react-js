@@ -26,4 +26,3 @@ export {
 export { stringifyNode } from './lib';
 export { Renderer } from './Renderer';
 export { Transformations };
-export { RendererContextProvider } from './RendererContext';
