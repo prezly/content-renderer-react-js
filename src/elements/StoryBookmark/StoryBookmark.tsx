@@ -10,12 +10,11 @@ interface StoryBookmarkBlockProps {
 
 export function StoryBookmark({ node }: StoryBookmarkBlockProps) {
     const ctx = useElementContext(STORY_BOOKMARK_NODE_TYPE);
+    const story = ctx?.getStory(node.story.uuid);
 
-    if (!ctx) {
+    if (!story) {
         return null;
     }
-
-    const story = ctx.getStory(node.story.uuid);
 
     return (
         <BookmarkCard

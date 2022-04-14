@@ -23,6 +23,5 @@ export function useRendererContext() {
 
 export function useElementContext<T extends keyof ElementsContexts>(type: T) {
     const ctx = useRendererContext();
-    debugger
     return ctx.elementsContext?.[type];
 }
