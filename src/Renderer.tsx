@@ -1,5 +1,5 @@
 import { isElementNode, isTextNode, Node } from '@prezly/slate-types';
-import React, { Fragment, FunctionComponent } from 'react';
+import React, { Fragment } from 'react';
 
 import { defaultComponents } from './defaultComponents';
 import { applyTransformations, describeNode } from './lib';
@@ -12,11 +12,11 @@ interface Props {
     transformations?: Transformation[];
 }
 
-export const Renderer: FunctionComponent<Props> = ({
+export function Renderer({
     nodes,
     components: userComponents = {},
     transformations = Object.values(Transformations),
-}) => {
+}: Props) {
     const components = { ...defaultComponents, ...userComponents };
     const transformedNodes = applyTransformations(
         Array.isArray(nodes) ? nodes : [nodes],
@@ -62,4 +62,4 @@ export const Renderer: FunctionComponent<Props> = ({
             })}
         </>
     );
-};
+}
