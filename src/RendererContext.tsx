@@ -13,8 +13,13 @@ export interface RendererContextProps {
 
 const RendererContext = createContext<RendererContextProps>({});
 
-export function RendererContextProvider(props: PropsWithChildren<RendererContextProps>) {
-    return <RendererContext.Provider value={props}>{props.children}</RendererContext.Provider>;
+export function RendererContextProvider({
+    elementsContext,
+    children,
+}: PropsWithChildren<RendererContextProps>) {
+    return (
+        <RendererContext.Provider value={{ elementsContext }}>{children}</RendererContext.Provider>
+    );
 }
 
 export function useRendererContext() {

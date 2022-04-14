@@ -11,13 +11,12 @@ import referencedStory from './referencedStory.json';
 
 export const App = () => (
     <div className="App">
-        <Renderer
-            nodes={story}
-            elementsContext={{
-                [STORY_BOOKMARK_NODE_TYPE]: {
-                    getStory: () => referencedStory,
-                },
-            }}
-        />
+        <Renderer nodes={story} elementsContext={elementsContext} />
     </div>
 );
+
+const elementsContext = {
+    [STORY_BOOKMARK_NODE_TYPE]: {
+        getStory: () => referencedStory,
+    },
+};
