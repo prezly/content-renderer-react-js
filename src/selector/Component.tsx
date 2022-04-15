@@ -1,13 +1,12 @@
 import type { Node } from 'slate';
-import type { ComponentType, ReactNode } from 'react';
+import type { ComponentType } from 'react';
 import { invariant } from './lib';
 
 interface ComponentProps<T> {
     node: T;
-    renderChildren: (nodes: Node[]) => ReactNode;
 }
 
-type Props<T extends Node, P extends object = {}> = P & {
+type Props<T extends Node, P extends object = {}> = Omit<P, 'node'> & {
     match: (node: Node) => node is T;
     component: ComponentType<P & ComponentProps<T>>;
 };
