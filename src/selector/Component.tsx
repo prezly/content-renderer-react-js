@@ -2,16 +2,12 @@ import type { Node } from 'slate';
 import type { ComponentType } from 'react';
 import { invariant } from './lib';
 
-interface ComponentProps<T> {
-    node: T;
-}
-
-type Props<T extends Node, P extends ComponentProps<T>> = {
+type Props<T extends Node, P extends object> = {
     match: (node: Node) => node is T;
-    component: ComponentType<P & ComponentProps<T>>;
-} & Omit<P, 'node'>;
+    component: ComponentType<{ node: T } & Omit<P, 'node'>>;
+};
 
-export function Component<T extends Node, P extends ComponentProps<T>>(_: Props<T, P>) {
+export function Component<T extends Node, P extends { node?: never }>(_: Props<T, P> & P) {
     invariant(
         false,
         `A <Component> is only ever to be used as the child of <Selector> element, ` +
