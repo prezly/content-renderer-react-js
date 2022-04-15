@@ -40,7 +40,7 @@ export function Selector(props: Props) {
         [renderers],
     );
 
-    return render(props.nodes);
+    return <>{render(props.nodes)}</>;
 }
 
 function useStableRenderers(renderers: ComponentRenderer[]) {
