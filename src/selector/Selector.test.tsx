@@ -4,11 +4,15 @@ import {
     DocumentNode,
     ElementNode,
     HEADING_1_NODE_TYPE,
+    isDividerNode,
+    isDocumentNode,
 } from '@prezly/slate-types';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server.js';
 
-import { Renderer } from './Renderer';
+import { Component } from './Component';
+import { Selector } from './Selector';
+import { Divider, Document } from '../elements';
 
 const documentNode: DocumentNode = {
     children: [
@@ -28,12 +32,10 @@ const documentNode: DocumentNode = {
 describe('Renderer', () => {
     it('Renders a <h1> for a heading and a <section> for a divider', () => {
         const asString = ReactDOMServer.renderToString(
-            <Renderer
-                nodes={documentNode}
-                components={{
-                    [DIVIDER_NODE_TYPE]: () => <section>divider</section>,
-                }}
-            />,
+            <Selector nodes={documentNode}>
+                <Component match={isDividerNode} component={Divider} />
+                <Component match={isDocumentNode} component={Document} />
+            </Selector>,
         );
 
         expect(asString).toContain('<h1');
