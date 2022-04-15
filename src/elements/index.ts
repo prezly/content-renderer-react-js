@@ -1,9 +1,11 @@
+export { Document } from './Document';
+export { Unknown } from './Unknown';
+export { Passthru } from './Passthru';
+
 export { Attachment } from './Attachment';
 export { Bookmark } from './Bookmark';
 export { Contact } from './Contact';
-export { Default } from './Default';
 export { Divider } from './Divider';
-export { Document } from './Document';
 export { Embed } from './Embed';
 export { Gallery } from './Gallery';
 export { Heading } from './Heading';

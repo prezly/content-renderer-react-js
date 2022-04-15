@@ -14,7 +14,7 @@ const styles: CSSProperties = {
     margin: '1em 0',
 };
 
-export function Default({ node }: Props) {
+export function Unknown({ node }: Props) {
     return (
         <div style={styles}>
             <strong>[@prezly/content-renderer-react-js]</strong> Unknown node type encountered:
