@@ -14,7 +14,3 @@ export const App = () => (
         </Renderer>
     </div>
 );
-
-function isAnyNode() {
-    return true;
-}
