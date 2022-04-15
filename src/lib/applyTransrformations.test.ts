@@ -1,11 +1,12 @@
-import type { Node, TextNode } from '@prezly/slate-types';
+import type {ParagraphNode, TextNode} from '@prezly/slate-types';
 import { isTextNode } from '@prezly/slate-types';
+import type { Node } from 'slate';
 
 import { applyTransformations } from './applyTransformations';
 
 function makeBold(node: Node): Node {
     if (isTextNode(node)) {
-        return { ...node, bold: true };
+        return { ...node, bold: true } as Node;
     }
     return node;
 }
@@ -26,11 +27,11 @@ describe('applyTransformations', () => {
                     { text: 'hello', bold: true } as TextNode,
                     { text: 'world', italic: true } as TextNode,
                 ],
-            },
+            } as ParagraphNode as Node,
             {
                 type: 'paragraph',
                 children: [{ text: 'this is Prezly', underlined: true } as TextNode],
-            },
+            } as ParagraphNode as Node,
         ];
 
         Object.freeze(input);
@@ -46,11 +47,11 @@ describe('applyTransformations', () => {
                     { text: 'hello', bold: true } as TextNode,
                     { text: 'world', italic: true } as TextNode,
                 ],
-            },
+            } as ParagraphNode as Node,
             {
                 type: 'paragraph',
                 children: [{ text: 'this is Prezly', underlined: true } as TextNode],
-            },
+            } as ParagraphNode as Node,
         ];
 
         Object.freeze(input);
@@ -65,7 +66,7 @@ describe('applyTransformations', () => {
                 { text: 'hello', bold: true } as TextNode,
                 { text: 'world', italic: true } as TextNode,
             ],
-        };
+        } as ParagraphNode as Node;
         const expected = {
             type: 'paragraph',
             children: [
@@ -87,11 +88,11 @@ describe('applyTransformations', () => {
                     { text: 'hello', bold: true } as TextNode,
                     { text: 'world', italic: true } as TextNode,
                 ],
-            },
+            } as ParagraphNode as Node,
             {
                 type: 'paragraph',
                 children: [{ text: 'this is Prezly', underlined: true } as TextNode],
-            },
+            } as ParagraphNode as Node,
         ];
         const expected = [
             {
@@ -119,7 +120,7 @@ describe('applyTransformations', () => {
                 { text: 'hello', bold: true } as TextNode,
                 { text: 'world', italic: true } as TextNode,
             ],
-        };
+        } as ParagraphNode as Node;
         const expected = {
             type: 'paragraph',
             children: [{ text: 'hello', bold: true }],

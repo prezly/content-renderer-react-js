@@ -5,14 +5,14 @@ import {
     ElementNode,
     HEADING_1_NODE_TYPE,
     isDividerNode,
-    isDocumentNode,
+    isDocumentNode, isHeadingNode,
 } from '@prezly/slate-types';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server.js';
 
 import { Component } from './Component';
 import { Selector } from './Selector';
-import { Divider, Document } from '../elements';
+import {Divider, Document, Heading} from '../elements';
 
 const documentNode: DocumentNode = {
     children: [
@@ -34,6 +34,7 @@ describe('Renderer', () => {
         const asString = ReactDOMServer.renderToString(
             <Selector nodes={documentNode}>
                 <Component match={isDividerNode} component={Divider} />
+                <Component match={isHeadingNode} component={Heading} />
                 <Component match={isDocumentNode} component={Document} />
             </Selector>,
         );
