@@ -1,7 +1,9 @@
 import type { TextNode } from '@prezly/slate-types';
 import React, { ReactNode } from 'react';
+import { replaceAllWith } from '../../lib';
 
 const LINE_BREAKS = /\r\n|\r|\n/;
+const SPACE = / /;
 
 export function Text({ bold, italic, subscript, superscript, text, underlined }: TextNode) {
     let children: ReactNode = Text.preserveSoftBreaks(text);
@@ -30,9 +32,22 @@ export function Text({ bold, italic, subscript, superscript, text, underlined }:
 }
 
 Text.preserveSoftBreaks = function (text: string): ReactNode {
-    const nodes = text.split(LINE_BREAKS).reduce<ReactNode[]>(function (result, part) {
-        return result.length === 0 ? [part] : [...result, <br />, part];
-    }, []);
+    const nodes = replaceAllWith(
+        text,
+        [
+            SPACE,
+            <>
+                <span style={{ whiteSpace: 'pre-wrap' }}> </span>
+            </>,
+        ],
+        [
+            LINE_BREAKS,
+            <>
+                <br />
+                <span style={{ display: 'inline-block', overflow: 'hidden', width: 0 }}>{''}</span>
+            </>,
+        ],
+    );
 
     return <>{nodes}</>;
 };

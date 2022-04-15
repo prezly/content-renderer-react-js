@@ -6,5 +6,6 @@ export { identity } from './identity';
 export { injectHtmlMarkup } from './injectHtmlMarkup';
 export { noop } from './noop';
 export { openWindow } from './openWindow';
+export * from './replaceAllWith';
 export { stringifyReactNode } from './stringifyReactNode';
 export { stringifyNode } from './stringifyNode';
