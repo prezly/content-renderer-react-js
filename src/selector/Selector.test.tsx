@@ -5,14 +5,15 @@ import {
     ElementNode,
     HEADING_1_NODE_TYPE,
     isDividerNode,
-    isDocumentNode, isHeadingNode,
+    isDocumentNode,
+    isHeadingNode,
 } from '@prezly/slate-types';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server.js';
 
 import { Component } from './Component';
 import { Selector } from './Selector';
-import {Divider, Document, Heading} from '../elements';
+import { Divider, Document, Heading } from '../elements';
 
 const documentNode: DocumentNode = {
     children: [
