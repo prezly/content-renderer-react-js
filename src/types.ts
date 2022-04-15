@@ -48,7 +48,7 @@ import type { ComponentType } from 'react';
 
 export type NodeRenderer<T extends Node> = ComponentType<{ node: T }>;
 
-export type TextRenderer = ComponentType<TextNode & { children?: never }>;
+export type TextRenderer = ComponentType<{ node: TextNode, children?: never }>;
 
 export interface ComponentRenderers {
     [ATTACHMENT_NODE_TYPE]?: NodeRenderer<AttachmentNode>;

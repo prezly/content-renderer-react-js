@@ -1,4 +1,4 @@
-import type { Node } from '@prezly/slate-types';
+import type { Node } from 'slate';
 
 /**
  * Stringify Slate node for debug purposes (e.g. error messages).

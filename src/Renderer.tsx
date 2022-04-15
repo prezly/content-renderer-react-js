@@ -28,7 +28,7 @@ export function Renderer({
             {transformedNodes.map((node, index) => {
                 if (isTextNode(node)) {
                     const TextRenderer = components.text;
-                    return <TextRenderer key={index} {...node} />;
+                    return <TextRenderer key={index} node={node} />;
                 }
 
                 if (isElementNode(node)) {
