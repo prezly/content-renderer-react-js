@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import type { PropsWithChildren } from 'react';
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { useResizeObserver } from '@react-hookz/web';
 import { StoryBookmarkLayout } from '@prezly/slate-types';
 
@@ -20,10 +20,10 @@ export function Container({
     className,
     hasThumbnail,
 }: PropsWithChildren<ContainerProps>) {
-    const card = useRef<HTMLDivElement | null>(null);
+    const [cardRef, setCardRef] = useState<HTMLDivElement | null>(null);
     const [isSmallViewport, setSmallViewport] = useState(false);
 
-    useResizeObserver(card.current, function (entry) {
+    useResizeObserver(cardRef, (entry) => {
         setSmallViewport(entry.contentRect.width < HORIZONTAL_LAYOUT_MIN_WIDTH);
     });
 
@@ -31,7 +31,7 @@ export function Container({
 
     return (
         <div
-            ref={card}
+            ref={setCardRef}
             className={classNames(className, 'prezly-slate-bookmark-card-component__container', {
                 vertical: actualLayout === 'vertical',
                 horizontal: actualLayout === 'horizontal',

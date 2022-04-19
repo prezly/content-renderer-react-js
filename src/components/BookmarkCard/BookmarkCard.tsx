@@ -5,43 +5,51 @@ import { Container } from './Container';
 import { Details } from './Details';
 import { Provider } from './Provider';
 import { Thumbnail } from './Thumbnail';
-import type { BookmarkCardNodeInfo } from './BookmarkCard.types';
 
 interface BookmarkCardProps {
     oembed: OEmbedInfo;
-    node: BookmarkCardNodeInfo;
+    uuid: string;
+    showThumbnail: boolean;
+    layout: 'vertical' | 'horizontal';
+    newTab: boolean;
     hrefId: string;
     className?: string;
 }
 
-export function BookmarkCard({ node, oembed, hrefId, className }: BookmarkCardProps) {
-    const showThumbnail = Boolean(node.showThumbnail && oembed.thumbnail_url);
+export function BookmarkCard(props: BookmarkCardProps) {
+    const showThumbnail = Boolean(props.showThumbnail && props.oembed.thumbnail_url);
 
     const isEmpty =
-        !showThumbnail && utils.isEmptyText(oembed.title) && utils.isEmptyText(oembed.description);
+        !showThumbnail &&
+        utils.isEmptyText(props.oembed.title) &&
+        utils.isEmptyText(props.oembed.description);
 
     return (
-        <Container defaultLayout={node.layout} hasThumbnail={showThumbnail} className={className}>
-            {showThumbnail && oembed.thumbnail_url && (
+        <Container
+            defaultLayout={props.layout}
+            hasThumbnail={showThumbnail}
+            className={props.className}
+        >
+            {showThumbnail && props.oembed.thumbnail_url && (
                 <Thumbnail
-                    href={oembed.url}
-                    src={oembed.thumbnail_url}
-                    width={oembed.thumbnail_width}
-                    height={oembed.thumbnail_height}
+                    href={props.oembed.url}
+                    src={props.oembed.thumbnail_url}
+                    width={props.oembed.thumbnail_width}
+                    height={props.oembed.thumbnail_height}
                 />
             )}
             <Details
-                id={hrefId}
-                href={oembed.url}
-                newTab={node.newTab}
-                title={oembed.title}
-                description={oembed.description}
+                id={props.hrefId}
+                href={props.oembed.url}
+                newTab={props.newTab}
+                title={props.oembed.title}
+                description={props.oembed.description}
             >
                 <Provider
                     showUrl={isEmpty}
-                    url={oembed.url}
-                    providerName={oembed.provider_name}
-                    providerUrl={oembed.provider_url}
+                    url={props.oembed.url}
+                    providerName={props.oembed.provider_name}
+                    providerUrl={props.oembed.provider_url}
                 />
             </Details>
         </Container>

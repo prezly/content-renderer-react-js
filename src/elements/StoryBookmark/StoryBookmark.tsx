@@ -13,12 +13,10 @@ export function StoryBookmark({ node, story }: Props) {
     return (
         <BookmarkCard
             hrefId={`story-bookmark-${node.uuid}`}
-            node={{
-                layout: node.layout,
-                newTab: node.new_tab,
-                showThumbnail: node.show_thumbnail,
-                uuid: node.uuid,
-            }}
+            layout={node.layout}
+            newTab={node.new_tab}
+            showThumbnail={node.show_thumbnail}
+            uuid={node.uuid}
             oembed={story.oembed}
             className="prezly-slate-story-bookmark"
         />
