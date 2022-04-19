@@ -3,7 +3,12 @@ import React, { ReactNode } from 'react';
 
 const LINE_BREAKS = /\r\n|\r|\n/;
 
-export function Text({ bold, italic, subscript, superscript, text, underlined }: TextNode) {
+interface Props {
+    node: TextNode;
+}
+
+export function Text({ node }: Props) {
+    const { bold, italic, subscript, superscript, text, underlined } = node;
     let children: ReactNode = Text.preserveSoftBreaks(text);
 
     if (bold) {

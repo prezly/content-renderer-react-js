@@ -1,4 +1,4 @@
-import type { Node } from '@prezly/slate-types';
+import type { Node } from 'slate';
 
 import type { Transformation } from '../types';
 import { isElementNode } from '@prezly/slate-types';

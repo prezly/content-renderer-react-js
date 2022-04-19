@@ -1,2 +1,1 @@
-export * from './StoryBookmark';
-export * from './types';
+export { StoryBookmark } from './StoryBookmark';

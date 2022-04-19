@@ -37,8 +37,8 @@ If you need to support older browsers, you can use this polyfill for `object-fit
 
 ```tsx
 import React from 'react';
-import { DOCUMENT_NODE_TYPE, HEADING_1_NODE_TYPE, DocumentNode } from '@prezly/slate-types';
-import { Renderer } from '@prezly/slate-renderer';
+import { DOCUMENT_NODE_TYPE, HEADING_1_NODE_TYPE, DocumentNode, isHeadingNode } from '@prezly/slate-types';
+import { Renderer, Component } from '@prezly/slate-renderer';
 
 const documentNode: DocumentNode = {
     children: [
@@ -51,21 +51,28 @@ const documentNode: DocumentNode = {
     version: '0.50',
 };
 
-const MyComponent = () => (
-    <Renderer
-        nodes={documentNode} /* or nodes={[documentNode]}, up to you */
-        options={{
-            /* override default heading render */
-            [HEADING_1_NODE_TYPE]: ({ children, className, node, ...props }) => (
-                <div className={className} style={{ color: 'red' }}>
-                    {children}
-                </div>
-            ),
-        }}
-    />
-);
+export function Content() {
+    return (
+        <Renderer nodes={documentNode}/>
+    );
+}
 
-export default MyComponent;
+// You can also override default renders by
+// declaring custom renderers as children `<Component>` elements
+export function ContentWithCustomHeadings() {
+    return (
+        <Renderer nodes={documentNode}>
+            <Component
+                match={isHeadingNode}
+                component={({children, className, node, ...props}) => (
+                    <div className={className} style={{color: 'red'}}>
+                        {children}
+                    </div>
+                )}
+            />
+        </Renderer>
+    );
+}
 ```
 
 # Development

@@ -1,21 +1,15 @@
-import { StoryBookmarkNode, STORY_BOOKMARK_NODE_TYPE } from '@prezly/slate-types';
+import type { Story } from '@prezly/sdk';
+import type { StoryBookmarkNode } from '@prezly/slate-types';
 import React from 'react';
 
 import { BookmarkCard } from '../../components';
-import { useElementContext } from '../../RendererContext';
 
-interface StoryBookmarkBlockProps {
+interface Props {
     node: StoryBookmarkNode;
+    story: Story;
 }
 
-export function StoryBookmark({ node }: StoryBookmarkBlockProps) {
-    const ctx = useElementContext(STORY_BOOKMARK_NODE_TYPE);
-    const story = ctx?.getStory(node.story.uuid);
-
-    if (!story) {
-        return null;
-    }
-
+export function StoryBookmark({ node, story }: Props) {
     return (
         <BookmarkCard
             hrefId={`story-bookmark-${node.uuid}`}

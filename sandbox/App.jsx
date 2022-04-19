@@ -1,22 +1,21 @@
 import React from 'react';
-
-import { Renderer } from '@prezly/content-renderer-react-js';
-import { STORY_BOOKMARK_NODE_TYPE } from '@prezly/slate-types';
+import { Component, Elements, Renderer } from '@prezly/content-renderer-react-js';
+import { isStoryBookmarkNode } from '@prezly/slate-types';
 
 import '@prezly/content-renderer-react-js/styles.css';
-import './styles.css';
 
+import './styles.css';
 import story from './story.json';
 import referencedStory from './referencedStory.json';
 
 export const App = () => (
     <div className="App">
-        <Renderer nodes={story} elementsContext={elementsContext} />
+        <Renderer nodes={story.children} defaultFallback="warning">
+            <Component match={isStoryBookmarkNode} component={PrefetchedStoryBookmark} />
+        </Renderer>
     </div>
 );
 
-const elementsContext = {
-    [STORY_BOOKMARK_NODE_TYPE]: {
-        getStory: () => referencedStory,
-    },
-};
+function PrefetchedStoryBookmark({ node }) {
+    return <Elements.StoryBookmark node={node} story={referencedStory} />;
+}

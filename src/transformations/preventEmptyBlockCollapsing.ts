@@ -1,5 +1,5 @@
-import type { Node } from '@prezly/slate-types';
 import { isElementNode, isTextNode } from '@prezly/slate-types';
+import type { Node } from 'slate';
 
 function isEmpty(node: Node): boolean {
     if (isTextNode(node)) {
