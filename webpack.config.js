@@ -12,6 +12,7 @@ export default {
     resolve: {
         symlinks: false,
         extensions: ['.js', '.jsx', '.mjs', '.cjs'],
+        fallback: { url: 'url-polyfill' },
         alias: {
             'react/jsx-dev-runtime': path.resolve('node_modules/react/jsx-dev-runtime.js'),
             '@prezly/content-renderer-react-js/styles.css': path.resolve('build/styles/styles.css'),

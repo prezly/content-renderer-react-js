@@ -1,5 +1,6 @@
 import React, { FunctionComponent, useEffect, useRef } from 'react';
-import { injectHtmlMarkup, useLatest } from '../lib';
+import { useSyncedRef } from '@react-hookz/web';
+import { injectHtmlMarkup } from '../lib';
 
 interface Props {
     html: string;
@@ -10,7 +11,7 @@ interface Props {
 
 export const HtmlInjection: FunctionComponent<Props> = (props) => {
     const { html, className, id } = props;
-    const freshProps = useLatest<Props>(props);
+    const freshProps = useSyncedRef<Props>(props);
     const ref = useRef<HTMLDivElement>(null);
 
     useEffect(() => {

@@ -19,6 +19,7 @@
         "sourceMap": true,
         "strict": true,
         "target": "es6",
+        "skipLibCheck": true,
 
         "jsx": "react",
         "declarationDir": "./build/types",

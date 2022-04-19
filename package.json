@@ -67,7 +67,8 @@
     },
     "dependencies": {
         "@prezly/linear-partition": "^1.0.2",
-        "@prezly/slate-types": "^0.28.0",
+        "@prezly/sdk": "^6.21.0",
+        "@prezly/slate-types": "^0.30.0",
         "@react-hookz/web": "^12.0.0",
         "classnames": "^2.2.6",
         "react-modal": "^3.12.1",
@@ -118,6 +119,7 @@
         "ts-jest": "^27.0.7",
         "tsc-fancy": "^1.1.2",
         "typescript": "^4.4.4",
+        "url-polyfill": "^1.1.12",
         "webpack": "^5.65.0",
         "webpack-cli": "^4.9.1",
         "webpack-dev-server": "^4.7.1"
