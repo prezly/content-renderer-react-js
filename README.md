@@ -64,8 +64,8 @@ export function ContentWithCustomHeadings() {
         <Renderer nodes={documentNode}>
             <Component
                 match={isHeadingNode}
-                component={({children, className, node, ...props}) => (
-                    <div className={className} style={{color: 'red'}}>
+                component={({ children, node }) => (
+                    <div style={{color: 'red'}}>
                         {children}
                     </div>
                 )}
