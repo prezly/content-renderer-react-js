@@ -1,4 +1,5 @@
-import { isTextNode, Node } from '@prezly/slate-types';
+import { isTextNode } from '@prezly/slate-types';
+import type { Node } from 'slate';
 
 export function preventWhitespaceCollapsing(node: Node): Node {
     if (isTextNode(node)) {

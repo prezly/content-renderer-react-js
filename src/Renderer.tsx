@@ -1,65 +1,96 @@
-import { isElementNode, isTextNode, Node } from '@prezly/slate-types';
-import React, { Fragment, FunctionComponent } from 'react';
+import {
+    isAttachmentNode,
+    isBookmarkNode,
+    isContactNode,
+    isDividerNode,
+    isDocumentNode,
+    isEmbedNode,
+    isGalleryNode,
+    isHeadingNode,
+    isHtmlNode,
+    isImageNode,
+    isLinkNode,
+    isListItemNode,
+    isListItemTextNode,
+    isListNode,
+    isMentionNode,
+    isParagraphNode,
+    isPlaceholderNode,
+    isQuoteNode,
+    isTextNode,
+    isVideoNode,
+} from '@prezly/slate-types';
+import React, { ComponentType, ReactNode } from 'react';
+import type { Node } from 'slate';
 
-import { defaultComponents } from './defaultComponents';
-import { applyTransformations, describeNode } from './lib';
+import * as Elements from './elements';
+import { applyTransformations } from './lib';
 import * as Transformations from './transformations';
-import type { ComponentRenderers, Transformation } from './types';
+import type { Transformation } from './types';
+import { Component, Selector } from './selector';
 
 interface Props {
+    children?: ReactNode;
+    defaultComponents?: boolean;
+    defaultFallback?: 'ignore' | 'warning' | 'passthru' | ComponentType<{ node: Node }>;
     nodes: Node | Node[];
-    components?: ComponentRenderers;
     transformations?: Transformation[];
 }
 
-export const Renderer: FunctionComponent<Props> = ({
+export function Renderer({
+    children,
+    defaultComponents = true,
+    defaultFallback = 'warning',
     nodes,
-    components: userComponents = {},
     transformations = Object.values(Transformations),
-}) => {
-    const components = { ...defaultComponents, ...userComponents };
+}: Props) {
     const transformedNodes = applyTransformations(
         Array.isArray(nodes) ? nodes : [nodes],
         transformations,
     );
 
     return (
-        <>
-            {transformedNodes.map((node, index) => {
-                if (isTextNode(node)) {
-                    const TextRenderer = components.text;
-                    return <TextRenderer key={index} {...node} />;
-                }
-
-                if (isElementNode(node)) {
-                    const { children, type } = node;
-                    const ComponentRenderer = components[type as keyof ComponentRenderers];
-
-                    if (ComponentRenderer) {
-                        return (
-                            /* @ts-ignore */
-                            <ComponentRenderer key={index} node={node}>
-                                {/* @ts-ignore */}
-                                <Renderer
-                                    nodes={children as Node[]}
-                                    components={components}
-                                    transformations={transformations}
-                                />
-                            </ComponentRenderer>
-                        );
-                    }
-                }
-
-                if (process.env.NODE_ENV === 'development') {
-                    console.warn(
-                        `[@prezly/content-renderer-react-js] Unknown node type encountered: ${describeNode(
-                            node,
-                        )}`,
-                    );
-                }
-
-                return <Fragment key={index} />;
-            })}
-        </>
+        <Selector nodes={transformedNodes}>
+            {children}
+            {defaultComponents && (
+                <>
+                    <Component match={isTextNode} component={Elements.Text} />
+                    <Component match={isAttachmentNode} component={Elements.Attachment} />
+                    <Component match={isBookmarkNode} component={Elements.Bookmark} />
+                    <Component match={isParagraphNode} component={Elements.Paragraph} />
+                    <Component match={isHeadingNode} component={Elements.Heading} />
+                    <Component match={isQuoteNode} component={Elements.Quote} />
+                    <Component match={isDividerNode} component={Elements.Divider} />
+                    <Component match={isImageNode} component={Elements.Image} />
+                    <Component match={isVideoNode} component={Elements.Video} />
+                    <Component match={isEmbedNode} component={Elements.Embed} />
+                    <Component match={isLinkNode} component={Elements.Link} />
+                    <Component match={isPlaceholderNode} component={Elements.Placeholder} />
+                    <Component match={isMentionNode} component={Elements.Mention} />
+                    <Component match={isListNode} component={Elements.List} />
+                    <Component match={isListItemNode} component={Elements.ListItem} />
+                    <Component match={isListItemTextNode} component={Elements.ListItemText} />
+                    <Component match={isHtmlNode} component={Elements.Html} />
+                    <Component match={isGalleryNode} component={Elements.Gallery} />
+                    <Component match={isContactNode} component={Elements.Contact} />
+                    <Component match={isDocumentNode} component={Elements.Document} />
+                </>
+            )}
+            {defaultFallback !== 'ignore' && (
+                <Component match={isAnyNode} component={fallback(defaultFallback)} />
+            )}
+        </Selector>
     );
-};
+}
+
+function fallback(
+    defaultFallback: 'warning' | 'passthru' | ComponentType<{ node: Node }>,
+): ComponentType<{ node: Node }> {
+    if (defaultFallback === 'passthru') return Elements.Passthru;
+    if (defaultFallback === 'warning') return Elements.Unknown;
+    return defaultFallback;
+}
+
+function isAnyNode(_: Node): _ is Node {
+    return true;
+}
