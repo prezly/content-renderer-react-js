@@ -28,6 +28,7 @@ jobs:
     - run: npm run loki:static-build
       env:
         CI: true
+
     - uses: actions/upload-artifact@v3
       if: failure()
       with:
