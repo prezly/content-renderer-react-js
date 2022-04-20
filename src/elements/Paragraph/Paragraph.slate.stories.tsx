@@ -12,7 +12,7 @@ export const RegularParagraphOfText: Story = () => (
             type: 'paragraph',
             children: [
                 {
-                    text: "Change Prezly is a very user-friendly system. Uploading lists that you have made over the years, making attractive press files, selecting and contacting journalists, the system does it all. It's quick, it's updated regularly, the help desk is swift and friendly if ever you need them.",
+                    text: "Prezly is a very user-friendly system. Uploading lists that you have made over the years, making attractive press files, selecting and contacting journalists, the system does it all. It's quick, it's updated regularly, the help desk is swift and friendly if ever you need them.",
                 },
             ],
         }}
