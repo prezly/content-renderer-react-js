@@ -55,6 +55,7 @@
         "test:esm": "node build/esm/index.mjs",
         "test:unit": "NODE_OPTIONS=--experimental-vm-modules jest --no-cache --coverage",
         "test:watch": "NODE_OPTIONS=--experimental-vm-modules jest --no-cache --watch",
+        "test:storybook-build": "loki --requireReference --reactUri file:./storybook-static",
         "storybook": "start-storybook -p 6006",
         "build-storybook": "build-storybook"
     },
@@ -116,6 +117,7 @@
         "gulp-sass": "^5.0.0",
         "html-webpack-plugin": "^5.5.0",
         "jest": "^27.3.1",
+        "loki": "^0.29.0",
         "np": "^7.5.0",
         "postcss": "^8.4.5",
         "prettier": "^2.4.1",
@@ -124,6 +126,7 @@
         "react-refresh": "^0.11.0",
         "rimraf": "^3.0.2",
         "sass": "^1.32.4",
+        "sass-loader": "^12.6.0",
         "style-loader": "^3.3.1",
         "ts-jest": "^27.0.7",
         "tsc-fancy": "^1.1.2",
@@ -132,5 +135,20 @@
         "webpack": "^5.65.0",
         "webpack-cli": "^4.9.1",
         "webpack-dev-server": "^4.7.1"
+    },
+    "loki": {
+        "configurations": {
+            "chrome.laptop": {
+                "target": "chrome.docker",
+                "width": 1366,
+                "height": 768,
+                "deviceScaleFactor": 1,
+                "mobile": false
+            },
+            "chrome.iphone7": {
+                "target": "chrome.docker",
+                "preset": "iPhone 7"
+            }
+        }
     }
 }
