@@ -10,7 +10,7 @@ export default {
     },
     moduleFileExtensions: ['ts', 'tsx', 'js', 'mjs', 'jsx', 'json'],
     moduleNameMapper: {
-        '\\.(scss|svg)$': '<rootDir>/universalMock.js',
+        '\\.(scss|svg)$': '<rootDir>/universalMock.mjs',
     },
     preset: 'ts-jest',
     testEnvironment: 'jsdom',
