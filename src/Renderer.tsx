@@ -29,21 +29,21 @@ import * as Transformations from './transformations';
 import type { Transformation } from './types';
 import { Component, Selector } from './selector';
 
-interface Props {
+interface Props<N extends Node | Node[]> {
     children?: ReactNode;
     defaultComponents?: boolean;
     defaultFallback?: 'ignore' | 'warning' | 'passthru' | ComponentType<{ node: Node }>;
-    nodes: Node | Node[];
+    nodes: N;
     transformations?: Transformation[];
 }
 
-export function Renderer({
+export function Renderer<N extends Node | Node[]>({
     children,
     defaultComponents = true,
     defaultFallback = 'warning',
     nodes,
     transformations = Object.values(Transformations),
-}: Props) {
+}: Props<N>) {
     const transformedNodes = applyTransformations(
         Array.isArray(nodes) ? nodes : [nodes],
         transformations,
