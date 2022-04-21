@@ -94,6 +94,8 @@ There are several commands that you can use:
 1. `loki:update` - Regenerate all snapshots despite what you already have (Storybook server should run)
 1. `loki:static-build` - Performs checks like `loki` does, but over builded sources from storybook, no need to run Storybook server
 
+If Loki fails on CI you can download generated images like [here](https://github.com/actions/upload-artifact#where-does-the-upload-go)
+
 ---
 
 Brought to you by [Prezly][prezly].
