@@ -108,7 +108,6 @@ export const Bullet: Story = () => (
                 ],
             },
         ]}
-        defaultComponents
     />
 );
 
@@ -163,7 +162,6 @@ export const Numbered: Story = () => (
                 ],
             },
         ]}
-        defaultComponents
     />
 );
 

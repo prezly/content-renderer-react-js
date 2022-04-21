@@ -18,37 +18,37 @@ export const RegularParagraphOfText: Story = () => (
                 ],
             },
         ]}
-        defaultComponents
     />
 );
 
 export const WhitespaceCollapsing: Story = () => (
     <Renderer
-        nodes={{
-            type: 'paragraph',
-            children: [
-                {
-                    text: 'This paragraph   has       additional    whitespaces    between   words, which are   expected to be    preserved.',
-                },
-                {
-                    type: 'paragraph',
-                    children: [
-                        {
-                            text: 'The next paragraph has no inner text, but it is expected to still occupy the vertical space, as normally:',
-                        },
-                    ],
-                },
-                {
-                    type: 'paragraph',
-                    children: [
-                        {
-                            text: '',
-                        },
-                    ],
-                },
-            ],
-        }}
-        defaultComponents
+        nodes={[
+            {
+                type: 'paragraph',
+                children: [
+                    {
+                        text: 'This paragraph   has       additional    whitespaces    between   words, which are   expected to be    preserved.',
+                    },
+                    {
+                        type: 'paragraph',
+                        children: [
+                            {
+                                text: 'The next paragraph has no inner text, but it is expected to still occupy the vertical space, as normally:',
+                            },
+                        ],
+                    },
+                    {
+                        type: 'paragraph',
+                        children: [
+                            {
+                                text: '',
+                            },
+                        ],
+                    },
+                ],
+            },
+        ]}
     />
 );
 
@@ -69,7 +69,6 @@ export const SoftLineBreaks: Story = () => (
                 ],
             },
         ]}
-        defaultComponents
     />
 );
 
@@ -102,7 +101,6 @@ export const Placeholders: Story = () => (
                 ],
             },
         ]}
-        defaultComponents
     />
 );
 

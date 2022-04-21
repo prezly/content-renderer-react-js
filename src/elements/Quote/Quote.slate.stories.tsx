@@ -8,20 +8,21 @@ export default {
 
 export const BlockQuote: Story = () => (
     <Renderer
-        nodes={{
-            type: 'paragraph',
-            children: [
-                {
-                    type: 'block-quote',
-                    children: [
-                        {
-                            text: 'I love how Prezly has been created by people who really understand the needs of PR professionals. Its features and functionality are just right for our business.',
-                        },
-                    ],
-                },
-            ],
-        }}
-        defaultComponents
+        nodes={[
+            {
+                type: 'paragraph',
+                children: [
+                    {
+                        type: 'block-quote',
+                        children: [
+                            {
+                                text: 'I love how Prezly has been created by people who really understand the needs of PR professionals. Its features and functionality are just right for our business.',
+                            },
+                        ],
+                    },
+                ],
+            },
+        ]}
     />
 );
 

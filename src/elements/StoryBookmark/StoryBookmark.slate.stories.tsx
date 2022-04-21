@@ -12,22 +12,23 @@ export default {
 
 export const VerticalWithThumbnail: Story = () => (
     <Renderer
-        nodes={{
-            type: 'story-bookmark',
-            children: [
-                {
-                    text: '',
+        nodes={[
+            {
+                type: 'story-bookmark',
+                children: [
+                    {
+                        text: '',
+                    },
+                ],
+                uuid: 'f89e507f-4707-4005-9556-72a4a7e65d70',
+                story: {
+                    uuid: 'b26212eb-d290-49c5-995b-def2d1218546',
                 },
-            ],
-            uuid: 'f89e507f-4707-4005-9556-72a4a7e65d70',
-            story: {
-                uuid: 'b26212eb-d290-49c5-995b-def2d1218546',
+                show_thumbnail: true,
+                layout: 'vertical',
+                new_tab: true,
             },
-            show_thumbnail: true,
-            layout: 'vertical',
-            new_tab: true,
-        }}
-        defaultComponents
+        ]}
     >
         <Component match={isStoryBookmarkNode} component={PrefetchedStoryBookmark} />
     </Renderer>

@@ -15,11 +15,12 @@ export const AllElements: Story = () => {
     storiesModules.forEach((module) => {
         children.push(
             <Renderer
-                nodes={{
-                    type: 'heading-one',
-                    children: [{ text: module.default.title }],
-                }}
-                defaultComponents
+                nodes={[
+                    {
+                        type: 'heading-one',
+                        children: [{ text: module.default.title }],
+                    },
+                ]}
             />,
         );
 
