@@ -19,5 +19,6 @@
             "target": "chrome.docker",
             "preset": "iPhone 7"
         }
-    }
+    },
+    "fetchFailIgnore": "cdn\\.uc\\.assets\\.prezly\\.com"
 }
