@@ -6,20 +6,15 @@ import { Renderer } from '../Renderer';
 
 export default {
     title: 'AllElements',
-    decorators: [
-        (Story) => {
-            const cb = createAsyncCallback();
-
-            setTimeout(() => {
-                cb();
-            }, 3000);
-
-            return <>{Story()}</>;
-        },
-    ],
 } as Meta;
 
 export const AllElements: Story = () => {
+    const cb = createAsyncCallback();
+
+    setTimeout(() => {
+        cb();
+    }, 1000);
+
     const storiesModules = importAll(require.context('./', true, /\.slate.stories.tsx$/));
 
     const children: JSX.Element[] = [];
