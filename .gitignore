@@ -8,4 +8,5 @@ package-lock.json
 storybook-static
 .loki/current
 .loki/difference
+.loki/.gitignore
 

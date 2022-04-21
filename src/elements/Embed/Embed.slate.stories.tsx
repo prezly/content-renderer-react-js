@@ -1,9 +1,21 @@
 import React from 'react';
 import type { Meta, Story } from '@storybook/react';
+import createAsyncCallback from '@loki/create-async-callback';
 import { Renderer } from '../../Renderer';
 
 export default {
     title: 'Elements/Embed',
+    decorators: [
+        (Story) => {
+            const cb = createAsyncCallback();
+
+            setTimeout(() => {
+                cb();
+            }, 3000);
+
+            return <>{Story()}</>;
+        },
+    ],
 } as Meta;
 
 export const VideoEmbedIframe: Story = () => (

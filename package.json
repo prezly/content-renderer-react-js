@@ -88,6 +88,8 @@
         "@babel/preset-react": "^7.16.5",
         "@babel/preset-typescript": "^7.16.5",
         "@dr.pogodin/babel-preset-svgr": "^1.4.0",
+        "@loki/create-async-callback": "^0.29.0",
+        "@loki/is-loki-running": "^0.29.0",
         "@pmmmwh/react-refresh-webpack-plugin": "^0.5.4",
         "@storybook/addon-actions": "^6.4.22",
         "@storybook/addon-essentials": "^6.4.22",
