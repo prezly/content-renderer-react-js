@@ -33,12 +33,27 @@ export const AllElements: Story = () => {
                             type: 'heading-two',
                             children: [{ text: key.replace(/([A-Z])/g, ' $1') }],
                         }}
-                        defaultComponents
                     />,
                 );
+
                 children.push(<Story />);
             }
         });
+
+        children.push(
+            <Renderer
+                nodes={[
+                    {
+                        type: 'divider',
+                        children: [
+                            {
+                                text: '',
+                            },
+                        ],
+                    },
+                ]}
+            />,
+        );
     });
 
     return <>{children}</>;

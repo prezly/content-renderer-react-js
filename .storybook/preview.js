@@ -1,7 +1,16 @@
-const { importAll } = require('../src/dev/importAll');
+import React, { StrictMode } from 'react';
+import { importAll } from '../src/dev/importAll';
 
-module.exports.parameters = {
+importAll(require.context('../src', true, /\.scss$/));
+
+export const parameters = {
     actions: { argTypesRegex: '^on[A-Z].*' },
 };
 
-importAll(require.context('../src', true, /\.scss$/));
+export const decorators = [
+    (Story) => (
+        <StrictMode>
+            <Story />
+        </StrictMode>
+    ),
+];
