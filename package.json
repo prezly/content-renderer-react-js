@@ -56,8 +56,8 @@
         "test:unit": "NODE_OPTIONS=--experimental-vm-modules jest --no-cache --coverage",
         "test:watch": "NODE_OPTIONS=--experimental-vm-modules jest --no-cache --watch",
         "loki": "loki",
-        "loki:static-build": "loki --requireReference --reactUri file:./storybook-static",
         "loki:update": "loki update",
+        "loki:static-build": "loki  --reactUri file:./storybook-static",
         "storybook": "start-storybook -p 6006",
         "build-storybook": "build-storybook"
     },
