@@ -1,6 +1,6 @@
 import type { PropsWithChildren } from 'react';
 import React from 'react';
-import { Link } from '../';
+import { Link } from '../Link';
 
 import { utils } from '../../lib';
 
