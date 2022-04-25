@@ -32,6 +32,7 @@ export function BookmarkCard(props: BookmarkCardProps) {
         >
             {showThumbnail && props.oembed.thumbnail_url && (
                 <Thumbnail
+                    newTab={props.newTab}
                     href={props.oembed.url}
                     src={props.oembed.thumbnail_url}
                     width={props.oembed.thumbnail_width}

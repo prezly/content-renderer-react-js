@@ -5,3 +5,4 @@ export { MultilineEllipsis } from './MultilineEllipsis';
 export { PinterestButton } from './PinterestButton';
 export { Rollover } from './Rollover';
 export * from './BookmarkCard';
+export * from './Link';
