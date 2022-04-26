@@ -36,7 +36,16 @@ export function Text({ node }: Props) {
 
 Text.preserveSoftBreaks = function (text: string): ReactNode {
     const nodes = text.split(LINE_BREAKS).reduce<ReactNode[]>(function (result, part) {
-        return result.length === 0 ? [part] : [...result, <><br />&#8203;</>, part];
+        return result.length === 0
+            ? [part]
+            : [
+                  ...result,
+                  <>
+                      <br />
+                      &#8203;
+                  </>,
+                  part,
+              ];
     }, []);
 
     return <>{nodes}</>;
