@@ -88,7 +88,7 @@ npm run start
 ## Loki
 
 We use [Loki](https://loki.js.org/) visual testing library for storybook.
-There are several commands that you can use:
+There are several commands that you can use from `package.json`:
 
 1. `loki` - checks that your current stories are matched with what you already have (Storybook server should run)
 1. `loki:update` - Regenerate all snapshots despite what you already have (Storybook server should run)
