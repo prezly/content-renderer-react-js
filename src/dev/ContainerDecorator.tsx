@@ -1,8 +1,7 @@
 import React from 'react';
-import type { PartialStoryFn } from '@storybook/csf';
-import type { ReactFramework } from '@storybook/react';
+import type { StoryDecoratorArg } from './types';
 
-export function ContainerDecorator<T>(Story: PartialStoryFn<ReactFramework, T>) {
+export function ContainerDecorator<T>(Story: StoryDecoratorArg<T>) {
     return (
         <div style={{ maxWidth: 700, margin: '0 auto' }}>
             <Story />
