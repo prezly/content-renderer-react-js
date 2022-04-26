@@ -1,11 +1,13 @@
 import React from 'react';
 import type { Meta, Story } from '@storybook/react';
 import createAsyncCallback from '@loki/create-async-callback';
+import { StoryNameDecorator } from '../../dev/StoryNameDecorator';
 import { Renderer } from '../../Renderer';
 
 export default {
     title: 'Elements/Bookmark',
     decorators: [
+        StoryNameDecorator,
         (Story) => {
             const cb = createAsyncCallback();
 

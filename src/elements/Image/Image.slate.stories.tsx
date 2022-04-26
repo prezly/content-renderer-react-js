@@ -1,11 +1,12 @@
 import React from 'react';
 import type { Meta, Story } from '@storybook/react';
+import { StoryNameDecorator } from '../../dev/StoryNameDecorator';
 import { ContainerDecorator } from '../../dev/ContainerDecorator';
 import { Renderer } from '../../Renderer';
 
 export default {
     title: 'Elements/Image',
-    decorators: [ContainerDecorator],
+    decorators: [ContainerDecorator, StoryNameDecorator],
 } as Meta;
 
 export const WithCaption: Story = () => (
