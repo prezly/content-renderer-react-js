@@ -1,11 +1,12 @@
 import React from 'react';
 import type { Meta, Story } from '@storybook/react';
 import { ContainerDecorator } from '../../dev/ContainerDecorator';
+import { StoryNameDecorator } from '../../dev/StoryNameDecorator';
 import { Renderer } from '../../Renderer';
 
 export default {
     title: 'Elements/Gallery',
-    decorators: [ContainerDecorator],
+    decorators: [ContainerDecorator, StoryNameDecorator],
 } as Meta;
 
 export const ContainedSmallPadding: Story = () => (

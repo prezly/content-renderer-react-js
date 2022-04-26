@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Meta, Story } from '@storybook/react';
 import { isStoryBookmarkNode, StoryBookmarkNode } from '@prezly/slate-types';
+import { StoryNameDecorator } from '../../dev/StoryNameDecorator';
 import { Renderer } from '../../Renderer';
 import { referencedStory } from '../../dev/mocks';
 import { Component } from '../../selector';
@@ -8,6 +9,7 @@ import { Elements } from '../..';
 
 export default {
     title: 'Elements/StoryBookmark',
+    decorators: [StoryNameDecorator],
 } as Meta;
 
 export const VerticalWithThumbnail: Story = () => (
