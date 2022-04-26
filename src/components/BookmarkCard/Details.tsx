@@ -1,5 +1,6 @@
 import type { PropsWithChildren } from 'react';
 import React from 'react';
+import { Link } from '../Link';
 
 import { utils } from '../../lib';
 
@@ -22,15 +23,14 @@ export function Details({
     return (
         <div className={'prezly-slate-bookmark-card-component__details'}>
             {!utils.isEmptyText(title) && (
-                <a
+                <Link
                     id={id}
                     className={'prezly-slate-bookmark-card-component__title'}
                     href={href}
-                    rel="noopener noreferrer"
-                    target={newTab ? '_blank' : '_self'}
+                    newTab={newTab}
                 >
                     {title}
-                </a>
+                </Link>
             )}
 
             {!utils.isEmptyText(description) && (

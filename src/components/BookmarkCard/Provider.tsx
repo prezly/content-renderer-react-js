@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from '../Link';
 
 interface ProviderProps {
     url: string;
@@ -13,12 +14,7 @@ export function Provider({ url, providerUrl, providerName, showUrl }: ProviderPr
     const provider = showUrl ? url : providerName || hostname(providerUrl || url);
 
     return (
-        <a
-            className={'prezly-slate-bookmark-card-component__provider'}
-            rel="noopener noreferrer"
-            target="_blank"
-            href={href}
-        >
+        <Link className={'prezly-slate-bookmark-card-component__provider'} href={href} newTab>
             <img
                 className={'prezly-slate-bookmark-card-component__providerIcon'}
                 src={favicon}
@@ -26,7 +22,7 @@ export function Provider({ url, providerUrl, providerName, showUrl }: ProviderPr
                 aria-hidden="true"
             />
             <span className={'prezly-slate-bookmark-card-component__providerName'}>{provider}</span>
-        </a>
+        </Link>
     );
 }
 
