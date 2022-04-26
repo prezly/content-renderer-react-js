@@ -404,7 +404,7 @@ export const WithSpacesBetweenItems: Story = () => (
                                 children: [
                                     { text: 'Familiar, yet new', bold: true },
                                     {
-                                        text: ' - Painting VR is painting evolved; create stunning art by blending age-old techniques with the latest technological advances. There is no "undo" in real life, but there is one in Painting VR!\\n',
+                                        text: ' - Painting VR is painting evolved; create stunning art by blending age-old techniques with the latest technological advances. There is no "undo" in real life, but there is one in Painting VR!\n',
                                     },
                                 ],
                             },
@@ -418,7 +418,7 @@ export const WithSpacesBetweenItems: Story = () => (
                                 children: [
                                     { text: 'A relaxing experience ', bold: true },
                                     {
-                                        text: '- By using a combination of visuals, audio & haptics, digital artists will be immersed in a relaxing and satisfying creative experience.\\n',
+                                        text: '- By using a combination of visuals, audio & haptics, digital artists will be immersed in a relaxing and satisfying creative experience.\n',
                                     },
                                 ],
                             },
@@ -432,7 +432,7 @@ export const WithSpacesBetweenItems: Story = () => (
                                 children: [
                                     { text: 'A wide selection of brushes & tools', bold: true },
                                     {
-                                        text: ' - A spray can, brushes, paint rollers, markers, and even a customisable drill fitted with a brush magnet? We have it all!\\n',
+                                        text: ' - A spray can, brushes, paint rollers, markers, and even a customisable drill fitted with a brush magnet? We have it all!\n',
                                     },
                                 ],
                             },
@@ -446,7 +446,7 @@ export const WithSpacesBetweenItems: Story = () => (
                                 children: [
                                     { text: 'Pick or mix paint colours', bold: true },
                                     {
-                                        text: ' - Dip your brush in the bucket of your choice, or mix colours to get the desired effect. You can even use the colour picking function to select colours from your canvas, mixing palette or reference images.\\n',
+                                        text: ' - Dip your brush in the bucket of your choice, or mix colours to get the desired effect. You can even use the colour picking function to select colours from your canvas, mixing palette or reference images.\n',
                                     },
                                 ],
                             },
@@ -460,7 +460,7 @@ export const WithSpacesBetweenItems: Story = () => (
                                 children: [
                                     { text: 'In-game web browser', bold: true },
                                     {
-                                        text: ' - Listen to your favourite tunes, watch online tutorials, or get inspired by entering (random) words in the image search engine.\\n',
+                                        text: ' - Listen to your favourite tunes, watch online tutorials, or get inspired by entering (random) words in the image search engine.\n',
                                     },
                                 ],
                             },

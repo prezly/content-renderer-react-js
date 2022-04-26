@@ -69,7 +69,59 @@
             "type": "paragraph",
             "children": [
                 {
-                    "text": "There is a soft-line break after this text:\nthis should appear on the next line"
+                    "text": "There is a soft-line break after this text:\nthis should appear on the next line. Additionally there should be an extra line after this text: \n"
+                }
+            ]
+        },
+        {
+            "type": "paragraph",
+            "children": [
+                {
+                    "text": "List items should preserve trailing soft-line breaks too:"
+                }
+            ]
+        },
+        {
+            "type": "bulleted-list",
+            "children": [
+                {
+                    "type": "list-item",
+                    "children": [
+                        {
+                            "type": "list-item-text",
+                            "children": [
+                                {
+                                    "text": "This item has a trailing soft line-break in it:\n"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "list-item",
+                    "children": [
+                        {
+                            "type": "list-item-text",
+                            "children": [
+                                {
+                                    "text": "\n← This item has a leading soft line-break in it."
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "list-item",
+                    "children": [
+                        {
+                            "type": "list-item-text",
+                            "children": [
+                                {
+                                    "text": "And finally, this item has a trailing soft line-break too:\n"
+                                }
+                            ]
+                        }
+                    ]
                 }
             ]
         },
