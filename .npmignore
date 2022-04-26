@@ -10,3 +10,5 @@ example/
 *.txt
 *.test.ts
 *.test.tsx
+*.stories.tsx
+.loki

@@ -5,3 +5,8 @@ coverage/
 node_modules/
 tsconfig.tsbuildinfo
 package-lock.json
+storybook-static
+.loki/current
+.loki/difference
+.loki/.gitignore
+

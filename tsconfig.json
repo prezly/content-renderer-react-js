@@ -9,6 +9,7 @@
         "importsNotUsedAsValues": "error",
         "forceConsistentCasingInFileNames": true,
         "lib": ["dom", "dom.iterable", "esnext"],
+        "resolveJsonModule": true,
         "module": "es6",
         "moduleResolution": "node",
         "noEmit": false,
@@ -20,7 +21,6 @@
         "strict": true,
         "target": "es6",
         "skipLibCheck": true,
-
         "jsx": "react",
         "declarationDir": "./build/types",
         "rootDir": "./src",
