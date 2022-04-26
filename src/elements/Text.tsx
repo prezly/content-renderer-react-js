@@ -2,6 +2,7 @@ import type { TextNode } from '@prezly/slate-types';
 import React, { ReactNode } from 'react';
 
 const LINE_BREAKS = /\r\n|\r|\n/;
+const ZERO_WIDTH_WHITE_SPACE = '\u200B';
 
 interface Props {
     node: TextNode;
@@ -42,7 +43,7 @@ Text.preserveSoftBreaks = function (text: string): ReactNode {
                   ...result,
                   <>
                       <br />
-                      &#8203;
+                      {ZERO_WIDTH_WHITE_SPACE}
                   </>,
                   part,
               ];
