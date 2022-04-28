@@ -34,7 +34,6 @@ export function StoryNameDecorator<T>(
                     },
                 ]}
             />
-            ,
         </>
     );
 }
