@@ -1,12 +1,11 @@
 import React from 'react';
-import type { PartialStoryFn, StoryContext } from '@storybook/csf';
-import type { ReactFramework } from '@storybook/react';
 import isLokiRunning from '@loki/is-loki-running';
 import { Renderer } from '../Renderer';
+import type { StoryDecoratorArg, ContextDecoratorArg } from './types';
 
 export function StoryNameDecorator<T>(
-    Story: PartialStoryFn<ReactFramework, T>,
-    context: StoryContext<ReactFramework, T>,
+    Story: StoryDecoratorArg<T>,
+    context: ContextDecoratorArg<T>,
 ) {
     if (!isLokiRunning()) {
         return <Story />;
@@ -35,7 +34,6 @@ export function StoryNameDecorator<T>(
                     },
                 ]}
             />
-            ,
         </>
     );
 }
