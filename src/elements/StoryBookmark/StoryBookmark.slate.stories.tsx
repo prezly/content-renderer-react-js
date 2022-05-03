@@ -173,5 +173,5 @@ export const HorizontalWithoutThumbnail: Story = () => (
 );
 
 function PreFetchedStoryBookmark({ node }: { node: StoryBookmarkNode }) {
-    return <Elements.StoryBookmark node={node} story={referencedStory} />;
+    return <Elements.StoryBookmark node={node} storyOEmbedInfo={referencedStory.oembed} />;
 }
