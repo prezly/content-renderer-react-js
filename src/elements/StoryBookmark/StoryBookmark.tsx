@@ -1,4 +1,4 @@
-import type { Story } from '@prezly/sdk';
+import type { OEmbedInfo } from '@prezly/sdk';
 import type { StoryBookmarkNode } from '@prezly/slate-types';
 import React from 'react';
 
@@ -6,10 +6,10 @@ import { BookmarkCard } from '../../components';
 
 interface Props {
     node: StoryBookmarkNode;
-    story: Story;
+    storyOEmbedInfo: OEmbedInfo;
 }
 
-export function StoryBookmark({ node, story }: Props) {
+export function StoryBookmark({ node, storyOEmbedInfo }: Props) {
     return (
         <BookmarkCard
             hrefId={`story-bookmark-${node.uuid}`}
@@ -17,7 +17,7 @@ export function StoryBookmark({ node, story }: Props) {
             newTab={node.new_tab}
             showThumbnail={node.show_thumbnail}
             uuid={node.uuid}
-            oembed={story.oembed}
+            oembed={storyOEmbedInfo}
             className="prezly-slate-story-bookmark"
         />
     );
