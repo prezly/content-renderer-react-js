@@ -17,6 +17,6 @@ export default () => {
             '@babel/env',
         ],
 
-        plugins: [['babel-plugin-transform-remove-imports', { test: '\\.scss$' }]].filter(Boolean),
+        plugins: [['babel-plugin-transform-remove-imports', { test: '\\.scss$' }]],
     };
 };
