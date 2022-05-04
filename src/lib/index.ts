@@ -7,4 +7,5 @@ export { noop } from './noop';
 export { openWindow } from './openWindow';
 export { stringifyReactNode } from './stringifyReactNode';
 export { stringifyNode } from './stringifyNode';
+export { stripTags } from './stripTags';
 export * as utils from './utils';
