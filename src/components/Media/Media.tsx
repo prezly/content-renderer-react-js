@@ -49,7 +49,7 @@ export const Media: FunctionComponent<Props> = ({ children, className, image, st
         <img
             alt={title}
             className={computedClassName}
-            src={image.cdnUrl}
+            src={image.format().cdnUrl}
             srcSet={image.srcSet(1200)}
             style={style}
             title={title}
