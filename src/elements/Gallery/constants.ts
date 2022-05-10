@@ -7,15 +7,15 @@ export const DEFAULT_GALLERY_WIDTH_SSR: Record<GalleryNode.Layout, number> = {
 };
 
 export const IMAGE_PADDING: Record<GalleryNode.Padding, number> = {
-    [GalleryNode.Padding.S]: 0,
-    [GalleryNode.Padding.M]: 2,
-    [GalleryNode.Padding.L]: 8,
+    [GalleryNode.Padding.SMALL]: 0,
+    [GalleryNode.Padding.MEDIUM]: 2,
+    [GalleryNode.Padding.LARGE]: 8,
 };
 
 export const IMAGE_SIZE: Record<GalleryNode['thumbnail_size'], number> = {
-    [GalleryNode.ImageSize.XS]: 90,
-    [GalleryNode.ImageSize.S]: 200,
-    [GalleryNode.ImageSize.M]: 300,
-    [GalleryNode.ImageSize.L]: 450,
-    [GalleryNode.ImageSize.XL]: 1000,
+    [GalleryNode.ImageSize.XSMALL]: 90,
+    [GalleryNode.ImageSize.SMALL]: 200,
+    [GalleryNode.ImageSize.MEDIUM]: 300,
+    [GalleryNode.ImageSize.LARGE]: 450,
+    [GalleryNode.ImageSize.XLARGE]: 1000,
 };
