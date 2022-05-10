@@ -8,14 +8,7 @@ interface Props extends Omit<ImgHTMLAttributes<HTMLImageElement>, 'src'> {
     src?: string | null;
 }
 
-export const Avatar: FunctionComponent<Props> = ({
-    alt,
-    className,
-    name,
-    src,
-    title,
-    ...props
-}) => {
+export const Avatar: FunctionComponent<Props> = ({ alt, className, name, src, title, ...props }) => {
     const commonProps = {
         className: classNames('prezly-slate-contact__avatar-image', className),
         title: title || name,

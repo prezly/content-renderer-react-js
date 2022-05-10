@@ -14,13 +14,7 @@ interface Props {
     style?: CSSProperties;
 }
 
-export function GalleryImage({
-    originalImage,
-    previewImage,
-    onClick,
-    rounded = false,
-    style,
-}: Props) {
+export function GalleryImage({ originalImage, previewImage, onClick, rounded = false, style }: Props) {
     return (
         <Rollover
             id={`gallery-image-${originalImage.uuid}`}

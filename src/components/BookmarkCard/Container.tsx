@@ -13,12 +13,7 @@ interface ContainerProps {
 
 const HORIZONTAL_LAYOUT_MIN_WIDTH = 480;
 
-export function Container({
-    defaultLayout,
-    children,
-    className,
-    hasThumbnail,
-}: PropsWithChildren<ContainerProps>) {
+export function Container({ defaultLayout, children, className, hasThumbnail }: PropsWithChildren<ContainerProps>) {
     const [cardRef, setCardRef] = useState<HTMLDivElement | null>(null);
     const [isSmallViewport, setSmallViewport] = useState(false);
 

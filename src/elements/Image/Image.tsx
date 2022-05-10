@@ -39,14 +39,7 @@ const NEW_TAB_ATTRIBUTES: Partial<AnchorHTMLAttributes<HTMLAnchorElement>> = {
     rel: 'noopener noreferrer',
 };
 
-export const Image: FunctionComponent<Props> = ({
-    children,
-    className,
-    node,
-    onDownload,
-    onPreviewOpen,
-    ...props
-}) => {
+export const Image: FunctionComponent<Props> = ({ children, className, node, onDownload, onPreviewOpen, ...props }) => {
     const { file, href, layout } = node;
     const isNewTab = node.new_tab ?? true;
     const [isPreviewOpen, setIsPreviewOpen] = useState<boolean>(false);

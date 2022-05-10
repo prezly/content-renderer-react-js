@@ -87,8 +87,7 @@ export const referencedStory: Story = {
             edit: 'https://rock.prezly.com/settings/newsrooms/9e0297b0-f37f-4492-a7c4-d98fffe86760/information',
             gallery_management: 'https://rock.prezly.com/pressroom/help/gallery',
             hub_settings: 'https://rock.prezly.com/pressroom/help/hub',
-            languages:
-                'https://rock.prezly.com/settings/newsrooms/9e0297b0-f37f-4492-a7c4-d98fffe86760/languages',
+            languages: 'https://rock.prezly.com/settings/newsrooms/9e0297b0-f37f-4492-a7c4-d98fffe86760/languages',
             look_and_feel_settings:
                 'https://rock.prezly.com/settings/newsrooms/9e0297b0-f37f-4492-a7c4-d98fffe86760/themes',
             manual_subscription_management: '',
@@ -128,8 +127,7 @@ export const referencedStory: Story = {
             edit: 'https://rock.prezly.com/settings/newsrooms/9e0297b0-f37f-4492-a7c4-d98fffe86760/information',
             gallery_management: 'https://rock.prezly.com/pressroom/help/gallery',
             hub_settings: 'https://rock.prezly.com/pressroom/help/hub',
-            languages:
-                'https://rock.prezly.com/settings/newsrooms/9e0297b0-f37f-4492-a7c4-d98fffe86760/languages',
+            languages: 'https://rock.prezly.com/settings/newsrooms/9e0297b0-f37f-4492-a7c4-d98fffe86760/languages',
             look_and_feel_settings:
                 'https://rock.prezly.com/settings/newsrooms/9e0297b0-f37f-4492-a7c4-d98fffe86760/themes',
             manual_subscription_management: '',
@@ -144,8 +142,7 @@ export const referencedStory: Story = {
         url: 'https://www.prezly.com/help/prezly-product-training',
         title: 'Prezly product training',
         description: 'Get a personalized, hands-on training session for you and your team',
-        thumbnail_url:
-            'https://cdn.uc.assets.prezly.com/588350bc-36eb-4fa5-abae-f6fd1327ef68/-/preview/600x600/',
+        thumbnail_url: 'https://cdn.uc.assets.prezly.com/588350bc-36eb-4fa5-abae-f6fd1327ef68/-/preview/600x600/',
         thumbnail_width: 1140,
         thumbnail_height: 720,
         version: '1.0',

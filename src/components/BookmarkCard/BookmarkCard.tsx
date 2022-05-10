@@ -20,16 +20,10 @@ export function BookmarkCard(props: BookmarkCardProps) {
     const showThumbnail = Boolean(props.showThumbnail && props.oembed.thumbnail_url);
 
     const isEmpty =
-        !showThumbnail &&
-        utils.isEmptyText(props.oembed.title) &&
-        utils.isEmptyText(props.oembed.description);
+        !showThumbnail && utils.isEmptyText(props.oembed.title) && utils.isEmptyText(props.oembed.description);
 
     return (
-        <Container
-            defaultLayout={props.layout}
-            hasThumbnail={showThumbnail}
-            className={props.className}
-        >
+        <Container defaultLayout={props.layout} hasThumbnail={showThumbnail} className={props.className}>
             {showThumbnail && props.oembed.thumbnail_url && (
                 <Thumbnail
                     newTab={props.newTab}

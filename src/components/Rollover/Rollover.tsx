@@ -61,9 +61,7 @@ export const Rollover: FunctionComponent<Props> = ({
                     </span>
 
                     <span className="prezly-slate-image-rollover__caption-text" ref={ref}>
-                        <MultilineEllipsis maxHeight={maxHeight}>
-                            {caption.trim()}
-                        </MultilineEllipsis>
+                        <MultilineEllipsis maxHeight={maxHeight}>{caption.trim()}</MultilineEllipsis>
                     </span>
                 </span>
             </span>

@@ -39,27 +39,23 @@ export const Lightbox: FunctionComponent<Props> = ({
     onPrevious = noop,
     previewImage = defaultPreviewImage,
 }) => {
-    useEventListener(
-        typeof window !== 'undefined' ? window : globalThis,
-        'keydown',
-        (event: KeyboardEvent) => {
-            if (image === null) {
-                return;
-            }
+    useEventListener(typeof window !== 'undefined' ? window : globalThis, 'keydown', (event: KeyboardEvent) => {
+        if (image === null) {
+            return;
+        }
 
-            if (event.key === 'Esc') {
-                onClose();
-            }
+        if (event.key === 'Esc') {
+            onClose();
+        }
 
-            if (event.key === 'ArrowLeft') {
-                onPrevious();
-            }
+        if (event.key === 'ArrowLeft') {
+            onPrevious();
+        }
 
-            if (event.key === 'ArrowRight') {
-                onNext();
-            }
-        },
-    );
+        if (event.key === 'ArrowRight') {
+            onNext();
+        }
+    });
 
     useEffect(() => {
         if (image) {
@@ -77,11 +73,7 @@ export const Lightbox: FunctionComponent<Props> = ({
     }
 
     return (
-        <Modal
-            className={classNames('prezly-slate-lightbox', className)}
-            isOpen
-            onRequestClose={onClose}
-        >
+        <Modal className={classNames('prezly-slate-lightbox', className)} isOpen onRequestClose={onClose}>
             <figure className="prezly-slate-lightbox__figure">
                 <div className="prezly-slate-lightbox__nav">
                     <button
@@ -122,22 +114,14 @@ export const Lightbox: FunctionComponent<Props> = ({
                             Download
                         </a>
 
-                        <PinterestButton
-                            className="prezly-slate-lightbox__pinterest"
-                            image={image.downloadUrl}
-                        />
+                        <PinterestButton className="prezly-slate-lightbox__pinterest" image={image.downloadUrl} />
                     </div>
                 </div>
 
                 <div className="prezly-slate-lightbox__caption">{children}</div>
             </figure>
 
-            <button
-                className="prezly-slate-lightbox__close"
-                onClick={onClose}
-                type="button"
-                title="Close (Esc)"
-            >
+            <button className="prezly-slate-lightbox__close" onClick={onClose} type="button" title="Close (Esc)">
                 <Close className="prezly-slate-lightbox__close-icon" />
             </button>
         </Modal>

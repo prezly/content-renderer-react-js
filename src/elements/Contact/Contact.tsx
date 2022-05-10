@@ -16,11 +16,7 @@ export const Contact: FunctionComponent<Props> = ({ children, className, node, .
     const jobDescription = [contact.description, contact.company].filter(Boolean).join(', ');
 
     return (
-        <div
-            id={`contact-${node.uuid}`}
-            className={classNames('prezly-slate-contact', className)}
-            {...props}
-        >
+        <div id={`contact-${node.uuid}`} className={classNames('prezly-slate-contact', className)} {...props}>
             <div className="prezly-slate-contact__wrapper">
                 <Avatar name={contact.name} src={contact.avatar_url} />
 
@@ -32,10 +28,7 @@ export const Contact: FunctionComponent<Props> = ({ children, className, node, .
                         {jobDescription || <>&nbsp;</>}
                     </div>
 
-                    <SocialFields
-                        className="prezly-slate-contact__social-fields"
-                        contact={contact}
-                    />
+                    <SocialFields className="prezly-slate-contact__social-fields" contact={contact} />
                 </div>
             </div>
         </div>

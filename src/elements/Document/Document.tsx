@@ -13,11 +13,7 @@ export function Document({ children, className, node, ...props }: Props) {
     const { version } = node;
 
     return (
-        <section
-            className={classNames('prezly-slate-document', className)}
-            data-version={version}
-            {...props}
-        >
+        <section className={classNames('prezly-slate-document', className)} data-version={version} {...props}>
             {children}
         </section>
     );

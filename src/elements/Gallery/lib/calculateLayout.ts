@@ -46,9 +46,7 @@ export function calculateLayout({ idealHeight, images, viewportWidth }: Paramete
 
         rowImages.forEach((image, index) => {
             const width =
-                index === rowImages.length - 1
-                    ? availableWidth
-                    : (viewportWidth / aspectRatioSum) * image.aspectRatio;
+                index === rowImages.length - 1 ? availableWidth : (viewportWidth / aspectRatioSum) * image.aspectRatio;
             const height = viewportWidth / aspectRatioSum;
             availableWidth -= width;
             computedRow.push({ index: offset + index, width, height });
