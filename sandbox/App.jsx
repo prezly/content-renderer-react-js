@@ -1,6 +1,6 @@
 import React from 'react';
 import { Component, Elements, Renderer } from '@prezly/content-renderer-react-js';
-import { isStoryBookmarkNode } from '@prezly/story-content-format';
+import { StoryBookmarkNode } from '@prezly/story-content-format';
 
 import '@prezly/content-renderer-react-js/styles.css';
 
@@ -11,7 +11,7 @@ import referencedStory from './referencedStory.json';
 export const App = () => (
     <div className="App">
         <Renderer nodes={story.children} defaultFallback="warning">
-            <Component match={isStoryBookmarkNode} component={PrefetchedStoryBookmark} />
+            <Component match={StoryBookmarkNode.isStoryBookmarkNode} component={PrefetchedStoryBookmark} />
         </Renderer>
     </div>
 );
