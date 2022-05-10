@@ -4,7 +4,7 @@ import ReactDOMServer from 'react-dom/server.js';
 
 import { Component } from './Component';
 import { Selector } from './Selector';
-import { Divider, Heading } from '../elements';
+import { Divider, Document, Heading } from '../elements';
 
 const documentNode: DocumentNode = {
     type: DocumentNode.TYPE,
@@ -23,9 +23,10 @@ const documentNode: DocumentNode = {
 describe('Renderer', () => {
     it('Renders a <h1> for a heading and a <section> for a divider', () => {
         const asString = ReactDOMServer.renderToString(
-            <Selector nodes={documentNode.children}>
+            <Selector nodes={documentNode}>
                 <Component match={DividerNode.isDividerNode} component={Divider} />
                 <Component match={HeadingNode.isHeadingNode} component={Heading} />
+                <Component match={DocumentNode.isDocumentNode} component={Document} />
             </Selector>,
         );
 
