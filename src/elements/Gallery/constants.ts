@@ -1,22 +1,21 @@
-import type { GalleryNode } from '@prezly/slate-types';
-import { GalleryLayout } from '@prezly/slate-types';
+import { GalleryNode } from '@prezly/story-content-format';
 
-export const DEFAULT_GALLERY_WIDTH_SSR: Record<GalleryNode['layout'], number> = {
-    [GalleryLayout.CONTAINED]: 700,
-    [GalleryLayout.EXPANDED]: 840,
-    [GalleryLayout.FULL_WIDTH]: 1280,
+export const DEFAULT_GALLERY_WIDTH_SSR: Record<GalleryNode.Layout, number> = {
+    [GalleryNode.Layout.CONTAINED]: 700,
+    [GalleryNode.Layout.EXPANDED]: 840,
+    [GalleryNode.Layout.FULL_WIDTH]: 1280,
 };
 
-export const IMAGE_PADDING: Record<GalleryNode['padding'], number> = {
-    S: 0,
-    M: 2,
-    L: 8,
+export const IMAGE_PADDING: Record<GalleryNode.Padding, number> = {
+    [GalleryNode.Padding.S]: 0,
+    [GalleryNode.Padding.M]: 2,
+    [GalleryNode.Padding.L]: 8,
 };
 
 export const IMAGE_SIZE: Record<GalleryNode['thumbnail_size'], number> = {
-    XS: 90,
-    S: 200,
-    M: 300,
-    L: 450,
-    XL: 1000,
+    [GalleryNode.ImageSize.XS]: 90,
+    [GalleryNode.ImageSize.S]: 200,
+    [GalleryNode.ImageSize.M]: 300,
+    [GalleryNode.ImageSize.L]: 450,
+    [GalleryNode.ImageSize.XL]: 1000,
 };

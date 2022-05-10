@@ -1,4 +1,5 @@
-import { ImageNode, UploadcareImage } from '@prezly/slate-types';
+import type { ImageNode } from '@prezly/story-content-format';
+import { UploadcareImage } from '@prezly/uploadcare';
 import classNames from 'classnames';
 import React, {
     AnchorHTMLAttributes,
@@ -82,7 +83,7 @@ export const Image: FunctionComponent<Props> = ({
                 <Rollover
                     id={`image-${file.uuid}`}
                     disabled={image.isGif()}
-                    href={image.rawCdnUrl}
+                    href={image.cdnUrl}
                     onClick={handleRolloverClick}
                     style={containerStyle}
                 >

@@ -1,5 +1,6 @@
-import type { Node } from 'slate';
+import type { Node } from '@prezly/story-content-format';
 import type { ComponentType } from 'react';
+
 import { invariant } from './lib';
 
 type Props<T extends Node, P extends object> = {

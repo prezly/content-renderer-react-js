@@ -1,5 +1,6 @@
+import type { Node } from '@prezly/story-content-format';
 import React, { ComponentType } from 'react';
-import type { Node } from 'slate';
+
 import { Component } from './Component';
 
 export interface ComponentRenderer {

@@ -1,7 +1,6 @@
-import type { ListNode } from '@prezly/slate-types';
-import { Alignment, BULLETED_LIST_NODE_TYPE, NUMBERED_LIST_NODE_TYPE } from '@prezly/slate-types';
+import { ListNode } from '@prezly/story-content-format';
 import classNames from 'classnames';
-import React, { FunctionComponent, HTMLAttributes } from 'react';
+import React, { HTMLAttributes } from 'react';
 
 import './List.scss';
 
@@ -9,21 +8,21 @@ interface Props extends HTMLAttributes<HTMLUListElement> {
     node: ListNode;
 }
 
-export const List: FunctionComponent<Props> = ({ node, children, className, ...props }) => {
-    const Tag = node.type === NUMBERED_LIST_NODE_TYPE ? 'ol' : 'ul';
+export function List({ node, children, className, ...props }: Props) {
+    const Tag = node.type === ListNode.Type.NUMBERED ? 'ol' : 'ul';
     return (
         <Tag
             className={classNames(className, 'prezly-slate-list', {
-                'prezly-slate-list--bulleted': node.type === BULLETED_LIST_NODE_TYPE,
-                'prezly-slate-list--numbered': node.type === NUMBERED_LIST_NODE_TYPE,
+                'prezly-slate-list--bulleted': node.type === ListNode.Type.BULLETED,
+                'prezly-slate-list--numbered': node.type === ListNode.Type.NUMBERED,
                 'prezly-slate-list--align-inherit': node.align === undefined,
-                'prezly-slate-list--align-left': node.align === Alignment.LEFT,
-                'prezly-slate-list--align-center': node.align === Alignment.CENTER,
-                'prezly-slate-list--align-right': node.align === Alignment.RIGHT,
+                'prezly-slate-list--align-left': node.align === ListNode.Alignment.LEFT,
+                'prezly-slate-list--align-center': node.align === ListNode.Alignment.CENTER,
+                'prezly-slate-list--align-right': node.align === ListNode.Alignment.RIGHT,
             })}
             {...props}
         >
             {children}
         </Tag>
     );
-};
+}

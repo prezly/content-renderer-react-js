@@ -1,6 +1,6 @@
 import React from 'react';
 import { Component, Elements, Renderer } from '@prezly/content-renderer-react-js';
-import { isStoryBookmarkNode } from '@prezly/slate-types';
+import { isStoryBookmarkNode } from '@prezly/story-content-format';
 
 import '@prezly/content-renderer-react-js/styles.css';
 

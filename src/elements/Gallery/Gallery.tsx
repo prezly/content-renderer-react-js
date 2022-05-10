@@ -1,5 +1,5 @@
-import type { GalleryNode } from '@prezly/slate-types';
-import { UploadcareImage } from '@prezly/slate-types';
+import type { GalleryNode } from '@prezly/story-content-format';
+import { UploadcareImage } from '@prezly/uploadcare';
 import { useMeasure } from '@react-hookz/web';
 import classNames from 'classnames';
 import React, { HTMLAttributes, useMemo } from 'react';

@@ -1,6 +1,6 @@
-import type { ListItemNode } from '@prezly/slate-types';
+import type { ListItemNode } from '@prezly/story-content-format';
 import classNames from 'classnames';
-import React, { FunctionComponent, HTMLAttributes } from 'react';
+import React, { HTMLAttributes } from 'react';
 
 import './ListItem.scss';
 
@@ -8,8 +8,10 @@ interface Props extends HTMLAttributes<HTMLLIElement> {
     node: ListItemNode;
 }
 
-export const ListItem: FunctionComponent<Props> = ({ children, className, node, ...props }) => (
-    <li className={classNames('prezly-slate-list-item', className)} {...props}>
-        {children}
-    </li>
-);
+export function ListItem({ children, className, node, ...props }: Props) {
+    return (
+        <li className={classNames('prezly-slate-list-item', className)} {...props}>
+            {children}
+        </li>
+    );
+}

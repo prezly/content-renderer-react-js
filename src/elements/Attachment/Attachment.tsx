@@ -1,4 +1,5 @@
-import { AttachmentNode, UploadcareFile } from '@prezly/slate-types';
+import type { AttachmentNode } from '@prezly/story-content-format';
+import { UploadcareFile } from '@prezly/uploadcare';
 import classNames from 'classnames';
 import React, { FunctionComponent, HTMLAttributes } from 'react';
 

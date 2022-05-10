@@ -1,5 +1,6 @@
 import React from 'react';
 import isLokiRunning from '@loki/is-loki-running';
+
 import { Renderer } from '../Renderer';
 import type { StoryDecoratorArg, ContextDecoratorArg } from './types';
 
@@ -21,7 +22,6 @@ export function StoryNameDecorator<T>(
                     },
                     {
                         type: 'divider',
-                        children: [{ text: '' }],
                     },
                 ]}
             />

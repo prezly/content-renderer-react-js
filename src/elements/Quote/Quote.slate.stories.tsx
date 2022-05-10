@@ -1,5 +1,6 @@
-import React from 'react';
 import type { Meta, Story } from '@storybook/react';
+import React from 'react';
+
 import { StoryNameDecorator } from '../../dev/StoryNameDecorator';
 import { Renderer } from '../../Renderer';
 
@@ -12,15 +13,10 @@ export const BlockQuote: Story = () => (
     <Renderer
         nodes={[
             {
-                type: 'paragraph',
+                type: 'block-quote',
                 children: [
                     {
-                        type: 'block-quote',
-                        children: [
-                            {
-                                text: 'I love how Prezly has been created by people who really understand the needs of PR professionals. Its features and functionality are just right for our business.',
-                            },
-                        ],
+                        text: 'I love how Prezly has been created by people who really understand the needs of PR professionals. Its features and functionality are just right for our business.',
                     },
                 ],
             },

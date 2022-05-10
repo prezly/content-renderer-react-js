@@ -1,4 +1,4 @@
-import type { TextNode } from '@prezly/slate-types';
+import type { Text as TextNode } from '@prezly/story-content-format';
 import React, { ReactNode } from 'react';
 
 const LINE_BREAKS = /\r\n|\r|\n/;

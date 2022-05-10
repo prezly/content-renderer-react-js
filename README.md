@@ -37,23 +37,18 @@ If you need to support older browsers, you can use this polyfill for `object-fit
 
 ```tsx
 import React from 'react';
-import {
-    DOCUMENT_NODE_TYPE,
-    HEADING_1_NODE_TYPE,
-    DocumentNode,
-    isHeadingNode,
-} from '@prezly/slate-types';
+import { DocumentNode, HeadingNode } from '@prezly/story-content-format';
 import { Renderer, Component } from '@prezly/slate-renderer';
 
 const documentNode: DocumentNode = {
+    type: DocumentNode.TYPE,
+    version: '0.50',
     children: [
         {
+            type: HeadingNode.Type.HEADING_ONE,
             children: [{ text: 'Hello world!' }],
-            type: HEADING_1_NODE_TYPE,
         },
     ],
-    type: DOCUMENT_NODE_TYPE,
-    version: '0.50',
 };
 
 export function Content() {

@@ -1,5 +1,5 @@
+import type { StoryBookmarkNode } from '@prezly/story-content-format';
 import type { Story } from '@prezly/sdk';
-import type { StoryBookmarkNode } from '@prezly/slate-types';
 import React from 'react';
 
 import { BookmarkCard } from '../../components';

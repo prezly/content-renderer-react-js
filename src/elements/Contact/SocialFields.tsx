@@ -1,4 +1,4 @@
-import type { ContactNode } from '@prezly/slate-types';
+import type { ContactNode } from '@prezly/story-content-format';
 import classNames from 'classnames';
 import React, { FunctionComponent } from 'react';
 

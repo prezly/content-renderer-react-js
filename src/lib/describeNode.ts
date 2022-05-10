@@ -1,4 +1,4 @@
-import type { Node } from 'slate';
+import type { Node } from '@prezly/story-content-format';
 
 /**
  * Stringify Slate node for debug purposes (e.g. error messages).

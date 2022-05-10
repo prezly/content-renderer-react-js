@@ -1,4 +1,4 @@
-import type { UploadcareImage } from '@prezly/slate-types';
+import type { UploadcareImage } from '@prezly/uploadcare';
 import classNames from 'classnames';
 import React, { CSSProperties } from 'react';
 
@@ -28,7 +28,7 @@ export function GalleryImage({
                 'prezly-slate-gallery-image--with-border-radius': rounded,
             })}
             caption={originalImage.caption}
-            href={originalImage.rawCdnUrl}
+            href={originalImage.cdnUrl}
             onClick={() => onClick(originalImage)}
             style={style}
         >
