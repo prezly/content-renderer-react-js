@@ -1,20 +1,19 @@
-import { isElementNode, isTextNode } from '@prezly/slate-types';
-import type { Node } from 'slate';
+import { type Node, ComposedElement, Text } from '@prezly/story-content-format';
 
 function isEmpty(node: Node): boolean {
-    if (isTextNode(node)) {
+    if (Text.isText(node)) {
         return node.text.length === 0;
     }
 
-    if (isElementNode(node)) {
-        return node.children.every((node) => isEmpty(node as Node));
+    if (ComposedElement.isComposedElement(node)) {
+        return (node.children as Node[]).every(isEmpty);
     }
 
     return false;
 }
 
-export function preventEmptyBlockCollapsing(node: Node): Node {
-    if (isElementNode(node) && isEmpty(node)) {
+export function preventEmptyBlockCollapsing<T extends Node>(node: T): T {
+    if (ComposedElement.isComposedElement(node) && isEmpty(node)) {
         return {
             ...node,
             children: [...node.children, { text: '\u00a0' }],

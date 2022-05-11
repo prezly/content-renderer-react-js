@@ -1,4 +1,4 @@
-import type { UploadcareImage } from '@prezly/slate-types';
+import type { UploadcareImage } from '@prezly/uploadcare';
 import { useState } from 'react';
 
 interface LightboxNavigation {

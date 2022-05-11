@@ -1,4 +1,5 @@
-import { AttachmentNode, UploadcareFile } from '@prezly/slate-types';
+import type { AttachmentNode } from '@prezly/story-content-format';
+import { UploadcareFile } from '@prezly/uploadcare';
 import classNames from 'classnames';
 import React, { FunctionComponent, HTMLAttributes } from 'react';
 
@@ -35,9 +36,7 @@ export const Attachment: FunctionComponent<Props> = ({ className, children, node
                     </div>
 
                     <div className="prezly-slate-attachment__subtitle">
-                        {isUsingCustomTitle
-                            ? `${file.filename} - ${formatBytes(file.size)}`
-                            : formatBytes(file.size)}
+                        {isUsingCustomTitle ? `${file.filename} - ${formatBytes(file.size)}` : formatBytes(file.size)}
                     </div>
                 </div>
             </div>

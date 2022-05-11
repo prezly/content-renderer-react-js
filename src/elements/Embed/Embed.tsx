@@ -1,4 +1,4 @@
-import type { EmbedNode } from '@prezly/slate-types';
+import type { EmbedNode } from '@prezly/story-content-format';
 import classNames from 'classnames';
 import React, { FunctionComponent, HTMLAttributes } from 'react';
 
@@ -13,12 +13,7 @@ interface Props extends HTMLAttributes<HTMLElement> {
     showAsScreenshot?: boolean;
 }
 
-export const Embed: FunctionComponent<Props> = ({
-    className,
-    node,
-    showAsScreenshot,
-    ...props
-}) => {
+export const Embed: FunctionComponent<Props> = ({ className, node, showAsScreenshot, ...props }) => {
     const { oembed, url } = node;
 
     const commonProps = {

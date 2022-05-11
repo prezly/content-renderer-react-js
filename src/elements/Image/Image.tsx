@@ -1,4 +1,5 @@
-import { ImageNode, UploadcareImage } from '@prezly/slate-types';
+import type { ImageNode } from '@prezly/story-content-format';
+import { UploadcareImage } from '@prezly/uploadcare';
 import classNames from 'classnames';
 import React, {
     AnchorHTMLAttributes,
@@ -38,14 +39,7 @@ const NEW_TAB_ATTRIBUTES: Partial<AnchorHTMLAttributes<HTMLAnchorElement>> = {
     rel: 'noopener noreferrer',
 };
 
-export const Image: FunctionComponent<Props> = ({
-    children,
-    className,
-    node,
-    onDownload,
-    onPreviewOpen,
-    ...props
-}) => {
+export const Image: FunctionComponent<Props> = ({ children, className, node, onDownload, onPreviewOpen, ...props }) => {
     const { file, href, layout } = node;
     const isNewTab = node.new_tab ?? true;
     const [isPreviewOpen, setIsPreviewOpen] = useState<boolean>(false);
@@ -82,7 +76,7 @@ export const Image: FunctionComponent<Props> = ({
                 <Rollover
                     id={`image-${file.uuid}`}
                     disabled={image.isGif()}
-                    href={image.rawCdnUrl}
+                    href={image.cdnUrl}
                     onClick={handleRolloverClick}
                     style={containerStyle}
                 >

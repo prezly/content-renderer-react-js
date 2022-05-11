@@ -1,5 +1,5 @@
+import type { UploadcareImage } from '@prezly/uploadcare';
 import classNames from 'classnames';
-import type { UploadcareImage } from '@prezly/slate-types';
 import React, { CSSProperties, FunctionComponent, ReactNode } from 'react';
 
 import { stringifyReactNode } from '../../lib';
@@ -21,7 +21,7 @@ export const Media: FunctionComponent<Props> = ({ children, className, image, st
     });
 
     if (image.isGif()) {
-        const video = image.toVideo().bestQuality();
+        const video = image.toGifVideo().bestQuality();
         const sourceWebm = video.format('webm').cdnUrl;
         const sourceMp4 = video.format('mp4').cdnUrl;
         const poster = image.format('png').cdnUrl;
@@ -49,8 +49,8 @@ export const Media: FunctionComponent<Props> = ({ children, className, image, st
         <img
             alt={title}
             className={computedClassName}
-            src={image.cdnUrl}
-            srcSet={image.getSrcSet()}
+            src={image.format().cdnUrl}
+            srcSet={image.srcSet(1200)}
             style={style}
             title={title}
         />

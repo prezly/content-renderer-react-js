@@ -1,27 +1,26 @@
 import {
-    isAttachmentNode,
-    isBookmarkNode,
-    isContactNode,
-    isDividerNode,
-    isDocumentNode,
-    isEmbedNode,
-    isGalleryNode,
-    isHeadingNode,
-    isHtmlNode,
-    isImageNode,
-    isLinkNode,
-    isListItemNode,
-    isListItemTextNode,
-    isListNode,
-    isMentionNode,
-    isParagraphNode,
-    isPlaceholderNode,
-    isQuoteNode,
-    isTextNode,
-    isVideoNode,
-} from '@prezly/slate-types';
+    AttachmentNode,
+    BookmarkNode,
+    ContactNode,
+    DividerNode,
+    DocumentNode,
+    EmbedNode,
+    GalleryNode,
+    HeadingNode,
+    HtmlNode,
+    ImageNode,
+    LinkNode,
+    ListItemNode,
+    ListItemTextNode,
+    ListNode,
+    Node,
+    ParagraphNode,
+    PlaceholderNode,
+    QuoteNode,
+    Text,
+    VideoNode,
+} from '@prezly/story-content-format';
 import React, { ComponentType, ReactNode } from 'react';
-import type { Node } from 'slate';
 
 import * as Elements from './elements';
 import { applyTransformations } from './lib';
@@ -44,41 +43,35 @@ export function Renderer<N extends Node | Node[]>({
     nodes,
     transformations = Object.values(Transformations),
 }: Props<N>) {
-    const transformedNodes = applyTransformations(
-        Array.isArray(nodes) ? nodes : [nodes],
-        transformations,
-    );
+    const transformedNodes = applyTransformations<Node>(Array.isArray(nodes) ? nodes : [nodes], transformations);
 
     return (
         <Selector nodes={transformedNodes}>
             {children}
             {defaultComponents && (
                 <>
-                    <Component match={isTextNode} component={Elements.Text} />
-                    <Component match={isAttachmentNode} component={Elements.Attachment} />
-                    <Component match={isBookmarkNode} component={Elements.Bookmark} />
-                    <Component match={isParagraphNode} component={Elements.Paragraph} />
-                    <Component match={isHeadingNode} component={Elements.Heading} />
-                    <Component match={isQuoteNode} component={Elements.Quote} />
-                    <Component match={isDividerNode} component={Elements.Divider} />
-                    <Component match={isImageNode} component={Elements.Image} />
-                    <Component match={isVideoNode} component={Elements.Video} />
-                    <Component match={isEmbedNode} component={Elements.Embed} />
-                    <Component match={isLinkNode} component={Elements.Link} />
-                    <Component match={isPlaceholderNode} component={Elements.Placeholder} />
-                    <Component match={isMentionNode} component={Elements.Mention} />
-                    <Component match={isListNode} component={Elements.List} />
-                    <Component match={isListItemNode} component={Elements.ListItem} />
-                    <Component match={isListItemTextNode} component={Elements.ListItemText} />
-                    <Component match={isHtmlNode} component={Elements.Html} />
-                    <Component match={isGalleryNode} component={Elements.Gallery} />
-                    <Component match={isContactNode} component={Elements.Contact} />
-                    <Component match={isDocumentNode} component={Elements.Document} />
+                    <Component match={AttachmentNode.isAttachmentNode} component={Elements.Attachment} />
+                    <Component match={BookmarkNode.isBookmarkNode} component={Elements.Bookmark} />
+                    <Component match={ContactNode.isContactNode} component={Elements.Contact} />
+                    <Component match={DividerNode.isDividerNode} component={Elements.Divider} />
+                    <Component match={DocumentNode.isDocumentNode} component={Elements.Document} />
+                    <Component match={EmbedNode.isEmbedNode} component={Elements.Embed} />
+                    <Component match={GalleryNode.isGalleryNode} component={Elements.Gallery} />
+                    <Component match={HeadingNode.isHeadingNode} component={Elements.Heading} />
+                    <Component match={HtmlNode.isHtmlNode} component={Elements.Html} />
+                    <Component match={ImageNode.isImageNode} component={Elements.Image} />
+                    <Component match={LinkNode.isLinkNode} component={Elements.Link} />
+                    <Component match={ListNode.isListNode} component={Elements.List} />
+                    <Component match={ListItemNode.isListItemNode} component={Elements.ListItem} />
+                    <Component match={ListItemTextNode.isListItemTextNode} component={Elements.ListItemText} />
+                    <Component match={ParagraphNode.isParagraphNode} component={Elements.Paragraph} />
+                    <Component match={PlaceholderNode.isPlaceholderNode} component={Elements.Placeholder} />
+                    <Component match={QuoteNode.isQuoteNode} component={Elements.Quote} />
+                    <Component match={Text.isText} component={Elements.Text} />
+                    <Component match={VideoNode.isVideoNode} component={Elements.Video} />
                 </>
             )}
-            {defaultFallback !== 'ignore' && (
-                <Component match={isAnyNode} component={fallback(defaultFallback)} />
-            )}
+            {defaultFallback !== 'ignore' && <Component match={isAnyNode} component={fallback(defaultFallback)} />}
         </Selector>
     );
 }

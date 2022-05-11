@@ -1,6 +1,7 @@
-import React from 'react';
+import { StoryBookmarkNode } from '@prezly/story-content-format';
 import type { Meta, Story } from '@storybook/react';
-import { isStoryBookmarkNode, StoryBookmarkNode } from '@prezly/slate-types';
+import React from 'react';
+
 import { StoryNameDecorator } from '../../dev/StoryNameDecorator';
 import { Renderer } from '../../Renderer';
 import { referencedStory } from '../../dev/mocks';
@@ -35,12 +36,12 @@ export const VerticalWithThumbnail: Story = () => (
                     uuid: 'b26212eb-d290-49c5-995b-def2d1218546',
                 },
                 show_thumbnail: true,
-                layout: 'vertical',
+                layout: StoryBookmarkNode.Layout.VERTICAL,
                 new_tab: false,
             },
         ]}
     >
-        <Component match={isStoryBookmarkNode} component={PreFetchedStoryBookmark} />
+        <Component match={StoryBookmarkNode.isStoryBookmarkNode} component={PreFetchedStoryBookmark} />
     </Renderer>
 );
 
@@ -67,12 +68,12 @@ export const VerticalNewTab: Story = () => (
                     uuid: 'b26212eb-d290-49c5-995b-def2d1218546',
                 },
                 show_thumbnail: true,
-                layout: 'vertical',
+                layout: StoryBookmarkNode.Layout.VERTICAL,
                 new_tab: true,
             },
         ]}
     >
-        <Component match={isStoryBookmarkNode} component={PreFetchedStoryBookmark} />
+        <Component match={StoryBookmarkNode.isStoryBookmarkNode} component={PreFetchedStoryBookmark} />
     </Renderer>
 );
 
@@ -99,12 +100,12 @@ export const HorizontalWithThumbnail: Story = () => (
                     uuid: 'b26212eb-d290-49c5-995b-def2d1218546',
                 },
                 show_thumbnail: true,
-                layout: 'horizontal',
+                layout: StoryBookmarkNode.Layout.HORIZONTAL,
                 new_tab: false,
             },
         ]}
     >
-        <Component match={isStoryBookmarkNode} component={PreFetchedStoryBookmark} />
+        <Component match={StoryBookmarkNode.isStoryBookmarkNode} component={PreFetchedStoryBookmark} />
     </Renderer>
 );
 
@@ -131,12 +132,12 @@ export const VerticalWithoutThumbnail: Story = () => (
                     uuid: 'b26212eb-d290-49c5-995b-def2d1218546',
                 },
                 show_thumbnail: false,
-                layout: 'vertical',
+                layout: StoryBookmarkNode.Layout.VERTICAL,
                 new_tab: true,
             },
         ]}
     >
-        <Component match={isStoryBookmarkNode} component={PreFetchedStoryBookmark} />
+        <Component match={StoryBookmarkNode.isStoryBookmarkNode} component={PreFetchedStoryBookmark} />
     </Renderer>
 );
 
@@ -163,12 +164,12 @@ export const HorizontalWithoutThumbnail: Story = () => (
                     uuid: 'b26212eb-d290-49c5-995b-def2d1218546',
                 },
                 show_thumbnail: false,
-                layout: 'horizontal',
+                layout: StoryBookmarkNode.Layout.HORIZONTAL,
                 new_tab: true,
             },
         ]}
     >
-        <Component match={isStoryBookmarkNode} component={PreFetchedStoryBookmark} />
+        <Component match={StoryBookmarkNode.isStoryBookmarkNode} component={PreFetchedStoryBookmark} />
     </Renderer>
 );
 

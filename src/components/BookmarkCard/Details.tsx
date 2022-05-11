@@ -12,31 +12,17 @@ interface DetailsProps {
     description?: string;
 }
 
-export function Details({
-    title,
-    description,
-    href,
-    id,
-    newTab,
-    children,
-}: PropsWithChildren<DetailsProps>) {
+export function Details({ title, description, href, id, newTab, children }: PropsWithChildren<DetailsProps>) {
     return (
         <div className={'prezly-slate-bookmark-card-component__details'}>
             {!isEmptyText(title) && (
-                <Link
-                    id={id}
-                    className={'prezly-slate-bookmark-card-component__title'}
-                    href={href}
-                    newTab={newTab}
-                >
+                <Link id={id} className={'prezly-slate-bookmark-card-component__title'} href={href} newTab={newTab}>
                     {stripTags(title)}
                 </Link>
             )}
 
             {!isEmptyText(description) && (
-                <div className={'prezly-slate-bookmark-card-component__description'}>
-                    {stripTags(description)}
-                </div>
+                <div className={'prezly-slate-bookmark-card-component__description'}>{stripTags(description)}</div>
             )}
 
             {children}

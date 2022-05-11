@@ -1,5 +1,6 @@
+import type { Node } from '@prezly/story-content-format';
 import React, { CSSProperties } from 'react';
-import type { Node } from 'slate';
+
 import { describeNode } from '../lib';
 
 interface Props {

@@ -1,24 +1,10 @@
-import type { Node } from 'slate';
+import { type Node, ComposedElement } from '@prezly/story-content-format';
 
 import type { Transformation } from '../types';
-import { isElementNode } from '@prezly/slate-types';
 
-function applyTransformationsWithoutRecursion(
-    node: Node,
-    transformations: Transformation[],
-): Node | null {
-    return transformations.reduce<Node | null>(
-        (result, transform) => (result ? transform(result) : null),
-        node,
-    );
-}
-
-export function applyTransformations(node: Node, transformations: Transformation[]): Node | null;
-export function applyTransformations(nodes: Node[], transformations: Transformation[]): Node[];
-export function applyTransformations(
-    input: Node | Node[],
-    transformations: Transformation[],
-): Node[] | Node | null {
+export function applyTransformations<T extends Node>(node: T, transformations: Transformation[]): T | null;
+export function applyTransformations<T extends Node>(node: T[], transformations: Transformation[]): T[];
+export function applyTransformations(input: Node | Node[], transformations: Transformation[]): Node[] | Node | null {
     if (transformations.length === 0) {
         return input;
     }
@@ -36,19 +22,23 @@ export function applyTransformations(
         return nodes;
     }
 
-    if (isElementNode(input)) {
+    if (ComposedElement.isComposedElement(input)) {
         let element = input;
 
         // Transform children first
-        const children: Node[] = applyTransformations(input.children as Node[], transformations);
+        const children = applyTransformations(input.children as Node[], transformations);
 
         if (children !== input.children) {
             // Create a new node object only if there's a change
-            element = { ...input, children };
+            element = { ...input, children } as ComposedElement;
         }
 
         return applyTransformationsWithoutRecursion(element, transformations);
     }
 
-    return applyTransformationsWithoutRecursion(input as Node, transformations);
+    return applyTransformationsWithoutRecursion(input, transformations);
+}
+
+function applyTransformationsWithoutRecursion(node: Node, transformations: Transformation[]): Node | null {
+    return transformations.reduce<Node | null>((result, transform) => (result ? transform(result) : null), node);
 }

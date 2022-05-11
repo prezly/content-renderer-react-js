@@ -199,10 +199,10 @@ export const Minimal: Story = () => (
                 uuid: 'da744513-8fe7-4e22-9e85-6f5e122b93a1',
                 url: 'https://www.prezly.com/',
                 oembed: {
+                    type: 'link',
                     cache_age: 86400,
                     html: '<a class="embed embed--link" href="http://example.com" target="_blank" rel="noopener noreferrer">Example Domain</a>',
                     title: 'Prezly: PR Software for better, faster PR',
-                    type: 'link',
                     url: 'https://www.prezly.com/',
                     version: '1.0',
                 },

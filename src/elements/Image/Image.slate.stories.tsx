@@ -15,6 +15,10 @@ export const WithCaption: Story = () => (
             {
                 type: 'image-block',
                 href: '',
+                new_tab: true,
+                align: 'center',
+                layout: 'expanded',
+                width: '100%',
                 file: {
                     version: 2,
                     uuid: 'cb4879f8-d3ad-4a65-b74f-0afa09c913d5',
@@ -25,9 +29,6 @@ export const WithCaption: Story = () => (
                     original_height: 4000,
                     effects: [],
                 },
-                layout: 'expanded',
-                width: '100%',
-                width_factor: '100%',
                 children: [
                     {
                         text: 'The software is incredibly user friendly and intuitive. The Prezly team is really quick and always available, which was a huge help during my onboarding. The ability to manage and update contacts, develop content and issue press releases all on one platform is great. This is truly an all-in-one, streamlined PR solution.',
@@ -44,6 +45,10 @@ export const Width100: Story = () => (
             {
                 type: 'image-block',
                 href: '',
+                new_tab: true,
+                align: 'center',
+                layout: 'contained',
+                width: '100%',
                 file: {
                     version: 2,
                     uuid: 'd0bdf122-a96a-425b-93e8-e3f1a052d413',
@@ -54,9 +59,6 @@ export const Width100: Story = () => (
                     original_height: 300,
                     effects: [],
                 },
-                layout: 'contained',
-                width: '100%',
-                width_factor: '100%',
                 children: [
                     {
                         text: 'Contained 100% width',
@@ -66,6 +68,10 @@ export const Width100: Story = () => (
             {
                 type: 'image-block',
                 href: '',
+                new_tab: true,
+                align: 'center',
+                layout: 'contained',
+                width: '100%',
                 file: {
                     version: 2,
                     uuid: '90a308d7-411c-459f-8772-f83de2dae1db',
@@ -76,9 +82,7 @@ export const Width100: Story = () => (
                     original_height: 2968,
                     effects: [],
                 },
-                layout: 'contained',
-                width: '100%',
-                width_factor: '100%',
+
                 children: [
                     {
                         text: 'Contained 100% width',
@@ -95,6 +99,10 @@ export const Width45: Story = () => (
             {
                 type: 'image-block',
                 href: '',
+                new_tab: true,
+                align: 'center',
+                layout: 'contained',
+                width: '45%',
                 file: {
                     version: 2,
                     uuid: 'da42f9f4-6bc2-4b42-8c8e-04a0d0db9aee',
@@ -105,9 +113,7 @@ export const Width45: Story = () => (
                     original_height: 1199,
                     effects: [],
                 },
-                layout: 'contained',
-                width: '45%',
-                width_factor: '100%',
+
                 children: [
                     {
                         text: 'Contained 45% width',
@@ -124,6 +130,10 @@ export const FullWidth: Story = () => (
             {
                 type: 'image-block',
                 href: 'https://rock.prezly.com',
+                new_tab: true,
+                align: 'center',
+                layout: 'full-width',
+                width: '100%',
                 file: {
                     version: 2,
                     uuid: '52a78e73-cea4-43d5-91a3-fd9182160f5b',
@@ -134,9 +144,6 @@ export const FullWidth: Story = () => (
                     original_height: 2246,
                     effects: ['/crop/3994x1359/0,454/'],
                 },
-                layout: 'full-width',
-                width: '100%',
-                width_factor: '100%',
                 children: [
                     {
                         text: 'Full width image with a caption and a link',

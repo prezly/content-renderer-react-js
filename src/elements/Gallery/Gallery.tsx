@@ -1,5 +1,5 @@
-import type { GalleryNode } from '@prezly/slate-types';
-import { UploadcareImage } from '@prezly/slate-types';
+import type { GalleryNode } from '@prezly/story-content-format';
+import { UploadcareImage } from '@prezly/uploadcare';
 import { useMeasure } from '@react-hookz/web';
 import classNames from 'classnames';
 import React, { HTMLAttributes, useMemo } from 'react';
@@ -117,9 +117,7 @@ function Row(props: {
 }
 
 function extractImages(node: GalleryNode): UploadcareImage[] {
-    return node.images.map(({ caption, file }) =>
-        UploadcareImage.createFromPrezlyStoragePayload(file, caption),
-    );
+    return node.images.map(({ caption, file }) => UploadcareImage.createFromPrezlyStoragePayload(file, caption));
 }
 
 /**

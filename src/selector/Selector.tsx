@@ -1,7 +1,5 @@
-import type { ReactNode } from 'react';
-import React, { Fragment } from 'react';
-import type { Node } from 'slate';
-import { Element } from 'slate';
+import React, { type ReactNode, Fragment } from 'react';
+import { type Node, ComposedElement } from '@prezly/story-content-format';
 
 import { createComponentsRenderersFromChildren } from './lib';
 
@@ -24,7 +22,9 @@ export function Selector({ nodes, children }: Props) {
                     <ComponentRenderer
                         {...extraProps}
                         node={node}
-                        children={Element.isElement(node) ? renderNodes(node.children) : undefined}
+                        children={
+                            ComposedElement.isComposedElement(node) ? renderNodes(node.children as Node[]) : undefined
+                        }
                     />
                 );
             }

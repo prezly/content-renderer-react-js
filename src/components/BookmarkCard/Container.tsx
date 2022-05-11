@@ -2,24 +2,18 @@ import classNames from 'classnames';
 import type { PropsWithChildren } from 'react';
 import React, { useState } from 'react';
 import { useResizeObserver } from '@react-hookz/web';
-import { StoryBookmarkLayout } from '@prezly/slate-types';
 
-type ContainerLayout = 'vertical' | 'horizontal';
+type Layout = 'horizontal' | 'vertical';
 
 interface ContainerProps {
-    defaultLayout: ContainerLayout;
+    defaultLayout: Layout;
     hasThumbnail: boolean;
     className?: string;
 }
 
 const HORIZONTAL_LAYOUT_MIN_WIDTH = 480;
 
-export function Container({
-    defaultLayout,
-    children,
-    className,
-    hasThumbnail,
-}: PropsWithChildren<ContainerProps>) {
+export function Container({ defaultLayout, children, className, hasThumbnail }: PropsWithChildren<ContainerProps>) {
     const [cardRef, setCardRef] = useState<HTMLDivElement | null>(null);
     const [isSmallViewport, setSmallViewport] = useState(false);
 
@@ -41,11 +35,11 @@ export function Container({
         </div>
     );
 }
-function getActualLayout(hasThumbnail: boolean, isSmallViewport: boolean, defaultLayout: string) {
+function getActualLayout(hasThumbnail: boolean, isSmallViewport: boolean, defaultLayout: Layout): Layout {
     if (!hasThumbnail) {
-        return StoryBookmarkLayout.HORIZONTAL;
+        return 'horizontal';
     } else if (isSmallViewport) {
-        return StoryBookmarkLayout.VERTICAL;
+        return 'vertical';
     } else {
         return defaultLayout;
     }

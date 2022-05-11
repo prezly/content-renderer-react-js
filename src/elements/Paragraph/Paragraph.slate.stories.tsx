@@ -27,26 +27,21 @@ export const WhitespaceCollapsing: Story = () => (
     <Renderer
         nodes={[
             {
+                text: 'This paragraph   has       additional    whitespaces    between   words, which are   expected to be    preserved.',
+            },
+            {
                 type: 'paragraph',
                 children: [
                     {
-                        text: 'This paragraph   has       additional    whitespaces    between   words, which are   expected to be    preserved.',
+                        text: 'The next paragraph has no inner text, but it is expected to still occupy the vertical space, as normally:',
                     },
+                ],
+            },
+            {
+                type: 'paragraph',
+                children: [
                     {
-                        type: 'paragraph',
-                        children: [
-                            {
-                                text: 'The next paragraph has no inner text, but it is expected to still occupy the vertical space, as normally:',
-                            },
-                        ],
-                    },
-                    {
-                        type: 'paragraph',
-                        children: [
-                            {
-                                text: '',
-                            },
-                        ],
+                        text: '',
                     },
                 ],
             },
@@ -61,12 +56,7 @@ export const SoftLineBreaks: Story = () => (
                 type: 'paragraph',
                 children: [
                     {
-                        type: 'paragraph',
-                        children: [
-                            {
-                                text: 'There is a soft-line break after this text:\nthis should appear on the next line',
-                            },
-                        ],
+                        text: 'There is a soft-line break after this text:\nthis should appear on the next line',
                     },
                 ],
             },
@@ -76,33 +66,26 @@ export const SoftLineBreaks: Story = () => (
 
 export const Placeholders: Story = () => (
     <Renderer
-        nodes={[
-            {
-                type: 'paragraph',
-                children: [
-                    {
-                        type: 'paragraph',
-                        children: [
-                            {
-                                text: 'Publication date placeholder: ',
-                            },
-                            {
-                                type: 'placeholder',
-                                children: [
-                                    {
-                                        text: '',
-                                    },
-                                ],
-                                key: 'publication.date',
-                            },
-                            {
-                                text: '',
-                            },
-                        ],
-                    },
-                ],
-            },
-        ]}
+        nodes={{
+            type: 'paragraph',
+            children: [
+                {
+                    text: 'Publication date placeholder: ',
+                },
+                {
+                    type: 'placeholder',
+                    children: [
+                        {
+                            text: '',
+                        },
+                    ],
+                    key: 'publication.date',
+                },
+                {
+                    text: '',
+                },
+            ],
+        }}
     />
 );
 
@@ -113,127 +96,124 @@ export const StyledText: Story = () => (
                 type: 'paragraph',
                 children: [
                     {
-                        type: 'paragraph',
+                        text: 'Paragraph with ',
+                    },
+                    {
+                        text: 'bold',
+                        bold: true,
+                    },
+                    {
+                        text: ', ',
+                    },
+                    {
+                        text: 'underline',
+                        underlined: true,
+                    },
+                    {
+                        text: ', ',
+                    },
+                    {
+                        text: 'italics',
+                        italic: true,
+                    },
+                    {
+                        text: ', ',
+                    },
+                    {
+                        text: 'superscript',
+                        superscript: true,
+                    },
+                    {
+                        text: ', ',
+                    },
+                    {
+                        text: 'subscript',
+                        subscript: true,
+                    },
+                    {
+                        text: ', ',
+                    },
+                    {
+                        text: 'bold underline',
+                        bold: true,
+                        underlined: true,
+                    },
+                    {
+                        text: ', ',
+                    },
+                    {
+                        text: 'bold italics',
+                        bold: true,
+                        italic: true,
+                    },
+                    {
+                        text: ', ',
+                    },
+                    {
+                        text: 'underline italics',
+                        italic: true,
+                        underlined: true,
+                    },
+                    {
+                        text: ', ',
+                    },
+                    {
+                        text: 'bold underline italics',
+                        bold: true,
+                        italic: true,
+                        underlined: true,
+                    },
+                    {
+                        text: ', ',
+                    },
+                    {
+                        text: 'bold underline italics superscript',
+                        bold: true,
+                        italic: true,
+                        superscript: true,
+                        underlined: true,
+                    },
+                    {
+                        text: ', ',
+                    },
+                    {
+                        text: 'bold underline italics subscript',
+                        bold: true,
+                        italic: true,
+                        subscript: true,
+                        underlined: true,
+                    },
+                    {
+                        text: ', ',
+                    },
+                    {
+                        type: 'link',
+                        href: 'https://rock.prezly.com',
+                        new_tab: true,
                         children: [
                             {
-                                text: 'Paragraph with ',
-                            },
-                            {
-                                text: 'bold',
-                                bold: true,
-                            },
-                            {
-                                text: ', ',
-                            },
-                            {
-                                text: 'underline',
-                                underlined: true,
-                            },
-                            {
-                                text: ', ',
-                            },
-                            {
-                                text: 'italics',
-                                italic: true,
-                            },
-                            {
-                                text: ', ',
-                            },
-                            {
-                                text: 'superscript',
-                                superscript: true,
-                            },
-                            {
-                                text: ', ',
-                            },
-                            {
-                                text: 'subscript',
-                                subscript: true,
-                            },
-                            {
-                                text: ', ',
-                            },
-                            {
-                                text: 'bold underline',
-                                bold: true,
-                                underlined: true,
-                            },
-                            {
-                                text: ', ',
-                            },
-                            {
-                                text: 'bold italics',
-                                bold: true,
-                                italic: true,
-                            },
-                            {
-                                text: ', ',
-                            },
-                            {
-                                text: 'underline italics',
-                                italic: true,
-                                underlined: true,
-                            },
-                            {
-                                text: ', ',
-                            },
-                            {
-                                text: 'bold underline italics',
-                                bold: true,
-                                italic: true,
-                                underlined: true,
-                            },
-                            {
-                                text: ', ',
-                            },
-                            {
-                                text: 'bold underline italics superscript',
-                                bold: true,
-                                italic: true,
-                                superscript: true,
-                                underlined: true,
-                            },
-                            {
-                                text: ', ',
-                            },
-                            {
-                                text: 'bold underline italics subscript',
-                                bold: true,
-                                italic: true,
-                                subscript: true,
-                                underlined: true,
-                            },
-                            {
-                                text: ', ',
-                            },
-                            {
-                                type: 'link',
-                                href: 'https://rock.prezly.com',
-                                children: [
-                                    {
-                                        text: 'link',
-                                    },
-                                ],
-                            },
-                            {
-                                text: ', ',
-                            },
-                            {
-                                type: 'link',
-                                href: 'https://rock.prezly.com',
-                                children: [
-                                    {
-                                        text: 'bold underline italics link',
-                                        bold: true,
-                                        italic: true,
-                                        underlined: true,
-                                    },
-                                ],
-                            },
-                            {
-                                text: '.',
+                                text: 'link',
                             },
                         ],
+                    },
+                    {
+                        text: ', ',
+                    },
+                    {
+                        type: 'link',
+                        href: 'https://rock.prezly.com',
+                        new_tab: true,
+                        children: [
+                            {
+                                text: 'bold underline italics link',
+                                bold: true,
+                                italic: true,
+                                underlined: true,
+                            },
+                        ],
+                    },
+                    {
+                        text: '.',
                     },
                 ],
             },

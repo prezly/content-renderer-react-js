@@ -275,6 +275,7 @@ export const Nested: Story = () => (
                                                     {
                                                         type: 'link',
                                                         href: 'https://www.prezly.com/news/introducing-account-switching',
+                                                        new_tab: true,
                                                         children: [
                                                             {
                                                                 text: 'Read the full write up, where we go into the feature in more detail and cover how this helps Prezly users →',
