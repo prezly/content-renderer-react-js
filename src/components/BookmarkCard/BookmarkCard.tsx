@@ -19,8 +19,7 @@ interface BookmarkCardProps {
 export function BookmarkCard(props: BookmarkCardProps) {
     const showThumbnail = Boolean(props.showThumbnail && props.oembed.thumbnail_url);
 
-    const isEmpty =
-        !showThumbnail && isEmptyText(props.oembed.title) && isEmptyText(props.oembed.description);
+    const isEmpty = !showThumbnail && isEmptyText(props.oembed.title) && isEmptyText(props.oembed.description);
 
     return (
         <Container defaultLayout={props.layout} hasThumbnail={showThumbnail} className={props.className}>
