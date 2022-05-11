@@ -17,10 +17,6 @@ export default () => {
             '@babel/env',
         ],
 
-        plugins: [
-            ['babel-plugin-transform-remove-imports', { test: '\\.scss$' }],
-            // Applies the react-refresh Babel plugin on non-production modes only
-            isDevelopment && 'react-refresh/babel',
-        ].filter(Boolean),
+        plugins: [['babel-plugin-transform-remove-imports', { test: '\\.scss$' }]],
     };
 };
