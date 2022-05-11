@@ -1,6 +1,6 @@
 import React from 'react';
 import type { OEmbedInfo } from '@prezly/sdk';
-import { utils } from '../../lib';
+import { isEmptyText } from '../../lib';
 import { Container } from './Container';
 import { Details } from './Details';
 import { Provider } from './Provider';
@@ -20,7 +20,7 @@ export function BookmarkCard(props: BookmarkCardProps) {
     const showThumbnail = Boolean(props.showThumbnail && props.oembed.thumbnail_url);
 
     const isEmpty =
-        !showThumbnail && utils.isEmptyText(props.oembed.title) && utils.isEmptyText(props.oembed.description);
+        !showThumbnail && isEmptyText(props.oembed.title) && isEmptyText(props.oembed.description);
 
     return (
         <Container defaultLayout={props.layout} hasThumbnail={showThumbnail} className={props.className}>

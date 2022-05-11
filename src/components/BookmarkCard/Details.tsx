@@ -2,7 +2,7 @@ import type { PropsWithChildren } from 'react';
 import React from 'react';
 import { Link } from '../Link';
 
-import { utils } from '../../lib';
+import { isEmptyText, stripTags } from '../../lib';
 
 interface DetailsProps {
     id: string;
@@ -15,14 +15,14 @@ interface DetailsProps {
 export function Details({ title, description, href, id, newTab, children }: PropsWithChildren<DetailsProps>) {
     return (
         <div className={'prezly-slate-bookmark-card-component__details'}>
-            {!utils.isEmptyText(title) && (
+            {!isEmptyText(title) && (
                 <Link id={id} className={'prezly-slate-bookmark-card-component__title'} href={href} newTab={newTab}>
-                    {title}
+                    {stripTags(title)}
                 </Link>
             )}
 
-            {!utils.isEmptyText(description) && (
-                <div className={'prezly-slate-bookmark-card-component__description'}>{description}</div>
+            {!isEmptyText(description) && (
+                <div className={'prezly-slate-bookmark-card-component__description'}>{stripTags(description)}</div>
             )}
 
             {children}
