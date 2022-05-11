@@ -78,7 +78,6 @@
         "classnames": "^2.2.6",
         "react-modal": "^3.12.1",
         "shave": "^2.5.10",
-        "slate": "^0.71.0",
         "striptags": "^3.1.1"
     },
     "devDependencies": {
