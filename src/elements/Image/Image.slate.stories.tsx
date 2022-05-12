@@ -153,3 +153,66 @@ export const FullWidth: Story = () => (
         ]}
     />
 );
+
+
+export const LeftAligned: Story = () => (
+    <Renderer
+        nodes={[
+            {
+                type: 'image-block',
+                href: '',
+                new_tab: true,
+                align: 'left',
+                layout: 'contained',
+                width: '45%',
+                file: {
+                    version: 2,
+                    uuid: 'da42f9f4-6bc2-4b42-8c8e-04a0d0db9aee',
+                    filename: 'cat-1200x1199.jpg',
+                    mime_type: 'image/jpeg',
+                    size: 156145,
+                    original_width: 1200,
+                    original_height: 1199,
+                    effects: [],
+                },
+
+                children: [
+                    {
+                        text: 'Contained 45% width',
+                    },
+                ],
+            },
+        ]}
+    />
+);
+
+export const RightAligned: Story = () => (
+    <Renderer
+        nodes={[
+            {
+                type: 'image-block',
+                href: '',
+                new_tab: true,
+                align: 'right',
+                layout: 'contained',
+                width: '45%',
+                file: {
+                    version: 2,
+                    uuid: 'da42f9f4-6bc2-4b42-8c8e-04a0d0db9aee',
+                    filename: 'cat-1200x1199.jpg',
+                    mime_type: 'image/jpeg',
+                    size: 156145,
+                    original_width: 1200,
+                    original_height: 1199,
+                    effects: [],
+                },
+
+                children: [
+                    {
+                        text: 'Contained 45% width',
+                    },
+                ],
+            },
+        ]}
+    />
+);
