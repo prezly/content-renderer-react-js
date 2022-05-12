@@ -14,6 +14,14 @@
         margin-right: auto;
     }
 
+    &--align-left {
+        align-items: flex-start;
+    }
+
+    &--align-right {
+        align-items: flex-end;
+    }
+
     &--expanded {
         @include media-layout-expanded;
 
@@ -60,6 +68,13 @@
         font-size: $font-size-s;
         text-align: center;
         word-break: break-all;
+
+        .prezly-slate-image--align-left & {
+            padding-left: 0;
+        }
+        .prezly-slate-image--align-right & {
+            padding-right: 0;
+        }
 
         &:empty {
             display: none;
