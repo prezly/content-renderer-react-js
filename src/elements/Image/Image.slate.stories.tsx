@@ -154,7 +154,6 @@ export const FullWidth: Story = () => (
     />
 );
 
-
 export const LeftAligned: Story = () => (
     <Renderer
         nodes={[
