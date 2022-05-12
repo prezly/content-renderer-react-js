@@ -77,7 +77,6 @@ export const Image: FunctionComponent<Props> = ({ children, className, node, onD
             {!href && (
                 <Rollover
                     id={`image-${file.uuid}`}
-                    className="prezly-slate-image__rollover"
                     disabled={image.isGif()}
                     href={image.cdnUrl}
                     onClick={handleRolloverClick}
