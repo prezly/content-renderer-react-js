@@ -17,5 +17,5 @@ export const App = () => (
 );
 
 function PrefetchedStoryBookmark({ node }) {
-    return <Elements.StoryBookmark node={node} story={referencedStory} />;
+    return <Elements.StoryBookmark node={node} storyOEmbedInfo={referencedStory.oembed} />;
 }

@@ -14,6 +14,14 @@
         margin-right: auto;
     }
 
+    &--align-left {
+        align-items: flex-start;
+    }
+
+    &--align-right {
+        align-items: flex-end;
+    }
+
     &--expanded {
         @include media-layout-expanded;
 
@@ -59,7 +67,17 @@
         font-style: italic;
         font-size: $font-size-s;
         text-align: center;
-        word-break: break-all;
+        word-break: normal;
+        overflow-wrap: anywhere;
+
+        .prezly-slate-image--align-left & {
+            padding-left: 0;
+            text-align: left;
+        }
+        .prezly-slate-image--align-right & {
+            padding-right: 0;
+            text-align: right;
+        }
 
         &:empty {
             display: none;

@@ -40,7 +40,7 @@ const NEW_TAB_ATTRIBUTES: Partial<AnchorHTMLAttributes<HTMLAnchorElement>> = {
 };
 
 export const Image: FunctionComponent<Props> = ({ children, className, node, onDownload, onPreviewOpen, ...props }) => {
-    const { file, href, layout } = node;
+    const { file, href, align, layout } = node;
     const isNewTab = node.new_tab ?? true;
     const [isPreviewOpen, setIsPreviewOpen] = useState<boolean>(false);
     const image = useMemo(() => UploadcareImage.createFromPrezlyStoragePayload(file), [file.uuid]);
@@ -54,6 +54,8 @@ export const Image: FunctionComponent<Props> = ({ children, className, node, onD
                 'prezly-slate-image--contained': layout === 'contained',
                 'prezly-slate-image--expanded': layout === 'expanded',
                 'prezly-slate-image--full-width': layout === 'full-width',
+                'prezly-slate-image--align-left': align === 'left',
+                'prezly-slate-image--align-right': align === 'right',
                 'prezly-slate-image--gif': image.isGif(),
             })}
             {...props}
