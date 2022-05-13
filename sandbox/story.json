@@ -870,7 +870,7 @@
             "width_factor": "100%",
             "children": [
                 {
-                    "text": "Left-aligned"
+                    "text": "Contained 45% width, left-aligned. What does every great brand have in common? Fans. Prezly helps you publish and share compelling stories so you can build that fanbase, fast."
                 }
             ]
         },
@@ -893,7 +893,7 @@
             "width_factor": "100%",
             "children": [
                 {
-                    "text": "Right-aligned"
+                    "text": "Contained 45% width, right-aligned. What does every great brand have in common? Fans. Prezly helps you publish and share compelling stories so you can build that fanbase, fast."
                 }
             ]
         },

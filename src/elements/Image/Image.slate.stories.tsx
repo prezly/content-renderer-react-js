@@ -177,7 +177,7 @@ export const LeftAligned: Story = () => (
 
                 children: [
                     {
-                        text: 'Contained 45% width',
+                        text: 'Contained 45% width, left-aligned. What does every great brand have in common? Fans. Prezly helps you publish and share compelling stories so you can build that fanbase, fast.',
                     },
                 ],
             },
@@ -208,7 +208,7 @@ export const RightAligned: Story = () => (
 
                 children: [
                     {
-                        text: 'Contained 45% width',
+                        text: 'Contained 45% width, right-aligned. What does every great brand have in common? Fans. Prezly helps you publish and share compelling stories so you can build that fanbase, fast.',
                     },
                 ],
             },
