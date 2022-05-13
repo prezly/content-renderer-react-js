@@ -71,9 +71,11 @@
 
         .prezly-slate-image--align-left & {
             padding-left: 0;
+            text-align: left;
         }
         .prezly-slate-image--align-right & {
             padding-right: 0;
+            text-align: right;
         }
 
         &:empty {
