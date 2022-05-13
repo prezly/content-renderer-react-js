@@ -67,7 +67,8 @@
         font-style: italic;
         font-size: $font-size-s;
         text-align: center;
-        word-break: break-all;
+        word-break: normal;
+        overflow-wrap: anywhere;
 
         .prezly-slate-image--align-left & {
             padding-left: 0;
