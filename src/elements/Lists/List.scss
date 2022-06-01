@@ -17,14 +17,28 @@
     &--align-left {
         text-align: left;
     }
+
     &--align-center {
         text-align: center;
     }
+
     &--align-right {
         text-align: right;
     }
 
     .prezly-slate-list {
         margin: 0;
+    }
+
+    &.prezly-slate-list--numbered .prezly-slate-list--numbered {
+        list-style-type: lower-latin;
+    }
+
+    &.prezly-slate-list--numbered .prezly-slate-list--numbered .prezly-slate-list--numbered {
+        list-style-type: lower-roman;
+    }
+
+    &.prezly-slate-list--numbered .prezly-slate-list--numbered .prezly-slate-list--numbered .prezly-slate-list--numbered {
+        list-style-type: numeric;
     }
 }
