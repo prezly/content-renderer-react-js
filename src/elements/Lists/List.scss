@@ -38,7 +38,10 @@
         list-style-type: lower-roman;
     }
 
-    &.prezly-slate-list--numbered .prezly-slate-list--numbered .prezly-slate-list--numbered .prezly-slate-list--numbered {
+    &.prezly-slate-list--numbered
+        .prezly-slate-list--numbered
+        .prezly-slate-list--numbered
+        .prezly-slate-list--numbered {
         list-style-type: numeric;
     }
 }
