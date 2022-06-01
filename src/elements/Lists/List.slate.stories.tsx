@@ -292,6 +292,86 @@ export const Nested: Story = () => (
                     },
                 ],
             },
+            {
+                type: 'paragraph',
+                children: [
+                    {
+                        text: 'Nested numeric lists should have different numeration styles:',
+                    },
+                ],
+            },
+            {
+                type: 'numbered-list',
+                children: [
+                    {
+                        type: 'list-item',
+                        children: [
+                            {
+                                type: 'list-item-text',
+                                children: [
+                                    {
+                                        text: 'Top-level items should have numbers',
+                                    },
+                                ],
+                            },
+                            {
+                                type: 'numbered-list',
+                                children: [
+                                    {
+                                        type: 'list-item',
+                                        children: [
+                                            {
+                                                type: 'list-item-text',
+                                                children: [
+                                                    {
+                                                        text: 'Second-level items should use latin letters',
+                                                    },
+                                                ],
+                                            },
+                                            {
+                                                type: 'numbered-list',
+                                                children: [
+                                                    {
+                                                        type: 'list-item',
+                                                        children: [
+                                                            {
+                                                                type: 'list-item-text',
+                                                                children: [
+                                                                    {
+                                                                        text: 'Third-level items should use roman numbers',
+                                                                    },
+                                                                ],
+                                                            },
+                                                            {
+                                                                type: 'numbered-list',
+                                                                children: [
+                                                                    {
+                                                                        type: 'list-item',
+                                                                        children: [
+                                                                            {
+                                                                                type: 'list-item-text',
+                                                                                children: [
+                                                                                    {
+                                                                                        text: 'Fourth-level list is using numbers again',
+                                                                                    },
+                                                                                ],
+                                                                            },
+                                                                        ],
+                                                                    },
+                                                                ],
+                                                            },
+                                                        ],
+                                                    },
+                                                ],
+                                            },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
         ]}
     />
 );
