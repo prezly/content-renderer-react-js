@@ -30,18 +30,15 @@
         margin: 0;
     }
 
-    &.prezly-slate-list--numbered .prezly-slate-list--numbered {
+    &--numbered &--numbered {
         list-style-type: lower-latin;
     }
 
-    &.prezly-slate-list--numbered .prezly-slate-list--numbered .prezly-slate-list--numbered {
+    &--numbered &--numbered &--numbered {
         list-style-type: lower-roman;
     }
 
-    &.prezly-slate-list--numbered
-        .prezly-slate-list--numbered
-        .prezly-slate-list--numbered
-        .prezly-slate-list--numbered {
+    &--numbered &--numbered &--numbered &--numbered {
         list-style-type: numeric;
     }
 }
