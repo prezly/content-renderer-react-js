@@ -131,6 +131,7 @@
         width: $spacing-base * 2;
         height: $spacing-base * 2;
         margin-right: $spacing-base;
+        image-rendering: -webkit-optimize-contrast;
     }
 
     &__providerName {
