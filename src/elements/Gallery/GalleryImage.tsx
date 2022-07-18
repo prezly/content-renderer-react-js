@@ -26,9 +26,7 @@ export function GalleryImage({ originalImage, previewImage, onClick, rounded = f
             onClick={() => onClick(originalImage)}
             style={style}
         >
-            <Media className="prezly-slate-gallery-image__media" image={previewImage}>
-                {originalImage.caption}
-            </Media>
+            <Media className="prezly-slate-gallery-image__media" image={previewImage} title={originalImage.caption} />
         </Rollover>
     );
 }

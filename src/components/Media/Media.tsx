@@ -1,20 +1,17 @@
 import type { UploadcareImage } from '@prezly/uploadcare';
 import classNames from 'classnames';
-import React, { CSSProperties, FunctionComponent, ReactNode } from 'react';
-
-import { stringifyReactNode } from '../../lib';
+import React, { CSSProperties } from 'react';
 
 import './Media.scss';
 
 interface Props {
-    children?: ReactNode;
     className?: string;
     image: UploadcareImage;
     style?: CSSProperties;
+    title?: string;
 }
 
-export const Media: FunctionComponent<Props> = ({ children, className, image, style }) => {
-    const title = stringifyReactNode(children);
+export function Media({ className, image, style, title }: Props) {
     const computedClassName = classNames('prezly-slate-media', className, {
         'prezly-slate-media--image': !image.isGif(),
         'prezly-slate-media--video': image.isGif(),
@@ -55,4 +52,4 @@ export const Media: FunctionComponent<Props> = ({ children, className, image, st
             title={title}
         />
     );
-};
+}
