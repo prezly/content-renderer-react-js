@@ -4,9 +4,9 @@ import classNames from 'classnames';
 import React, { AnchorHTMLAttributes, CSSProperties, HTMLAttributes, useMemo, useState } from 'react';
 
 import { Lightbox, Media, Rollover } from '../../components';
+import { stringifyNode } from '../../lib';
 
 import './Image.scss';
-import { stringifyNode } from '../../lib';
 
 interface Props extends HTMLAttributes<HTMLElement> {
     node: ImageNode;
