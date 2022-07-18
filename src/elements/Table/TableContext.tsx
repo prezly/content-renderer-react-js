@@ -12,14 +12,9 @@ interface Props {
 }
 
 export function TableContextProvider({ table, children }: PropsWithChildren<Props>) {
-    const value = useMemo(
+    const value = useMemo<ContextProps>(
         () => ({
-            isHeaderCell(cell: TableCellNode) {
-                return Boolean(
-                    (table.header?.includes(TableNode.TableHeader.FIRST_ROW) && isFirstRow(table, cell)) ||
-                        (table.header?.includes(TableNode.TableHeader.FIRST_COLUMN) && isFirstColumn(table, cell)),
-                );
-            },
+            isHeaderCell: (cell) => isHeaderCell(table, cell),
         }),
         [table],
     );
@@ -37,4 +32,11 @@ function isFirstRow(table: TableNode, cell: TableCellNode): boolean {
 
 function isFirstColumn(table: TableNode, cell: TableCellNode): boolean {
     return table.children.some((row) => row.children[0] === cell);
+}
+
+function isHeaderCell(table: TableNode, cell: TableCellNode): boolean {
+    return Boolean(
+        (table.header?.includes(TableNode.TableHeader.FIRST_ROW) && isFirstRow(table, cell)) ||
+            (table.header?.includes(TableNode.TableHeader.FIRST_COLUMN) && isFirstColumn(table, cell)),
+    );
 }
