@@ -17,6 +17,9 @@ import {
     ParagraphNode,
     PlaceholderNode,
     QuoteNode,
+    TableCellNode,
+    TableNode,
+    TableRowNode,
     Text,
     VideoNode,
 } from '@prezly/story-content-format';
@@ -69,6 +72,9 @@ export function Renderer<N extends Node | Node[]>({
                     <Component match={QuoteNode.isQuoteNode} component={Elements.Quote} />
                     <Component match={Text.isText} component={Elements.Text} />
                     <Component match={VideoNode.isVideoNode} component={Elements.Video} />
+                    <Component match={TableNode.isTableNode} component={Elements.Table} />
+                    <Component match={TableRowNode.isTableRowNode} component={Elements.TableRow} />
+                    <Component match={TableCellNode.isTableCellNode} component={Elements.TableCell} />
                 </>
             )}
             {defaultFallback !== 'ignore' && <Component match={isAnyNode} component={fallback(defaultFallback)} />}

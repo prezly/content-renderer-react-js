@@ -72,7 +72,7 @@
     "dependencies": {
         "@prezly/linear-partition": "^1.0.2",
         "@prezly/sdk": "^6.21.0",
-        "@prezly/story-content-format": "^0.55.3",
+        "@prezly/story-content-format": "^0.56.2",
         "@prezly/uploadcare": "^2.3.2",
         "@react-hookz/web": "^12.0.0",
         "classnames": "^2.2.6",
@@ -91,13 +91,13 @@
         "@loki/create-async-callback": "^0.29.0",
         "@loki/is-loki-running": "^0.29.0",
         "@pmmmwh/react-refresh-webpack-plugin": "^0.5.4",
-        "@storybook/addon-actions": "^6.4.22",
-        "@storybook/addon-essentials": "^6.4.22",
-        "@storybook/addon-interactions": "^6.4.22",
-        "@storybook/addon-links": "^6.4.22",
-        "@storybook/builder-webpack5": "^6.4.22",
-        "@storybook/manager-webpack5": "^6.4.22",
-        "@storybook/react": "^6.4.22",
+        "@storybook/addon-actions": "^6.5.9",
+        "@storybook/addon-essentials": "^6.5.9",
+        "@storybook/addon-interactions": "^6.5.9",
+        "@storybook/addon-links": "^6.5.9",
+        "@storybook/builder-webpack5": "^6.5.9",
+        "@storybook/manager-webpack5": "^6.5.9",
+        "@storybook/react": "^6.5.9",
         "@storybook/testing-library": "^0.0.10",
         "@types/jest": "^27.5.0",
         "@types/react": "^17.0.2",
@@ -137,8 +137,8 @@
         "tsc-fancy": "^1.1.2",
         "typescript": "^4.4.4",
         "url-polyfill": "^1.1.12",
-        "webpack": "^5.65.0",
-        "webpack-cli": "^4.9.1",
-        "webpack-dev-server": "^4.7.1"
+        "webpack": "^5.73.0",
+        "webpack-cli": "^4.10.0",
+        "webpack-dev-server": "^4.9.3"
     }
 }

@@ -18,4 +18,5 @@ export { Placeholder } from './Placeholder';
 export { Quote } from './Quote';
 export { StoryBookmark } from './StoryBookmark';
 export { Text } from './Text';
+export * from './Table';
 export { Video } from './Video';
