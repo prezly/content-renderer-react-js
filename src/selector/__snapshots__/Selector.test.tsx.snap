@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Renderer should render a <h1> for a heading and a <section> for a divider 1`] = `
+exports[`Selector should render <h1> for a heading and <hr> for a divider 1`] = `
 <section
   className="prezly-slate-document"
   data-version="0.50"

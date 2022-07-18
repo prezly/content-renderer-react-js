@@ -20,8 +20,8 @@ const documentNode: DocumentNode = {
     ],
 };
 
-describe('Renderer', () => {
-    it('should render a <h1> for a heading and a <section> for a divider', () => {
+describe('Selector', () => {
+    it('should render <h1> for a heading and <hr> for a divider', () => {
         const tree = renderer
             .create(
                 <Selector nodes={documentNode}>
