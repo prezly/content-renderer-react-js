@@ -1,16 +1,10 @@
 import type { ImageNode } from '@prezly/story-content-format';
 import { UploadcareImage } from '@prezly/uploadcare';
 import classNames from 'classnames';
-import React, {
-    AnchorHTMLAttributes,
-    CSSProperties,
-    FunctionComponent,
-    HTMLAttributes,
-    useMemo,
-    useState,
-} from 'react';
+import React, { AnchorHTMLAttributes, CSSProperties, HTMLAttributes, useMemo, useState } from 'react';
 
 import { Lightbox, Media, Rollover } from '../../components';
+import { stringifyNode } from '../../lib';
 
 import './Image.scss';
 
@@ -39,7 +33,7 @@ const NEW_TAB_ATTRIBUTES: Partial<AnchorHTMLAttributes<HTMLAnchorElement>> = {
     rel: 'noopener noreferrer',
 };
 
-export const Image: FunctionComponent<Props> = ({ children, className, node, onDownload, onPreviewOpen, ...props }) => {
+export function Image({ children, className, node, onDownload, onPreviewOpen, ...props }: Props) {
     const { file, href, align, layout } = node;
     const isNewTab = node.new_tab ?? true;
     const [isPreviewOpen, setIsPreviewOpen] = useState<boolean>(false);
@@ -47,6 +41,7 @@ export const Image: FunctionComponent<Props> = ({ children, className, node, onD
     const containerStyle = getContainerStyle(node);
     const handleRolloverClick = () => setIsPreviewOpen(true);
     const handleImagePreviewClose = () => setIsPreviewOpen(false);
+    const title = stringifyNode(node);
 
     return (
         <figure
@@ -68,9 +63,7 @@ export const Image: FunctionComponent<Props> = ({ children, className, node, onD
                     {...(isNewTab ? NEW_TAB_ATTRIBUTES : {})}
                     style={containerStyle}
                 >
-                    <Media className="prezly-slate-image__media" image={image}>
-                        {children}
-                    </Media>
+                    <Media className="prezly-slate-image__media" image={image} title={title} />
                 </a>
             )}
 
@@ -82,9 +75,7 @@ export const Image: FunctionComponent<Props> = ({ children, className, node, onD
                     onClick={handleRolloverClick}
                     style={containerStyle}
                 >
-                    <Media className="prezly-slate-image__media" image={image}>
-                        {children}
-                    </Media>
+                    <Media className="prezly-slate-image__media" image={image} title={title} />
                 </Rollover>
             )}
 
@@ -95,9 +86,10 @@ export const Image: FunctionComponent<Props> = ({ children, className, node, onD
                 onClose={handleImagePreviewClose}
                 onDownload={onDownload}
                 onOpen={onPreviewOpen}
+                title={title}
             >
                 {children}
             </Lightbox>
         </figure>
     );
-};
+}

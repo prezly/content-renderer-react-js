@@ -73,6 +73,7 @@ export function Gallery({ className, node, onImageDownload, onPreviewOpen, ...pr
                 onNext={lightbox.onNext}
                 onOpen={onPreviewOpen}
                 onPrevious={lightbox.onPrevious}
+                title={lightbox.image?.caption}
             >
                 {lightbox.image?.caption}
             </Lightbox>

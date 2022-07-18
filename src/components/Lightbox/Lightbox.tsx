@@ -1,7 +1,7 @@
 import type { UploadcareImage } from '@prezly/uploadcare';
 import { useEventListener } from '@react-hookz/web';
 import classNames from 'classnames';
-import React, { FunctionComponent, KeyboardEvent, ReactNode, useEffect } from 'react';
+import React, { KeyboardEvent, ReactNode, useEffect } from 'react';
 import Modal from 'react-modal';
 
 import { ChevronLeft, ChevronRight, Close } from '../../icons';
@@ -24,9 +24,10 @@ interface Props {
     onOpen?: (image: UploadcareImage) => void;
     onPrevious?: () => void;
     previewImage?: (image: UploadcareImage) => UploadcareImage;
+    title?: string;
 }
 
-export const Lightbox: FunctionComponent<Props> = ({
+export function Lightbox({
     children,
     className,
     image,
@@ -38,7 +39,8 @@ export const Lightbox: FunctionComponent<Props> = ({
     onOpen = noop,
     onPrevious = noop,
     previewImage = defaultPreviewImage,
-}) => {
+    title,
+}: Props) {
     useEventListener(typeof window !== 'undefined' ? window : globalThis, 'keydown', (event: KeyboardEvent) => {
         if (image === null) {
             return;
@@ -98,9 +100,7 @@ export const Lightbox: FunctionComponent<Props> = ({
                 </div>
 
                 <div className="prezly-slate-lightbox__image-container">
-                    <Media className="prezly-slate-lightbox__image" image={previewImage(image)}>
-                        {children}
-                    </Media>
+                    <Media className="prezly-slate-lightbox__image" image={previewImage(image)} title={title} />
 
                     <div className="prezly-slate-lightbox__actions">
                         <a
@@ -126,7 +126,7 @@ export const Lightbox: FunctionComponent<Props> = ({
             </button>
         </Modal>
     );
-};
+}
 
 function defaultPreviewImage(image: UploadcareImage): UploadcareImage {
     return image.preview(2000, 2000);
