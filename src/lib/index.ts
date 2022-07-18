@@ -5,7 +5,6 @@ export { identity } from './identity';
 export { injectHtmlMarkup } from './injectHtmlMarkup';
 export { noop } from './noop';
 export { openWindow } from './openWindow';
-export { stringifyReactNode } from './stringifyReactNode';
 export { stringifyNode } from './stringifyNode';
 export { stripTags } from './stripTags';
 export { isEmptyText } from './isEmptyText';

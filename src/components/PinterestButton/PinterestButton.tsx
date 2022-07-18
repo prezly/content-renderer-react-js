@@ -1,29 +1,22 @@
 import classNames from 'classnames';
-import React, { AnchorHTMLAttributes, FunctionComponent, ReactNode, useCallback } from 'react';
+import React, { AnchorHTMLAttributes, useCallback } from 'react';
 
 import { Pinterest } from '../../icons';
-import { openWindow, stringifyReactNode } from '../../lib';
+import { openWindow } from '../../lib';
 
 import { getPinterestShareUrl } from './lib';
 import './PinterestButton.scss';
 
 interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
     children?: never;
-    description?: ReactNode;
+    description?: string;
     image: string;
     url?: string;
 }
 
-export const PinterestButton: FunctionComponent<Props> = ({
-    className,
-    description,
-    image,
-    url,
-    onClick,
-    ...props
-}) => {
+export function PinterestButton({ className, description, image, url, onClick, ...props }: Props) {
     const pinterestShareUrl = getPinterestShareUrl({
-        description: stringifyReactNode(description),
+        description,
         image,
         url,
     });
@@ -54,4 +47,4 @@ export const PinterestButton: FunctionComponent<Props> = ({
             <Pinterest className="prezly-slate-pinterest-button__icon" />
         </a>
     );
-};
+}
