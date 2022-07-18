@@ -36,11 +36,11 @@ jobs:
     - run: npm ci
 
     - name: Install React ${{ matrix.react-version }}
+      env:
+        REACT_VERSION: ${{ matrix.react-version }}
       run: |
-        npm install react@${{ matrix.react-version }} \
-                    react-dom@${{ matrix.react-version }} \
-                    @types/react@${{ matrix.react-version }} \
-                    @types/react-dom@${{ matrix.react-version }}
+        npm run react:uninstall \
+          && npm run react:install-version
 
     - run: npm run build
 
