@@ -6,5 +6,5 @@ interface Props extends HTMLAttributes<HTMLTableCellElement> {
 }
 
 export function TableRow({ children }: Props) {
-    return <tr className="prezly-table-row ">{children}</tr>;
+    return <tr className="prezly-table-row">{children}</tr>;
 }

@@ -1,5 +1,5 @@
 import { TableNode, TableCellNode } from '@prezly/story-content-format';
-import React, { useContext, createContext, PropsWithChildren } from 'react';
+import React, { useContext, useMemo, createContext, PropsWithChildren } from 'react';
 
 interface ContextProps {
     isHeaderCell: (cell: TableCellNode) => boolean;
@@ -12,17 +12,19 @@ interface Props {
 }
 
 export function TableContextProvider({ table, children }: PropsWithChildren<Props>) {
-    const isHeaderCell = React.useCallback(
-        (cell: TableCellNode) => {
-            return Boolean(
-                (table.header?.includes(TableNode.TableHeader.FIRST_ROW) && isFirstRow(table, cell)) ||
-                    (table.header?.includes(TableNode.TableHeader.FIRST_COLUMN) && isFirstColumn(table, cell)),
-            );
-        },
+    const value = useMemo(
+        () => ({
+            isHeaderCell(cell: TableCellNode) {
+                return Boolean(
+                    (table.header?.includes(TableNode.TableHeader.FIRST_ROW) && isFirstRow(table, cell)) ||
+                        (table.header?.includes(TableNode.TableHeader.FIRST_COLUMN) && isFirstColumn(table, cell)),
+                );
+            },
+        }),
         [table],
     );
 
-    return <TableContext.Provider value={{ isHeaderCell }}>{children}</TableContext.Provider>;
+    return <TableContext.Provider value={value}>{children}</TableContext.Provider>;
 }
 
 export function useTableContext() {
