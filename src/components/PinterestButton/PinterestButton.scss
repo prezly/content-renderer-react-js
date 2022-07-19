@@ -1,9 +1,9 @@
 @import "styles/mixins.scss";
 @import "styles/variables.scss";
 
-$button-size: 38px;
-
 .prezly-slate {
+    $button-size: 38px;
+
     &-pinterest-button {
         display: flex;
         align-items: center;

@@ -1,6 +1,6 @@
 import { DividerNode, DocumentNode, HeadingNode } from '@prezly/story-content-format';
 import React from 'react';
-import ReactDOMServer from 'react-dom/server.js';
+import renderer from 'react-test-renderer';
 
 import { Component } from './Component';
 import { Selector } from './Selector';
@@ -20,17 +20,18 @@ const documentNode: DocumentNode = {
     ],
 };
 
-describe('Renderer', () => {
-    it('Renders a <h1> for a heading and a <section> for a divider', () => {
-        const asString = ReactDOMServer.renderToString(
-            <Selector nodes={documentNode}>
-                <Component match={DividerNode.isDividerNode} component={Divider} />
-                <Component match={HeadingNode.isHeadingNode} component={Heading} />
-                <Component match={DocumentNode.isDocumentNode} component={Document} />
-            </Selector>,
-        );
+describe('Selector', () => {
+    it('should render <h1> for a heading and <hr> for a divider', () => {
+        const tree = renderer
+            .create(
+                <Selector nodes={documentNode}>
+                    <Component match={DividerNode.isDividerNode} component={Divider} />
+                    <Component match={HeadingNode.isHeadingNode} component={Heading} />
+                    <Component match={DocumentNode.isDocumentNode} component={Document} />
+                </Selector>,
+            )
+            .toJSON();
 
-        expect(asString).toContain('<h1');
-        expect(asString).toContain('<section');
+        expect(tree).toMatchSnapshot();
     });
 });

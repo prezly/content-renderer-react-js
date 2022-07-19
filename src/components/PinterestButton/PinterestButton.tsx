@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React, { AnchorHTMLAttributes, useCallback } from 'react';
+import React, { AnchorHTMLAttributes, MouseEvent, useCallback } from 'react';
 
 import { Pinterest } from '../../icons';
 import { openWindow } from '../../lib';
@@ -21,8 +21,8 @@ export function PinterestButton({ className, description, image, url, onClick, .
         url,
     });
 
-    const handlePinterestClick: Props['onClick'] = useCallback(
-        (event) => {
+    const handlePinterestClick = useCallback(
+        (event: MouseEvent<HTMLAnchorElement>) => {
             event.preventDefault();
 
             openWindow(pinterestShareUrl, 575, 400);
