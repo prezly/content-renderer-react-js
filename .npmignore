@@ -11,4 +11,5 @@ example/
 *.test.ts
 *.test.tsx
 *.stories.tsx
+*.test.*.snap
 .loki
