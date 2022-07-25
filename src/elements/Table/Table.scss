@@ -1,31 +1,35 @@
 @import "styles/variables";
 
-.prezly-table {
+.prezly-slate-table {
     width: 100%;
     border-collapse: collapse;
     table-layout: fixed;
 
     &--withBorders {
-        .prezly-table-row,
-        .prezly-table-cell {
+        .prezly-slate-table-row,
+        .prezly-slate-table-cell {
             border: 1px solid $color-grey-300;
         }
     }
 }
 
-.prezly-table-row {
+.prezly-slate-table-row {
     color: $color-grey-700;
     font-size: $font-size-s;
 }
 
-.prezly-table-cell {
+.prezly-slate-table-cell {
     min-width: 40px;
     min-height: 40px;
     padding: $spacing-1-5;
     outline: none !important;
 
-    > p {
-        margin: 0;
+    > *:first-child {
+        margin-top: 0;
+    }
+
+    > *:last-child {
+        margin-bottom: 0;
     }
 
     &--header {
