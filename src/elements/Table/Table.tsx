@@ -11,8 +11,8 @@ export function Table({ children, node }: Props) {
     return (
         <TableContextProvider table={node}>
             <table
-                className={classNames('prezly-table', {
-                    ['prezly-table--withBorders']: node.border,
+                className={classNames('prezly-slate-table', {
+                    ['prezly-slate-table--withBorders']: node.border,
                 })}
             >
                 <tbody>{children}</tbody>

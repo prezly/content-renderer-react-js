@@ -21,8 +21,8 @@ export function TableCell({ children, node }: Props) {
 
     return (
         <Cell
-            className={classNames('prezly-table-cell', {
-                ['prezly-table-cell--header']: isHeaderCell,
+            className={classNames('prezly-slate-table-cell', {
+                ['prezly-slate-table-cell--header']: isHeaderCell,
             })}
             colSpan={node.colspan}
             rowSpan={node.rowspan}
