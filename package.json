@@ -15,8 +15,7 @@
         "./styles.css": "./build/styles/styles.css"
     },
     "files": [
-        "build",
-        "src"
+        "build"
     ],
     "repository": {
         "type": "git",
