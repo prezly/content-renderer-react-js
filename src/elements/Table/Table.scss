@@ -24,8 +24,12 @@
     padding: $spacing-1-5;
     outline: none !important;
 
-    > p {
-        margin: 0;
+    > *:first-child {
+        margin-top: 0;
+    }
+
+    > *:last-child {
+        margin-bottom: 0;
     }
 
     &--header {
