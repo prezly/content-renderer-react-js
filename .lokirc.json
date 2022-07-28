@@ -1,5 +1,11 @@
 {
     "diffingEngine": "looks-same",
+    "chromeTolerance": 5,
+    "looks-same": {
+        "ignoreCaret": true,
+        "ignoreAntialiasing": true,
+        "tolerance": 5
+    },
     "configurations": {
         "chrome.laptop": {
             "target": "chrome.docker",
