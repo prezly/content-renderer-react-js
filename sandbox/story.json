@@ -817,6 +817,445 @@
             "type": "heading-two",
             "children": [
                 {
+                    "text": "Tables"
+                }
+            ]
+        },
+        {
+            "type": "paragraph",
+            "children": [
+                {"text":  "Standard table"}
+            ]
+        },
+        {
+            "type": "table",
+            "border": true,
+            "header": ["first_row"],
+            "children": [
+                {
+                    "type": "table-row",
+                    "children": [
+                        {
+                            "type": "table-cell",
+                            "children": [
+                                {
+                                    "type": "paragraph",
+                                    "children": [
+                                        {
+                                            "text": "Pop Song Lyrics"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "table-cell",
+                            "children": [
+                                {
+                                    "type": "paragraph",
+                                    "children": [
+                                        {
+                                            "text": "Percentage"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },{
+                    "type": "table-row",
+                    "children": [
+                        {
+                            "type": "table-cell",
+                            "children": [
+                                {
+                                    "type": "paragraph",
+                                    "children": [
+                                        {
+                                            "text": "Baby"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "table-cell",
+                            "children": [
+                                {
+                                    "type": "paragraph",
+                                    "children": [
+                                        {
+                                            "text": "35%"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },{
+                    "type": "table-row",
+                    "children": [
+                        {
+                            "type": "table-cell",
+                            "children": [
+                                {
+                                    "type": "paragraph",
+                                    "children": [
+                                        {
+                                            "text": "Yeah"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "table-cell",
+                            "children": [
+                                {
+                                    "type": "paragraph",
+                                    "children": [
+                                        {
+                                            "text": "30%"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },{
+                    "type": "table-row",
+                    "children": [
+                        {
+                            "type": "table-cell",
+                            "children": [
+                                {
+                                    "type": "paragraph",
+                                    "children": [
+                                        {
+                                            "text": "Ooh"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "table-cell",
+                            "children": [
+                                {
+                                    "type": "paragraph",
+                                    "children": [
+                                        {
+                                            "text": "30%"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },{
+                    "type": "table-row",
+                    "children": [
+                        {
+                            "type": "table-cell",
+                            "children": [
+                                {
+                                    "type": "paragraph",
+                                    "children": [
+                                        {
+                                            "text": "Actual lyrics"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "table-cell",
+                            "children": [
+                                {
+                                    "type": "paragraph",
+                                    "children": [
+                                        {
+                                            "text": "5%"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "paragraph",
+            "children": [
+                {"text":  "Heading column"}
+            ]
+        },
+        {
+            "type": "table",
+            "border": true,
+            "header": ["first_column"],
+            "children": [
+                {
+                    "type": "table-row",
+                    "children": [
+                        {
+                            "type": "table-cell",
+                            "children": [
+                                {
+                                    "type": "paragraph",
+                                    "children": [
+                                        {
+                                            "text": "Baby"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "table-cell",
+                            "children": [
+                                {
+                                    "type": "paragraph",
+                                    "children": [
+                                        {
+                                            "text": "35%"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },{
+                    "type": "table-row",
+                    "children": [
+                        {
+                            "type": "table-cell",
+                            "children": [
+                                {
+                                    "type": "paragraph",
+                                    "children": [
+                                        {
+                                            "text": "Yeah"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "table-cell",
+                            "children": [
+                                {
+                                    "type": "paragraph",
+                                    "children": [
+                                        {
+                                            "text": "30%"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },{
+                    "type": "table-row",
+                    "children": [
+                        {
+                            "type": "table-cell",
+                            "children": [
+                                {
+                                    "type": "paragraph",
+                                    "children": [
+                                        {
+                                            "text": "Ooh"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "table-cell",
+                            "children": [
+                                {
+                                    "type": "paragraph",
+                                    "children": [
+                                        {
+                                            "text": "30%"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },{
+                    "type": "table-row",
+                    "children": [
+                        {
+                            "type": "table-cell",
+                            "children": [
+                                {
+                                    "type": "paragraph",
+                                    "children": [
+                                        {
+                                            "text": "Actual lyrics"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "table-cell",
+                            "children": [
+                                {
+                                    "type": "paragraph",
+                                    "children": [
+                                        {
+                                            "text": "5%"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },{
+            "type": "paragraph",
+            "children": [
+                {"text":  "No borders"}
+            ]
+        },
+        {
+            "type": "table",
+            "border": false,
+            "header": [],
+            "children": [
+                {
+                    "type": "table-row",
+                    "children": [
+                        {
+                            "type": "table-cell",
+                            "children": [
+                                {
+                                    "type": "paragraph",
+                                    "children": [
+                                        {
+                                            "text": "Baby"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "table-cell",
+                            "children": [
+                                {
+                                    "type": "paragraph",
+                                    "children": [
+                                        {
+                                            "text": "35%"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },{
+                    "type": "table-row",
+                    "children": [
+                        {
+                            "type": "table-cell",
+                            "children": [
+                                {
+                                    "type": "paragraph",
+                                    "children": [
+                                        {
+                                            "text": "Yeah"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "table-cell",
+                            "children": [
+                                {
+                                    "type": "paragraph",
+                                    "children": [
+                                        {
+                                            "text": "30%"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },{
+                    "type": "table-row",
+                    "children": [
+                        {
+                            "type": "table-cell",
+                            "children": [
+                                {
+                                    "type": "paragraph",
+                                    "children": [
+                                        {
+                                            "text": "Ooh"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "table-cell",
+                            "children": [
+                                {
+                                    "type": "paragraph",
+                                    "children": [
+                                        {
+                                            "text": "30%"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },{
+                    "type": "table-row",
+                    "children": [
+                        {
+                            "type": "table-cell",
+                            "children": [
+                                {
+                                    "type": "paragraph",
+                                    "children": [
+                                        {
+                                            "text": "Actual lyrics"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "table-cell",
+                            "children": [
+                                {
+                                    "type": "paragraph",
+                                    "children": [
+                                        {
+                                            "text": "5%"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "heading-two",
+            "children": [
+                {
                     "text": "Images"
                 }
             ]
