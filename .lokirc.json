@@ -1,5 +1,8 @@
 {
     "diffingEngine": "looks-same",
+    "looks-same": {
+        "ignoreCaret": true
+    },
     "configurations": {
         "chrome.laptop": {
             "target": "chrome.docker",
