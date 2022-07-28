@@ -1,7 +1,10 @@
 {
     "diffingEngine": "looks-same",
+    "chromeTolerance": 5,
     "looks-same": {
-        "ignoreCaret": true
+        "ignoreCaret": true,
+        "ignoreAntialiasing": true,
+        "tolerance": 5
     },
     "configurations": {
         "chrome.laptop": {
