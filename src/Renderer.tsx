@@ -33,7 +33,6 @@ import type { Transformation } from './types';
 import { Component, Selector } from './selector';
 window.ResizeObserver = ResizeObserver;
 
-
 interface Props<N extends Node | Node[]> {
     children?: ReactNode;
     defaultComponents?: boolean;
