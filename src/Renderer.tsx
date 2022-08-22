@@ -24,14 +24,12 @@ import {
     VideoNode,
 } from '@prezly/story-content-format';
 import React, { ComponentType, ReactNode } from 'react';
-import ResizeObserver from 'resize-observer-polyfill';
 
 import * as Elements from './elements';
 import { applyTransformations } from './lib';
 import * as Transformations from './transformations';
 import type { Transformation } from './types';
 import { Component, Selector } from './selector';
-window.ResizeObserver = ResizeObserver;
 
 interface Props<N extends Node | Node[]> {
     children?: ReactNode;
