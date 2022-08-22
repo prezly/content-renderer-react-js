@@ -9,4 +9,6 @@ export * as Transformations from './transformations';
 
 export { Renderer } from './Renderer';
 
-window.ResizeObserver = window.ResizeObserver ?? ResizeObserver;
+if (window) {
+    window.ResizeObserver = window.ResizeObserver ?? ResizeObserver;
+}
