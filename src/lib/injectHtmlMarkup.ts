@@ -17,6 +17,10 @@ export function injectHtmlMarkup(parameters: {
     const embedScripts = Array.from(container.getElementsByTagName('script'));
 
     embedScripts.forEach((embedScript) => {
+        if (embedScript.src && document.querySelector(`script[src="${embedScript.src}"]`)) {
+            // Skip scripts that were already included before
+            return;
+        }
         const script = document.createElement('script');
         copyScriptAttributes(embedScript, script);
         script.addEventListener('error', onError);
