@@ -29,5 +29,5 @@
 
     "include": ["./src"],
     "exclude": ["node_modules"],
-    "files": ["./src/@types/scss.d.ts", "./src/@types/svg.d.ts"]
+    "files": ["./src/@types/scss.d.ts", "./src/@types/svg.d.ts", "./src/globals.d.ts"]
 }
