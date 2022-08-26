@@ -34,7 +34,7 @@ function useScripts(html: Props['html'], onError: Props['onError']) {
             const script = document.createElement('script');
             setScriptAttributes(script, attributes);
 
-            script.addEventListener('error', () => onError());
+            script.addEventListener('error', onError);
             document.body.appendChild(script);
         });
 
