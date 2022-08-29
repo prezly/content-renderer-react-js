@@ -2,7 +2,6 @@ export { applyTransformations } from './applyTransformations';
 export { describeNode } from './describeNode';
 export { formatBytes } from './formatBytes';
 export { identity } from './identity';
-export { injectHtmlMarkup } from './injectHtmlMarkup';
 export { noop } from './noop';
 export { openWindow } from './openWindow';
 export { stringifyNode } from './stringifyNode';

@@ -1,28 +1,49 @@
-import React, { FunctionComponent, useEffect, useRef } from 'react';
-import { useSyncedRef } from '@react-hookz/web';
-import { injectHtmlMarkup } from '../lib';
+import React, { HTMLAttributes, ScriptHTMLAttributes, useEffect } from 'react';
 
-interface Props {
+interface Props extends HTMLAttributes<HTMLDivElement> {
     html: string;
-    id?: string;
-    className?: string;
     onError: () => void;
 }
 
-export const HtmlInjection: FunctionComponent<Props> = (props) => {
-    const { html, className, id } = props;
-    const freshProps = useSyncedRef<Props>(props);
-    const ref = useRef<HTMLDivElement>(null);
+export function HtmlInjection(props: Props) {
+    const { html, onError, ...attrs } = props;
 
+    useScripts(html, onError);
+
+    return <div {...attrs} dangerouslySetInnerHTML={{ __html: html }} />;
+}
+
+function useScripts(html: Props['html'], onError: Props['onError']) {
     useEffect(() => {
-        if (ref.current) {
-            injectHtmlMarkup({
-                html,
-                onError: () => freshProps.current.onError(),
-                target: ref.current,
-            });
-        }
-    }, [html]);
+        const container = document.createElement('div');
+        container.innerHTML = html;
 
-    return <div id={id} className={className} ref={ref} />;
-};
+        const scripts: ScriptHTMLAttributes<HTMLScriptElement>[] = Array.from(
+            container.getElementsByTagName('script'),
+        ).map((script) => {
+            return Array.from(script.attributes).reduce((agg, { name, value }) => ({ ...agg, [name]: value }), {});
+        });
+
+        container.remove();
+
+        scripts.forEach((attributes) => {
+            if (attributes.src && document.querySelector(`script[src="${attributes.src}"]`)) {
+                return;
+            }
+
+            const script = document.createElement('script');
+            setScriptAttributes(script, attributes);
+
+            script.addEventListener('error', onError);
+            document.body.appendChild(script);
+        });
+
+        iframely?.load();
+
+        return;
+    }, [html]);
+}
+
+function setScriptAttributes(script: HTMLScriptElement, attributes: ScriptHTMLAttributes<HTMLScriptElement>): void {
+    Object.entries(attributes).forEach(([name, value]) => script.setAttribute(name, value));
+}

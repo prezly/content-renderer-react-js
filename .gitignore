@@ -1,4 +1,5 @@
 .idea/
+.yalc/
 .history
 build/
 coverage/

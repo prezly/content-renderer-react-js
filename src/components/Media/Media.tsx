@@ -34,7 +34,7 @@ export function Media({ className, image, style, title }: Props) {
                 playsInline
                 style={style}
                 title={title}
-                webkit-playsinline
+                webkit-playsinline="true"
             >
                 <source src={sourceWebm} type="video/webm" />
                 <source src={sourceMp4} type="video/mp4" />
