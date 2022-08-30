@@ -38,7 +38,9 @@ function useScripts(html: Props['html'], onError: Props['onError']) {
             document.body.appendChild(script);
         });
 
-        (window as any).iframely?.load(); // call iframely on global window object
+        if (typeof iframely !== 'undefined') {
+            iframely.load();
+        }
 
         return;
     }, [html]);
