@@ -15,12 +15,12 @@ import {
     ListNode,
     Node,
     ParagraphNode,
-    PlaceholderNode,
     QuoteNode,
     TableCellNode,
     TableNode,
     TableRowNode,
     Text,
+    VariableNode,
     VideoNode,
 } from '@prezly/story-content-format';
 import React, { ComponentType, ReactNode } from 'react';
@@ -68,9 +68,9 @@ export function Renderer<N extends Node | Node[]>({
                     <Component match={ListItemNode.isListItemNode} component={Elements.ListItem} />
                     <Component match={ListItemTextNode.isListItemTextNode} component={Elements.ListItemText} />
                     <Component match={ParagraphNode.isParagraphNode} component={Elements.Paragraph} />
-                    <Component match={PlaceholderNode.isPlaceholderNode} component={Elements.Placeholder} />
                     <Component match={QuoteNode.isQuoteNode} component={Elements.Quote} />
                     <Component match={Text.isText} component={Elements.Text} />
+                    <Component match={VariableNode.isVariableNode} component={Elements.Variable} />
                     <Component match={VideoNode.isVideoNode} component={Elements.Video} />
                     <Component match={TableNode.isTableNode} component={Elements.Table} />
                     <Component match={TableRowNode.isTableRowNode} component={Elements.TableRow} />
