@@ -15,6 +15,7 @@ import {
     ListNode,
     Node,
     ParagraphNode,
+    PlaceholderNode,
     QuoteNode,
     TableCellNode,
     TableNode,
@@ -31,10 +32,12 @@ import * as Transformations from './transformations';
 import type { Transformation } from './types';
 import { Component, Selector } from './selector';
 
+type Fallback = 'ignore' | 'warning' | 'passthru' | ComponentType<{ node: Node }>;
+
 interface Props<N extends Node | Node[]> {
     children?: ReactNode;
     defaultComponents?: boolean;
-    defaultFallback?: 'ignore' | 'warning' | 'passthru' | ComponentType<{ node: Node }>;
+    defaultFallback?: Fallback;
     nodes: N;
     transformations?: Transformation[];
 }
@@ -68,6 +71,7 @@ export function Renderer<N extends Node | Node[]>({
                     <Component match={ListItemNode.isListItemNode} component={Elements.ListItem} />
                     <Component match={ListItemTextNode.isListItemTextNode} component={Elements.ListItemText} />
                     <Component match={ParagraphNode.isParagraphNode} component={Elements.Paragraph} />
+                    <Component match={PlaceholderNode.isPlaceholderNode} component={Elements.Ignore} />
                     <Component match={QuoteNode.isQuoteNode} component={Elements.Quote} />
                     <Component match={Text.isText} component={Elements.Text} />
                     <Component match={VariableNode.isVariableNode} component={Elements.Variable} />
@@ -77,14 +81,13 @@ export function Renderer<N extends Node | Node[]>({
                     <Component match={TableCellNode.isTableCellNode} component={Elements.TableCell} />
                 </>
             )}
-            {defaultFallback !== 'ignore' && <Component match={isAnyNode} component={fallback(defaultFallback)} />}
+            <Component match={isAnyNode} component={fallback(defaultFallback)} />
         </Selector>
     );
 }
 
-function fallback(
-    defaultFallback: 'warning' | 'passthru' | ComponentType<{ node: Node }>,
-): ComponentType<{ node: Node }> {
+function fallback(defaultFallback: Fallback): ComponentType<{ node: Node }> {
+    if (defaultFallback === 'ignore') return Elements.Ignore;
     if (defaultFallback === 'passthru') return Elements.Passthru;
     if (defaultFallback === 'warning') return Elements.Unknown;
     return defaultFallback;
