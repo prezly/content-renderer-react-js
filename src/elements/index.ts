@@ -1,4 +1,5 @@
 export { Document } from './Document';
+export { Ignore } from './Ignore';
 export { Unknown } from './Unknown';
 export { Passthru } from './Passthru';
 
