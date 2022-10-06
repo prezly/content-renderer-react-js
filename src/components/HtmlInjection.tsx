@@ -15,6 +15,10 @@ export function HtmlInjection(props: Props) {
 
 function useScripts(html: Props['html'], onError: Props['onError']) {
     const [strippedHtml, scriptsAttributes] = useMemo(() => {
+        if (typeof document === 'undefined') {
+            return [html, []];
+        }
+
         const container = document.createElement('div');
         container.innerHTML = html;
 
