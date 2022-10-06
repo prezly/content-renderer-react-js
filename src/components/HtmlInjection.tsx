@@ -1,4 +1,4 @@
-import React, { HTMLAttributes, ScriptHTMLAttributes, useEffect } from 'react';
+import React, { HTMLAttributes, ScriptHTMLAttributes, useEffect, useMemo } from 'react';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
     html: string;
@@ -8,34 +8,41 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 export function HtmlInjection(props: Props) {
     const { html, onError, ...attrs } = props;
 
-    useScripts(html, onError);
+    const strippedHtml = useScripts(html, onError);
 
-    return <div {...attrs} dangerouslySetInnerHTML={{ __html: html }} />;
+    return <div {...attrs} dangerouslySetInnerHTML={{ __html: strippedHtml }} />;
 }
 
 function useScripts(html: Props['html'], onError: Props['onError']) {
-    useEffect(() => {
+    const [strippedHtml, scriptsAttributes] = useMemo(() => {
         const container = document.createElement('div');
         container.innerHTML = html;
 
-        const scripts: ScriptHTMLAttributes<HTMLScriptElement>[] = Array.from(
-            container.getElementsByTagName('script'),
-        ).map((script) => {
+        const scripts = Array.from(container.getElementsByTagName('script'));
+
+        const scriptsAttributes: ScriptHTMLAttributes<HTMLScriptElement>[] = scripts.map((script) => {
             return Array.from(script.attributes).reduce((agg, { name, value }) => ({ ...agg, [name]: value }), {});
         });
 
+        scripts.forEach((script) => script.remove());
+
+        const strippedHtml = container.innerHTML;
         container.remove();
 
-        scripts.forEach((attributes) => {
+        return [strippedHtml, scriptsAttributes];
+    }, [html]);
+
+    useEffect(() => {
+        scriptsAttributes.forEach((attributes) => {
             if (attributes.src && document.querySelector(`script[src="${attributes.src}"]`)) {
                 return;
             }
 
-            const script = document.createElement('script');
-            setScriptAttributes(script, attributes);
+            const scriptElement = document.createElement('script');
+            setScriptAttributes(scriptElement, attributes);
 
-            script.addEventListener('error', onError);
-            document.body.appendChild(script);
+            scriptElement.addEventListener('error', onError);
+            document.body.appendChild(scriptElement);
         });
 
         if (typeof iframely !== 'undefined') {
@@ -43,7 +50,9 @@ function useScripts(html: Props['html'], onError: Props['onError']) {
         }
 
         return;
-    }, [html]);
+    }, [scriptsAttributes]);
+
+    return strippedHtml;
 }
 
 function setScriptAttributes(script: HTMLScriptElement, attributes: ScriptHTMLAttributes<HTMLScriptElement>): void {
