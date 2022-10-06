@@ -38,11 +38,11 @@ function useScripts(html: Props['html'], onError: Props['onError']) {
                 return;
             }
 
-            const scriptElement = document.createElement('script');
-            setScriptAttributes(scriptElement, attributes);
+            const script = document.createElement('script');
+            setScriptAttributes(script, attributes);
 
-            scriptElement.addEventListener('error', onError);
-            document.body.appendChild(scriptElement);
+            script.addEventListener('error', onError);
+            document.body.appendChild(script);
         });
 
         if (typeof iframely !== 'undefined') {
