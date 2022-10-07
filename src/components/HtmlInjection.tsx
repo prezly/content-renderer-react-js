@@ -5,6 +5,8 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
     onError: () => void;
 }
 
+const IFRAMELY_EMBED_SCRIPT_SRC = '//cdn.iframe.ly/embed.js';
+
 export function HtmlInjection(props: Props) {
     const { html, onError, ...attrs } = props;
 
@@ -46,6 +48,16 @@ function useScripts(html: Props['html'], onError: Props['onError']) {
             setScriptAttributes(script, attributes);
 
             script.addEventListener('error', onError);
+
+            // Iframely docs advise to insert their embed script before other scripts
+            if (attributes.src === IFRAMELY_EMBED_SCRIPT_SRC) {
+                const firstScript = document.body.getElementsByTagName('script')[0];
+                if (firstScript) {
+                    document.body.insertBefore(script, firstScript);
+                    return;
+                }
+            }
+
             document.body.appendChild(script);
         });
 
