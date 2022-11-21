@@ -162,7 +162,8 @@ export const SmallHorizontalWithLongTexts: Story = () => (
                     cache_age: 86400,
                     description:
                         "Here's some essential advice for visiting France, including how to navigate the country's vaccination requirements. Here's some essential advice for visiting France, including how to navigate the country's vaccination requirements.",
-                    provider_name: 'https://www.washingtonpost.com/https://www.washingtonpost.com/https://www.washingtonpost.com/',
+                    provider_name:
+                        'https://www.washingtonpost.com/https://www.washingtonpost.com/https://www.washingtonpost.com/',
                     thumbnail_url:
                         'https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/RJAEBZMIKJHPFHDOXCPNIF4VJI.jpg&w=1440',
                     thumbnail_width: 1440,
