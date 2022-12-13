@@ -17,6 +17,7 @@ import {
     ParagraphNode,
     PlaceholderNode,
     QuoteNode,
+    StoryBookmarkNode,
     TableCellNode,
     TableNode,
     TableRowNode,

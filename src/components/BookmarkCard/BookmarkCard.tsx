@@ -38,6 +38,8 @@ export function BookmarkCard(props: BookmarkCardProps) {
                 newTab={props.newTab}
                 title={props.oembed.title}
                 description={props.oembed.description}
+                layout={props.layout}
+                hasThumbnail={showThumbnail}
             >
                 <Provider
                     showUrl={isEmpty}
