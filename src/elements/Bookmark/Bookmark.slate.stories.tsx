@@ -44,7 +44,7 @@ export const BigVertical: Story = () => (
                     url: 'https://www.washingtonpost.com/travel/tips/france-travel-us-covid-restrictions/',
                     html: '<div class="iframely-embed"><div class="iframely-responsive" style="padding-bottom: 66.6667%; padding-top: 120px;"><a href="https://www.washingtonpost.com/travel/tips/france-travel-us-covid-restrictions/" data-iframely-url="//cdn.iframe.ly/api/iframe?url=https%3A%2F%2Fwww.washingtonpost.com%2Ftravel%2Ftips%2Ffrance-travel-us-covid-restrictions%2F&key=8fe6cdec03482ac31f27a6ae8ea2fb3f"></a></div></div><script async src="//cdn.iframe.ly/embed.js" charset="utf-8"></script>',
                     type: 'rich',
-                    title: 'Everything you need to know about traveling to France Everything you need to know about traveling to France Everything you need to know about traveling to France',
+                    title: 'Everything you need to know about traveling to France',
                     author: 'Natalie B. Compton',
                     options: {
                         card: {
@@ -460,7 +460,6 @@ export const VerticalShortTitleLongDescription: Story = () => (
         ]}
     />
 );
-
 
 export const HorizontalLongTitleShortDescription: Story = () => (
     <Renderer
