@@ -203,3 +203,32 @@ export const referencedStory: Story = {
     social_text: 'Prezly product training',
     social_image: null,
 } as any;
+
+export const referencedStoryWithLongTitleAndShortDescription: Story = {
+    ...referencedStory,
+    oembed: {
+        type: 'link',
+        url: 'https://www.prezly.com/help/prezly-product-training',
+        title: 'Prezly product training Prezly product training Prezly product training Prezly product training',
+        description: 'Get a personalized',
+        thumbnail_url: 'https://cdn.uc.assets.prezly.com/588350bc-36eb-4fa5-abae-f6fd1327ef68/-/preview/600x600/',
+        thumbnail_width: 1140,
+        thumbnail_height: 720,
+        version: '1.0',
+    },
+};
+
+export const referencedStoryWithShortTitleAndLongDescription: Story = {
+    ...referencedStory,
+    oembed: {
+        type: 'link',
+        url: 'https://www.prezly.com/help/prezly-product-training',
+        title: 'Prezly product',
+        description:
+            "If you're new to Prezly or have new team members using our tool for the first time, we've got you covered. If you're new to Prezly or have new team members using our tool for the first time, we've got you covered. If you're new to Prezly or have new team members using our tool for the first time, we've got you covered.",
+        thumbnail_url: 'https://cdn.uc.assets.prezly.com/588350bc-36eb-4fa5-abae-f6fd1327ef68/-/preview/600x600/',
+        thumbnail_width: 1140,
+        thumbnail_height: 720,
+        version: '1.0',
+    },
+};
