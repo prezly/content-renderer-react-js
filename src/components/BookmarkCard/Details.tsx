@@ -26,15 +26,12 @@ export function Details({
     children,
 }: PropsWithChildren<DetailsProps>) {
     const { isDescriptionShort, isTitleShort } = useMemo(() => {
-        let titleOneLineLength;
-        let descriptionOneLineLength;
+        let titleOneLineLength = 28;
+        let descriptionOneLineLength = 45;
 
         if (layout === 'vertical' || !hasThumbnail) {
             titleOneLineLength = 50;
             descriptionOneLineLength = 75;
-        } else {
-            titleOneLineLength = 28;
-            descriptionOneLineLength = 45;
         }
 
         return {
@@ -49,8 +46,8 @@ export function Details({
                 <Link
                     id={id}
                     className={classNames('prezly-slate-bookmark-card-component__title', {
-                        ['prezly-slate-bookmark-card-component__title--isTitleShort ']: isTitleShort,
-                        ['prezly-slate-bookmark-card-component__title--isDescriptionShort']: isDescriptionShort,
+                        ['prezly-slate-bookmark-card-component__title--short-title']: isTitleShort,
+                        ['prezly-slate-bookmark-card-component__title--short-description']: isDescriptionShort,
                     })}
                     href={href}
                     newTab={newTab}
@@ -62,8 +59,8 @@ export function Details({
             {!isEmptyText(description) && (
                 <div
                     className={classNames('prezly-slate-bookmark-card-component__description', {
-                        ['prezly-slate-bookmark-card-component__description--isTitleShort']: isTitleShort,
-                        ['prezly-slate-bookmark-card-component__description--isDescriptionShort']: isDescriptionShort,
+                        ['prezly-slate-bookmark-card-component__description--short-title']: isTitleShort,
+                        ['prezly-slate-bookmark-card-component__description--short-description']: isDescriptionShort,
                     })}
                 >
                     {stripTags(description)}

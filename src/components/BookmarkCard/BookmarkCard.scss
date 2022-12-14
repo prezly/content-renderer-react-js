@@ -67,11 +67,11 @@
         color: $color-grey-700;
 
         &,
-        &--isTitleShort {
+        &--short-description {
             @include multi-line-ellipsis(3);
         }
 
-        &--isDescriptionShort {
+        &--short-description {
             @include multi-line-ellipsis(4);
         }
 
@@ -102,7 +102,7 @@
             @include multi-line-ellipsis(3);
         }
 
-        &--isTitleShort {
+        &--short-title {
             @include multi-line-ellipsis(7);
         }
 
