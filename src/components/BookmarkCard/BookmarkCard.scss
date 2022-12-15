@@ -67,7 +67,7 @@
         color: $color-grey-700;
 
         &,
-        &--short-description {
+        &--short-title {
             @include multi-line-ellipsis(3);
         }
 
