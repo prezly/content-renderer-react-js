@@ -98,7 +98,7 @@
         line-height: 1.4;
 
         &,
-        &--isDescriptionShort {
+        &--short-description {
             @include multi-line-ellipsis(3);
         }
 
