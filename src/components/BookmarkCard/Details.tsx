@@ -26,11 +26,11 @@ export function Details({
     children,
 }: PropsWithChildren<DetailsProps>) {
     const { isDescriptionShort, isTitleShort } = useMemo(() => {
-        let titleOneLineLength = 28;
+        let titleOneLineLength = 33;
         let descriptionOneLineLength = 45;
 
         if (layout === 'vertical' || !hasThumbnail) {
-            titleOneLineLength = 50;
+            titleOneLineLength = 52;
             descriptionOneLineLength = 75;
         }
 
