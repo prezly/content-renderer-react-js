@@ -1,4 +1,5 @@
 import React from 'react';
+import { normalizeUrl } from '../../lib';
 import { Link } from '../Link';
 
 interface ProviderProps {
@@ -27,11 +28,11 @@ export function Provider({ url, providerUrl, providerName, showUrl }: ProviderPr
 }
 
 function hostname(url: string): string {
-    const { host } = new URL(url);
+    const { host } = new URL(normalizeUrl(url));
     return host;
 }
 
 function homepage(url: string): string {
-    const { origin } = new URL(url);
+    const { origin } = new URL(normalizeUrl(url));
     return origin;
 }
