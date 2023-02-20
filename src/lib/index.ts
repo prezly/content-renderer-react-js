@@ -7,3 +7,4 @@ export { openWindow } from './openWindow';
 export { stringifyNode } from './stringifyNode';
 export { stripTags } from './stripTags';
 export { isEmptyText } from './isEmptyText';
+export { normalizeUrl } from './normalizeUrl';
