@@ -33,7 +33,6 @@ function hostname(url: string): string {
 }
 
 function homepage(url: string): string {
-    console.log({ url, normalizedUrl: normalizeUrl(url) });
     const { origin } = new URL(normalizeUrl(url));
     return origin;
 }
