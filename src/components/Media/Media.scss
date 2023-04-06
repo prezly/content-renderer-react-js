@@ -10,7 +10,7 @@
 
         &--image {
             @media print {
-                color-adjust: exact;
+                print-color-adjust: exact;
             }
         }
     }
