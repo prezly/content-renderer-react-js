@@ -51,7 +51,7 @@
 
 @mixin multi-line-ellipsis($lines) {
     overflow: hidden;
-    display: -webkit-box;
+    display: box;
     -webkit-line-clamp: $lines;
     -webkit-box-orient: vertical;
 }
@@ -89,7 +89,7 @@
         margin-right: $block-offset;
     }
 
-    @media (max-width: 992px) {
+    @media (width <= 992px) {
         @include media-layout-full-width;
     }
 }

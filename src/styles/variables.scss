@@ -22,7 +22,7 @@ $color-text-2: #757777;
 $color-link: #3c91ff;
 $color-link-hover: darken(#3c91ff, 8%);
 $color-border: #c4c4c4;
-$color-focus: rgba(0, 123, 255, 0.5);
+$color-focus: rgb(0 123 255 / 50%);
 $color-error: #982828;
 
 $color-grey-100: #f4f4f4;
@@ -31,7 +31,7 @@ $color-grey-200: #e5e7eb;
 $color-grey-250: #ececec;
 $color-grey-300: #d1d5db;
 $color-grey-375: #dcdcdc;
-$color-grey-500: #cccccc;
+$color-grey-500: #ccc;
 $color-grey-550: #6b7280;
 $color-grey-700: #374151;
 $color-grey-750: #afafaf;
@@ -46,7 +46,7 @@ $font-size-l: 24px;
 $line-height: 22px;
 $line-height-l: 28px;
 
-$box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.04);
+$box-shadow: 0 2px 4px 0 rgb(0 0 0 / 4%);
 
 $border-radius-base: 4px;
 
