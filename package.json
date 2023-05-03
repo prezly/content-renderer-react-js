@@ -99,6 +99,7 @@
         "@loki/create-async-callback": "^0.30.2",
         "@loki/is-loki-running": "^0.30.0",
         "@pmmmwh/react-refresh-webpack-plugin": "^0.5.7",
+        "@prezly/eslint-config": "^5.1.0",
         "@storybook/addon-actions": "^6.5.9",
         "@storybook/addon-essentials": "^6.5.9",
         "@storybook/addon-interactions": "^6.5.9",
