@@ -1,5 +1,6 @@
 import type { Text as TextNode } from '@prezly/story-content-format';
 import type { ReactNode } from 'react';
+import { Fragment } from 'react';
 
 const LINE_BREAKS = /\r\n|\r|\n/;
 const ZERO_WIDTH_WHITE_SPACE = '\u200B';
@@ -42,10 +43,10 @@ Text.preserveSoftBreaks = function (text: string): ReactNode {
                 ? [part]
                 : [
                       ...result,
-                      <>
+                      <Fragment key={part}>
                           <br />
                           {ZERO_WIDTH_WHITE_SPACE}
-                      </>,
+                      </Fragment>,
                       part,
                   ],
         [],
