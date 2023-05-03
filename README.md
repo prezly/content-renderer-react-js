@@ -36,7 +36,6 @@ If you need to support older browsers, you can use this polyfill for `object-fit
 ## Usage
 
 ```tsx
-import React from 'react';
 import { DocumentNode, HeadingNode } from '@prezly/story-content-format';
 import { Renderer, Component } from '@prezly/slate-renderer';
 

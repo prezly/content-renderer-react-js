@@ -1,6 +1,5 @@
 import { StoryBookmarkNode } from '@prezly/story-content-format';
 import type { Meta, Story } from '@storybook/react';
-import React from 'react';
 
 import { StoryNameDecorator } from '../../dev/StoryNameDecorator';
 import { Renderer } from '../../Renderer';

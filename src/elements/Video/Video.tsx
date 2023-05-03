@@ -1,5 +1,5 @@
 import type { VideoNode } from '@prezly/story-content-format';
-import React, { FunctionComponent, HTMLAttributes, useState } from 'react';
+import { FunctionComponent, HTMLAttributes, useState } from 'react';
 import classNames from 'classnames';
 
 import { HtmlInjection } from '../../components';

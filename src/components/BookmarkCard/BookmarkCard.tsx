@@ -1,4 +1,3 @@
-import React from 'react';
 import type { OEmbedInfo } from '@prezly/sdk';
 import { isEmptyText } from '../../lib';
 import { Container } from './Container';

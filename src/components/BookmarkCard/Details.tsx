@@ -1,5 +1,4 @@
 import { PropsWithChildren, useMemo } from 'react';
-import React from 'react';
 import { Link } from '../Link';
 
 import { isEmptyText, stripTags } from '../../lib';

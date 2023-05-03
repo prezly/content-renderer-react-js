@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import type { PropsWithChildren } from 'react';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useResizeObserver } from '@react-hookz/web';
 
 type Layout = 'horizontal' | 'vertical';

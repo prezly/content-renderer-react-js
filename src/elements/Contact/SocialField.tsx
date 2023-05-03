@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React, { FunctionComponent, SVGProps } from 'react';
+import { FunctionComponent, SVGProps } from 'react';
 
 import './SocialField.scss';
 

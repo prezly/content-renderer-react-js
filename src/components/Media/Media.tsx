@@ -1,6 +1,6 @@
 import type { UploadcareImage } from '@prezly/uploadcare';
 import classNames from 'classnames';
-import React, { CSSProperties } from 'react';
+import { CSSProperties } from 'react';
 
 import './Media.scss';
 

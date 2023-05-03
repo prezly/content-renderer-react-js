@@ -1,5 +1,5 @@
 import type { Text as TextNode } from '@prezly/story-content-format';
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 
 const LINE_BREAKS = /\r\n|\r|\n/;
 const ZERO_WIDTH_WHITE_SPACE = '\u200B';

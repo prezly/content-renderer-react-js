@@ -1,6 +1,6 @@
 import { HeadingNode } from '@prezly/story-content-format';
 import classNames from 'classnames';
-import React, { HTMLAttributes } from 'react';
+import { HTMLAttributes } from 'react';
 
 import './Heading.scss';
 

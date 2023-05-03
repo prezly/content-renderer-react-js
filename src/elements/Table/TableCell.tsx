@@ -1,6 +1,6 @@
 import type { TableCellNode } from '@prezly/story-content-format';
 import classNames from 'classnames';
-import React, { HTMLAttributes } from 'react';
+import { HTMLAttributes, useMemo } from 'react';
 
 import { useTableContext } from './TableContext';
 
@@ -15,7 +15,7 @@ export function TableCell({ children, node }: Props) {
         console.warn(`${TableCell.name} requires wrapping in TableContext.`);
     }
 
-    const isHeaderCell = React.useMemo(() => ctx?.isHeaderCell(node), [node, ctx]);
+    const isHeaderCell = useMemo(() => ctx?.isHeaderCell(node), [node, ctx]);
 
     const Cell = isHeaderCell ? 'th' : 'td';
 

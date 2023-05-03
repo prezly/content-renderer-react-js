@@ -1,4 +1,3 @@
-import React from 'react';
 import isLokiRunning from '@loki/is-loki-running';
 
 import { Renderer } from '../Renderer';

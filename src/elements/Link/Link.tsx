@@ -1,6 +1,6 @@
 import type { LinkNode } from '@prezly/story-content-format';
 import classNames from 'classnames';
-import React, { AnchorHTMLAttributes } from 'react';
+import { AnchorHTMLAttributes } from 'react';
 
 import './Link.scss';
 

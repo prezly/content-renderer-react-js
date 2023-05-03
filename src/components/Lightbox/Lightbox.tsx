@@ -1,7 +1,7 @@
 import type { UploadcareImage } from '@prezly/uploadcare';
 import { useEventListener } from '@react-hookz/web';
 import classNames from 'classnames';
-import React, { KeyboardEvent, ReactNode, useEffect } from 'react';
+import { KeyboardEvent, ReactNode, useEffect } from 'react';
 import Modal from 'react-modal';
 
 import { ChevronLeft, ChevronRight, Close } from '../../icons';

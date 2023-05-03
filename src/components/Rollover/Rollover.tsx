@@ -1,6 +1,6 @@
 import { useMeasure } from '@react-hookz/web';
 import classNames from 'classnames';
-import React, { ButtonHTMLAttributes, FunctionComponent } from 'react';
+import { ButtonHTMLAttributes, FunctionComponent } from 'react';
 
 import { MultilineEllipsis } from '../../components';
 import { ArrowsAngleExpand } from '../../icons';

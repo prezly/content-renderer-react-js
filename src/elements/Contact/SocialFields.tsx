@@ -1,6 +1,6 @@
 import type { ContactNode } from '@prezly/story-content-format';
 import classNames from 'classnames';
-import React, { FunctionComponent } from 'react';
+import { FunctionComponent } from 'react';
 
 import { Envelope, Facebook, Phone, Telephone, Twitter, Window } from '../../icons';
 import { identity } from '../../lib';

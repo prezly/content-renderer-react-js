@@ -22,7 +22,7 @@
         "strict": true,
         "target": "es6",
         "skipLibCheck": true,
-        "jsx": "react",
+        "jsx": "react-jsx",
         "declarationDir": "./build/types",
         "rootDir": "./src",
         "typeRoots": ["./node_modules/@types", "./src/@types"]

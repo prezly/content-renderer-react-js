@@ -1,6 +1,6 @@
 import type { ContactNode } from '@prezly/story-content-format';
 import classNames from 'classnames';
-import React, { FunctionComponent, HTMLAttributes } from 'react';
+import { FunctionComponent, HTMLAttributes } from 'react';
 
 import { Avatar } from './Avatar';
 import './Contact.scss';

@@ -1,5 +1,4 @@
 import { DividerNode, DocumentNode, HeadingNode } from '@prezly/story-content-format';
-import React from 'react';
 import renderer from 'react-test-renderer';
 
 import { Component } from './Component';

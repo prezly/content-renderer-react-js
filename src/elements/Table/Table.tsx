@@ -1,6 +1,6 @@
 import type { TableNode } from '@prezly/story-content-format';
 import classNames from 'classnames';
-import React, { HTMLAttributes } from 'react';
+import { HTMLAttributes } from 'react';
 import { TableContextProvider } from './TableContext';
 
 interface Props extends HTMLAttributes<HTMLTableElement> {

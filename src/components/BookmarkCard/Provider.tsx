@@ -1,4 +1,3 @@
-import React from 'react';
 import { normalizeUrl } from '../../lib';
 import { Link } from '../Link';
 

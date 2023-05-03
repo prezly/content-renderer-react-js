@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React, { AnchorHTMLAttributes, MouseEvent, useCallback } from 'react';
+import { AnchorHTMLAttributes, MouseEvent, useCallback } from 'react';
 
 import { Pinterest } from '../../icons';
 import { openWindow } from '../../lib';

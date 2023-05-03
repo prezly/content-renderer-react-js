@@ -24,7 +24,7 @@ import {
     VariableNode,
     VideoNode,
 } from '@prezly/story-content-format';
-import React, { ComponentType, ReactNode } from 'react';
+import { ComponentType, ReactNode } from 'react';
 
 import * as Elements from './elements';
 import { applyTransformations } from './lib';

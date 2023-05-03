@@ -1,5 +1,5 @@
 {
   "extends": "./tsconfig.json",
 
-  "include": ["./src", ".eslintrc.js", ".prettierrc.js"]
+  "include": ["./src", "./example", "./sandbox", ".eslintrc.js", ".prettierrc.js"]
 }

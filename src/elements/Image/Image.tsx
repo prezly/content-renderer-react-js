@@ -1,7 +1,7 @@
 import type { ImageNode } from '@prezly/story-content-format';
 import { UploadcareImage } from '@prezly/uploadcare';
 import classNames from 'classnames';
-import React, {
+import {
     AnchorHTMLAttributes,
     CSSProperties,
     HTMLAttributes,

@@ -1,4 +1,4 @@
-import React, { HTMLAttributes, ScriptHTMLAttributes, useEffect, useMemo } from 'react';
+import { HTMLAttributes, ScriptHTMLAttributes, useEffect, useMemo } from 'react';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
     html: string;
