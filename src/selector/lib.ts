@@ -32,10 +32,7 @@ export function createComponentsRenderersFromChildren(children: ReactNode): Comp
 
         if (element.type === Fragment) {
             // Transparently support React.Fragment and its children.
-            renderers.push.apply(
-                renderers,
-                createComponentsRenderersFromChildren(element.props.children),
-            );
+            renderers.push(...createComponentsRenderersFromChildren(element.props.children));
             return;
         }
 

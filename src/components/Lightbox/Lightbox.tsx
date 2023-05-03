@@ -67,6 +67,8 @@ export function Lightbox({
         if (image) {
             onOpen(image);
         }
+        // TODO: Address this. Simply adding `onOpen` to the deps might introduce an infinite loop.
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [image]);
 
     if (typeof window === 'undefined') {

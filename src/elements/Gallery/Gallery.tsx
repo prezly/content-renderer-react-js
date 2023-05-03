@@ -26,14 +26,14 @@ interface Tile {
 
 export function Gallery({ className, node, onImageDownload, onPreviewOpen, ...props }: Props) {
     const [rect, ref] = useMeasure<HTMLDivElement>();
-    const width = rect?.width || DEFAULT_GALLERY_WIDTH_SSR[node.layout];
+    const galleryWidth = rect?.width || DEFAULT_GALLERY_WIDTH_SSR[node.layout];
     const margin = IMAGE_PADDING[node.padding];
     const idealHeight = IMAGE_SIZE[node.thumbnail_size] + 2 * margin;
     const originalImages = useMemo(() => extractImages(node), [node]);
     const calculatedLayout = calculateLayout({
         idealHeight,
         images: originalImages,
-        viewportWidth: width,
+        viewportWidth: galleryWidth,
     });
     const previewImages = calculatedLayout.flatMap((row) =>
         row.map(({ index, width, height }) =>

@@ -9,10 +9,10 @@ export default {
     decorators: [
         StoryNameDecorator,
         (Story) => {
-            const cb = createAsyncCallback();
+            const callback = createAsyncCallback();
 
             setTimeout(() => {
-                cb();
+                callback();
             }, 1000);
 
             return <Story />;

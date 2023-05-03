@@ -32,7 +32,7 @@ export function PinterestButton({ className, description, image, url, onClick, .
                 onClick(event);
             }
         },
-        [onClick],
+        [onClick, pinterestShareUrl],
     );
 
     return (

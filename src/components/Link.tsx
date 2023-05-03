@@ -1,4 +1,4 @@
-import { type HTMLProps, type PropsWithChildren } from 'react';
+import type { HTMLProps, PropsWithChildren } from 'react';
 
 interface Props extends HTMLProps<HTMLAnchorElement> {
     newTab: boolean;

@@ -38,6 +38,7 @@ export function Image({ children, className, node, onDownload, onPreviewOpen, ..
     const { file, href, align, layout } = node;
     const isNewTab = node.new_tab ?? true;
     const [isPreviewOpen, setIsPreviewOpen] = useState<boolean>(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     const image = useMemo(() => UploadcareImage.createFromPrezlyStoragePayload(file), [file.uuid]);
     const containerStyle = getContainerStyle(node);
     const handleRolloverClick = () => setIsPreviewOpen(true);
