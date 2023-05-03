@@ -1,6 +1,9 @@
 {
   "extends": ["@prezly/eslint-config/stylelint"],
   "rules": {
-    "selector-class-pattern": null
+    "selector-class-pattern": null,
+    "no-descending-specificity": null,
+    "max-nesting-depth": null,
+    "function-no-unknown": [true, { "ignoreFunctions": ["color.adjust"] }]
   }
 }

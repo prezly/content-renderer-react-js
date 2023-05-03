@@ -1,3 +1,5 @@
+@use "sass:color";
+
 $screen-xs: 480px;
 $screen-s: 768px;
 $screen-m: 992px;
@@ -20,7 +22,7 @@ $block-spacing-vertical: $spacing-5;
 $color-text: #333;
 $color-text-2: #757777;
 $color-link: #3c91ff;
-$color-link-hover: darken(#3c91ff, 8%);
+$color-link-hover: color.adjust(#3c91ff, $lightness: -8%);
 $color-border: #c4c4c4;
 $color-focus: rgb(0 123 255 / 50%);
 $color-error: #982828;

@@ -5,6 +5,7 @@ $close-icon-size: 24px;
 $close-icon-padding: $spacing-2;
 $nav-icon-size: 48px;
 
+/* stylelint-disable-next-line selector-no-qualifying-type */
 body.ReactModal__Body--open {
     overflow: hidden;
 }
@@ -17,7 +18,7 @@ body.ReactModal__Body--open {
         width: 100vw;
         height: 100vh;
         outline: none;
-        background-color: white;
+        background-color: #fff;
 
         &__figure {
             display: flex;
@@ -76,7 +77,7 @@ body.ReactModal__Body--open {
 
             padding: $spacing-1 $spacing-3;
             background-color: $color-link;
-            color: white;
+            color: #fff;
             border-radius: $border-radius-base;
             font-size: $font-size-m;
             line-height: $line-height;
