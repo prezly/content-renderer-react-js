@@ -19,7 +19,9 @@ export function invariant(condition: any, message: string): asserts condition {
  * which is usually either a `<Component>` element or an array of them.
  * Used internally by `<Selector>` to create a renderer config from its children.
  */
-export function createComponentsRenderersFromChildren(children: React.ReactNode): ComponentRenderer[] {
+export function createComponentsRenderersFromChildren(
+    children: React.ReactNode,
+): ComponentRenderer[] {
     let renderers: ComponentRenderer[] = [];
 
     React.Children.forEach(children, (element) => {
@@ -31,7 +33,10 @@ export function createComponentsRenderersFromChildren(children: React.ReactNode)
 
         if (element.type === React.Fragment) {
             // Transparently support React.Fragment and its children.
-            renderers.push.apply(renderers, createComponentsRenderersFromChildren(element.props.children));
+            renderers.push.apply(
+                renderers,
+                createComponentsRenderersFromChildren(element.props.children),
+            );
             return;
         }
 

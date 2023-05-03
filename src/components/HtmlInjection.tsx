@@ -26,9 +26,14 @@ function useScripts(html: Props['html'], onError: Props['onError']) {
 
         const scripts = Array.from(container.getElementsByTagName('script'));
 
-        const scriptsAttributes: ScriptHTMLAttributes<HTMLScriptElement>[] = scripts.map((script) => {
-            return Array.from(script.attributes).reduce((agg, { name, value }) => ({ ...agg, [name]: value }), {});
-        });
+        const scriptsAttributes: ScriptHTMLAttributes<HTMLScriptElement>[] = scripts.map(
+            (script) => {
+                return Array.from(script.attributes).reduce(
+                    (agg, { name, value }) => ({ ...agg, [name]: value }),
+                    {},
+                );
+            },
+        );
 
         scripts.forEach((script) => script.remove());
 
@@ -71,6 +76,9 @@ function useScripts(html: Props['html'], onError: Props['onError']) {
     return strippedHtml;
 }
 
-function setScriptAttributes(script: HTMLScriptElement, attributes: ScriptHTMLAttributes<HTMLScriptElement>): void {
+function setScriptAttributes(
+    script: HTMLScriptElement,
+    attributes: ScriptHTMLAttributes<HTMLScriptElement>,
+): void {
     Object.entries(attributes).forEach(([name, value]) => script.setAttribute(name, value));
 }

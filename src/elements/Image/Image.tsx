@@ -1,7 +1,13 @@
 import type { ImageNode } from '@prezly/story-content-format';
 import { UploadcareImage } from '@prezly/uploadcare';
 import classNames from 'classnames';
-import React, { AnchorHTMLAttributes, CSSProperties, HTMLAttributes, useMemo, useState } from 'react';
+import React, {
+    AnchorHTMLAttributes,
+    CSSProperties,
+    HTMLAttributes,
+    useMemo,
+    useState,
+} from 'react';
 
 import { Lightbox, Media, Rollover } from '../../components';
 import { stringifyNode } from '../../lib';

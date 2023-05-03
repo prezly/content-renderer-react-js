@@ -23,7 +23,9 @@ export function Selector({ nodes, children }: Props) {
                         {...extraProps}
                         node={node}
                         children={
-                            ComposedElement.isComposedElement(node) ? renderNodes(node.children as Node[]) : undefined
+                            ComposedElement.isComposedElement(node)
+                                ? renderNodes(node.children as Node[])
+                                : undefined
                         }
                     />
                 );

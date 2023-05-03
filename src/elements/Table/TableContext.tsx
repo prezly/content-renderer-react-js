@@ -37,6 +37,7 @@ function isFirstColumn(table: TableNode, cell: TableCellNode): boolean {
 function isHeaderCell(table: TableNode, cell: TableCellNode): boolean {
     return Boolean(
         (table.header?.includes(TableNode.TableHeader.FIRST_ROW) && isFirstRow(table, cell)) ||
-            (table.header?.includes(TableNode.TableHeader.FIRST_COLUMN) && isFirstColumn(table, cell)),
+            (table.header?.includes(TableNode.TableHeader.FIRST_COLUMN) &&
+                isFirstColumn(table, cell)),
     );
 }

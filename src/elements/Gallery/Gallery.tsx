@@ -118,7 +118,9 @@ function Row(props: {
 }
 
 function extractImages(node: GalleryNode): UploadcareImage[] {
-    return node.images.map(({ caption, file }) => UploadcareImage.createFromPrezlyStoragePayload(file, caption));
+    return node.images.map(({ caption, file }) =>
+        UploadcareImage.createFromPrezlyStoragePayload(file, caption),
+    );
 }
 
 /**

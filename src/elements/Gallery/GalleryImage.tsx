@@ -14,7 +14,13 @@ interface Props {
     style?: CSSProperties;
 }
 
-export function GalleryImage({ originalImage, previewImage, onClick, rounded = false, style }: Props) {
+export function GalleryImage({
+    originalImage,
+    previewImage,
+    onClick,
+    rounded = false,
+    style,
+}: Props) {
     return (
         <Rollover
             id={`gallery-image-${originalImage.uuid}`}
@@ -26,7 +32,11 @@ export function GalleryImage({ originalImage, previewImage, onClick, rounded = f
             onClick={() => onClick(originalImage)}
             style={style}
         >
-            <Media className="prezly-slate-gallery-image__media" image={previewImage} title={originalImage.caption} />
+            <Media
+                className="prezly-slate-gallery-image__media"
+                image={previewImage}
+                title={originalImage.caption}
+            />
         </Rollover>
     );
 }

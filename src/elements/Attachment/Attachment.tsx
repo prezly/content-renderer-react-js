@@ -36,7 +36,9 @@ export const Attachment: FunctionComponent<Props> = ({ className, children, node
                     </div>
 
                     <div className="prezly-slate-attachment__subtitle">
-                        {isUsingCustomTitle ? `${file.filename} - ${formatBytes(file.size)}` : formatBytes(file.size)}
+                        {isUsingCustomTitle
+                            ? `${file.filename} - ${formatBytes(file.size)}`
+                            : formatBytes(file.size)}
                     </div>
                 </div>
             </div>

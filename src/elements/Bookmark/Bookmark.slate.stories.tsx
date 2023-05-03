@@ -309,7 +309,8 @@ export const VerticalNewTab: Story = () => (
                     description:
                         "Authoritative global news and analysis. The Economist offers fair-minded, fact-checked coverage of world politics, economics, business, science, culture and more. Here's some essential advice for visiting France, including how to navigate the country's vaccination requirements.",
                     provider_name: 'The Economist',
-                    thumbnail_url: 'https://www.economist.com/engassets/google-search-logo.f1ea908894.png',
+                    thumbnail_url:
+                        'https://www.economist.com/engassets/google-search-logo.f1ea908894.png',
                     thumbnail_width: 384,
                     thumbnail_height: 384,
                 },
@@ -346,7 +347,8 @@ export const Minimal: Story = () => (
                     type: 'rich',
                     version: '1.0',
                     cache_age: 86400,
-                    thumbnail_url: 'https://www.economist.com/engassets/google-search-logo.f1ea908894.png',
+                    thumbnail_url:
+                        'https://www.economist.com/engassets/google-search-logo.f1ea908894.png',
                     thumbnail_width: 384,
                     thumbnail_height: 384,
                 },
