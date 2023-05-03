@@ -1,24 +1,18 @@
 import type { EmbedNode } from '@prezly/story-content-format';
 import classNames from 'classnames';
-import type { FunctionComponent, HTMLAttributes } from 'react';
+import type { HTMLAttributes } from 'react';
 
 import './Embed.scss';
 import { Iframe } from './Iframe';
 import { LinkEmbed } from './LinkEmbed';
 import { ScreenshotEmbed } from './ScreenshotEmbed';
 
-interface Props extends HTMLAttributes<HTMLElement> {
-    children?: never;
+interface Props extends Omit<HTMLAttributes<HTMLElement>, 'children'> {
     node: EmbedNode;
     showAsScreenshot?: boolean;
 }
 
-export const Embed: FunctionComponent<Props> = ({
-    className,
-    node,
-    showAsScreenshot,
-    ...props
-}) => {
+export function Embed({ className, node, showAsScreenshot, ...props }: Props) {
     const { oembed, url } = node;
 
     const commonProps = {
@@ -41,4 +35,4 @@ export const Embed: FunctionComponent<Props> = ({
             )}
         </div>
     );
-};
+}

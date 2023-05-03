@@ -1,19 +1,18 @@
 import type { AttachmentNode } from '@prezly/story-content-format';
 import { UploadcareFile } from '@prezly/uploadcare';
 import classNames from 'classnames';
-import type { FunctionComponent, HTMLAttributes } from 'react';
+import type { HTMLAttributes } from 'react';
 
 import { Download } from '../../icons';
 import { formatBytes } from '../../lib';
 
 import './Attachment.scss';
 
-interface Props extends HTMLAttributes<HTMLAnchorElement> {
-    children?: never;
+interface Props extends Omit<HTMLAttributes<HTMLAnchorElement>, 'children'> {
     node: AttachmentNode;
 }
 
-export const Attachment: FunctionComponent<Props> = ({ className, children, node, ...props }) => {
+export function Attachment({ className, node, ...props }: Props) {
     const { description, file } = node;
     const attachment = UploadcareFile.createFromPrezlyStoragePayload(file);
     const isUsingCustomTitle = Boolean(description);
@@ -44,4 +43,4 @@ export const Attachment: FunctionComponent<Props> = ({ className, children, node
             </div>
         </a>
     );
-};
+}

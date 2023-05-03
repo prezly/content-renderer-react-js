@@ -1,8 +1,8 @@
-import type { FunctionComponent, SVGProps } from 'react';
+import type { ComponentType, SVGProps } from 'react';
 
 export interface SocialFieldData {
     getHref: (value: string) => string;
-    Icon: FunctionComponent<SVGProps<SVGSVGElement>>;
+    Icon: ComponentType<SVGProps<SVGSVGElement>>;
     value: string;
 }
 

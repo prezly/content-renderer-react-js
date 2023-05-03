@@ -1,6 +1,5 @@
 import type { ContactNode } from '@prezly/story-content-format';
 import classNames from 'classnames';
-import type { FunctionComponent } from 'react';
 
 import { Envelope, Facebook, Phone, Telephone, Twitter, Window } from '../../icons';
 import { identity } from '../../lib';
@@ -15,7 +14,7 @@ interface Props {
     contact: ContactNode['contact'];
 }
 
-export const SocialFields: FunctionComponent<Props> = ({ className, contact }) => {
+export function SocialFields({ className, contact }: Props) {
     const socialFields = Object.entries({
         email: { getHref: getMailtoHref, Icon: Envelope, value: contact.email },
         phone: { getHref: getTelHref, Icon: Telephone, value: contact.phone },
@@ -46,4 +45,4 @@ export const SocialFields: FunctionComponent<Props> = ({ className, contact }) =
             ))}
         </ul>
     );
-};
+}
