@@ -1,0 +1,4 @@
+{
+  "extends": ["@prezly/eslint-config/stylelint"],
+  "rules": {}
+}
