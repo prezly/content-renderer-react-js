@@ -5,7 +5,7 @@
 build/
 coverage/
 node_modules/
-tsconfig.tsbuildinfo
+*.tsbuildinfo
 storybook-static
 .loki/current
 .loki/difference
