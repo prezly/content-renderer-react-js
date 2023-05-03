@@ -1,7 +1,6 @@
 import type { DocumentNode } from '@prezly/story-content-format';
-
 import classNames from 'classnames';
-import { HTMLAttributes } from 'react';
+import type { HTMLAttributes } from 'react';
 
 import './Document.scss';
 

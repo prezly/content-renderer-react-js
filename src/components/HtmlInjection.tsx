@@ -1,4 +1,5 @@
-import { HTMLAttributes, ScriptHTMLAttributes, useEffect, useMemo } from 'react';
+import type { HTMLAttributes, ScriptHTMLAttributes } from 'react';
+import { useEffect, useMemo } from 'react';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
     html: string;
@@ -26,13 +27,11 @@ function useScripts(html: Props['html'], onError: Props['onError']) {
 
         const scripts = Array.from(container.getElementsByTagName('script'));
 
-        const scriptsAttributes: ScriptHTMLAttributes<HTMLScriptElement>[] = scripts.map(
-            (script) => {
-                return Array.from(script.attributes).reduce(
-                    (agg, { name, value }) => ({ ...agg, [name]: value }),
-                    {},
-                );
-            },
+        const scriptsAttributes: ScriptHTMLAttributes<HTMLScriptElement>[] = scripts.map((script) =>
+            Array.from(script.attributes).reduce(
+                (agg, { name, value }) => ({ ...agg, [name]: value }),
+                {},
+            ),
         );
 
         scripts.forEach((script) => script.remove());
@@ -69,8 +68,6 @@ function useScripts(html: Props['html'], onError: Props['onError']) {
         if (typeof iframely !== 'undefined') {
             iframely.load();
         }
-
-        return;
     }, [scriptsAttributes]);
 
     return strippedHtml;

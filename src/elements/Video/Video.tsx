@@ -1,6 +1,7 @@
 import type { VideoNode } from '@prezly/story-content-format';
-import { FunctionComponent, HTMLAttributes, useState } from 'react';
 import classNames from 'classnames';
+import type { FunctionComponent, HTMLAttributes } from 'react';
+import { useState } from 'react';
 
 import { HtmlInjection } from '../../components';
 import { PlayButton } from '../../icons';

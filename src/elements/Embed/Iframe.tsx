@@ -1,5 +1,6 @@
 import classNames from 'classnames';
-import { FunctionComponent, HTMLAttributes, useState } from 'react';
+import type { FunctionComponent, HTMLAttributes } from 'react';
+import { useState } from 'react';
 
 import { HtmlInjection } from '../../components';
 

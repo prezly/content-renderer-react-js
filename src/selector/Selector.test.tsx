@@ -1,9 +1,10 @@
 import { DividerNode, DocumentNode, HeadingNode } from '@prezly/story-content-format';
 import renderer from 'react-test-renderer';
 
+import { Divider, Document, Heading } from '../elements';
+
 import { Component } from './Component';
 import { Selector } from './Selector';
-import { Divider, Document, Heading } from '../elements';
 
 const documentNode: DocumentNode = {
     type: DocumentNode.TYPE,

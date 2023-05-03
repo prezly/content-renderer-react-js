@@ -1,5 +1,5 @@
 import type { VariableNode } from '@prezly/story-content-format';
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 interface Props {
     children?: ReactNode;

@@ -1,11 +1,11 @@
 import { StoryBookmarkNode } from '@prezly/story-content-format';
 import type { Meta, Story } from '@storybook/react';
 
+import { Elements } from '../..';
+import * as mock from '../../dev/mocks';
 import { StoryNameDecorator } from '../../dev/StoryNameDecorator';
 import { Renderer } from '../../Renderer';
-import * as mock from '../../dev/mocks';
 import { Component } from '../../selector';
-import { Elements } from '../..';
 
 export default {
     title: 'Elements/StoryBookmark',

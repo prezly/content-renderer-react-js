@@ -1,11 +1,11 @@
 import type { ContactNode } from '@prezly/story-content-format';
 import classNames from 'classnames';
-import { FunctionComponent } from 'react';
+import type { FunctionComponent } from 'react';
 
 import { Envelope, Facebook, Phone, Telephone, Twitter, Window } from '../../icons';
 import { identity } from '../../lib';
 
-import { getMailtoHref, getTelHref, getFacebookHref, getTwitterHref } from './lib';
+import { getFacebookHref, getMailtoHref, getTelHref, getTwitterHref } from './lib';
 import { SocialField } from './SocialField';
 import './SocialFields.scss';
 import type { SocialFieldEntry } from './types';
@@ -25,9 +25,9 @@ export const SocialFields: FunctionComponent<Props> = ({ className, contact }) =
         website: { getHref: identity, Icon: Window, value: contact.website },
     });
 
-    const nonEmptySocialFields = socialFields.filter(([_key, { value }]) => {
-        return Boolean(value);
-    }) as SocialFieldEntry[];
+    const nonEmptySocialFields = socialFields.filter(([_key, { value }]) =>
+        Boolean(value),
+    ) as SocialFieldEntry[];
 
     if (nonEmptySocialFields.length === 0) {
         return null;

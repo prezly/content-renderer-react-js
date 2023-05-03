@@ -1,6 +1,7 @@
 import type { Meta, Story } from '@storybook/react';
-import { StoryNameDecorator } from '../../dev/StoryNameDecorator';
+
 import { ContainerDecorator } from '../../dev/ContainerDecorator';
+import { StoryNameDecorator } from '../../dev/StoryNameDecorator';
 import { Renderer } from '../../Renderer';
 
 export default {

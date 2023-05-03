@@ -1,4 +1,4 @@
-import { type Node, ComposedElement, Text } from '@prezly/story-content-format';
+import { ComposedElement, type Node, Text } from '@prezly/story-content-format';
 
 function isEmpty(node: Node): boolean {
     if (Text.isText(node)) {

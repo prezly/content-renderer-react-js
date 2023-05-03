@@ -1,4 +1,4 @@
-import { type Node, ComposedElement } from '@prezly/story-content-format';
+import { ComposedElement, type Node } from '@prezly/story-content-format';
 
 import type { Transformation } from '../types';
 

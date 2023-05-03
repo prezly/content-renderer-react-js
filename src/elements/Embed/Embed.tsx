@@ -1,6 +1,6 @@
 import type { EmbedNode } from '@prezly/story-content-format';
 import classNames from 'classnames';
-import { FunctionComponent, HTMLAttributes } from 'react';
+import type { FunctionComponent, HTMLAttributes } from 'react';
 
 import './Embed.scss';
 import { Iframe } from './Iframe';

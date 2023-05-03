@@ -1,7 +1,8 @@
 import isLokiRunning from '@loki/is-loki-running';
 
 import { Renderer } from '../Renderer';
-import type { StoryDecoratorArg, ContextDecoratorArg } from './types';
+
+import type { ContextDecoratorArg, StoryDecoratorArg } from './types';
 
 export function StoryNameDecorator<T>(
     Story: StoryDecoratorArg<T>,

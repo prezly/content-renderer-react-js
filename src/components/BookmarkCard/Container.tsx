@@ -1,7 +1,7 @@
+import { useResizeObserver } from '@react-hookz/web';
 import classNames from 'classnames';
 import type { PropsWithChildren } from 'react';
 import { useState } from 'react';
-import { useResizeObserver } from '@react-hookz/web';
 
 type Layout = 'horizontal' | 'vertical';
 
@@ -47,9 +47,9 @@ function getActualLayout(
 ): Layout {
     if (!hasThumbnail) {
         return 'horizontal';
-    } else if (isSmallViewport) {
-        return 'vertical';
-    } else {
-        return defaultLayout;
     }
+    if (isSmallViewport) {
+        return 'vertical';
+    }
+    return defaultLayout;
 }

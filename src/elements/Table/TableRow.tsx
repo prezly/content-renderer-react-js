@@ -1,5 +1,5 @@
 import type { TableRowNode } from '@prezly/story-content-format';
-import { HTMLAttributes } from 'react';
+import type { HTMLAttributes } from 'react';
 
 interface Props extends HTMLAttributes<HTMLTableCellElement> {
     node: TableRowNode;

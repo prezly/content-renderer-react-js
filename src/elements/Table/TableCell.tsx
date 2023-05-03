@@ -1,6 +1,7 @@
 import type { TableCellNode } from '@prezly/story-content-format';
 import classNames from 'classnames';
-import { HTMLAttributes, useMemo } from 'react';
+import type { HTMLAttributes } from 'react';
+import { useMemo } from 'react';
 
 import { useTableContext } from './TableContext';
 
@@ -22,7 +23,7 @@ export function TableCell({ children, node }: Props) {
     return (
         <Cell
             className={classNames('prezly-slate-table-cell', {
-                ['prezly-slate-table-cell--header']: isHeaderCell,
+                'prezly-slate-table-cell--header': isHeaderCell,
             })}
             colSpan={node.colspan}
             rowSpan={node.rowspan}

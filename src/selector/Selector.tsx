@@ -1,5 +1,5 @@
-import { type ReactNode, Fragment } from 'react';
-import { type Node, ComposedElement } from '@prezly/story-content-format';
+import { ComposedElement, type Node } from '@prezly/story-content-format';
+import { Fragment, type ReactNode } from 'react';
 
 import { createComponentsRenderersFromChildren } from './lib';
 

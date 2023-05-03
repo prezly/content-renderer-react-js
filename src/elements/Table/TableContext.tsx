@@ -1,5 +1,7 @@
-import { TableNode, TableCellNode } from '@prezly/story-content-format';
-import { useContext, useMemo, createContext, PropsWithChildren } from 'react';
+import type { TableCellNode } from '@prezly/story-content-format';
+import { TableNode } from '@prezly/story-content-format';
+import type { PropsWithChildren } from 'react';
+import { createContext, useContext, useMemo } from 'react';
 
 interface ContextProps {
     isHeaderCell: (cell: TableCellNode) => boolean;

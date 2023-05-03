@@ -1,5 +1,7 @@
 import type { OEmbedInfo } from '@prezly/sdk';
+
 import { isEmptyText } from '../../lib';
+
 import { Container } from './Container';
 import { Details } from './Details';
 import { Provider } from './Provider';

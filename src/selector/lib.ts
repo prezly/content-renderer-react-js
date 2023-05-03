@@ -1,5 +1,6 @@
 import type { Node } from '@prezly/story-content-format';
-import { ComponentType, ReactNode, Fragment, Children, isValidElement } from 'react';
+import type { ComponentType, ReactNode } from 'react';
+import { Children, Fragment, isValidElement } from 'react';
 
 import { Component } from './Component';
 
@@ -19,10 +20,8 @@ export function invariant(condition: any, message: string): asserts condition {
  * which is usually either a `<Component>` element or an array of them.
  * Used internally by `<Selector>` to create a renderer config from its children.
  */
-export function createComponentsRenderersFromChildren(
-    children: ReactNode,
-): ComponentRenderer[] {
-    let renderers: ComponentRenderer[] = [];
+export function createComponentsRenderersFromChildren(children: ReactNode): ComponentRenderer[] {
+    const renderers: ComponentRenderer[] = [];
 
     Children.forEach(children, (element) => {
         if (!isValidElement(element)) {

@@ -1,12 +1,12 @@
 import type { UploadcareImage } from '@prezly/uploadcare';
 import { useEventListener } from '@react-hookz/web';
 import classNames from 'classnames';
-import { KeyboardEvent, ReactNode, useEffect } from 'react';
+import type { KeyboardEvent, ReactNode } from 'react';
+import { useEffect } from 'react';
 import Modal from 'react-modal';
 
 import { ChevronLeft, ChevronRight, Close } from '../../icons';
 import { noop } from '../../lib';
-
 import { Media } from '../Media';
 import { PinterestButton } from '../PinterestButton';
 

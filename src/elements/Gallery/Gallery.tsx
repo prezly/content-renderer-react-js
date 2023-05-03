@@ -2,7 +2,8 @@ import type { GalleryNode } from '@prezly/story-content-format';
 import { UploadcareImage } from '@prezly/uploadcare';
 import { useMeasure } from '@react-hookz/web';
 import classNames from 'classnames';
-import { HTMLAttributes, useMemo } from 'react';
+import type { HTMLAttributes } from 'react';
+import { useMemo } from 'react';
 
 import { Lightbox } from '../../components';
 
@@ -109,7 +110,7 @@ function Row(props: {
                         flexBasis: `${(100 * width) / tilesWidth}%`,
                         width: `${(100 * width) / tilesWidth}%`,
                         height: `${(100 * height) / tilesWidth}%`,
-                        margin: margin,
+                        margin,
                     }}
                 />
             ))}

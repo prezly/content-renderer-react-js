@@ -1,6 +1,6 @@
 import type { EmbedNode } from '@prezly/story-content-format';
 import classNames from 'classnames';
-import { AnchorHTMLAttributes, FunctionComponent } from 'react';
+import type { AnchorHTMLAttributes, FunctionComponent } from 'react';
 
 import './LinkEmbed.scss';
 

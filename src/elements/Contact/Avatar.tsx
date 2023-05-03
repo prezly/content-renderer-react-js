@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { FunctionComponent, ImgHTMLAttributes } from 'react';
+import type { FunctionComponent, ImgHTMLAttributes } from 'react';
 
 import { PersonFill } from '../../icons';
 

@@ -1,7 +1,7 @@
 import type { AttachmentNode } from '@prezly/story-content-format';
 import { UploadcareFile } from '@prezly/uploadcare';
 import classNames from 'classnames';
-import { FunctionComponent, HTMLAttributes } from 'react';
+import type { FunctionComponent, HTMLAttributes } from 'react';
 
 import { Download } from '../../icons';
 import { formatBytes } from '../../lib';

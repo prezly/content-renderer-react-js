@@ -1,3 +1,4 @@
+import type { Node } from '@prezly/story-content-format';
 import {
     AttachmentNode,
     BookmarkNode,
@@ -13,7 +14,6 @@ import {
     ListItemNode,
     ListItemTextNode,
     ListNode,
-    Node,
     ParagraphNode,
     PlaceholderNode,
     QuoteNode,
@@ -24,13 +24,13 @@ import {
     VariableNode,
     VideoNode,
 } from '@prezly/story-content-format';
-import { ComponentType, ReactNode } from 'react';
+import type { ComponentType, ReactNode } from 'react';
 
 import * as Elements from './elements';
 import { applyTransformations } from './lib';
+import { Component, Selector } from './selector';
 import * as Transformations from './transformations';
 import type { Transformation } from './types';
-import { Component, Selector } from './selector';
 
 type Fallback = 'ignore' | 'warning' | 'passthru' | ComponentType<{ node: Node }>;
 
