@@ -1,4 +1,6 @@
 {
   "extends": ["@prezly/eslint-config/stylelint"],
-  "rules": {}
+  "rules": {
+    "selector-class-pattern": null
+  }
 }
