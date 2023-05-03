@@ -51,7 +51,9 @@
 
 @mixin multi-line-ellipsis($lines) {
     overflow: hidden;
-    display: box;
+    // Using `box` breaks the line-clamp behavior
+    /* stylelint-disable-next-line value-no-vendor-prefix */
+    display: -webkit-box;
     -webkit-line-clamp: $lines;
     -webkit-box-orient: vertical;
 }
@@ -89,7 +91,7 @@
         margin-right: $block-offset;
     }
 
-    @media (width <= 992px) {
+    @media (max-width: 992px) {
         @include media-layout-full-width;
     }
 }
