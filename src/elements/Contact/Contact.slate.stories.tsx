@@ -38,7 +38,7 @@ export const Card: Story = () => (
             },
         ]}
     />
-)
+);
 
 export const CardWithoutAvatar: Story = () => (
     <Renderer
@@ -70,7 +70,7 @@ export const CardWithoutAvatar: Story = () => (
             },
         ]}
     />
-)
+);
 
 export const Signature: Story = () => (
     <Renderer
@@ -102,7 +102,7 @@ export const Signature: Story = () => (
             },
         ]}
     />
-)
+);
 
 export const SignatureWithoutAvatar: Story = () => (
     <Renderer
@@ -134,4 +134,4 @@ export const SignatureWithoutAvatar: Story = () => (
             },
         ]}
     />
-)
+);
