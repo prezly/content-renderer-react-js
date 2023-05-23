@@ -1,7 +1,7 @@
 @import "styles/mixins";
 @import "styles/variables";
 
-$avatar-size: 64px;
+$avatar-size: 106px;
 $avatar-placeholder-size: 24px;
 
 .prezly-slate-contact {
@@ -12,33 +12,31 @@ $avatar-placeholder-size: 24px;
     color: $color-text;
 
     &__wrapper {
-        display: grid;
-        grid-template-columns: $avatar-size 1fr;
-        grid-column-gap: 24px;
+        display: flex;
+        gap: 24px;
         padding: $spacing-3;
     }
 
     &__name {
         margin: 0;
-        margin-bottom: $spacing-1;
         line-height: $line-height-l;
-        font-size: $font-size-l;
+        font-size: $font-size-ml;
     }
 
     &__job-description {
-        margin-bottom: $spacing-2;
+        margin-bottom: $spacing-1;
+        color: $color-text-2;
+        font-size: $font-size-s;
     }
 
     &__avatar {
         display: flex;
         flex-direction: column;
+        flex-shrink: 0;
         justify-content: center;
         height: $avatar-size;
         align-items: center;
         border-radius: $border-radius-base;
-        border: 1px solid $color-grey-250;
-        grid-row: 1;
-        grid-column: 1;
         overflow: hidden;
         box-sizing: border-box;
     }

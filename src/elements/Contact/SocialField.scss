@@ -7,16 +7,16 @@
     margin: 0;
     padding: 0;
     line-height: $line-height;
-    font-size: $font-size-s;
+    font-size: $font-size-xs;
     list-style: none;
 
     &__link {
         display: flex;
         align-items: center;
+        gap: $spacing-1;
         width: 100%;
         text-decoration: none;
-        padding: 0 $spacing-half;
-        // margin: 0 (-$spacing-half);
+        padding: 0;
         border-radius: $border-radius-base;
 
         &,
@@ -42,7 +42,6 @@
         flex: 0 0 auto;
         width: $size;
         height: $size;
-        margin-right: $spacing-1-5;
     }
 
     &__value {
