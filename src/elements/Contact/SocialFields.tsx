@@ -53,7 +53,7 @@ export const SocialFields: FunctionComponent<Props> = ({ className, contact, lay
                 <ul
                     className={classNames(
                         'prezly-slate-social-fields',
-                        'prezly-slate-social-fields--inline',
+                        'prezly-slate-social-fields--signature',
                         'prezly-slate-social-fields--icons',
                         className,
                     )}
@@ -79,7 +79,7 @@ export const SocialFields: FunctionComponent<Props> = ({ className, contact, lay
 
     return (
         <>
-            <ul className={classNames('prezly-slate-social-fields', 'prezly-slate-social-fields--inline', className)}>
+            <ul className={classNames('prezly-slate-social-fields', 'prezly-slate-social-fields--card', className)}>
                 {email && (
                     <SocialField
                         className="prezly-slate-social-fields__field"
@@ -104,7 +104,7 @@ export const SocialFields: FunctionComponent<Props> = ({ className, contact, lay
                     </SocialField>
                 )}
             </ul>
-            <ul className={classNames('prezly-slate-social-fields', 'prezly-slate-social-fields--inline', className)}>
+            <ul className={classNames('prezly-slate-social-fields', 'prezly-slate-social-fields--card', className)}>
                 {website && (
                     <SocialField className="prezly-slate-social-fields__field" href={website.toString()} Icon={Globe}>
                         {website.hostname}
