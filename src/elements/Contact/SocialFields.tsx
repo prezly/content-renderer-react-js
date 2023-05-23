@@ -58,6 +58,7 @@ export const SocialFields: FunctionComponent<Props> = ({ className, contact, lay
                     className={classNames(
                         'prezly-slate-social-fields',
                         'prezly-slate-social-fields--inline',
+                        'prezly-slate-social-fields--icons',
                         className,
                     )}
                 >
@@ -116,7 +117,14 @@ export const SocialFields: FunctionComponent<Props> = ({ className, contact, lay
                     </SocialField>
                 )}
             </ul>
-            <ul className={classNames('prezly-slate-social-fields', 'prezly-slate-social-fields--inline', className)}>
+            <ul
+                className={classNames(
+                    'prezly-slate-social-fields',
+                    'prezly-slate-social-fields--inline',
+                    'prezly-slate-social-fields--icons',
+                    className,
+                )}
+            >
                 {website && (
                     <SocialField
                         className="prezly-slate-social-fields__field"

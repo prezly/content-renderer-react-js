@@ -5,12 +5,34 @@
     margin: 0;
     padding: 0;
 
+    @include mobile-down {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-1;
+    }
+
     & + & {
         margin-top: $spacing-1;
+
+        @include mobile-down {
+            margin-top: $spacing-2;
+        }
     }
 
     &--inline {
         display: flex;
         gap: $spacing-2;
+
+        @include mobile-down {
+            flex-direction: column;
+            gap: $spacing-1;
+        }
+    }
+
+    &--icons {
+        @include mobile-down {
+            flex-direction: row;
+            gap: $spacing-2;
+        }
     }
 }
