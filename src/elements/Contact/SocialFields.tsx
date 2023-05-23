@@ -16,7 +16,7 @@ interface Props {
 
 export const SocialFields: FunctionComponent<Props> = ({ className, contact, layout }) => {
     const { email, phone, mobile } = contact;
-    const website = new URL(contact.website);
+    const website = contact.website ? new URL(contact.website) : null;
     const { facebook, twitter } = getSocialHandles(contact);
 
     if (layout === ContactNode.Layout.SIGNATURE) {
