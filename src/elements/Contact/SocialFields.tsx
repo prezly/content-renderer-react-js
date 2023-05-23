@@ -22,7 +22,13 @@ export const SocialFields: FunctionComponent<Props> = ({ className, contact, lay
     if (layout === ContactNode.Layout.SIGNATURE) {
         return (
             <>
-                <ul className={classNames('prezly-slate-social-fields', 'prezly-slate-social-fields--signature', className)}>
+                <ul
+                    className={classNames(
+                        'prezly-slate-social-fields',
+                        'prezly-slate-social-fields--signature',
+                        className,
+                    )}
+                >
                     {email && (
                         <SocialField className="prezly-slate-social-fields__field" href={getMailtoHref(email)}>
                             {`E. ${email}`}
@@ -98,13 +104,7 @@ export const SocialFields: FunctionComponent<Props> = ({ className, contact, lay
                     </SocialField>
                 )}
             </ul>
-            <ul
-                className={classNames(
-                    'prezly-slate-social-fields',
-                    'prezly-slate-social-fields--inline',
-                    className,
-                )}
-            >
+            <ul className={classNames('prezly-slate-social-fields', 'prezly-slate-social-fields--inline', className)}>
                 {website && (
                     <SocialField className="prezly-slate-social-fields__field" href={website.toString()} Icon={Globe}>
                         {website.hostname}
