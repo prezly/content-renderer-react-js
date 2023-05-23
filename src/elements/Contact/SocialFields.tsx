@@ -4,7 +4,7 @@ import React, { FunctionComponent } from 'react';
 
 import { Envelope, Facebook, Globe, Phone, Telephone, Twitter } from '../../icons';
 
-import { getMailtoHref, getTelHref, getFacebookHref, getTwitterHref } from './lib';
+import { getMailtoHref, getSocialHandles, getTelHref } from './lib';
 import { SocialField } from './SocialField';
 import './SocialFields.scss';
 
@@ -15,42 +15,32 @@ interface Props {
 }
 
 export const SocialFields: FunctionComponent<Props> = ({ className, contact, layout }) => {
-    const { email, phone, mobile, website, facebook, twitter } = contact;
+    const { email, phone, mobile } = contact;
+    const website = new URL(contact.website);
+    const { facebook, twitter } = getSocialHandles(contact);
 
     if (layout === ContactNode.Layout.SIGNATURE) {
         return (
             <>
                 <ul className={classNames('prezly-slate-social-fields', className)}>
                     {email && (
-                        <SocialField
-                            className="prezly-slate-social-fields__field"
-                            href={getMailtoHref(email)}
-                            value={email}
-                        >
-                            E. {email}
+                        <SocialField className="prezly-slate-social-fields__field" href={getMailtoHref(email)}>
+                            {`E. ${email}`}
                         </SocialField>
                     )}
                     {phone && (
-                        <SocialField
-                            className="prezly-slate-social-fields__field"
-                            href={getTelHref(phone)}
-                            value={phone}
-                        >
-                            P. {phone}
+                        <SocialField className="prezly-slate-social-fields__field" href={getTelHref(phone)}>
+                            {`P. ${phone}`}
                         </SocialField>
                     )}
                     {mobile && (
-                        <SocialField
-                            className="prezly-slate-social-fields__field"
-                            href={getTelHref(mobile)}
-                            value={mobile}
-                        >
-                            M. {mobile}
+                        <SocialField className="prezly-slate-social-fields__field" href={getTelHref(mobile)}>
+                            {`M. ${mobile}`}
                         </SocialField>
                     )}
                     {website && (
-                        <SocialField className="prezly-slate-social-fields__field" href={website} value={website}>
-                            W. {website}
+                        <SocialField className="prezly-slate-social-fields__field" href={website.toString()}>
+                            {`W. ${website.hostname}`}
                         </SocialField>
                     )}
                 </ul>
@@ -65,16 +55,14 @@ export const SocialFields: FunctionComponent<Props> = ({ className, contact, lay
                     {facebook && (
                         <SocialField
                             className="prezly-slate-social-fields__field"
-                            href={getFacebookHref(facebook)}
-                            value={facebook}
+                            href={`https://www.facebook.com/${facebook}`}
                             Icon={Facebook}
                         />
                     )}
                     {twitter && (
                         <SocialField
                             className="prezly-slate-social-fields__field"
-                            href={getTwitterHref(twitter)}
-                            value={twitter}
+                            href={`https://twitter.com/${twitter}`}
                             Icon={Twitter}
                         />
                     )}
@@ -90,7 +78,6 @@ export const SocialFields: FunctionComponent<Props> = ({ className, contact, lay
                     <SocialField
                         className="prezly-slate-social-fields__field"
                         href={getMailtoHref(email)}
-                        value={email}
                         Icon={Envelope}
                     >
                         {email}
@@ -100,19 +87,13 @@ export const SocialFields: FunctionComponent<Props> = ({ className, contact, lay
                     <SocialField
                         className="prezly-slate-social-fields__field"
                         href={getTelHref(phone)}
-                        value={phone}
                         Icon={Telephone}
                     >
                         {phone}
                     </SocialField>
                 )}
                 {mobile && (
-                    <SocialField
-                        className="prezly-slate-social-fields__field"
-                        href={getTelHref(mobile)}
-                        value={mobile}
-                        Icon={Phone}
-                    >
+                    <SocialField className="prezly-slate-social-fields__field" href={getTelHref(mobile)} Icon={Phone}>
                         {mobile}
                     </SocialField>
                 )}
@@ -126,28 +107,27 @@ export const SocialFields: FunctionComponent<Props> = ({ className, contact, lay
                 )}
             >
                 {website && (
-                    <SocialField
-                        className="prezly-slate-social-fields__field"
-                        href={website}
-                        value={website}
-                        Icon={Globe}
-                    />
+                    <SocialField className="prezly-slate-social-fields__field" href={website.toString()} Icon={Globe}>
+                        {website.hostname}
+                    </SocialField>
                 )}
                 {facebook && (
                     <SocialField
                         className="prezly-slate-social-fields__field"
-                        href={getFacebookHref(facebook)}
-                        value={facebook}
+                        href={`https://www.facebook.com/${facebook}`}
                         Icon={Facebook}
-                    />
+                    >
+                        {facebook}
+                    </SocialField>
                 )}
                 {twitter && (
                     <SocialField
                         className="prezly-slate-social-fields__field"
-                        href={getTwitterHref(twitter)}
-                        value={twitter}
+                        href={`https://twitter.com/${twitter}`}
                         Icon={Twitter}
-                    />
+                    >
+                        {`@${twitter}`}
+                    </SocialField>
                 )}
             </ul>
         </>
