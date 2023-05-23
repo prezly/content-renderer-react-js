@@ -13,6 +13,11 @@ export const PressContacts: Story = () => (
         nodes={[
             {
                 type: 'contact',
+                children: [
+                    {
+                        text: '',
+                    },
+                ],
                 uuid: 'f860590b-db97-44de-a59c-12848956b559',
                 reference: 'a456b750-65cb-49da-8f4a-7f53906bce28',
                 contact: {
