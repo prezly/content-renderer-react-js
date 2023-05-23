@@ -2297,7 +2297,81 @@
                 "phone": "+1 555 991 229",
                 "twitter": "@PhilipCooper",
                 "website": "https://techcrunch.com/"
-            }
+            },
+            "layout": "card",
+            "show_avatar": true
+        },
+        {
+            "type": "contact",
+            "children": [
+                {
+                    "text": ""
+                }
+            ],
+            "uuid": "3a3531ae-a941-436d-964f-7679d7f78da3",
+            "contact": {
+                "id": 233967,
+                "avatar_url": "https://ucarecdn.com/da3ea88f-ddfe-4593-a6e4-07c9f9467d5e/PhilipCooper.jpg",
+                "company": "TechCrunch",
+                "description": "PR Manager",
+                "email": "phil@techcrunch.com",
+                "facebook": "https://facebook.com/PhilipCooper",
+                "mobile": "+1 555 012 751",
+                "name": "Philip Cooper",
+                "phone": "+1 555 991 229",
+                "twitter": "@PhilipCooper",
+                "website": "https://techcrunch.com/"
+            },
+            "layout": "card",
+            "show_avatar": false
+        },
+        {
+            "type": "contact",
+            "children": [
+                {
+                    "text": ""
+                }
+            ],
+            "uuid": "7d092ce1-1e26-4fc1-81e0-28551683d756",
+            "contact": {
+                "id": 233967,
+                "avatar_url": "https://ucarecdn.com/da3ea88f-ddfe-4593-a6e4-07c9f9467d5e/PhilipCooper.jpg",
+                "company": "TechCrunch",
+                "description": "PR Manager",
+                "email": "phil@techcrunch.com",
+                "facebook": "https://facebook.com/PhilipCooper",
+                "mobile": "+1 555 012 751",
+                "name": "Philip Cooper",
+                "phone": "+1 555 991 229",
+                "twitter": "@PhilipCooper",
+                "website": "https://techcrunch.com/"
+            },
+            "layout": "signature",
+            "show_avatar": true
+        },
+        {
+            "type": "contact",
+            "children": [
+                {
+                    "text": ""
+                }
+            ],
+            "uuid": "0170f0c4-6413-489b-b520-37073bd3c98c",
+            "contact": {
+                "id": 233967,
+                "avatar_url": "https://ucarecdn.com/da3ea88f-ddfe-4593-a6e4-07c9f9467d5e/PhilipCooper.jpg",
+                "company": "TechCrunch",
+                "description": "PR Manager",
+                "email": "phil@techcrunch.com",
+                "facebook": "https://facebook.com/PhilipCooper",
+                "mobile": "+1 555 012 751",
+                "name": "Philip Cooper",
+                "phone": "+1 555 991 229",
+                "twitter": "@PhilipCooper",
+                "website": "https://techcrunch.com/"
+            },
+            "layout": "signature",
+            "show_avatar": false
         },
         {
             "type": "heading-one",
