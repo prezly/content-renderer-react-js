@@ -15,7 +15,17 @@
         margin-top: $spacing-1;
 
         @include mobile-down {
-            margin-top: $spacing-2;
+            margin-top: $spacing-1;
+        }
+    }
+
+    &--signature {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-half;
+
+        @include mobile-down {
+            margin-bottom: $spacing-2;
         }
     }
 
@@ -30,9 +40,11 @@
     }
 
     &--icons {
+        display: flex;
+        gap: $spacing-2;
+
         @include mobile-down {
             flex-direction: row;
-            gap: $spacing-2;
         }
     }
 }

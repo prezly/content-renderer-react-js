@@ -52,6 +52,10 @@ $avatar-placeholder-size: 24px;
         margin-bottom: $spacing-1;
         color: $color-text-2;
         font-size: $font-size-s;
+
+        @include mobile-down {
+            margin-bottom: $spacing-2;
+        }
     }
 
     &__avatar {
