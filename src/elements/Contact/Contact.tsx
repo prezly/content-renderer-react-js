@@ -19,6 +19,7 @@ export const Contact: FunctionComponent<Props> = ({ children, className, node, .
         <div
             id={`contact-${node.uuid}`}
             className={classNames('prezly-slate-contact', className, {
+                'prezly-slate-contact--card': layout === 'card',
                 'prezly-slate-contact--signature': layout === 'signature',
             })}
             {...props}

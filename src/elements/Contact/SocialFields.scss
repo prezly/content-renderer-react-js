@@ -5,46 +5,36 @@
     margin: 0;
     padding: 0;
 
-    @include mobile-down {
+    &--card {
         display: flex;
-        flex-direction: column;
-        gap: $spacing-1;
-    }
+        gap: $spacing-3;
 
-    & + & {
-        margin-top: $spacing-1;
+        & + & {
+            margin-top: $spacing-1;
+        }
 
         @include mobile-down {
-            margin-top: $spacing-1;
+            flex-direction: column;
+            gap: $spacing-2;
+
+            & + & {
+                margin-top: $spacing-2;
+            }
         }
     }
 
     &--signature {
         display: flex;
         flex-direction: column;
-        gap: $spacing-half;
+        gap: $spacing-1;
 
-        @include mobile-down {
-            margin-bottom: $spacing-2;
+        & + & {
+            margin-top: $spacing-2;
         }
-    }
 
-    &--inline {
-        display: flex;
-        gap: $spacing-2;
-
-        @include mobile-down {
-            flex-direction: column;
-            gap: $spacing-1;
-        }
-    }
-
-    &--icons {
-        display: flex;
-        gap: $spacing-2;
-
-        @include mobile-down {
+        &.prezly-slate-social-fields--icons {
             flex-direction: row;
+            gap: $spacing-2;
         }
     }
 }

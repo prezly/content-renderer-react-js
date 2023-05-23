@@ -12,6 +12,16 @@ $avatar-placeholder-size: 24px;
     box-shadow: $box-shadow;
     color: $color-text;
 
+    &--card {
+        .prezly-slate-contact__name {
+            margin-bottom: $spacing-half;
+        }
+
+        .prezly-slate-contact__job-description {
+            margin-bottom: $spacing-2;
+        }
+    }
+
     &--signature {
         border: 0;
         border-radius: 0;
@@ -27,8 +37,12 @@ $avatar-placeholder-size: 24px;
             height: $avatar-size-signature;
         }
 
+        .prezly-slate-contact__name {
+            margin-bottom: $spacing-half;
+        }
+
         .prezly-slate-contact__job-description {
-            margin-bottom: $spacing-2;
+            margin-bottom: $spacing-1;
         }
     }
 
@@ -49,13 +63,8 @@ $avatar-placeholder-size: 24px;
     }
 
     &__job-description {
-        margin-bottom: $spacing-1;
         color: $color-text-2;
         font-size: $font-size-s;
-
-        @include mobile-down {
-            margin-bottom: $spacing-2;
-        }
     }
 
     &__avatar {
