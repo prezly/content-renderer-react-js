@@ -9,6 +9,7 @@
     line-height: $line-height;
     font-size: $font-size-xs;
     list-style: none;
+    overflow: hidden;
 
     &__link {
         display: flex;

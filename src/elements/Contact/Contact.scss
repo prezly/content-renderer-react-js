@@ -2,6 +2,7 @@
 @import "styles/variables";
 
 $avatar-size: 106px;
+$avatar-size-signature: 56px;
 $avatar-placeholder-size: 24px;
 
 .prezly-slate-contact {
@@ -10,6 +11,26 @@ $avatar-placeholder-size: 24px;
     border-radius: $border-radius-base;
     box-shadow: $box-shadow;
     color: $color-text;
+
+    &--signature {
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+
+        .prezly-slate-contact__wrapper {
+            gap: $spacing-2;
+            padding: 0;
+        }
+
+        .prezly-slate-contact__avatar {
+            width: $avatar-size-signature;
+            height: $avatar-size-signature;
+        }
+
+        .prezly-slate-contact__job-description {
+            margin-bottom: $spacing-2;
+        }
+    }
 
     &__wrapper {
         display: flex;
@@ -34,6 +55,7 @@ $avatar-placeholder-size: 24px;
         flex-direction: column;
         flex-shrink: 0;
         justify-content: center;
+        width: $avatar-size;
         height: $avatar-size;
         align-items: center;
         border-radius: $border-radius-base;
@@ -52,8 +74,6 @@ $avatar-placeholder-size: 24px;
     }
 
     &__content {
-        grid-row: 1;
-        grid-column: 2;
         overflow: hidden;
     }
 

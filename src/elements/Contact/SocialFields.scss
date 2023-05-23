@@ -2,12 +2,15 @@
 @import "styles/variables";
 
 .prezly-slate-social-fields {
-    display: flex;
-    gap: $spacing-2;
     margin: 0;
     padding: 0;
 
     & + & {
         margin-top: $spacing-1;
+    }
+
+    &--inline {
+        display: flex;
+        gap: $spacing-2;
     }
 }
