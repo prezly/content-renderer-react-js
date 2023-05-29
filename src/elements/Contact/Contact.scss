@@ -1,7 +1,8 @@
 @import "styles/mixins";
 @import "styles/variables";
 
-$avatar-size: 64px;
+$avatar-size: 106px;
+$avatar-size-signature: 56px;
 $avatar-placeholder-size: 24px;
 
 .prezly-slate-contact {
@@ -11,36 +12,76 @@ $avatar-placeholder-size: 24px;
     box-shadow: $box-shadow;
     color: $color-text;
 
+    &--card {
+        .prezly-slate-contact__name {
+            margin-bottom: $spacing-half;
+        }
+
+        .prezly-slate-contact__job-description {
+            margin-bottom: $spacing-2;
+        }
+    }
+
+    &--signature {
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+
+        .prezly-slate-contact__wrapper {
+            gap: $spacing-2;
+            padding: 0;
+        }
+
+        .prezly-slate-contact__avatar {
+            width: $avatar-size-signature;
+            height: $avatar-size-signature;
+        }
+
+        .prezly-slate-contact__name {
+            margin-bottom: $spacing-half;
+        }
+
+        .prezly-slate-contact__job-description {
+            margin-bottom: $spacing-1;
+        }
+    }
+
     &__wrapper {
-        display: grid;
-        grid-template-columns: $avatar-size 1fr;
-        grid-column-gap: 24px;
+        display: flex;
+        gap: 24px;
         padding: $spacing-3;
+
+        @include mobile-down {
+            display: block;
+        }
     }
 
     &__name {
         margin: 0;
-        margin-bottom: $spacing-1;
         line-height: $line-height-l;
-        font-size: $font-size-l;
+        font-size: $font-size-ml;
     }
 
     &__job-description {
-        margin-bottom: $spacing-2;
+        color: $color-text-2;
+        font-size: $font-size-s;
     }
 
     &__avatar {
         display: flex;
         flex-direction: column;
+        flex-shrink: 0;
         justify-content: center;
+        width: $avatar-size;
         height: $avatar-size;
         align-items: center;
         border-radius: $border-radius-base;
-        border: 1px solid $color-grey-250;
-        grid-row: 1;
-        grid-column: 1;
         overflow: hidden;
         box-sizing: border-box;
+
+        @include mobile-down {
+            margin-bottom: $spacing-2;
+        }
     }
 
     &__avatar-image {
@@ -54,8 +95,6 @@ $avatar-placeholder-size: 24px;
     }
 
     &__content {
-        grid-row: 1;
-        grid-column: 2;
         overflow: hidden;
     }
 

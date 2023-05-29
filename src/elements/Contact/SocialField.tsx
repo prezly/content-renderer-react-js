@@ -4,22 +4,23 @@ import type { FunctionComponent, SVGProps } from 'react';
 import './SocialField.scss';
 
 interface Props {
+    children?: string;
     className?: string;
     href: string;
-    Icon: FunctionComponent<SVGProps<SVGSVGElement>>;
-    value: string;
+    Icon?: FunctionComponent<SVGProps<SVGSVGElement>>;
+    withText?: boolean;
 }
 
-export const SocialField: FunctionComponent<Props> = ({ className, href, Icon, value }) => (
-    <li className={classNames('prezly-slate-social-field', className)} title={value}>
+export const SocialField: FunctionComponent<Props> = ({ children, className, href, Icon }) => (
+    <li className={classNames('prezly-slate-social-field', className)} title={children}>
         <a
             className="prezly-slate-social-field__link"
             href={href}
             rel="noreferrer noopener"
             target="_blank"
         >
-            <Icon className="prezly-slate-social-field__icon" />
-            <span className="prezly-slate-social-field__value">{value}</span>
+            {Icon && <Icon className="prezly-slate-social-field__icon" />}
+            {children && <span className="prezly-slate-social-field__value">{children}</span>}
         </a>
     </li>
 );

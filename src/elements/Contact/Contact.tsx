@@ -12,17 +12,20 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 }
 
 export const Contact: FunctionComponent<Props> = ({ children, className, node, ...props }) => {
-    const { contact } = node;
+    const { contact, layout, show_avatar } = node;
     const jobDescription = [contact.description, contact.company].filter(Boolean).join(', ');
 
     return (
         <div
             id={`contact-${node.uuid}`}
-            className={classNames('prezly-slate-contact', className)}
+            className={classNames('prezly-slate-contact', className, {
+                'prezly-slate-contact--card': layout === 'card',
+                'prezly-slate-contact--signature': layout === 'signature',
+            })}
             {...props}
         >
             <div className="prezly-slate-contact__wrapper">
-                <Avatar name={contact.name} src={contact.avatar_url} />
+                {show_avatar && <Avatar name={contact.name} src={contact.avatar_url} />}
 
                 <div className="prezly-slate-contact__content">
                     <h3 className="prezly-slate-contact__name">{contact.name}</h3>
@@ -35,6 +38,7 @@ export const Contact: FunctionComponent<Props> = ({ children, className, node, .
                     <SocialFields
                         className="prezly-slate-contact__social-fields"
                         contact={contact}
+                        layout={layout}
                     />
                 </div>
             </div>
