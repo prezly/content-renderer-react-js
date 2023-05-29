@@ -4,14 +4,37 @@
 .prezly-slate-social-fields {
     margin: 0;
     padding: 0;
-    columns: 2;
 
-    @media (max-width: $screen-xs) {
-        columns: 1;
+    &--card {
+        display: flex;
+        gap: $spacing-3;
+
+        & + & {
+            margin-top: $spacing-1;
+        }
+
+        @include mobile-down {
+            flex-direction: column;
+            gap: $spacing-2;
+
+            & + & {
+                margin-top: $spacing-2;
+            }
+        }
     }
 
-    &__field {
-        margin-bottom: $spacing-1 - $focus-state-size * 2;
-        padding: $focus-state-size;
+    &--signature {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-1;
+
+        & + & {
+            margin-top: $spacing-2;
+        }
+
+        &.prezly-slate-social-fields--icons {
+            flex-direction: row;
+            gap: $spacing-2;
+        }
     }
 }

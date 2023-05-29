@@ -33,7 +33,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: Install Node.js dependencies
-        run: npm ci
+        run: npm install
 
       - name: Run ESLint and StyleLint
         uses: wearerequired/lint-action@v2.3.0

@@ -1,7 +1,10 @@
-export const getMailtoHref = (email: string): string => `mailto:${email}`;
+export { getSocialHandles } from './getSocialHandles';
+export { getUrl } from './getUrl';
 
-export const getTelHref = (phone: string): string => `tel:${phone}`;
+export function getMailtoHref(email: string): string {
+    return `mailto:${email}`;
+}
 
-export const getFacebookHref = (facebook: string): string => `https://www.facebook.com/${facebook}`;
-
-export const getTwitterHref = (twitter: string): string => `https://twitter.com/${twitter}`;
+export function getTelHref(phone: string): string {
+    return `tel:${phone}`;
+}

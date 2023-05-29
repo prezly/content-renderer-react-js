@@ -1,6 +1,6 @@
 {
     "name": "@prezly/content-renderer-react-js",
-    "version": "0.26.2",
+    "version": "0.27.4",
     "description": "Render Prezly Content Format documents with React.js",
     "license": "MIT",
     "main": "build/cjs/index.cjs",
@@ -83,13 +83,14 @@
     "dependencies": {
         "@prezly/linear-partition": "^1.0.2",
         "@prezly/sdk": "^6.21.0",
-        "@prezly/story-content-format": "^0.59.0",
+        "@prezly/story-content-format": "^0.60.0",
         "@prezly/uploadcare": "^2.3.2",
         "@react-hookz/web": "^12.0.0",
         "classnames": "^2.2.6",
         "react-modal": "^3.15.1",
         "resize-observer-polyfill": "^1.5.1",
         "shave": "^2.5.10",
+        "social-links": "^1.10.0",
         "striptags": "^3.1.1"
     },
     "devDependencies": {

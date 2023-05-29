@@ -1,11 +1,21 @@
+# IDE
 .idea/
 .vscode
 .yalc/
 .history
+
+# Build artifacts
 build/
-coverage/
-node_modules/
 *.tsbuildinfo
+
+# Dependencies
+node_modules/
+# Ignoring package-lock should make the dependencies installed on CI and on fresh environments match what the package consumers would have installed.
+# See https://github.com/sindresorhus/ama/issues/479#issuecomment-310661514 for context.
+package-lock.json
+
+# Tests
+coverage/
 storybook-static
 .loki/current
 .loki/difference

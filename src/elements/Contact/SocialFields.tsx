@@ -1,48 +1,165 @@
-import type { ContactNode } from '@prezly/story-content-format';
+import { ContactNode } from '@prezly/story-content-format';
 import classNames from 'classnames';
 
-import { Envelope, Facebook, Phone, Telephone, Twitter, Window } from '../../icons';
-import { identity } from '../../lib';
+import { Envelope, Facebook, Globe, Phone, Telephone, Twitter } from '../../icons';
 
-import { getFacebookHref, getMailtoHref, getTelHref, getTwitterHref } from './lib';
+import { getMailtoHref, getSocialHandles, getTelHref, getUrl } from './lib';
 import { SocialField } from './SocialField';
 import './SocialFields.scss';
-import type { SocialFieldEntry } from './types';
 
 interface Props {
     className?: string;
     contact: ContactNode['contact'];
+    layout: `${ContactNode.Layout}`;
 }
 
-export function SocialFields({ className, contact }: Props) {
-    const socialFields = Object.entries({
-        email: { getHref: getMailtoHref, Icon: Envelope, value: contact.email },
-        phone: { getHref: getTelHref, Icon: Telephone, value: contact.phone },
-        mobile: { getHref: getTelHref, Icon: Phone, value: contact.mobile },
-        twitter: { getHref: getTwitterHref, Icon: Twitter, value: contact.twitter },
-        facebook: { getHref: getFacebookHref, Icon: Facebook, value: contact.facebook },
-        website: { getHref: identity, Icon: Window, value: contact.website },
-    });
+export function SocialFields({ className, contact, layout }: Props) {
+    const { email, phone, mobile } = contact;
+    const website = getUrl(contact.website);
+    const { facebook, twitter } = getSocialHandles(contact);
 
-    const nonEmptySocialFields = socialFields.filter(([_key, { value }]) =>
-        Boolean(value),
-    ) as SocialFieldEntry[];
-
-    if (nonEmptySocialFields.length === 0) {
-        return null;
+    if (layout === ContactNode.Layout.SIGNATURE) {
+        return (
+            <>
+                <ul
+                    className={classNames(
+                        'prezly-slate-social-fields',
+                        'prezly-slate-social-fields--signature',
+                        className,
+                    )}
+                >
+                    {email && (
+                        <SocialField
+                            className="prezly-slate-social-fields__field"
+                            href={getMailtoHref(email)}
+                        >
+                            {`E. ${email}`}
+                        </SocialField>
+                    )}
+                    {phone && (
+                        <SocialField
+                            className="prezly-slate-social-fields__field"
+                            href={getTelHref(phone)}
+                        >
+                            {`P. ${phone}`}
+                        </SocialField>
+                    )}
+                    {mobile && (
+                        <SocialField
+                            className="prezly-slate-social-fields__field"
+                            href={getTelHref(mobile)}
+                        >
+                            {`M. ${mobile}`}
+                        </SocialField>
+                    )}
+                    {website && (
+                        <SocialField
+                            className="prezly-slate-social-fields__field"
+                            href={website.toString()}
+                        >
+                            {`W. ${website.hostname}`}
+                        </SocialField>
+                    )}
+                </ul>
+                <ul
+                    className={classNames(
+                        'prezly-slate-social-fields',
+                        'prezly-slate-social-fields--signature',
+                        'prezly-slate-social-fields--icons',
+                        className,
+                    )}
+                >
+                    {facebook && (
+                        <SocialField
+                            className="prezly-slate-social-fields__field"
+                            href={`https://www.facebook.com/${facebook}`}
+                            Icon={Facebook}
+                        />
+                    )}
+                    {twitter && (
+                        <SocialField
+                            className="prezly-slate-social-fields__field"
+                            href={`https://twitter.com/${twitter}`}
+                            Icon={Twitter}
+                        />
+                    )}
+                </ul>
+            </>
+        );
     }
 
     return (
-        <ul className={classNames('prezly-slate-social-fields', className)}>
-            {nonEmptySocialFields.map(([key, { getHref, Icon, value }]) => (
-                <SocialField
-                    className="prezly-slate-social-fields__field"
-                    key={key}
-                    href={getHref(value)}
-                    Icon={Icon}
-                    value={value}
-                />
-            ))}
-        </ul>
+        <>
+            <ul
+                className={classNames(
+                    'prezly-slate-social-fields',
+                    'prezly-slate-social-fields--card',
+                    className,
+                )}
+            >
+                {email && (
+                    <SocialField
+                        className="prezly-slate-social-fields__field"
+                        href={getMailtoHref(email)}
+                        Icon={Envelope}
+                    >
+                        {email}
+                    </SocialField>
+                )}
+                {phone && (
+                    <SocialField
+                        className="prezly-slate-social-fields__field"
+                        href={getTelHref(phone)}
+                        Icon={Telephone}
+                    >
+                        {phone}
+                    </SocialField>
+                )}
+                {mobile && (
+                    <SocialField
+                        className="prezly-slate-social-fields__field"
+                        href={getTelHref(mobile)}
+                        Icon={Phone}
+                    >
+                        {mobile}
+                    </SocialField>
+                )}
+            </ul>
+            <ul
+                className={classNames(
+                    'prezly-slate-social-fields',
+                    'prezly-slate-social-fields--card',
+                    className,
+                )}
+            >
+                {website && (
+                    <SocialField
+                        className="prezly-slate-social-fields__field"
+                        href={website.toString()}
+                        Icon={Globe}
+                    >
+                        {website.hostname}
+                    </SocialField>
+                )}
+                {facebook && (
+                    <SocialField
+                        className="prezly-slate-social-fields__field"
+                        href={`https://www.facebook.com/${facebook}`}
+                        Icon={Facebook}
+                    >
+                        {facebook}
+                    </SocialField>
+                )}
+                {twitter && (
+                    <SocialField
+                        className="prezly-slate-social-fields__field"
+                        href={`https://twitter.com/${twitter}`}
+                        Icon={Twitter}
+                    >
+                        {`@${twitter}`}
+                    </SocialField>
+                )}
+            </ul>
+        </>
     );
 }

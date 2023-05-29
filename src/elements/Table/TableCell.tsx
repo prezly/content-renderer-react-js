@@ -13,6 +13,7 @@ export function TableCell({ children, node }: Props) {
     const ctx = useTableContext();
 
     if (!ctx) {
+        // eslint-disable-next-line no-console
         console.warn(`${TableCell.name} requires wrapping in TableContext.`);
     }
 
