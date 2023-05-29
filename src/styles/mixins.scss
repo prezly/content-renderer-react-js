@@ -51,6 +51,7 @@
 
 @mixin multi-line-ellipsis($lines) {
     overflow: hidden;
+
     // Using `box` breaks the line-clamp behavior
     /* stylelint-disable-next-line value-no-vendor-prefix */
     display: -webkit-box;
