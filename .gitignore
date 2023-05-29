@@ -6,7 +6,7 @@
 
 # Build artifacts
 build/
-tsconfig.tsbuildinfo
+*.tsbuildinfo
 
 # Dependencies
 node_modules/

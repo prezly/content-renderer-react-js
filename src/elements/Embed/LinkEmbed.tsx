@@ -1,15 +1,14 @@
 import type { EmbedNode } from '@prezly/story-content-format';
 import classNames from 'classnames';
-import type { AnchorHTMLAttributes, FunctionComponent } from 'react';
+import type { AnchorHTMLAttributes } from 'react';
 
 import './LinkEmbed.scss';
 
-interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
-    children?: never;
+interface Props extends Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'children'> {
     node: EmbedNode;
 }
 
-export const LinkEmbed: FunctionComponent<Props> = ({ className, node, ...props }) => {
+export function LinkEmbed({ className, node, ...props }: Props) {
     const { oembed, url } = node;
 
     return (
@@ -25,4 +24,4 @@ export const LinkEmbed: FunctionComponent<Props> = ({ className, node, ...props 
             <span className="prezly-slate-link-embed__url">{url}</span>
         </a>
     );
-};
+}

@@ -77,7 +77,14 @@ export function Lightbox({
     }
 
     if (image === null) {
-        return <Modal className={classNames('prezly-slate-lightbox', className)} isOpen={false} />;
+        return (
+            <Modal
+                className={classNames('prezly-slate-lightbox', className)}
+                isOpen={false}
+                // This functionality has issues on React 18.
+                ariaHideApp={false}
+            />
+        );
     }
 
     return (
@@ -85,6 +92,8 @@ export function Lightbox({
             className={classNames('prezly-slate-lightbox', className)}
             isOpen
             onRequestClose={onClose}
+            // This functionality has issues on React 18.
+            ariaHideApp={false}
         >
             <figure className="prezly-slate-lightbox__figure">
                 <div className="prezly-slate-lightbox__nav">

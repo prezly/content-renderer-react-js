@@ -1,17 +1,16 @@
 import classNames from 'classnames';
-import type { FunctionComponent, HTMLAttributes } from 'react';
+import type { HTMLAttributes } from 'react';
 import { useState } from 'react';
 
 import { HtmlInjection } from '../../components';
 
 import './IframelyEmbed.scss';
 
-interface Props extends Omit<HTMLAttributes<HTMLElement>, 'onError'> {
-    children?: never;
+interface Props extends Omit<HTMLAttributes<HTMLElement>, 'children' | 'onError'> {
     html: string;
 }
 
-export const Iframe: FunctionComponent<Props> = ({ className, html, ...attrs }) => {
+export function Iframe({ className, html, ...attrs }: Props) {
     const [hasError, setHasError] = useState<boolean>(false);
 
     return (
@@ -24,4 +23,4 @@ export const Iframe: FunctionComponent<Props> = ({ className, html, ...attrs }) 
             onError={() => setHasError(true)}
         />
     );
-};
+}

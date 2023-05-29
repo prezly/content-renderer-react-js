@@ -1,17 +1,16 @@
 import type { ContactNode } from '@prezly/story-content-format';
 import classNames from 'classnames';
-import type { FunctionComponent, HTMLAttributes } from 'react';
+import type { HTMLAttributes } from 'react';
 
 import { Avatar } from './Avatar';
 import './Contact.scss';
 import { SocialFields } from './SocialFields';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
-    children?: never;
     node: ContactNode;
 }
 
-export const Contact: FunctionComponent<Props> = ({ children, className, node, ...props }) => {
+export function Contact({ children, className, node, ...props }: Props) {
     const { contact, layout, show_avatar } = node;
     const jobDescription = [contact.description, contact.company].filter(Boolean).join(', ');
 
@@ -44,4 +43,4 @@ export const Contact: FunctionComponent<Props> = ({ children, className, node, .
             </div>
         </div>
     );
-};
+}

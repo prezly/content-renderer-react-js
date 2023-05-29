@@ -1,6 +1,6 @@
 import type { VideoNode } from '@prezly/story-content-format';
 import classNames from 'classnames';
-import type { FunctionComponent, HTMLAttributes } from 'react';
+import type { HTMLAttributes } from 'react';
 import { useState } from 'react';
 
 import { HtmlInjection } from '../../components';
@@ -8,12 +8,11 @@ import { PlayButton } from '../../icons';
 
 import './Video.scss';
 
-interface Props extends HTMLAttributes<HTMLDivElement> {
-    children?: never;
+interface Props extends Omit<HTMLAttributes<HTMLDivElement>, 'children'> {
     node: VideoNode;
 }
 
-export const Video: FunctionComponent<Props> = ({ className, node }) => {
+export function Video({ className, node }: Props) {
     const { oembed, url } = node;
     const [isHtmlEmbeddedWithErrors, setHtmlEmbeddedWithErrors] = useState<boolean>(false);
 
@@ -41,13 +40,15 @@ export const Video: FunctionComponent<Props> = ({ className, node }) => {
             )}
         </div>
     );
-};
+}
 
-const Thumbnail: FunctionComponent<{ src?: string; width?: number; height?: number }> = ({
-    src,
-    width,
-    height,
-}) => {
+interface ThumbnailProps {
+    src?: string;
+    width?: number;
+    height?: number;
+}
+
+function Thumbnail({ src, width, height }: ThumbnailProps) {
     if (!src) {
         return <ThumbnailPlaceholder />;
     }
@@ -58,25 +59,29 @@ const Thumbnail: FunctionComponent<{ src?: string; width?: number; height?: numb
             <img className="prezly-slate-video__thumbnail-image" src={src} alt="Video thumbnail" />
         </div>
     );
-};
+}
 
-const ThumbnailPlaceholder: FunctionComponent = () => (
-    <div className="prezly-slate-video__thumbnail-placeholder" />
-);
+function ThumbnailPlaceholder() {
+    return <div className="prezly-slate-video__thumbnail-placeholder" />;
+}
 
-const PlayButtonOverlay: FunctionComponent<{ id?: string; href: string; title?: string }> = ({
-    id,
-    href,
-    title,
-}) => (
-    <a
-        id={id}
-        className="prezly-slate-video__play-button-overlay"
-        href={href}
-        rel="noopener noreferer"
-        target="blank"
-        title={title}
-    >
-        <PlayButton className="prezly-slate-video__play-button-icon" />
-    </a>
-);
+interface PlayButtonOverlayProps {
+    id?: string;
+    href: string;
+    title?: string;
+}
+
+function PlayButtonOverlay({ id, href, title }: PlayButtonOverlayProps) {
+    return (
+        <a
+            id={id}
+            className="prezly-slate-video__play-button-overlay"
+            href={href}
+            rel="noopener noreferer"
+            target="blank"
+            title={title}
+        >
+            <PlayButton className="prezly-slate-video__play-button-icon" />
+        </a>
+    );
+}

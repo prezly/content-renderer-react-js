@@ -1,11 +1,11 @@
 import type { Node } from '@prezly/story-content-format';
-import type { ComponentType } from 'react';
+import type { ComponentType, ReactNode } from 'react';
 
 import { invariant } from './lib';
 
 type Props<T extends Node, P extends object> = {
     match: (node: Node) => node is T;
-    component: ComponentType<{ node: T } & Omit<P, 'node'>>;
+    component: ComponentType<{ node: T; children?: ReactNode } & Omit<P, 'node'>>;
 };
 
 export function Component<T extends Node, P extends { node?: never }>(_: Props<T, P> & P) {

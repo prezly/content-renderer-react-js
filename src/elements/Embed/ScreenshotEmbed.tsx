@@ -1,15 +1,14 @@
 import type { EmbedNode } from '@prezly/story-content-format';
 import classNames from 'classnames';
-import type { FunctionComponent, ImgHTMLAttributes } from 'react';
+import type { ImgHTMLAttributes } from 'react';
 
 import './ScreenshotEmbed.scss';
 
-interface Props extends ImgHTMLAttributes<HTMLImageElement> {
-    children?: never;
+interface Props extends Omit<ImgHTMLAttributes<HTMLImageElement>, 'children'> {
     node: EmbedNode;
 }
 
-export const ScreenshotEmbed: FunctionComponent<Props> = ({ className, node, ...props }) => {
+export function ScreenshotEmbed({ className, node, ...props }: Props) {
     const { oembed } = node;
 
     return (
@@ -20,4 +19,4 @@ export const ScreenshotEmbed: FunctionComponent<Props> = ({ className, node, ...
             {...props}
         />
     );
-};
+}

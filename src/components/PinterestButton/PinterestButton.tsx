@@ -8,8 +8,7 @@ import { openWindow } from '../../lib';
 import { getPinterestShareUrl } from './lib';
 import './PinterestButton.scss';
 
-interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
-    children?: never;
+interface Props extends Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'children'> {
     description?: string;
     image: string;
     url?: string;

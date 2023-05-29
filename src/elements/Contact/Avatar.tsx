@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import type { FunctionComponent, ImgHTMLAttributes } from 'react';
+import type { ImgHTMLAttributes } from 'react';
 
 import { PersonFill } from '../../icons';
 
@@ -8,14 +8,7 @@ interface Props extends Omit<ImgHTMLAttributes<HTMLImageElement>, 'src'> {
     src?: string | null;
 }
 
-export const Avatar: FunctionComponent<Props> = ({
-    alt,
-    className,
-    name,
-    src,
-    title,
-    ...props
-}) => {
+export function Avatar({ alt, className, name, src, title, ...props }: Props) {
     const commonProps = {
         className: classNames('prezly-slate-contact__avatar-image', className),
         title: title || name,
@@ -27,4 +20,4 @@ export const Avatar: FunctionComponent<Props> = ({
             {!src && <PersonFill {...commonProps} />}
         </div>
     );
-};
+}
