@@ -7,7 +7,6 @@ $screen-l: 1200px;
 $screen-xs-max: ($screen-s - 1);
 $screen-s-max: ($screen-m - 1);
 $screen-m-max: ($screen-l - 1);
-
 $spacing-base: 8px;
 $spacing-half: 0.5 * $spacing-base;
 $spacing-1: 1 * $spacing-base;
@@ -16,9 +15,7 @@ $spacing-2: 2 * $spacing-base;
 $spacing-3: 3 * $spacing-base;
 $spacing-4: 4 * $spacing-base;
 $spacing-5: 5 * $spacing-base;
-
 $block-spacing-vertical: $spacing-5;
-
 $color-text: #333;
 $color-text-2: #757777;
 $color-link: #3c91ff;
@@ -26,7 +23,6 @@ $color-link-hover: color.adjust(#3c91ff, $lightness: -8%);
 $color-border: #c4c4c4;
 $color-focus: rgb(0 123 255 / 50%);
 $color-error: #982828;
-
 $color-grey-100: #f4f4f4;
 $color-grey-150: #f3f4f6;
 $color-grey-200: #e5e7eb;
@@ -39,18 +35,13 @@ $color-grey-700: #374151;
 $color-grey-750: #afafaf;
 $color-grey-800: #1f2937;
 $color-grey-900: #757777;
-
 $font-size-xs: 13px;
 $font-size-s: 14px;
 $font-size-m: 16px;
 $font-size-ml: 18px;
 $font-size-l: 24px;
-
 $line-height: 22px;
 $line-height-l: 28px;
-
 $box-shadow: 0 2px 4px 0 rgb(0 0 0 / 4%);
-
 $border-radius-base: 4px;
-
 $focus-state-size: 2px;

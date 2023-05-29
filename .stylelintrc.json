@@ -5,6 +5,6 @@
     "no-descending-specificity": null,
     "max-nesting-depth": null,
     "media-feature-range-notation": null,
-    "function-no-unknown": [true, { "ignoreFunctions": ["color.adjust"] }]
+    "function-no-unknown": [true, { "ignoreFunctions": ["color.adjust", "adjust"] }]
   }
 }
