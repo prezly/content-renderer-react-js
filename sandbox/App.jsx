@@ -1,4 +1,3 @@
-import React from 'react';
 import { Component, Elements, Renderer } from '@prezly/content-renderer-react-js';
 import { StoryBookmarkNode } from '@prezly/story-content-format';
 

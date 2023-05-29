@@ -2,11 +2,12 @@
     "extends": "../tsconfig.json",
     "compilerOptions": {
         "composite": true,
-        "jsx": "preserve",
+        "jsx": "react-jsx",
         "outDir": "./build",
         "rootDir": "./src",
         "allowJs": true,
         "skipLibCheck": true,
+        "emitDeclarationOnly": false,
         "noEmit": true,
         "resolveJsonModule": true,
         "isolatedModules": true,

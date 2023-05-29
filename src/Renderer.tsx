@@ -1,3 +1,4 @@
+import type { Node } from '@prezly/story-content-format';
 import {
     AttachmentNode,
     BookmarkNode,
@@ -13,7 +14,6 @@ import {
     ListItemNode,
     ListItemTextNode,
     ListNode,
-    Node,
     ParagraphNode,
     PlaceholderNode,
     QuoteNode,
@@ -24,13 +24,13 @@ import {
     VariableNode,
     VideoNode,
 } from '@prezly/story-content-format';
-import React, { ComponentType, ReactNode } from 'react';
+import type { ComponentType, ReactNode } from 'react';
 
 import * as Elements from './elements';
 import { applyTransformations } from './lib';
+import { Component, Selector } from './selector';
 import * as Transformations from './transformations';
 import type { Transformation } from './types';
-import { Component, Selector } from './selector';
 
 type Fallback = 'ignore' | 'warning' | 'passthru' | ComponentType<{ node: Node }>;
 
@@ -49,14 +49,20 @@ export function Renderer<N extends Node | Node[]>({
     nodes,
     transformations = Object.values(Transformations),
 }: Props<N>) {
-    const transformedNodes = applyTransformations<Node>(Array.isArray(nodes) ? nodes : [nodes], transformations);
+    const transformedNodes = applyTransformations<Node>(
+        Array.isArray(nodes) ? nodes : [nodes],
+        transformations,
+    );
 
     return (
         <Selector nodes={transformedNodes}>
             {children}
             {defaultComponents && (
                 <>
-                    <Component match={AttachmentNode.isAttachmentNode} component={Elements.Attachment} />
+                    <Component
+                        match={AttachmentNode.isAttachmentNode}
+                        component={Elements.Attachment}
+                    />
                     <Component match={BookmarkNode.isBookmarkNode} component={Elements.Bookmark} />
                     <Component match={ContactNode.isContactNode} component={Elements.Contact} />
                     <Component match={DividerNode.isDividerNode} component={Elements.Divider} />
@@ -69,16 +75,28 @@ export function Renderer<N extends Node | Node[]>({
                     <Component match={LinkNode.isLinkNode} component={Elements.Link} />
                     <Component match={ListNode.isListNode} component={Elements.List} />
                     <Component match={ListItemNode.isListItemNode} component={Elements.ListItem} />
-                    <Component match={ListItemTextNode.isListItemTextNode} component={Elements.ListItemText} />
-                    <Component match={ParagraphNode.isParagraphNode} component={Elements.Paragraph} />
-                    <Component match={PlaceholderNode.isPlaceholderNode} component={Elements.Ignore} />
+                    <Component
+                        match={ListItemTextNode.isListItemTextNode}
+                        component={Elements.ListItemText}
+                    />
+                    <Component
+                        match={ParagraphNode.isParagraphNode}
+                        component={Elements.Paragraph}
+                    />
+                    <Component
+                        match={PlaceholderNode.isPlaceholderNode}
+                        component={Elements.Ignore}
+                    />
                     <Component match={QuoteNode.isQuoteNode} component={Elements.Quote} />
                     <Component match={Text.isText} component={Elements.Text} />
                     <Component match={VariableNode.isVariableNode} component={Elements.Variable} />
                     <Component match={VideoNode.isVideoNode} component={Elements.Video} />
                     <Component match={TableNode.isTableNode} component={Elements.Table} />
                     <Component match={TableRowNode.isTableRowNode} component={Elements.TableRow} />
-                    <Component match={TableCellNode.isTableCellNode} component={Elements.TableCell} />
+                    <Component
+                        match={TableCellNode.isTableCellNode}
+                        component={Elements.TableCell}
+                    />
                 </>
             )}
             <Component match={isAnyNode} component={fallback(defaultFallback)} />

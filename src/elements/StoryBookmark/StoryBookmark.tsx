@@ -1,6 +1,5 @@
 import type { OEmbedInfo } from '@prezly/sdk';
 import type { StoryBookmarkNode } from '@prezly/story-content-format';
-import React from 'react';
 
 import { BookmarkCard } from '../../components';
 

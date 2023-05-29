@@ -1,5 +1,5 @@
 import type { HtmlNode } from '@prezly/story-content-format';
-import React, { HTMLAttributes } from 'react';
+import type { HTMLAttributes } from 'react';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
     node: HtmlNode;

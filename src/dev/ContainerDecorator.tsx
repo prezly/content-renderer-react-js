@@ -1,4 +1,3 @@
-import React from 'react';
 import type { StoryDecoratorArg } from './types';
 
 export function ContainerDecorator<T>(Story: StoryDecoratorArg<T>) {

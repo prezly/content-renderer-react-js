@@ -1,8 +1,8 @@
 import { useMeasure } from '@react-hookz/web';
 import classNames from 'classnames';
-import React, { ButtonHTMLAttributes, FunctionComponent } from 'react';
+import type { ButtonHTMLAttributes, FunctionComponent } from 'react';
 
-import { MultilineEllipsis } from '../../components';
+import { MultilineEllipsis } from '..';
 import { ArrowsAngleExpand } from '../../icons';
 
 import './Rollover.scss';
@@ -61,7 +61,9 @@ export const Rollover: FunctionComponent<Props> = ({
                     </span>
 
                     <span className="prezly-slate-image-rollover__caption-text" ref={ref}>
-                        <MultilineEllipsis maxHeight={maxHeight}>{caption.trim()}</MultilineEllipsis>
+                        <MultilineEllipsis maxHeight={maxHeight}>
+                            {caption.trim()}
+                        </MultilineEllipsis>
                     </span>
                 </span>
             </span>

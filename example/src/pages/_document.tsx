@@ -1,7 +1,7 @@
 import Document, { Head, Html, Main, NextScript } from 'next/document';
-import React from 'react';
 
 class MyDocument extends Document {
+    // eslint-disable-next-line class-methods-use-this
     render() {
         return (
             <Html lang="en">

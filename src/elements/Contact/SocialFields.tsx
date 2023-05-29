@@ -1,6 +1,6 @@
 import { ContactNode } from '@prezly/story-content-format';
 import classNames from 'classnames';
-import React, { FunctionComponent } from 'react';
+import type { FunctionComponent } from 'react';
 
 import { Envelope, Facebook, Globe, Phone, Telephone, Twitter } from '../../icons';
 
@@ -30,22 +30,34 @@ export const SocialFields: FunctionComponent<Props> = ({ className, contact, lay
                     )}
                 >
                     {email && (
-                        <SocialField className="prezly-slate-social-fields__field" href={getMailtoHref(email)}>
+                        <SocialField
+                            className="prezly-slate-social-fields__field"
+                            href={getMailtoHref(email)}
+                        >
                             {`E. ${email}`}
                         </SocialField>
                     )}
                     {phone && (
-                        <SocialField className="prezly-slate-social-fields__field" href={getTelHref(phone)}>
+                        <SocialField
+                            className="prezly-slate-social-fields__field"
+                            href={getTelHref(phone)}
+                        >
                             {`P. ${phone}`}
                         </SocialField>
                     )}
                     {mobile && (
-                        <SocialField className="prezly-slate-social-fields__field" href={getTelHref(mobile)}>
+                        <SocialField
+                            className="prezly-slate-social-fields__field"
+                            href={getTelHref(mobile)}
+                        >
                             {`M. ${mobile}`}
                         </SocialField>
                     )}
                     {website && (
-                        <SocialField className="prezly-slate-social-fields__field" href={website.toString()}>
+                        <SocialField
+                            className="prezly-slate-social-fields__field"
+                            href={website.toString()}
+                        >
                             {`W. ${website.hostname}`}
                         </SocialField>
                     )}
@@ -79,7 +91,13 @@ export const SocialFields: FunctionComponent<Props> = ({ className, contact, lay
 
     return (
         <>
-            <ul className={classNames('prezly-slate-social-fields', 'prezly-slate-social-fields--card', className)}>
+            <ul
+                className={classNames(
+                    'prezly-slate-social-fields',
+                    'prezly-slate-social-fields--card',
+                    className,
+                )}
+            >
                 {email && (
                     <SocialField
                         className="prezly-slate-social-fields__field"
@@ -99,14 +117,28 @@ export const SocialFields: FunctionComponent<Props> = ({ className, contact, lay
                     </SocialField>
                 )}
                 {mobile && (
-                    <SocialField className="prezly-slate-social-fields__field" href={getTelHref(mobile)} Icon={Phone}>
+                    <SocialField
+                        className="prezly-slate-social-fields__field"
+                        href={getTelHref(mobile)}
+                        Icon={Phone}
+                    >
                         {mobile}
                     </SocialField>
                 )}
             </ul>
-            <ul className={classNames('prezly-slate-social-fields', 'prezly-slate-social-fields--card', className)}>
+            <ul
+                className={classNames(
+                    'prezly-slate-social-fields',
+                    'prezly-slate-social-fields--card',
+                    className,
+                )}
+            >
                 {website && (
-                    <SocialField className="prezly-slate-social-fields__field" href={website.toString()} Icon={Globe}>
+                    <SocialField
+                        className="prezly-slate-social-fields__field"
+                        href={website.toString()}
+                        Icon={Globe}
+                    >
                         {website.hostname}
                     </SocialField>
                 )}

@@ -1,5 +1,7 @@
-import { TableNode, TableCellNode } from '@prezly/story-content-format';
-import React, { useContext, useMemo, createContext, PropsWithChildren } from 'react';
+import type { TableCellNode } from '@prezly/story-content-format';
+import { TableNode } from '@prezly/story-content-format';
+import type { PropsWithChildren } from 'react';
+import { createContext, useContext, useMemo } from 'react';
 
 interface ContextProps {
     isHeaderCell: (cell: TableCellNode) => boolean;
@@ -37,6 +39,7 @@ function isFirstColumn(table: TableNode, cell: TableCellNode): boolean {
 function isHeaderCell(table: TableNode, cell: TableCellNode): boolean {
     return Boolean(
         (table.header?.includes(TableNode.TableHeader.FIRST_ROW) && isFirstRow(table, cell)) ||
-            (table.header?.includes(TableNode.TableHeader.FIRST_COLUMN) && isFirstColumn(table, cell)),
+            (table.header?.includes(TableNode.TableHeader.FIRST_COLUMN) &&
+                isFirstColumn(table, cell)),
     );
 }

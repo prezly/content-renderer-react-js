@@ -1,9 +1,9 @@
-import { PropsWithChildren, useMemo } from 'react';
-import React from 'react';
-import { Link } from '../Link';
+import classNames from 'classnames';
+import type { PropsWithChildren } from 'react';
+import { useMemo } from 'react';
 
 import { isEmptyText, stripTags } from '../../lib';
-import classNames from 'classnames';
+import { Link } from '../Link';
 
 interface DetailsProps {
     id: string;
@@ -46,8 +46,9 @@ export function Details({
                 <Link
                     id={id}
                     className={classNames('prezly-slate-bookmark-card-component__title', {
-                        ['prezly-slate-bookmark-card-component__title--short-title']: isTitleShort,
-                        ['prezly-slate-bookmark-card-component__title--short-description']: isDescriptionShort,
+                        'prezly-slate-bookmark-card-component__title--short-title': isTitleShort,
+                        'prezly-slate-bookmark-card-component__title--short-description':
+                            isDescriptionShort,
                     })}
                     href={href}
                     newTab={newTab}
@@ -59,8 +60,10 @@ export function Details({
             {!isEmptyText(description) && (
                 <div
                     className={classNames('prezly-slate-bookmark-card-component__description', {
-                        ['prezly-slate-bookmark-card-component__description--short-title']: isTitleShort,
-                        ['prezly-slate-bookmark-card-component__description--short-description']: isDescriptionShort,
+                        'prezly-slate-bookmark-card-component__description--short-title':
+                            isTitleShort,
+                        'prezly-slate-bookmark-card-component__description--short-description':
+                            isDescriptionShort,
                     })}
                 >
                     {stripTags(description)}

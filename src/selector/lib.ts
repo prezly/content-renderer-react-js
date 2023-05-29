@@ -1,5 +1,6 @@
 import type { Node } from '@prezly/story-content-format';
-import React, { ComponentType } from 'react';
+import type { ComponentType, ReactNode } from 'react';
+import { Children, Fragment, isValidElement } from 'react';
 
 import { Component } from './Component';
 
@@ -19,19 +20,19 @@ export function invariant(condition: any, message: string): asserts condition {
  * which is usually either a `<Component>` element or an array of them.
  * Used internally by `<Selector>` to create a renderer config from its children.
  */
-export function createComponentsRenderersFromChildren(children: React.ReactNode): ComponentRenderer[] {
-    let renderers: ComponentRenderer[] = [];
+export function createComponentsRenderersFromChildren(children: ReactNode): ComponentRenderer[] {
+    const renderers: ComponentRenderer[] = [];
 
-    React.Children.forEach(children, (element) => {
-        if (!React.isValidElement(element)) {
+    Children.forEach(children, (element) => {
+        if (!isValidElement(element)) {
             // Ignore non-elements. This allows people to more easily
             // inline conditionals in their renderer config.
             return;
         }
 
-        if (element.type === React.Fragment) {
+        if (element.type === Fragment) {
             // Transparently support React.Fragment and its children.
-            renderers.push.apply(renderers, createComponentsRenderersFromChildren(element.props.children));
+            renderers.push(...createComponentsRenderersFromChildren(element.props.children));
             return;
         }
 

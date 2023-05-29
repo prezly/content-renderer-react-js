@@ -1,12 +1,11 @@
 import { StoryBookmarkNode } from '@prezly/story-content-format';
 import type { Meta, Story } from '@storybook/react';
-import React from 'react';
 
+import { Elements } from '../..';
+import * as mock from '../../dev/mocks';
 import { StoryNameDecorator } from '../../dev/StoryNameDecorator';
 import { Renderer } from '../../Renderer';
-import * as mock from '../../dev/mocks';
 import { Component } from '../../selector';
-import { Elements } from '../..';
 
 export default {
     title: 'Elements/StoryBookmark',
@@ -41,7 +40,10 @@ export const VerticalWithThumbnail: Story = () => (
             },
         ]}
     >
-        <Component match={StoryBookmarkNode.isStoryBookmarkNode} component={PreFetchedStoryBookmark} />
+        <Component
+            match={StoryBookmarkNode.isStoryBookmarkNode}
+            component={PreFetchedStoryBookmark}
+        />
     </Renderer>
 );
 
@@ -73,7 +75,10 @@ export const VerticalNewTab: Story = () => (
             },
         ]}
     >
-        <Component match={StoryBookmarkNode.isStoryBookmarkNode} component={PreFetchedStoryBookmark} />
+        <Component
+            match={StoryBookmarkNode.isStoryBookmarkNode}
+            component={PreFetchedStoryBookmark}
+        />
     </Renderer>
 );
 
@@ -105,7 +110,10 @@ export const HorizontalWithThumbnail: Story = () => (
             },
         ]}
     >
-        <Component match={StoryBookmarkNode.isStoryBookmarkNode} component={PreFetchedStoryBookmark} />
+        <Component
+            match={StoryBookmarkNode.isStoryBookmarkNode}
+            component={PreFetchedStoryBookmark}
+        />
     </Renderer>
 );
 
@@ -137,7 +145,10 @@ export const VerticalWithoutThumbnail: Story = () => (
             },
         ]}
     >
-        <Component match={StoryBookmarkNode.isStoryBookmarkNode} component={PreFetchedStoryBookmark} />
+        <Component
+            match={StoryBookmarkNode.isStoryBookmarkNode}
+            component={PreFetchedStoryBookmark}
+        />
     </Renderer>
 );
 
@@ -169,7 +180,10 @@ export const HorizontalWithoutThumbnail: Story = () => (
             },
         ]}
     >
-        <Component match={StoryBookmarkNode.isStoryBookmarkNode} component={PreFetchedStoryBookmark} />
+        <Component
+            match={StoryBookmarkNode.isStoryBookmarkNode}
+            component={PreFetchedStoryBookmark}
+        />
     </Renderer>
 );
 
@@ -317,7 +331,11 @@ function PreFetchedStoryBookmark({ node }: { node: StoryBookmarkNode }) {
     return <Elements.StoryBookmark node={node} storyOEmbedInfo={mock.referencedStory.oembed} />;
 }
 
-function PreFetchedStoryBookmarkWithLongTitleAndShortDescription({ node }: { node: StoryBookmarkNode }) {
+function PreFetchedStoryBookmarkWithLongTitleAndShortDescription({
+    node,
+}: {
+    node: StoryBookmarkNode;
+}) {
     return (
         <Elements.StoryBookmark
             node={node}
@@ -326,7 +344,11 @@ function PreFetchedStoryBookmarkWithLongTitleAndShortDescription({ node }: { nod
     );
 }
 
-function PreFetchedStoryBookmarkWithShortTitleAndLongDescription({ node }: { node: StoryBookmarkNode }) {
+function PreFetchedStoryBookmarkWithShortTitleAndLongDescription({
+    node,
+}: {
+    node: StoryBookmarkNode;
+}) {
     return (
         <Elements.StoryBookmark
             node={node}

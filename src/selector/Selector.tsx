@@ -1,5 +1,5 @@
-import React, { type ReactNode, Fragment } from 'react';
-import { type Node, ComposedElement } from '@prezly/story-content-format';
+import { ComposedElement, type Node } from '@prezly/story-content-format';
+import { Fragment, type ReactNode } from 'react';
 
 import { createComponentsRenderersFromChildren } from './lib';
 
@@ -8,11 +8,11 @@ interface Props {
     children: ReactNode;
 }
 
-export function Selector({ nodes, children }: Props) {
+export function Selector({ nodes: rootNodes, children }: Props) {
     const renderers = createComponentsRenderersFromChildren(children);
 
     function renderNodes(nodes: Node[]): ReactNode {
-        return nodes.map((node, idx) => <Fragment key={idx}>{renderNode(node)}</Fragment>);
+        return nodes.map((node, index) => <Fragment key={index}>{renderNode(node)}</Fragment>);
     }
 
     function renderNode(node: Node) {
@@ -22,8 +22,11 @@ export function Selector({ nodes, children }: Props) {
                     <ComponentRenderer
                         {...extraProps}
                         node={node}
+                        // eslint-disable-next-line react/no-children-prop
                         children={
-                            ComposedElement.isComposedElement(node) ? renderNodes(node.children as Node[]) : undefined
+                            ComposedElement.isComposedElement(node)
+                                ? renderNodes(node.children as Node[])
+                                : undefined
                         }
                     />
                 );
@@ -32,5 +35,5 @@ export function Selector({ nodes, children }: Props) {
         return null;
     }
 
-    return <>{Array.isArray(nodes) ? renderNodes(nodes) : renderNode(nodes)}</>;
+    return <>{Array.isArray(rootNodes) ? renderNodes(rootNodes) : renderNode(rootNodes)}</>;
 }

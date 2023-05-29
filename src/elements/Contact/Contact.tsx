@@ -1,6 +1,6 @@
 import type { ContactNode } from '@prezly/story-content-format';
 import classNames from 'classnames';
-import React, { FunctionComponent, HTMLAttributes } from 'react';
+import type { FunctionComponent, HTMLAttributes } from 'react';
 
 import { Avatar } from './Avatar';
 import './Contact.scss';
@@ -35,7 +35,11 @@ export const Contact: FunctionComponent<Props> = ({ children, className, node, .
                         {jobDescription || <>&nbsp;</>}
                     </div>
 
-                    <SocialFields className="prezly-slate-contact__social-fields" contact={contact} layout={layout} />
+                    <SocialFields
+                        className="prezly-slate-contact__social-fields"
+                        contact={contact}
+                        layout={layout}
+                    />
                 </div>
             </div>
         </div>

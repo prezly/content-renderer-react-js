@@ -1,12 +1,12 @@
 import type { UploadcareImage } from '@prezly/uploadcare';
 import { useEventListener } from '@react-hookz/web';
 import classNames from 'classnames';
-import React, { KeyboardEvent, ReactNode, useEffect } from 'react';
+import type { KeyboardEvent, ReactNode } from 'react';
+import { useEffect } from 'react';
 import Modal from 'react-modal';
 
 import { ChevronLeft, ChevronRight, Close } from '../../icons';
 import { noop } from '../../lib';
-
 import { Media } from '../Media';
 import { PinterestButton } from '../PinterestButton';
 
@@ -41,28 +41,34 @@ export function Lightbox({
     previewImage = defaultPreviewImage,
     title,
 }: Props) {
-    useEventListener(typeof window !== 'undefined' ? window : globalThis, 'keydown', (event: KeyboardEvent) => {
-        if (image === null) {
-            return;
-        }
+    useEventListener(
+        typeof window !== 'undefined' ? window : globalThis,
+        'keydown',
+        (event: KeyboardEvent) => {
+            if (image === null) {
+                return;
+            }
 
-        if (event.key === 'Esc') {
-            onClose();
-        }
+            if (event.key === 'Esc') {
+                onClose();
+            }
 
-        if (event.key === 'ArrowLeft') {
-            onPrevious();
-        }
+            if (event.key === 'ArrowLeft') {
+                onPrevious();
+            }
 
-        if (event.key === 'ArrowRight') {
-            onNext();
-        }
-    });
+            if (event.key === 'ArrowRight') {
+                onNext();
+            }
+        },
+    );
 
     useEffect(() => {
         if (image) {
             onOpen(image);
         }
+        // TODO: Address this. Simply adding `onOpen` to the deps might introduce an infinite loop.
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [image]);
 
     if (typeof window === 'undefined') {
@@ -75,7 +81,11 @@ export function Lightbox({
     }
 
     return (
-        <Modal className={classNames('prezly-slate-lightbox', className)} isOpen onRequestClose={onClose}>
+        <Modal
+            className={classNames('prezly-slate-lightbox', className)}
+            isOpen
+            onRequestClose={onClose}
+        >
             <figure className="prezly-slate-lightbox__figure">
                 <div className="prezly-slate-lightbox__nav">
                     <button
@@ -100,7 +110,11 @@ export function Lightbox({
                 </div>
 
                 <div className="prezly-slate-lightbox__image-container">
-                    <Media className="prezly-slate-lightbox__image" image={previewImage(image)} title={title} />
+                    <Media
+                        className="prezly-slate-lightbox__image"
+                        image={previewImage(image)}
+                        title={title}
+                    />
 
                     <div className="prezly-slate-lightbox__actions">
                         <a
@@ -114,14 +128,22 @@ export function Lightbox({
                             Download
                         </a>
 
-                        <PinterestButton className="prezly-slate-lightbox__pinterest" image={image.downloadUrl} />
+                        <PinterestButton
+                            className="prezly-slate-lightbox__pinterest"
+                            image={image.downloadUrl}
+                        />
                     </div>
                 </div>
 
                 <div className="prezly-slate-lightbox__caption">{children}</div>
             </figure>
 
-            <button className="prezly-slate-lightbox__close" onClick={onClose} type="button" title="Close (Esc)">
+            <button
+                className="prezly-slate-lightbox__close"
+                onClick={onClose}
+                type="button"
+                title="Close (Esc)"
+            >
                 <Close className="prezly-slate-lightbox__close-icon" />
             </button>
         </Modal>

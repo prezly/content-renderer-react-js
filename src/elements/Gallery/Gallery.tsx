@@ -2,7 +2,8 @@ import type { GalleryNode } from '@prezly/story-content-format';
 import { UploadcareImage } from '@prezly/uploadcare';
 import { useMeasure } from '@react-hookz/web';
 import classNames from 'classnames';
-import React, { HTMLAttributes, useMemo } from 'react';
+import type { HTMLAttributes } from 'react';
+import { useMemo } from 'react';
 
 import { Lightbox } from '../../components';
 
@@ -25,14 +26,14 @@ interface Tile {
 
 export function Gallery({ className, node, onImageDownload, onPreviewOpen, ...props }: Props) {
     const [rect, ref] = useMeasure<HTMLDivElement>();
-    const width = rect?.width || DEFAULT_GALLERY_WIDTH_SSR[node.layout];
+    const galleryWidth = rect?.width || DEFAULT_GALLERY_WIDTH_SSR[node.layout];
     const margin = IMAGE_PADDING[node.padding];
     const idealHeight = IMAGE_SIZE[node.thumbnail_size] + 2 * margin;
     const originalImages = useMemo(() => extractImages(node), [node]);
     const calculatedLayout = calculateLayout({
         idealHeight,
         images: originalImages,
-        viewportWidth: width,
+        viewportWidth: galleryWidth,
     });
     const previewImages = calculatedLayout.flatMap((row) =>
         row.map(({ index, width, height }) =>
@@ -109,7 +110,7 @@ function Row(props: {
                         flexBasis: `${(100 * width) / tilesWidth}%`,
                         width: `${(100 * width) / tilesWidth}%`,
                         height: `${(100 * height) / tilesWidth}%`,
-                        margin: margin,
+                        margin,
                     }}
                 />
             ))}
@@ -118,7 +119,9 @@ function Row(props: {
 }
 
 function extractImages(node: GalleryNode): UploadcareImage[] {
-    return node.images.map(({ caption, file }) => UploadcareImage.createFromPrezlyStoragePayload(file, caption));
+    return node.images.map(({ caption, file }) =>
+        UploadcareImage.createFromPrezlyStoragePayload(file, caption),
+    );
 }
 
 /**

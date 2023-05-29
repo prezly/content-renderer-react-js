@@ -1,4 +1,3 @@
-import React from 'react';
 import { normalizeUrl } from '../../lib';
 import { Link } from '../Link';
 
@@ -10,7 +9,9 @@ interface ProviderProps {
 }
 
 export function Provider({ url, providerUrl, providerName, showUrl }: ProviderProps) {
-    const favicon = `https://avatars-cdn.prezly.com/favicon?url=${encodeURIComponent(url)}?ideal_height=32`;
+    const favicon = `https://avatars-cdn.prezly.com/favicon?url=${encodeURIComponent(
+        url,
+    )}?ideal_height=32`;
     const href = showUrl ? url : homepage(providerUrl || url);
     const provider = showUrl ? url : providerName || hostname(providerUrl || url);
 

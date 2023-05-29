@@ -1,6 +1,7 @@
 import type { VideoNode } from '@prezly/story-content-format';
-import React, { FunctionComponent, HTMLAttributes, useState } from 'react';
 import classNames from 'classnames';
+import type { FunctionComponent, HTMLAttributes } from 'react';
+import { useState } from 'react';
 
 import { HtmlInjection } from '../../components';
 import { PlayButton } from '../../icons';
@@ -31,14 +32,22 @@ export const Video: FunctionComponent<Props> = ({ className, node }) => {
                         width={oembed.thumbnail_width}
                         height={oembed.thumbnail_height}
                     />
-                    <PlayButtonOverlay id={`video-${node.uuid}`} href={url} title={node.oembed.title} />
+                    <PlayButtonOverlay
+                        id={`video-${node.uuid}`}
+                        href={url}
+                        title={node.oembed.title}
+                    />
                 </>
             )}
         </div>
     );
 };
 
-const Thumbnail: FunctionComponent<{ src?: string; width?: number; height?: number }> = ({ src, width, height }) => {
+const Thumbnail: FunctionComponent<{ src?: string; width?: number; height?: number }> = ({
+    src,
+    width,
+    height,
+}) => {
     if (!src) {
         return <ThumbnailPlaceholder />;
     }
@@ -51,9 +60,15 @@ const Thumbnail: FunctionComponent<{ src?: string; width?: number; height?: numb
     );
 };
 
-const ThumbnailPlaceholder: FunctionComponent = () => <div className="prezly-slate-video__thumbnail-placeholder" />;
+const ThumbnailPlaceholder: FunctionComponent = () => (
+    <div className="prezly-slate-video__thumbnail-placeholder" />
+);
 
-const PlayButtonOverlay: FunctionComponent<{ id?: string; href: string; title?: string }> = ({ id, href, title }) => (
+const PlayButtonOverlay: FunctionComponent<{ id?: string; href: string; title?: string }> = ({
+    id,
+    href,
+    title,
+}) => (
     <a
         id={id}
         className="prezly-slate-video__play-button-overlay"

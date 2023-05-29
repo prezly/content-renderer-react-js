@@ -1,0 +1,46 @@
+name: Lint
+
+on: push
+
+jobs:
+  run-linters:
+    name: Run Linter checks
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v3
+
+      - name: Cache node modules
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: "**/node_modules"
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install Node.js dependencies
+        run: npm install
+
+      - name: Run ESLint and StyleLint
+        uses: wearerequired/lint-action@v2.3.0
+        env:
+          CI: true
+        with:
+          eslint: true
+          eslint_extensions: "ts,tsx"
+          stylelint: true
+          stylelint_extensions: "scss"

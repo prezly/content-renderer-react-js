@@ -1,4 +1,5 @@
-import { ComposedElement, Node, Text } from '@prezly/story-content-format';
+import type { Node } from '@prezly/story-content-format';
+import { ComposedElement, Text } from '@prezly/story-content-format';
 
 export function stringifyNode(node: Node): string {
     if (Text.isText(node)) {

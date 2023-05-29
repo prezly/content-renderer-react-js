@@ -1,6 +1,6 @@
 import type { ListItemTextNode } from '@prezly/story-content-format';
 import classNames from 'classnames';
-import React, { HTMLAttributes } from 'react';
+import type { HTMLAttributes } from 'react';
 
 import './ListItemText.scss';
 

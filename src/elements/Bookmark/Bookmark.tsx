@@ -1,5 +1,4 @@
 import type { BookmarkNode } from '@prezly/story-content-format';
-import React from 'react';
 
 import { BookmarkCard } from '../../components';
 

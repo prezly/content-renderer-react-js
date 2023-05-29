@@ -1,6 +1,7 @@
 import type { TableNode } from '@prezly/story-content-format';
 import classNames from 'classnames';
-import React, { HTMLAttributes } from 'react';
+import type { HTMLAttributes } from 'react';
+
 import { TableContextProvider } from './TableContext';
 
 interface Props extends HTMLAttributes<HTMLTableElement> {
@@ -12,7 +13,7 @@ export function Table({ children, node }: Props) {
         <TableContextProvider table={node}>
             <table
                 className={classNames('prezly-slate-table', {
-                    ['prezly-slate-table--withBorders']: node.border,
+                    'prezly-slate-table--withBorders': node.border,
                 })}
             >
                 <tbody>{children}</tbody>

@@ -1,5 +1,5 @@
 import type { Node } from '@prezly/story-content-format';
-import React, { CSSProperties } from 'react';
+import type { CSSProperties } from 'react';
 
 import { describeNode } from '../lib';
 

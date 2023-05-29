@@ -1,5 +1,6 @@
 import classNames from 'classnames';
-import React, { AnchorHTMLAttributes, MouseEvent, useCallback } from 'react';
+import type { AnchorHTMLAttributes, MouseEvent } from 'react';
+import { useCallback } from 'react';
 
 import { Pinterest } from '../../icons';
 import { openWindow } from '../../lib';
@@ -31,7 +32,7 @@ export function PinterestButton({ className, description, image, url, onClick, .
                 onClick(event);
             }
         },
-        [onClick],
+        [onClick, pinterestShareUrl],
     );
 
     return (

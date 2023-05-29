@@ -1,4 +1,5 @@
-import React, { HTMLAttributes, ScriptHTMLAttributes, useEffect, useMemo } from 'react';
+import type { HTMLAttributes, ScriptHTMLAttributes } from 'react';
+import { useEffect, useMemo } from 'react';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
     html: string;
@@ -26,16 +27,19 @@ function useScripts(html: Props['html'], onError: Props['onError']) {
 
         const scripts = Array.from(container.getElementsByTagName('script'));
 
-        const scriptsAttributes: ScriptHTMLAttributes<HTMLScriptElement>[] = scripts.map((script) => {
-            return Array.from(script.attributes).reduce((agg, { name, value }) => ({ ...agg, [name]: value }), {});
-        });
+        const attributes: ScriptHTMLAttributes<HTMLScriptElement>[] = scripts.map((script) =>
+            Array.from(script.attributes).reduce(
+                (agg, { name, value }) => ({ ...agg, [name]: value }),
+                {},
+            ),
+        );
 
         scripts.forEach((script) => script.remove());
 
-        const strippedHtml = container.innerHTML;
+        const resultHtml = container.innerHTML;
         container.remove();
 
-        return [strippedHtml, scriptsAttributes];
+        return [resultHtml, attributes];
     }, [html]);
 
     useEffect(() => {
@@ -64,13 +68,16 @@ function useScripts(html: Props['html'], onError: Props['onError']) {
         if (typeof iframely !== 'undefined') {
             iframely.load();
         }
-
-        return;
+        // TODO: Address this. Simply adding `onError` to the deps might introduce an infinite loop.
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [scriptsAttributes]);
 
     return strippedHtml;
 }
 
-function setScriptAttributes(script: HTMLScriptElement, attributes: ScriptHTMLAttributes<HTMLScriptElement>): void {
+function setScriptAttributes(
+    script: HTMLScriptElement,
+    attributes: ScriptHTMLAttributes<HTMLScriptElement>,
+): void {
     Object.entries(attributes).forEach(([name, value]) => script.setAttribute(name, value));
 }

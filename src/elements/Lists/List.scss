@@ -38,6 +38,7 @@
         list-style-type: lower-roman;
     }
 
+    /* stylelint-disable-next-line selector-max-compound-selectors */
     &--numbered &--numbered &--numbered &--numbered {
         list-style-type: decimal;
     }

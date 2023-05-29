@@ -1,5 +1,5 @@
 import type { Node } from '@prezly/story-content-format';
-import React, { type ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 interface Props {
     node: Node;

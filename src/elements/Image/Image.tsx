@@ -1,7 +1,8 @@
 import type { ImageNode } from '@prezly/story-content-format';
 import { UploadcareImage } from '@prezly/uploadcare';
 import classNames from 'classnames';
-import React, { AnchorHTMLAttributes, CSSProperties, HTMLAttributes, useMemo, useState } from 'react';
+import type { AnchorHTMLAttributes, CSSProperties, HTMLAttributes } from 'react';
+import { useMemo, useState } from 'react';
 
 import { Lightbox, Media, Rollover } from '../../components';
 import { stringifyNode } from '../../lib';
@@ -37,6 +38,7 @@ export function Image({ children, className, node, onDownload, onPreviewOpen, ..
     const { file, href, align, layout } = node;
     const isNewTab = node.new_tab ?? true;
     const [isPreviewOpen, setIsPreviewOpen] = useState<boolean>(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     const image = useMemo(() => UploadcareImage.createFromPrezlyStoragePayload(file), [file.uuid]);
     const containerStyle = getContainerStyle(node);
     const handleRolloverClick = () => setIsPreviewOpen(true);

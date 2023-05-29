@@ -1,7 +1,7 @@
+import { useResizeObserver } from '@react-hookz/web';
 import classNames from 'classnames';
 import type { PropsWithChildren } from 'react';
-import React, { useState } from 'react';
-import { useResizeObserver } from '@react-hookz/web';
+import { useState } from 'react';
 
 type Layout = 'horizontal' | 'vertical';
 
@@ -13,7 +13,12 @@ interface ContainerProps {
 
 const HORIZONTAL_LAYOUT_MIN_WIDTH = 480;
 
-export function Container({ defaultLayout, children, className, hasThumbnail }: PropsWithChildren<ContainerProps>) {
+export function Container({
+    defaultLayout,
+    children,
+    className,
+    hasThumbnail,
+}: PropsWithChildren<ContainerProps>) {
     const [cardRef, setCardRef] = useState<HTMLDivElement | null>(null);
     const [isSmallViewport, setSmallViewport] = useState(false);
 
@@ -35,12 +40,16 @@ export function Container({ defaultLayout, children, className, hasThumbnail }: 
         </div>
     );
 }
-function getActualLayout(hasThumbnail: boolean, isSmallViewport: boolean, defaultLayout: Layout): Layout {
+function getActualLayout(
+    hasThumbnail: boolean,
+    isSmallViewport: boolean,
+    defaultLayout: Layout,
+): Layout {
     if (!hasThumbnail) {
         return 'horizontal';
-    } else if (isSmallViewport) {
-        return 'vertical';
-    } else {
-        return defaultLayout;
     }
+    if (isSmallViewport) {
+        return 'vertical';
+    }
+    return defaultLayout;
 }

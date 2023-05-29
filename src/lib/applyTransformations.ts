@@ -1,10 +1,19 @@
-import { type Node, ComposedElement } from '@prezly/story-content-format';
+import { ComposedElement, type Node } from '@prezly/story-content-format';
 
 import type { Transformation } from '../types';
 
-export function applyTransformations<T extends Node>(node: T, transformations: Transformation[]): T | null;
-export function applyTransformations<T extends Node>(node: T[], transformations: Transformation[]): T[];
-export function applyTransformations(input: Node | Node[], transformations: Transformation[]): Node[] | Node | null {
+export function applyTransformations<T extends Node>(
+    node: T,
+    transformations: Transformation[],
+): T | null;
+export function applyTransformations<T extends Node>(
+    node: T[],
+    transformations: Transformation[],
+): T[];
+export function applyTransformations(
+    input: Node | Node[],
+    transformations: Transformation[],
+): Node[] | Node | null {
     if (transformations.length === 0) {
         return input;
     }
@@ -39,6 +48,12 @@ export function applyTransformations(input: Node | Node[], transformations: Tran
     return applyTransformationsWithoutRecursion(input, transformations);
 }
 
-function applyTransformationsWithoutRecursion(node: Node, transformations: Transformation[]): Node | null {
-    return transformations.reduce<Node | null>((result, transform) => (result ? transform(result) : null), node);
+function applyTransformationsWithoutRecursion(
+    node: Node,
+    transformations: Transformation[],
+): Node | null {
+    return transformations.reduce<Node | null>(
+        (result, transform) => (result ? transform(result) : null),
+        node,
+    );
 }
