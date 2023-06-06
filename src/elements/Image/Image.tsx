@@ -43,7 +43,7 @@ export function Image({ children, className, node, onDownload, onPreviewOpen, ..
     const containerStyle = getContainerStyle(node);
     const handleRolloverClick = () => setIsPreviewOpen(true);
     const handleImagePreviewClose = () => setIsPreviewOpen(false);
-    const title = stringifyNode(node);
+    const title = stringifyNode(node).trim();
 
     return (
         <figure
@@ -81,7 +81,7 @@ export function Image({ children, className, node, onDownload, onPreviewOpen, ..
                 </Rollover>
             )}
 
-            <figcaption className="prezly-slate-image__caption">{children}</figcaption>
+            {title && <figcaption className="prezly-slate-image__caption">{children}</figcaption>}
 
             <Lightbox
                 image={isPreviewOpen ? image : null}
