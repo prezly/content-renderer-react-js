@@ -11,7 +11,7 @@ export default () => {
             '@babel/typescript',
             [
                 '@babel/react',
-                { development: isDevelopment, runtime: isDevelopment ? 'automatic' : undefined },
+                { development: isDevelopment, runtime: 'automatic' },
             ],
             '@dr.pogodin/babel-preset-svgr',
             '@babel/env',
