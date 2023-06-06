@@ -9,6 +9,36 @@ export default {
     decorators: [ContainerDecorator, StoryNameDecorator],
 } as Meta;
 
+export const WithoutCaption: Story = () => (
+    <Renderer
+        nodes={[
+            {
+                type: 'image-block',
+                href: '',
+                new_tab: true,
+                align: 'center',
+                layout: 'contained',
+                width: '100%',
+                file: {
+                    version: 2,
+                    uuid: 'cb4879f8-d3ad-4a65-b74f-0afa09c913d5',
+                    filename: 'pumpkin-6000x4000.JPG',
+                    mime_type: 'image/jpeg',
+                    size: 13482898,
+                    original_width: 6000,
+                    original_height: 4000,
+                    effects: [],
+                },
+                children: [
+                    {
+                        text: '',
+                    },
+                ],
+            },
+        ]}
+    />
+);
+
 export const WithCaption: Story = () => (
     <Renderer
         nodes={[

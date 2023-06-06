@@ -1278,6 +1278,28 @@
             "width_factor": "100%",
             "children": [
                 {
+                    "text": ""
+                }
+            ]
+        },
+        {
+            "type": "image-block",
+            "href": "",
+            "file": {
+                "version": 2,
+                "uuid": "cb4879f8-d3ad-4a65-b74f-0afa09c913d5",
+                "filename": "pumpkin-6000x4000.JPG",
+                "mime_type": "image/jpeg",
+                "size": 13482898,
+                "original_width": 6000,
+                "original_height": 4000,
+                "effects": []
+            },
+            "layout": "expanded",
+            "width": "100%",
+            "width_factor": "100%",
+            "children": [
+                {
                     "text": "The software is incredibly user friendly and intuitive. The Prezly team is really quick and always available, which was a huge help during my onboarding. The ability to manage and update contacts, develop content and issue press releases all on one platform is great. This is truly an all-in-one, streamlined PR solution."
                 }
             ]
