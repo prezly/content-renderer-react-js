@@ -1,5 +1,6 @@
 export default () => {
     const isDevelopment = process.env.NODE_ENV === 'development';
+    const isProduction = process.env.NODE_ENV === 'production';
 
     return {
         targets: {
@@ -11,7 +12,7 @@ export default () => {
             '@babel/typescript',
             [
                 '@babel/react',
-                { development: isDevelopment, runtime: 'automatic' },
+                { development: isDevelopment, runtime: isDevelopment || isProduction ? 'automatic' : undefined },
             ],
             '@dr.pogodin/babel-preset-svgr',
             '@babel/env',
