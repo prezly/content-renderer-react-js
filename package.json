@@ -51,6 +51,7 @@
         "prettier": "prettier --check './**/*.(js|ts|tsx|scss)'",
         "prettier:fix": "npm run prettier -- --write --no-list-different",
         "release": "np --test-script='release:check'",
+        "release:preview": "npm run release -- --any-branch --tag preview --no-release-draft",
         "release:check": "npm run clean && npm run build && npm run check",
         "test:with-all-react-versions": "npm run test:with-react-16 && npm run test:with-react-17 && npm run test:with-react-18",
         "test:with-react-16": "REACT_VERSION=16 npm run test:with-react-version",
