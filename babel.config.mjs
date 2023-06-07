@@ -9,10 +9,7 @@ export default () => {
 
         presets: [
             '@babel/typescript',
-            [
-                '@babel/react',
-                { development: isDevelopment, runtime: isDevelopment ? 'automatic' : undefined },
-            ],
+            ['@babel/react', { development: isDevelopment, runtime: 'automatic' }],
             '@dr.pogodin/babel-preset-svgr',
             '@babel/env',
         ],

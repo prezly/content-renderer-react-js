@@ -1,6 +1,6 @@
 {
     "name": "@prezly/content-renderer-react-js",
-    "version": "0.28.3",
+    "version": "0.29.0-0",
     "description": "Render Prezly Content Format documents with React.js",
     "license": "MIT",
     "main": "build/cjs/index.cjs",
@@ -51,14 +51,14 @@
         "prettier": "prettier --check './**/*.(js|ts|tsx|scss)'",
         "prettier:fix": "npm run prettier -- --write --no-list-different",
         "release": "np --test-script='release:check'",
-        "release:check": "npm run build && npm run check",
-        "test:with-all-react-versions": "npm run test:with-react-16 && npm run test:with-react-17 && npm run test:with-react-18",
-        "test:with-react-16": "REACT_VERSION=16 npm run test:with-react-version",
-        "test:with-react-17": "REACT_VERSION=17 npm run test:with-react-version",
+        "release:preview": "npm run release -- --any-branch --tag preview --no-release-draft",
+        "release:check": "npm run clean:build && npm run build && npm run check",
+        "test:with-all-react-versions": "npm run test:with-react-18",
         "test:with-react-18": "REACT_VERSION=18 npm run test:with-react-version",
         "test:with-react-version": "npm run react:uninstall && npm run react:install-version && npm run clean:build && npm run build && npm run test",
         "test": "npm run test:unit && npm run test:build",
-        "test:build": "npm run test:cjs && npm run test:esm && npm run test:styles",
+        "test:build": "npm run test:types && npm run test:cjs && npm run test:esm && npm run test:styles",
+        "test:types": "ls build/types/index.d.ts || (echo 'Missing build/types/index.d.ts file.' && false)",
         "test:styles": "ls build/styles/styles.css || (echo 'Missing build/styles/styles.css file.' && false)",
         "test:cjs": "node build/cjs/index.cjs",
         "test:esm": "node build/esm/index.mjs",
@@ -77,8 +77,8 @@
         "npm": ">=8"
     },
     "peerDependencies": {
-        "react": "16 || 17 || 18",
-        "react-dom": "16 || 17 || 18"
+        "react": "18",
+        "react-dom": "18"
     },
     "dependencies": {
         "@prezly/linear-partition": "^1.0.2",
