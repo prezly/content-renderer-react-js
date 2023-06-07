@@ -53,8 +53,7 @@
         "release": "np --test-script='release:check'",
         "release:preview": "npm run release -- --any-branch --tag preview --no-release-draft",
         "release:check": "npm run clean && npm run build && npm run check",
-        "test:with-all-react-versions": "npm run test:with-react-16 && npm run test:with-react-17 && npm run test:with-react-18",
-        "test:with-react-16": "REACT_VERSION=16 npm run test:with-react-version",
+        "test:with-all-react-versions": "npm run test:with-react-17 && npm run test:with-react-18",
         "test:with-react-17": "REACT_VERSION=17 npm run test:with-react-version",
         "test:with-react-18": "REACT_VERSION=18 npm run test:with-react-version",
         "test:with-react-version": "npm run react:uninstall && npm run react:install-version && npm run clean:build && npm run build && npm run test",
@@ -79,8 +78,8 @@
         "npm": ">=8"
     },
     "peerDependencies": {
-        "react": "16 || 17 || 18",
-        "react-dom": "16 || 17 || 18"
+        "react": "17 || 18",
+        "react-dom": "17 || 18"
     },
     "dependencies": {
         "@prezly/linear-partition": "^1.0.2",
