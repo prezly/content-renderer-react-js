@@ -52,7 +52,7 @@
         "prettier:fix": "npm run prettier -- --write --no-list-different",
         "release": "np --test-script='release:check'",
         "release:preview": "npm run release -- --any-branch --tag preview --no-release-draft",
-        "release:check": "npm run clean && npm run build && npm run check",
+        "release:check": "npm run clean:build && npm run build && npm run check",
         "test:with-all-react-versions": "npm run test:with-react-17 && npm run test:with-react-18",
         "test:with-react-17": "REACT_VERSION=17 npm run test:with-react-version",
         "test:with-react-18": "REACT_VERSION=18 npm run test:with-react-version",
