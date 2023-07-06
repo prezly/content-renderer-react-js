@@ -49,7 +49,10 @@ export function Media({ className, image, style, title }: Props) {
             alt={title}
             className={computedClassName}
             src={image.format().cdnUrl}
-            srcSet={image.srcSet(1200)}
+            srcSet={[image.srcSet(1200), image.srcSet(800), image.srcSet(400)]
+                .filter(Boolean)
+                .join(', ')}
+            sizes={`(max-width: 992px) 800px, (max-width: 576px) 400px, 1200px`}
             style={style}
             title={title}
         />
