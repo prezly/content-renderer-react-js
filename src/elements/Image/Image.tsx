@@ -20,11 +20,7 @@ function getContainerStyle(node: ImageNode): CSSProperties {
         return {};
     }
 
-    const width = `${parseFloat(node.width).toFixed(2)}%`;
-
-    if (width === `${(100).toFixed(2)}%`) {
-        return {};
-    }
+    const width = `${node.file.original_width}px`;
 
     return { width };
 }
