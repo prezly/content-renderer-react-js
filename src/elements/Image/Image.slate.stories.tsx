@@ -123,6 +123,39 @@ export const Width100: Story = () => (
     />
 );
 
+/**
+ * @see https://linear.app/prezly/issue/CARE-2063/image-resized-in-published-story-different-to-editor-option#comment-ee5bbe02
+ */
+export const Width100SmallImage: Story = () => (
+    <Renderer
+        nodes={[
+            {
+                type: 'image-block',
+                href: '',
+                new_tab: true,
+                align: 'left',
+                layout: 'contained',
+                width: '100%',
+                file: {
+                    version: 2,
+                    uuid: 'd0bdf122-a96a-425b-93e8-e3f1a052d413',
+                    filename: 'dog-300x300.jpeg',
+                    mime_type: 'image/jpeg',
+                    size: 30264,
+                    original_width: 150,
+                    original_height: 150,
+                    effects: [],
+                },
+                children: [
+                    {
+                        text: 'Contained 100% width',
+                    },
+                ],
+            },
+        ]}
+    />
+);
+
 export const Width45: Story = () => (
     <Renderer
         nodes={[

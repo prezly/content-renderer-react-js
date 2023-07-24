@@ -20,9 +20,14 @@ function getContainerStyle(node: ImageNode): CSSProperties {
         return {};
     }
 
-    const width = `${node.file.original_width}px`;
+    const maxWidth = `${node.file.original_width}px`;
+    const unit = node.width.slice(-1) === '%' ? '%' : 'px';
 
-    return { width };
+    if (unit === '%' && parseFloat(node.width).toFixed(2) === Number(100).toFixed(2)) {
+        return { maxWidth };
+    }
+
+    return { width: node.width, maxWidth };
 }
 
 const NEW_TAB_ATTRIBUTES: Partial<AnchorHTMLAttributes<HTMLAnchorElement>> = {
@@ -32,14 +37,21 @@ const NEW_TAB_ATTRIBUTES: Partial<AnchorHTMLAttributes<HTMLAnchorElement>> = {
 
 export function Image({ children, className, node, onDownload, onPreviewOpen, ...props }: Props) {
     const { file, href, align, layout } = node;
+
     const isNewTab = node.new_tab ?? true;
+    const title = stringifyNode(node).trim();
+    const containerStyle = getContainerStyle(node);
+
     const [isPreviewOpen, setIsPreviewOpen] = useState<boolean>(false);
     // eslint-disable-next-line react-hooks/exhaustive-deps
     const image = useMemo(() => UploadcareImage.createFromPrezlyStoragePayload(file), [file.uuid]);
-    const containerStyle = getContainerStyle(node);
-    const handleRolloverClick = () => setIsPreviewOpen(true);
-    const handleImagePreviewClose = () => setIsPreviewOpen(false);
-    const title = stringifyNode(node).trim();
+
+    function handleRolloverClick() {
+        setIsPreviewOpen(true);
+    }
+    function handleImagePreviewClose() {
+        setIsPreviewOpen(false);
+    }
 
     return (
         <figure
