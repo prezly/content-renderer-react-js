@@ -17,18 +17,13 @@ $white: #fff;
     line-height: $line-height;
     font-weight: 600;
 
-    &--disabled {
-        opacity: 0.5;
-        cursor: not-allowed;
-    }
-
     &--outlined {
         background-color: $white;
         color: $color-text;
         border: 1px solid $color-border;
     }
 
-    &--fullWidth {
+    &--wide {
         width: auto;
     }
 
