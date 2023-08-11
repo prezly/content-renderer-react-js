@@ -2,6 +2,7 @@ import type { Node } from '@prezly/story-content-format';
 import {
     AttachmentNode,
     BookmarkNode,
+    ButtonBlockNode,
     ContactNode,
     DividerNode,
     DocumentNode,
@@ -62,6 +63,10 @@ export function Renderer<N extends Node | Node[]>({
                     <Component
                         match={AttachmentNode.isAttachmentNode}
                         component={Elements.Attachment}
+                    />
+                    <Component
+                        match={ButtonBlockNode.isButtonBlockNode}
+                        component={Elements.ButtonBlock}
                     />
                     <Component match={BookmarkNode.isBookmarkNode} component={Elements.Bookmark} />
                     <Component match={ContactNode.isContactNode} component={Elements.Contact} />

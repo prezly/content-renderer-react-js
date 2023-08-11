@@ -1,0 +1,41 @@
+@import "styles/variables";
+
+$white: #fff;
+
+.prezly-slate-button-block {
+    display: flex;
+    margin: $block-spacing-vertical 0;
+    align-items: center;
+    justify-content: center;
+    padding: $spacing-1-5 $spacing-2;
+    border-radius: 2 * $border-radius-base;
+    background-color: $color-link;
+    text-decoration: none;
+    color: $white;
+    width: max-content;
+    font-size: $font-size-m;
+    line-height: $line-height;
+    font-weight: 600;
+
+    &--outlined {
+        background-color: $white;
+        color: $color-text;
+        border: 1px solid $color-border;
+    }
+
+    &--wide {
+        width: auto;
+    }
+
+    &--left {
+        margin-right: auto;
+    }
+
+    &--right {
+        margin-left: auto;
+    }
+
+    &--center {
+        margin: $block-spacing-vertical auto;
+    }
+}
