@@ -172,7 +172,7 @@ export const WithRightLayoutButLongText: Story = () => (
     />
 );
 
-export const WithWideLeftButLongText: Story = () => (
+export const WithLeftLayoutButLongText: Story = () => (
     <Renderer
         nodes={[
             {
