@@ -26,17 +26,21 @@ $white: #fff;
 
     &--wide {
         width: auto;
+        text-align: justify;
     }
 
     &--left {
         margin-right: auto;
+        text-align: left;
     }
 
     &--right {
         margin-left: auto;
+        text-align: right;
     }
 
     &--center {
         margin: $block-spacing-vertical auto;
+        text-align: center;
     }
 }
