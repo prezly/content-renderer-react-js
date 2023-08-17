@@ -123,3 +123,67 @@ export const WithoutHref: Story = () => (
         ]}
     />
 );
+
+export const WithCenterLayoutButLongText: Story = () => (
+    <Renderer
+        nodes={[
+            {
+                type: 'button-block',
+                href: 'https://prezly.com',
+                new_tab: true,
+                layout: ButtonBlockNode.Layout.CENTER,
+                uuid: TEST_UUID,
+                label: 'Some long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long text',
+                variant: ButtonBlockNode.Variant.DEFAULT,
+            },
+        ]}
+    />
+);
+
+export const WithWideLayoutButLongText: Story = () => (
+    <Renderer
+        nodes={[
+            {
+                type: 'button-block',
+                href: 'https://prezly.com',
+                new_tab: true,
+                layout: ButtonBlockNode.Layout.WIDE,
+                uuid: TEST_UUID,
+                label: 'Some long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long text',
+                variant: ButtonBlockNode.Variant.DEFAULT,
+            },
+        ]}
+    />
+);
+
+export const WithRightLayoutButLongText: Story = () => (
+    <Renderer
+        nodes={[
+            {
+                type: 'button-block',
+                href: 'https://prezly.com',
+                new_tab: true,
+                layout: ButtonBlockNode.Layout.RIGHT,
+                uuid: TEST_UUID,
+                label: 'Some long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long text',
+                variant: ButtonBlockNode.Variant.DEFAULT,
+            },
+        ]}
+    />
+);
+
+export const WithLeftLayoutButLongText: Story = () => (
+    <Renderer
+        nodes={[
+            {
+                type: 'button-block',
+                href: 'https://prezly.com',
+                new_tab: true,
+                layout: ButtonBlockNode.Layout.LEFT,
+                uuid: TEST_UUID,
+                label: 'Some long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long textSome long text',
+                variant: ButtonBlockNode.Variant.DEFAULT,
+            },
+        ]}
+    />
+);

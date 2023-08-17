@@ -16,6 +16,7 @@ $white: #fff;
     font-size: $font-size-m;
     line-height: $line-height;
     font-weight: 600;
+    max-width: 100%;
 
     &--outlined {
         background-color: $white;
@@ -25,17 +26,21 @@ $white: #fff;
 
     &--wide {
         width: auto;
+        text-align: justify;
     }
 
     &--left {
         margin-right: auto;
+        text-align: left;
     }
 
     &--right {
         margin-left: auto;
+        text-align: right;
     }
 
     &--center {
         margin: $block-spacing-vertical auto;
+        text-align: center;
     }
 }
