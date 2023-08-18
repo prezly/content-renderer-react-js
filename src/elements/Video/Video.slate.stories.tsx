@@ -152,6 +152,10 @@ export const AspectRatio: Story = () => (
     />
 );
 
+AspectRatio.story = {
+    parameters: { loki: { skip: true } },
+};
+
 export const WithoutIframeEmbedCode: Story = () => (
     <Renderer
         nodes={[
@@ -186,6 +190,10 @@ export const WithoutIframeEmbedCode: Story = () => (
     />
 );
 
+WithoutIframeEmbedCode.story = {
+    parameters: { loki: { skip: true } },
+};
+
 export const WithoutThumbnailAndIframeEmbedCode: Story = () => (
     <Renderer
         nodes={[
@@ -217,3 +225,7 @@ export const WithoutThumbnailAndIframeEmbedCode: Story = () => (
         ]}
     />
 );
+
+WithoutThumbnailAndIframeEmbedCode.story = {
+    parameters: { loki: { skip: true } },
+};

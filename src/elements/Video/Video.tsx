@@ -35,6 +35,8 @@ export function Video({ className, node }: Props) {
             {!isHtmlEmbeddedWithErrors && oembed.html ? (
                 <HtmlInjection
                     className={classNames('prezly-slate-video__html', {
+                        'prezly-slate-video__html--contained':
+                            layout === VideoNode.Layout.CONTAINED,
                         'prezly-slate-video__html--expanded': layout === VideoNode.Layout.EXPANDED,
                         'prezly-slate-video__html--full-width':
                             layout === VideoNode.Layout.FULL_WIDTH,
@@ -72,6 +74,8 @@ function Thumbnail({ node }: ThumbnailProps) {
         return (
             <ThumbnailPlaceholder
                 className={classNames({
+                    'prezly-slate-video__thumbnail-placeholder--contained':
+                        layout === VideoNode.Layout.CONTAINED,
                     'prezly-slate-video__thumbnail-placeholder--expanded':
                         layout === VideoNode.Layout.EXPANDED,
                     'prezly-slate-video__thumbnail-placeholder--full-width':
@@ -85,6 +89,7 @@ function Thumbnail({ node }: ThumbnailProps) {
     return (
         <div
             className={classNames('prezly-slate-video__thumbnail', {
+                'prezly-slate-video__thumbnail--contained': layout === VideoNode.Layout.CONTAINED,
                 'prezly-slate-video__thumbnail--expanded': layout === VideoNode.Layout.EXPANDED,
                 'prezly-slate-video__thumbnail--full-width': layout === VideoNode.Layout.FULL_WIDTH,
             })}
