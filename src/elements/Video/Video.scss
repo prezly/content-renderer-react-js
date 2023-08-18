@@ -8,15 +8,17 @@
 
     &__thumbnail,
     &__html {
-        height: 0;
         position: relative;
 
         &--contained {
             margin-left: auto;
             margin-right: auto;
 
-            @include tablet-landscape-down {
-                max-width: 100%;
+            .prezly-slate-image__link,
+            .prezly-slate-image__media,
+            video,
+            img {
+                width: 100%;
             }
         }
 
@@ -44,7 +46,6 @@
     }
 
     &__thumbnail-image {
-        position: absolute;
         inset: 0;
         object-fit: cover;
         width: 100%;

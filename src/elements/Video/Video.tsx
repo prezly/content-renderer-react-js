@@ -12,23 +12,9 @@ interface Props extends Omit<HTMLAttributes<HTMLDivElement>, 'children'> {
     node: VideoNode;
 }
 
-function getContainerStyle(node: VideoNode): CSSProperties {
-    const { thumbnail_height: height, thumbnail_width: width } = node.oembed;
-
-    const paddingBottom = width && height ? `${Math.round((100 * height) / width)}%` : undefined;
-
-    if (node.layout !== 'contained') {
-        return { paddingBottom };
-    }
-
-    return { width: node.oembed.thumbnail_width, paddingBottom };
-}
-
 export function Video({ className, node }: Props) {
     const { oembed, url, layout } = node;
     const [isHtmlEmbeddedWithErrors, setHtmlEmbeddedWithErrors] = useState<boolean>(false);
-
-    const containerStyle = getContainerStyle(node);
 
     return (
         <div className={classNames('prezly-slate-video', className)}>
@@ -44,7 +30,6 @@ export function Video({ className, node }: Props) {
                     id={`video-${node.uuid}`}
                     html={oembed.html}
                     onError={() => setHtmlEmbeddedWithErrors(true)}
-                    style={containerStyle}
                 />
             ) : (
                 <>
@@ -66,9 +51,9 @@ interface ThumbnailProps {
 
 function Thumbnail({ node }: ThumbnailProps) {
     const { layout, oembed } = node;
-    const { url: src } = oembed;
+    const { thumbnail_url: src, thumbnail_height: height, thumbnail_width: width } = oembed;
 
-    const containerStyle = getContainerStyle(node);
+    const paddingBottom = width && height ? `${Math.round((100 * height) / width)}%` : undefined;
 
     if (!src) {
         return (
@@ -81,7 +66,7 @@ function Thumbnail({ node }: ThumbnailProps) {
                     'prezly-slate-video__thumbnail-placeholder--full-width':
                         layout === VideoNode.Layout.FULL_WIDTH,
                 })}
-                style={containerStyle}
+                style={{ paddingBottom }}
             />
         );
     }
@@ -93,7 +78,6 @@ function Thumbnail({ node }: ThumbnailProps) {
                 'prezly-slate-video__thumbnail--expanded': layout === VideoNode.Layout.EXPANDED,
                 'prezly-slate-video__thumbnail--full-width': layout === VideoNode.Layout.FULL_WIDTH,
             })}
-            style={containerStyle}
         >
             <img className="prezly-slate-video__thumbnail-image" src={src} alt="Video thumbnail" />
         </div>
