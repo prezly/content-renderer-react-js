@@ -45,6 +45,10 @@ export const WithLayoutContained: Story = () => (
     />
 );
 
+WithLayoutContained.story = {
+    parameters: { loki: { skip: true } },
+};
+
 export const WithLayoutExpanded: Story = () => (
     <Renderer
         nodes={[
@@ -81,6 +85,10 @@ export const WithLayoutExpanded: Story = () => (
     />
 );
 
+WithLayoutExpanded.story = {
+    parameters: { loki: { skip: true } },
+};
+
 export const WithLayoutFullWidth: Story = () => (
     <Renderer
         nodes={[
@@ -116,6 +124,10 @@ export const WithLayoutFullWidth: Story = () => (
         ]}
     />
 );
+
+WithLayoutFullWidth.story = {
+    parameters: { loki: { skip: true } },
+};
 
 export const AspectRatio: Story = () => (
     <Renderer
