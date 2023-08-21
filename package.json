@@ -1,6 +1,6 @@
 {
     "name": "@prezly/content-renderer-react-js",
-    "version": "0.30.1",
+    "version": "0.31.0",
     "description": "Render Prezly Content Format documents with React.js",
     "license": "MIT",
     "main": "build/cjs/index.cjs",
