@@ -1,6 +1,6 @@
-import type { VideoNode } from '@prezly/story-content-format';
+import { VideoNode } from '@prezly/story-content-format';
 import classNames from 'classnames';
-import type { HTMLAttributes } from 'react';
+import type { CSSProperties, HTMLAttributes } from 'react';
 import { useState } from 'react';
 
 import { HtmlInjection } from '../../components';
@@ -13,24 +13,27 @@ interface Props extends Omit<HTMLAttributes<HTMLDivElement>, 'children'> {
 }
 
 export function Video({ className, node }: Props) {
-    const { oembed, url } = node;
+    const { oembed, url, layout } = node;
     const [isHtmlEmbeddedWithErrors, setHtmlEmbeddedWithErrors] = useState<boolean>(false);
 
     return (
         <div className={classNames('prezly-slate-video', className)}>
             {!isHtmlEmbeddedWithErrors && oembed.html ? (
                 <HtmlInjection
+                    className={classNames('prezly-slate-video__html', {
+                        'prezly-slate-video__html--contained':
+                            layout === VideoNode.Layout.CONTAINED,
+                        'prezly-slate-video__html--expanded': layout === VideoNode.Layout.EXPANDED,
+                        'prezly-slate-video__html--full-width':
+                            layout === VideoNode.Layout.FULL_WIDTH,
+                    })}
                     id={`video-${node.uuid}`}
                     html={oembed.html}
                     onError={() => setHtmlEmbeddedWithErrors(true)}
                 />
             ) : (
                 <>
-                    <Thumbnail
-                        src={oembed.thumbnail_url}
-                        width={oembed.thumbnail_width}
-                        height={oembed.thumbnail_height}
-                    />
+                    <Thumbnail node={node} />
                     <PlayButtonOverlay
                         id={`video-${node.uuid}`}
                         href={url}
@@ -43,26 +46,56 @@ export function Video({ className, node }: Props) {
 }
 
 interface ThumbnailProps {
-    src?: string;
-    width?: number;
-    height?: number;
+    node: VideoNode;
 }
 
-function Thumbnail({ src, width, height }: ThumbnailProps) {
-    if (!src) {
-        return <ThumbnailPlaceholder />;
-    }
+function Thumbnail({ node }: ThumbnailProps) {
+    const { layout, oembed } = node;
+    const { thumbnail_url: src, thumbnail_height: height, thumbnail_width: width } = oembed;
 
     const paddingBottom = width && height ? `${Math.round((100 * height) / width)}%` : undefined;
+
+    if (!src) {
+        return (
+            <ThumbnailPlaceholder
+                className={classNames({
+                    'prezly-slate-video__thumbnail-placeholder--contained':
+                        layout === VideoNode.Layout.CONTAINED,
+                    'prezly-slate-video__thumbnail-placeholder--expanded':
+                        layout === VideoNode.Layout.EXPANDED,
+                    'prezly-slate-video__thumbnail-placeholder--full-width':
+                        layout === VideoNode.Layout.FULL_WIDTH,
+                })}
+                style={{ paddingBottom }}
+            />
+        );
+    }
+
     return (
-        <div className="prezly-slate-video__thumbnail" style={{ paddingBottom }}>
+        <div
+            className={classNames('prezly-slate-video__thumbnail', {
+                'prezly-slate-video__thumbnail--contained': layout === VideoNode.Layout.CONTAINED,
+                'prezly-slate-video__thumbnail--expanded': layout === VideoNode.Layout.EXPANDED,
+                'prezly-slate-video__thumbnail--full-width': layout === VideoNode.Layout.FULL_WIDTH,
+            })}
+        >
             <img className="prezly-slate-video__thumbnail-image" src={src} alt="Video thumbnail" />
         </div>
     );
 }
 
-function ThumbnailPlaceholder() {
-    return <div className="prezly-slate-video__thumbnail-placeholder" />;
+interface ThumbnailPlaceholderProps {
+    className?: string;
+    style?: CSSProperties;
+}
+
+function ThumbnailPlaceholder({ className, style }: ThumbnailPlaceholderProps) {
+    return (
+        <div
+            className={classNames('prezly-slate-video__thumbnail-placeholder', className)}
+            style={style}
+        />
+    );
 }
 
 interface PlayButtonOverlayProps {

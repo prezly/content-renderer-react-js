@@ -6,13 +6,46 @@
     position: relative;
     white-space: normal;
 
-    &__thumbnail {
-        height: 0;
+    &__thumbnail,
+    &__html {
         position: relative;
+
+        &--contained {
+            margin-left: auto;
+            margin-right: auto;
+
+            .prezly-slate-image__link,
+            .prezly-slate-image__media,
+            video,
+            img {
+                width: 100%;
+            }
+        }
+
+        &--expanded {
+            @include media-layout-expanded;
+
+            .prezly-slate-image__link,
+            .prezly-slate-image__media,
+            video,
+            img {
+                width: 100%;
+            }
+        }
+
+        &--full-width {
+            @include media-layout-full-width;
+
+            .prezly-slate-image__link,
+            .prezly-slate-image__media,
+            video,
+            img {
+                width: 100%;
+            }
+        }
     }
 
     &__thumbnail-image {
-        position: absolute;
         inset: 0;
         object-fit: cover;
         width: 100%;
@@ -24,6 +57,37 @@
         background: $color-grey-900;
         padding-bottom: 56%; // 16:9
         opacity: 0.24;
+
+        &--contained {
+            margin-left: auto;
+            margin-right: auto;
+
+            @include tablet-landscape-down {
+                max-width: 100%;
+            }
+        }
+
+        &--expanded {
+            @include media-layout-expanded;
+
+            .prezly-slate-image__link,
+            .prezly-slate-image__media,
+            video,
+            img {
+                width: 100%;
+            }
+        }
+
+        &--full-width {
+            @include media-layout-full-width;
+
+            .prezly-slate-image__link,
+            .prezly-slate-image__media,
+            video,
+            img {
+                width: 100%;
+            }
+        }
     }
 
     &__play-button-overlay {
