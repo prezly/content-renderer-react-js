@@ -1,4 +1,5 @@
-import type { Meta, Story } from '@storybook/react';
+import { EmbedNode } from '@prezly/story-content-format';
+import type { Meta, Story, StoryFn } from '@storybook/react';
 
 import { StoryNameDecorator } from '../../dev/StoryNameDecorator';
 import { Renderer } from '../../Renderer';
@@ -6,16 +7,28 @@ import { Renderer } from '../../Renderer';
 export default {
     title: 'Elements/Embed',
     decorators: [StoryNameDecorator],
+    argTypes: {
+        layout: {
+            control: { type: 'radio' },
+            options: [
+                EmbedNode.Layout.CONTAINED,
+                EmbedNode.Layout.EXPANDED,
+                EmbedNode.Layout.FULL_WIDTH,
+            ],
+            defaultValue: EmbedNode.Layout.CONTAINED as `${EmbedNode.Layout}`,
+            description: 'The specified layout',
+        },
+    },
 } as Meta;
 
-export const VideoEmbedIframe: Story = () => (
+export const VideoEmbedIframe: StoryFn<{ layout: `${EmbedNode.Layout}` }> = ({ layout }) => (
     <Renderer
         nodes={[
             {
                 type: 'paragraph',
                 children: [
                     {
-                        text: 'Video embed (iframe):',
+                        text: `Video iframe embed (${layout} layout):`,
                     },
                 ],
             },
@@ -23,7 +36,7 @@ export const VideoEmbedIframe: Story = () => (
                 type: 'embed',
                 uuid: 'ef4169f6-1189-406c-825a-45c282e71b90',
                 url: 'https://www.youtube.com/watch?v=A5uqY2x25GE',
-                layout: 'contained',
+                layout,
                 oembed: {
                     author_url: 'https://www.youtube.com/channel/UCJ4E393uI8mWRlSqgoeUKKw',
                     cache_age: 86400,
@@ -49,6 +62,9 @@ export const VideoEmbedIframe: Story = () => (
 VideoEmbedIframe.story = {
     parameters: {
         loki: { skip: true },
+    },
+    args: {
+        layout: EmbedNode.Layout.CONTAINED,
     },
 };
 
