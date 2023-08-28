@@ -1,4 +1,4 @@
-import type { EmbedNode } from '@prezly/story-content-format';
+import { EmbedNode } from '@prezly/story-content-format';
 import classNames from 'classnames';
 import type { HTMLAttributes } from 'react';
 
@@ -13,11 +13,19 @@ interface Props extends Omit<HTMLAttributes<HTMLElement>, 'children'> {
 }
 
 export function Embed({ className, node, showAsScreenshot, ...props }: Props) {
-    const { oembed, url } = node;
+    const { oembed, url, layout } = node;
 
     const commonProps = {
         id: `embed-${node.uuid}`,
-        className: classNames('prezly-slate-embed', className),
+        className: classNames(
+            'prezly-slate-embed',
+            {
+                'prezly-slate-embed--contained': layout === EmbedNode.Layout.CONTAINED,
+                'prezly-slate-embed--expanded': layout === EmbedNode.Layout.EXPANDED,
+                'prezly-slate-embed--full-width': layout === EmbedNode.Layout.FULL_WIDTH,
+            },
+            className,
+        ),
         title: oembed.title || url,
         ...props,
     };
