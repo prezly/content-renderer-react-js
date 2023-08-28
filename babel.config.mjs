@@ -1,6 +1,6 @@
 export default (api) => {
     const isDevelopment = process.env.NODE_ENV === 'development';
-    api.cache(isDevelopment);
+    api.cache(false);
 
     return {
         targets: {
