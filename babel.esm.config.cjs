@@ -1,5 +1,5 @@
-export default {
-    extends: './babel.config.mjs',
+module.exports = {
+    extends: './babel.config.cjs',
     targets: {
         esmodules: true,
     },

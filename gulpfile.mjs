@@ -22,8 +22,8 @@ const SASS_MODULES_STYLESHEETS = ['src/**/*.scss', '!src/styles/**/*.scss'];
 const SVG_ICONS = 'src/**/*.svg';
 const TYPESCRIPT_SOURCES = ['src/**/*.{ts,tsx}', '!src/**/*.test.*'];
 
-const createCommonjsCompiler = () => babel({ extends: './babel.commonjs.config.mjs' });
-const createEsmCompiler = () => babel({ extends: './babel.esm.config.mjs' });
+const createCommonjsCompiler = () => babel({ extends: './babel.commonjs.config.cjs' });
+const createEsmCompiler = () => babel({ extends: './babel.esm.config.cjs' });
 
 gulp.task('build:cjs', function () {
     return gulp
