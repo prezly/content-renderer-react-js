@@ -1,3 +1,5 @@
+'use client';
+
 import type { UploadcareImage } from '@prezly/uploadcare';
 import { useEventListener } from '@react-hookz/web';
 import classNames from 'classnames';

@@ -1,3 +1,5 @@
+'use client';
+
 import type { ImageNode } from '@prezly/story-content-format';
 import { UploadcareImage } from '@prezly/uploadcare';
 import classNames from 'classnames';

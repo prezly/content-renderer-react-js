@@ -1,3 +1,5 @@
+'use client';
+
 import { useMeasure } from '@react-hookz/web';
 import classNames from 'classnames';
 import type { ButtonHTMLAttributes } from 'react';

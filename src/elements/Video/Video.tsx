@@ -1,3 +1,5 @@
+'use client';
+
 import { VideoNode } from '@prezly/story-content-format';
 import classNames from 'classnames';
 import type { CSSProperties, HTMLAttributes } from 'react';

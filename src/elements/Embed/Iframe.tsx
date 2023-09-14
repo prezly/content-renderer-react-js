@@ -1,3 +1,5 @@
+'use client';
+
 import classNames from 'classnames';
 import type { HTMLAttributes } from 'react';
 import { useState } from 'react';
