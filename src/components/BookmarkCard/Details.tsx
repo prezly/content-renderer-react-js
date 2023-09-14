@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import type { PropsWithChildren } from 'react';
 import { useMemo } from 'react';
 
-import { isEmptyText, stripTags } from '../../lib';
+import { isEmptyText } from '../../lib';
 import { Link } from '../Link';
 
 interface DetailsProps {
@@ -55,7 +55,7 @@ export function Details({
                     href={href}
                     newTab={newTab}
                 >
-                    {stripTags(title)}
+                    {title}
                 </Link>
             )}
 
@@ -68,7 +68,7 @@ export function Details({
                             isDescriptionShort,
                     })}
                 >
-                    {stripTags(description)}
+                    {description}
                 </div>
             )}
 
