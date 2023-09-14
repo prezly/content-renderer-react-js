@@ -1,5 +1,3 @@
-'use client';
-
 import classNames from 'classnames';
 import type { PropsWithChildren } from 'react';
 import { useMemo } from 'react';
