@@ -40,7 +40,7 @@
         "watch:cjs": "gulp watch:cjs",
         "watch:esm": "gulp watch:esm",
         "watch:sass": "gulp watch:sass",
-        "clean": "npm run clean:build && npm run clean:node_modules && npm run clean:package-lock.json",
+        "clean": "npm run clean:build && npm run clean:package-lock.json && npm run clean:node_modules",
         "clean:build": "rimraf build/",
         "clean:node_modules": "rimraf node_modules/",
         "clean:package-lock.json": "rimraf package-lock.json",
