@@ -1,3 +1,5 @@
+'use client';
+
 import { Component, createRef, memo } from 'react';
 import shave from 'shave';
 

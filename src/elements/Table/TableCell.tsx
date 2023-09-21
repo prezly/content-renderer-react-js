@@ -1,3 +1,5 @@
+'use client';
+
 import type { TableCellNode } from '@prezly/story-content-format';
 import classNames from 'classnames';
 import type { HTMLAttributes } from 'react';

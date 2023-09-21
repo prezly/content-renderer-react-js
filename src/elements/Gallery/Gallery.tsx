@@ -1,3 +1,5 @@
+'use client';
+
 import type { GalleryNode } from '@prezly/story-content-format';
 import { UploadcareImage } from '@prezly/uploadcare';
 import { useMeasure } from '@react-hookz/web';

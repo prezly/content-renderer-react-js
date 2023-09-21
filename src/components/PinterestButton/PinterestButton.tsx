@@ -1,3 +1,5 @@
+'use client';
+
 import classNames from 'classnames';
 import type { AnchorHTMLAttributes, MouseEvent } from 'react';
 import { useCallback } from 'react';

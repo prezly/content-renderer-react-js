@@ -1,3 +1,5 @@
+'use client';
+
 import type { TableCellNode } from '@prezly/story-content-format';
 import { TableNode } from '@prezly/story-content-format';
 import type { PropsWithChildren } from 'react';
