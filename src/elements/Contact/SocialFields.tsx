@@ -1,7 +1,7 @@
 import { ContactNode } from '@prezly/story-content-format';
 import classNames from 'classnames';
 
-import { Envelope, Facebook, Globe, Phone, Telephone, Twitter } from '../../icons';
+import { Envelope, Facebook, Globe, Phone, Telephone, X } from '../../icons';
 
 import { getMailtoHref, getSocialHandles, getTelHref, getUrl } from './lib';
 import { SocialField } from './SocialField';
@@ -80,7 +80,7 @@ export function SocialFields({ className, contact, layout }: Props) {
                         <SocialField
                             className="prezly-slate-social-fields__field"
                             href={`https://twitter.com/${twitter}`}
-                            Icon={Twitter}
+                            Icon={X}
                         />
                     )}
                 </ul>
@@ -154,7 +154,7 @@ export function SocialFields({ className, contact, layout }: Props) {
                     <SocialField
                         className="prezly-slate-social-fields__field"
                         href={`https://twitter.com/${twitter}`}
-                        Icon={Twitter}
+                        Icon={X}
                     >
                         {`@${twitter}`}
                     </SocialField>
