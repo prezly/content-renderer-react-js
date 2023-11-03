@@ -2341,7 +2341,7 @@
                 "mobile": "+1 555 012 751",
                 "name": "Philip Cooper",
                 "phone": "+1 555 991 229",
-                "twitter": "@PhilipCooper",
+                "twitter": "https://twitter.com/PhilipCooper",
                 "website": "https://techcrunch.com/"
             },
             "layout": "card",
@@ -2365,7 +2365,7 @@
                 "mobile": "+1 555 012 751",
                 "name": "Philip Cooper",
                 "phone": "+1 555 991 229",
-                "twitter": "@PhilipCooper",
+                "twitter": "https://x.com/PhilipCooper",
                 "website": "https://techcrunch.com/"
             },
             "layout": "signature",
