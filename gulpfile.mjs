@@ -2,7 +2,7 @@
 import autoprefixer from 'autoprefixer';
 import branch from 'branch-pipe';
 import gulp from 'gulp';
-import * as sassBackend from 'sass';
+import sassBackend from 'sass';
 import { Transform } from 'stream';
 
 // Processors
