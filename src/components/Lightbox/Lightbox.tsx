@@ -133,10 +133,10 @@ export function Lightbox({
                             href={image.downloadUrl}
                             rel="noreferrer noopener"
                             target="_blank"
-                            title="Download"
+                            title="Download full-size"
                             onClick={() => onDownload(image)}
                         >
-                            Download
+                            Download full-size
                         </a>
 
                         <PinterestButton
