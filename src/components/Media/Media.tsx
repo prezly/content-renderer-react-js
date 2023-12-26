@@ -53,6 +53,8 @@ export function Media({ className, image, style, title }: Props) {
                 .filter(Boolean)
                 .join(', ')}
             sizes={`(max-width: 992px) 800px, (max-width: 576px) 400px, 1200px`}
+            width={image.originalWidth}
+            height={image.originalHeight}
             style={style}
             title={title}
         />
