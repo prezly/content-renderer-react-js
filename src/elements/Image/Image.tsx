@@ -13,6 +13,7 @@ import './Image.scss';
 
 interface Props extends HTMLAttributes<HTMLElement> {
     node: ImageNode;
+    sizes?: string;
     onDownload?: (image: UploadcareImage) => void;
     onPreviewOpen?: (image: UploadcareImage) => void;
 }
@@ -37,7 +38,15 @@ const NEW_TAB_ATTRIBUTES: Partial<AnchorHTMLAttributes<HTMLAnchorElement>> = {
     rel: 'noopener noreferrer',
 };
 
-export function Image({ children, className, node, onDownload, onPreviewOpen, ...props }: Props) {
+export function Image({
+    children,
+    className,
+    node,
+    sizes,
+    onDownload,
+    onPreviewOpen,
+    ...props
+}: Props) {
     const { file, href, align, layout } = node;
 
     const isNewTab = node.new_tab ?? true;
@@ -75,7 +84,12 @@ export function Image({ children, className, node, onDownload, onPreviewOpen, ..
                     {...(isNewTab ? NEW_TAB_ATTRIBUTES : {})}
                     style={containerStyle}
                 >
-                    <Media className="prezly-slate-image__media" image={image} title={title} />
+                    <Media
+                        className="prezly-slate-image__media"
+                        image={image}
+                        title={title}
+                        sizes={sizes}
+                    />
                 </a>
             )}
 
@@ -87,7 +101,12 @@ export function Image({ children, className, node, onDownload, onPreviewOpen, ..
                     onClick={handleRolloverClick}
                     style={containerStyle}
                 >
-                    <Media className="prezly-slate-image__media" image={image} title={title} />
+                    <Media
+                        className="prezly-slate-image__media"
+                        image={image}
+                        title={title}
+                        sizes={sizes}
+                    />
                 </Rollover>
             )}
 

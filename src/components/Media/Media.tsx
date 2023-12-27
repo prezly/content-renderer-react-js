@@ -2,6 +2,8 @@ import type { UploadcareImage } from '@prezly/uploadcare';
 import classNames from 'classnames';
 import type { CSSProperties } from 'react';
 
+import { convertSizesToWidths } from './lib';
+
 import './Media.scss';
 
 interface Props {
@@ -9,9 +11,16 @@ interface Props {
     image: UploadcareImage;
     style?: CSSProperties;
     title?: string;
+    sizes?: string;
 }
 
-export function Media({ className, image, style, title }: Props) {
+export function Media({
+    className,
+    image,
+    style,
+    title,
+    sizes = '(max-width: 992px) 800px, (max-width: 576px) 400px, 1200px',
+}: Props) {
     const computedClassName = classNames('prezly-slate-media', className, {
         'prezly-slate-media--image': !image.isGif(),
         'prezly-slate-media--video': image.isGif(),
@@ -49,10 +58,11 @@ export function Media({ className, image, style, title }: Props) {
             alt={title}
             className={computedClassName}
             src={image.format().cdnUrl}
-            srcSet={[image.srcSet(1200), image.srcSet(800), image.srcSet(400)]
+            srcSet={convertSizesToWidths(sizes)
+                .map((width) => image.srcSet(width))
                 .filter(Boolean)
                 .join(', ')}
-            sizes={`(max-width: 992px) 800px, (max-width: 576px) 400px, 1200px`}
+            sizes={sizes}
             width={image.originalWidth}
             height={image.originalHeight}
             style={style}
