@@ -6,6 +6,7 @@
     "main": "build/cjs/index.cjs",
     "module": "build/esm/index.mjs",
     "types": "build/types/index.d.ts",
+    "style": "build/styles/styles.css",
     "exports": {
         ".": {
             "types": "./build/types/index.d.ts",
