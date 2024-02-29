@@ -9,14 +9,14 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16.x]
+        node-version: [18.x]
 
     steps:
       - name: Check out Git repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Cache node modules
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         env:
           cache-name: cache-node-modules
         with:
@@ -28,19 +28,19 @@ jobs:
             ${{ runner.os }}-
 
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
 
       - name: Install Node.js dependencies
         run: npm install
 
-      - name: Run ESLint and StyleLint
+      - name: Run ESLint and Prettier
         uses: wearerequired/lint-action@v2.3.0
         env:
           CI: true
         with:
           eslint: true
           eslint_extensions: "ts,tsx"
-          stylelint: true
-          stylelint_extensions: "scss"
+          prettier: true
+          prettier_extensions: "js,ts,tsx,scss"
