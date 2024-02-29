@@ -35,12 +35,12 @@ jobs:
       - name: Install Node.js dependencies
         run: npm install
 
-      - name: Run ESLint and StyleLint
+      - name: Run ESLint and Prettier
         uses: wearerequired/lint-action@v2.3.0
         env:
           CI: true
         with:
           eslint: true
           eslint_extensions: "ts,tsx"
-          stylelint: true
-          stylelint_extensions: "scss"
+          prettier: true
+          prettier_extensions: "js,ts,tsx,scss"
