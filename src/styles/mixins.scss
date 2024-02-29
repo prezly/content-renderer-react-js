@@ -77,7 +77,9 @@
     outline: none;
     border-color: #80bdff;
     box-shadow: 0 0 0 $focus-state-size $color-focus;
-    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    transition:
+        border-color ease-in-out 0.15s,
+        box-shadow ease-in-out 0.15s;
 }
 
 // Make a block expand outside the story.
