@@ -10,9 +10,10 @@ import './IframelyEmbed.scss';
 
 interface Props extends Omit<HTMLAttributes<HTMLElement>, 'children' | 'onError'> {
     html: string;
+    onPlay?: () => void;
 }
 
-export function Iframe({ className, html, ...attrs }: Props) {
+export function Iframe({ className, html, onPlay, ...attrs }: Props) {
     const [hasError, setHasError] = useState<boolean>(false);
 
     return (
@@ -23,6 +24,7 @@ export function Iframe({ className, html, ...attrs }: Props) {
             html={html}
             {...attrs}
             onError={() => setHasError(true)}
+            onPlay={onPlay}
         />
     );
 }

@@ -12,9 +12,10 @@ import './Video.scss';
 
 interface Props extends Omit<HTMLAttributes<HTMLDivElement>, 'children'> {
     node: VideoNode;
+    onPlay?: () => void;
 }
 
-export function Video({ className, node }: Props) {
+export function Video({ className, node, onPlay }: Props) {
     const { oembed, url, layout } = node;
     const [isHtmlEmbeddedWithErrors, setHtmlEmbeddedWithErrors] = useState<boolean>(false);
 
@@ -32,6 +33,7 @@ export function Video({ className, node }: Props) {
                     id={`video-${node.uuid}`}
                     html={oembed.html}
                     onError={() => setHtmlEmbeddedWithErrors(true)}
+                    onPlay={onPlay}
                 />
             ) : (
                 <>

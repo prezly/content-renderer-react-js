@@ -1,21 +1,41 @@
 'use client';
 
+import playerjs from 'player.js';
 import type { HTMLAttributes, ScriptHTMLAttributes } from 'react';
-import { useEffect, useMemo } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
+
+import { noop } from '../lib';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
     html: string;
     onError: () => void;
+    onPlay?: () => void;
 }
 
 const IFRAMELY_EMBED_SCRIPT_SRC = '//cdn.iframe.ly/embed.js';
 
 export function HtmlInjection(props: Props) {
-    const { html, onError, ...attrs } = props;
+    const { html, onError, onPlay = noop, onPlayCapture, ...attrs } = props;
+    const containerRef = useRef<HTMLDivElement>(null);
 
     const strippedHtml = useScripts(html, onError);
 
-    return <div {...attrs} dangerouslySetInnerHTML={{ __html: strippedHtml }} />;
+    useEffect(() => {
+        if (!containerRef.current) {
+            return;
+        }
+
+        const iframes = Array.from(containerRef.current.getElementsByTagName('iframe'));
+        iframes.forEach((iframe) => {
+            iframe.addEventListener('load', () => {
+                const player = new playerjs.Player(iframe);
+                player.on('play', onPlay);
+            });
+        });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    return <div {...attrs} dangerouslySetInnerHTML={{ __html: strippedHtml }} ref={containerRef} />;
 }
 
 function useScripts(html: Props['html'], onError: Props['onError']) {
