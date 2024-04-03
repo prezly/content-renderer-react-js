@@ -1,6 +1,5 @@
 'use client';
 
-import playerjs from 'player.js';
 import type { HTMLAttributes, ScriptHTMLAttributes } from 'react';
 import { useEffect, useMemo, useRef } from 'react';
 
@@ -25,11 +24,13 @@ export function HtmlInjection(props: Props) {
             return;
         }
 
-        const iframes = Array.from(containerRef.current.getElementsByTagName('iframe'));
-        iframes.forEach((iframe) => {
-            iframe.addEventListener('load', () => {
-                const player = new playerjs.Player(iframe);
-                player.on('play', onPlay);
+        import('player.js').then((playerjs) => {
+            const iframes = Array.from(containerRef.current?.getElementsByTagName('iframe') ?? []);
+            iframes.forEach((iframe) => {
+                iframe.addEventListener('load', () => {
+                    const player = new playerjs.Player(iframe);
+                    player.on('play', onPlay);
+                });
             });
         });
         // eslint-disable-next-line react-hooks/exhaustive-deps
