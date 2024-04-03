@@ -15,7 +15,7 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 const IFRAMELY_EMBED_SCRIPT_SRC = '//cdn.iframe.ly/embed.js';
 
 export function HtmlInjection(props: Props) {
-    const { html, onError, onPlay = noop, onPlayCapture, ...attrs } = props;
+    const { html, onError, onPlay = noop, ...attrs } = props;
     const containerRef = useRef<HTMLDivElement>(null);
 
     const strippedHtml = useScripts(html, onError);
