@@ -3,16 +3,18 @@ import classNames from 'classnames';
 import type { HTMLAttributes } from 'react';
 
 import './Embed.scss';
+
 import { Iframe } from './Iframe';
 import { LinkEmbed } from './LinkEmbed';
 import { ScreenshotEmbed } from './ScreenshotEmbed';
 
 interface Props extends Omit<HTMLAttributes<HTMLElement>, 'children'> {
     node: EmbedNode;
+    onPlay?: () => void;
     showAsScreenshot?: boolean;
 }
 
-export function Embed({ className, node, showAsScreenshot, ...props }: Props) {
+export function Embed({ className, node, onPlay, showAsScreenshot, ...props }: Props) {
     const { oembed, url, layout } = node;
 
     const commonProps = {
@@ -39,7 +41,7 @@ export function Embed({ className, node, showAsScreenshot, ...props }: Props) {
             {showAsScreenshot ? (
                 <ScreenshotEmbed className="prezly-slate-embed__screenshot" node={node} />
             ) : (
-                <Iframe html={node.oembed.html || ''} />
+                <Iframe html={node.oembed.html || ''} onPlay={onPlay} />
             )}
         </div>
     );

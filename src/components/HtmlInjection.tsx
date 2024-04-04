@@ -1,21 +1,40 @@
 'use client';
 
 import type { HTMLAttributes, ScriptHTMLAttributes } from 'react';
-import { useEffect, useMemo } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
     html: string;
     onError: () => void;
+    onPlay?: () => void;
 }
 
 const IFRAMELY_EMBED_SCRIPT_SRC = '//cdn.iframe.ly/embed.js';
 
 export function HtmlInjection(props: Props) {
-    const { html, onError, ...attrs } = props;
+    const { html, onError, onPlay, ...attrs } = props;
+    const containerRef = useRef<HTMLDivElement>(null);
 
     const strippedHtml = useScripts(html, onError);
 
-    return <div {...attrs} dangerouslySetInnerHTML={{ __html: strippedHtml }} />;
+    useEffect(() => {
+        if (!containerRef.current || !onPlay) {
+            return;
+        }
+
+        import('player.js').then((playerjs) => {
+            const nodes = containerRef.current?.getElementsByTagName('iframe');
+            const iframes = Array.from(nodes ?? []);
+            iframes.forEach((iframe) => {
+                iframe.addEventListener('load', () => {
+                    const player = new playerjs.Player(iframe);
+                    player.on('play', onPlay);
+                });
+            });
+        });
+    }, [onPlay]);
+
+    return <div {...attrs} dangerouslySetInnerHTML={{ __html: strippedHtml }} ref={containerRef} />;
 }
 
 function useScripts(html: Props['html'], onError: Props['onError']) {
