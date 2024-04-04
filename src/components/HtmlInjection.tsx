@@ -3,8 +3,6 @@
 import type { HTMLAttributes, ScriptHTMLAttributes } from 'react';
 import { useEffect, useMemo, useRef } from 'react';
 
-import { noop } from '../lib';
-
 interface Props extends HTMLAttributes<HTMLDivElement> {
     html: string;
     onError: () => void;
@@ -14,18 +12,19 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 const IFRAMELY_EMBED_SCRIPT_SRC = '//cdn.iframe.ly/embed.js';
 
 export function HtmlInjection(props: Props) {
-    const { html, onError, onPlay = noop, ...attrs } = props;
+    const { html, onError, onPlay, ...attrs } = props;
     const containerRef = useRef<HTMLDivElement>(null);
 
     const strippedHtml = useScripts(html, onError);
 
     useEffect(() => {
-        if (!containerRef.current) {
+        if (!containerRef.current || !onPlay) {
             return;
         }
 
         import('player.js').then((playerjs) => {
-            const iframes = Array.from(containerRef.current?.getElementsByTagName('iframe') ?? []);
+            const nodes = containerRef.current?.getElementsByTagName('iframe');
+            const iframes = Array.from(nodes ?? []);
             iframes.forEach((iframe) => {
                 iframe.addEventListener('load', () => {
                     const player = new playerjs.Player(iframe);
@@ -33,8 +32,7 @@ export function HtmlInjection(props: Props) {
                 });
             });
         });
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    }, [onPlay]);
 
     return <div {...attrs} dangerouslySetInnerHTML={{ __html: strippedHtml }} ref={containerRef} />;
 }
