@@ -18,23 +18,25 @@ export function HtmlInjection(props: Props) {
     const strippedHtml = useScripts(html, onError);
 
     useEffect(() => {
-        if (!containerRef.current || !onPlay) {
-            return;
-        }
+        if (containerRef.current) {
+            containerRef.current.innerHTML = strippedHtml;
 
-        import('player.js').then((playerjs) => {
-            const nodes = containerRef.current?.getElementsByTagName('iframe');
-            const iframes = Array.from(nodes ?? []);
-            iframes.forEach((iframe) => {
-                iframe.addEventListener('load', () => {
-                    const player = new playerjs.Player(iframe);
-                    player.on('play', onPlay);
+            if (onPlay) {
+                import('player.js').then((playerjs) => {
+                    const nodes = containerRef.current?.getElementsByTagName('iframe');
+                    const iframes = Array.from(nodes ?? []);
+                    iframes.forEach((iframe) => {
+                        iframe.addEventListener('load', () => {
+                            const player = new playerjs.Player(iframe);
+                            player.on('play', onPlay);
+                        });
+                    });
                 });
-            });
-        });
-    }, [onPlay]);
+            }
+        }
+    }, [onPlay, strippedHtml]);
 
-    return <div {...attrs} dangerouslySetInnerHTML={{ __html: strippedHtml }} ref={containerRef} />;
+    return <div {...attrs} ref={containerRef} />;
 }
 
 function useScripts(html: Props['html'], onError: Props['onError']) {
