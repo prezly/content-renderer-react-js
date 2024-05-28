@@ -1,6 +1,6 @@
 'use client';
 
-import type { HTMLAttributes, ScriptHTMLAttributes } from 'react';
+import type { ForwardedRef, HTMLAttributes, ScriptHTMLAttributes } from 'react';
 import { forwardRef, memo, useEffect, useMemo, useRef } from 'react';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
@@ -38,9 +38,12 @@ export function HtmlInjection(props: Props) {
 }
 
 const MemoHtml = memo(
-    forwardRef(({ html, ...restProps }: any, ref) => (
-        <div ref={ref} {...restProps} dangerouslySetInnerHTML={{ __html: html }} />
-    )),
+    forwardRef(
+        (
+            { html, ...restProps }: HTMLAttributes<HTMLDivElement> & { html: string },
+            ref: ForwardedRef<HTMLDivElement>,
+        ) => <div ref={ref} {...restProps} dangerouslySetInnerHTML={{ __html: html }} />,
+    ),
 );
 
 MemoHtml.displayName = 'MemoHtml';
