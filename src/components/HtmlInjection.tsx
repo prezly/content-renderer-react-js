@@ -1,7 +1,7 @@
 'use client';
 
-import { forwardRef, type HTMLAttributes, type ScriptHTMLAttributes } from 'react';
-import { memo, useEffect, useMemo, useRef } from 'react';
+import type { HTMLAttributes, ScriptHTMLAttributes } from 'react';
+import { forwardRef, memo, useEffect, useMemo, useRef } from 'react';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
     html: string;
