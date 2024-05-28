@@ -1,7 +1,7 @@
 'use client';
 
-import type { HTMLAttributes, ScriptHTMLAttributes } from 'react';
-import { useEffect, useMemo, useRef } from 'react';
+import type { ForwardedRef, HTMLAttributes, ScriptHTMLAttributes } from 'react';
+import { forwardRef, memo, useEffect, useMemo, useRef } from 'react';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
     html: string;
@@ -18,26 +18,35 @@ export function HtmlInjection(props: Props) {
     const strippedHtml = useScripts(html, onError);
 
     useEffect(() => {
-        if (containerRef.current) {
-            containerRef.current.innerHTML = strippedHtml;
-
-            if (onPlay) {
-                import('player.js').then((playerjs) => {
-                    const nodes = containerRef.current?.getElementsByTagName('iframe');
-                    const iframes = Array.from(nodes ?? []);
-                    iframes.forEach((iframe) => {
-                        iframe.addEventListener('load', () => {
-                            const player = new playerjs.Player(iframe);
-                            player.on('play', onPlay);
-                        });
-                    });
-                });
-            }
+        if (!containerRef.current || !onPlay) {
+            return;
         }
+
+        import('player.js').then((playerjs) => {
+            const nodes = containerRef.current?.getElementsByTagName('iframe');
+            const iframes = Array.from(nodes ?? []);
+            iframes.forEach((iframe) => {
+                iframe.addEventListener('load', () => {
+                    const player = new playerjs.Player(iframe);
+                    player.on('play', onPlay);
+                });
+            });
+        });
     }, [onPlay, strippedHtml]);
 
-    return <div {...attrs} ref={containerRef} />;
+    return <MemoHtml ref={containerRef} {...attrs} html={strippedHtml} />;
 }
+
+const MemoHtml = memo(
+    forwardRef(
+        (
+            { html, ...restProps }: HTMLAttributes<HTMLDivElement> & { html: string },
+            ref: ForwardedRef<HTMLDivElement>,
+        ) => <div ref={ref} {...restProps} dangerouslySetInnerHTML={{ __html: html }} />,
+    ),
+);
+
+MemoHtml.displayName = 'MemoHtml';
 
 function useScripts(html: Props['html'], onError: Props['onError']) {
     const [strippedHtml, scriptsAttributes] = useMemo(() => {
