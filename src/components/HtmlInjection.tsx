@@ -87,7 +87,7 @@ function useScripts(html: Props['html'], onError: Props['onError']) {
 
             // Iframely docs advise to insert their embed script before other scripts
             if (attributes.src === IFRAMELY_EMBED_SCRIPT_SRC) {
-                const firstScript = document.body.querySelectorAll('body > script')[0];
+                const firstScript = document.querySelectorAll('body > script')[0];
                 if (firstScript && firstScript.parentNode) {
                     firstScript.parentNode.insertBefore(script, firstScript);
                     return;
