@@ -3,6 +3,7 @@ import {
     AttachmentNode,
     BookmarkNode,
     ButtonBlockNode,
+    CalloutNode,
     ContactNode,
     DividerNode,
     DocumentNode,
@@ -69,6 +70,7 @@ export function Renderer<N extends Node | Node[]>({
                         component={Elements.ButtonBlock}
                     />
                     <Component match={BookmarkNode.isBookmarkNode} component={Elements.Bookmark} />
+                    <Component match={CalloutNode.isCalloutNode} component={Elements.Callout} />
                     <Component match={ContactNode.isContactNode} component={Elements.Contact} />
                     <Component match={DividerNode.isDividerNode} component={Elements.Divider} />
                     <Component match={DocumentNode.isDocumentNode} component={Elements.Document} />
