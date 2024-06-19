@@ -10,7 +10,7 @@ interface Props {
 }
 
 export function Text({ node }: Props) {
-    const { bold, italic, subscript, superscript, text, underlined } = node;
+    const { bold, italic, subscript, superscript, text, underlined, highlighted } = node;
     let children: ReactNode = Text.preserveSoftBreaks(text);
 
     if (bold) {
@@ -33,10 +33,14 @@ export function Text({ node }: Props) {
         children = <u>{children}</u>;
     }
 
+    if (highlighted) {
+        children = <mark>{children}</mark>;
+    }
+
     return <>{children}</>;
 }
 
-Text.preserveSoftBreaks = function (text: string): ReactNode {
+Text.preserveSoftBreaks = (text: string): ReactNode => {
     const nodes = text.split(LINE_BREAKS).reduce<ReactNode[]>(
         (result, part, index) =>
             result.length === 0
