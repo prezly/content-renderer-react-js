@@ -1,0 +1,44 @@
+@import "styles/variables";
+
+.prezly-slate-callout {
+    margin: $spacing-2 0;
+
+    color: $color-text;
+    font-weight: 500;
+    font-size: $font-size-m;
+    line-height: $line-height;
+
+    display: flex;
+    flex-direction: row;
+
+    padding: $spacing-3;
+    gap: $spacing-1-5;
+
+    background: rgba($color-link, 0.08);
+    border: 1px solid rgba($color-link, 0.6);
+    border-radius: $spacing-half;
+
+    &[data-icon]::before {
+        content: attr(data-icon);
+        display: block;
+    }
+
+    &--align-left {
+        text-align: left;
+        flex-direction: row;
+    }
+
+    &--align-center {
+        text-align: center;
+        flex-direction: column;
+    }
+
+    &--align-right {
+        text-align: right;
+        flex-direction: row-reverse;
+    }
+
+    > p {
+        margin: 0;
+    }
+}

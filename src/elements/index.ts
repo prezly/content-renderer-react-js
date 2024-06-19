@@ -6,6 +6,7 @@ export { Passthru } from './Passthru';
 export { Attachment } from './Attachment';
 export { Bookmark } from './Bookmark';
 export { ButtonBlock } from './ButtonBlock';
+export { Callout } from './Callout';
 export { Contact } from './Contact';
 export { Divider } from './Divider';
 export { Embed } from './Embed';
