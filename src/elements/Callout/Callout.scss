@@ -1,6 +1,13 @@
 @import "styles/variables";
 
 .prezly-slate-callout {
+    margin: $spacing-2 0;
+
+    color: $color-text;
+    font-weight: 500;
+    font-size: $font-size-m;
+    line-height: $line-height;
+
     display: flex;
     flex-direction: row;
 
