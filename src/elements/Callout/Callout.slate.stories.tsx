@@ -42,7 +42,7 @@ export const RightAligned: Story = () => (
             {
                 type: 'callout',
                 icon: '❌',
-                align: 'center',
+                align: 'right',
                 children: [TEXT],
             },
         ]}
