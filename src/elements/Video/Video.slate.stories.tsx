@@ -168,6 +168,47 @@ AspectRatio.story = {
     parameters: { loki: { skip: true } },
 };
 
+export const VerticalVideo: Story = () => (
+    <Renderer
+        nodes={[
+            {
+                type: 'paragraph',
+                children: [
+                    {
+                        text: 'A vertical video should be centered:',
+                    },
+                ],
+            },
+            {
+                type: 'video',
+                children: [{ text: '' }],
+                uuid: '65b87d4c-6c31-437d-9ea0-0c49ce46bf97',
+                url: 'https://cdn.uc.assets.prezly.com/fd30e0f2-9aea-4cb0-b3ec-0381233f27c3/4040354-sd_360_640_30fps.mp4',
+                oembed: {
+                    cache_age: 86400,
+                    content_length: 2092024,
+                    html: '<div><div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 56.25%;"><iframe data-iframely-url="//cdn.iframe.ly/api/iframe?url=https%3A%2F%2Fcdn.uc.assets.prezly.com%2Ffd30e0f2-9aea-4cb0-b3ec-0381233f27c3%2F4040354-sd_360_640_30fps.mp4&key=8fe6cdec03482ac31f27a6ae8ea2fb3f" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen allow="encrypted-media *;"></iframe></div></div><script async src="//cdn.iframe.ly/embed.js" charset="utf-8"></script>',
+                    screenshot_url:
+                        'https://avatars-cdn.prezly.com/embed/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6ImtleTpzY3IifQ.eyJ0IjoxNzE5MzAyNjkxLCJ1cmwiOiJodHRwczovL2Nkbi51Yy5hc3NldHMucHJlemx5LmNvbS9mZDMwZTBmMi05YWVhLTRjYjAtYjNlYy0wMzgxMjMzZjI3YzMvNDA0MDM1NC1zZF8zNjBfNjQwXzMwZnBzLm1wNCIsInYiOiIxNTgzOTMwNzYwIn0.tLKNL-g4cO5KU4VHpEIM1cbUn9V6DdOI-9rwV_jEWmo',
+                    title: 'cdn.uc.assets.prezly.com/fd30e0f2-9aea-4cb0-b3ec-0381233f27c3/4040354-sd_360_640_30fps.mp4',
+                    type: 'video',
+                    url: 'https://cdn.uc.assets.prezly.com/fd30e0f2-9aea-4cb0-b3ec-0381233f27c3/4040354-sd_360_640_30fps.mp4',
+                    version: '1.0',
+                    thumbnail_url:
+                        'https://cdn.uc.assets.prezly.com/6ba4c34e-b44a-4b61-9c38-266c7bb84f0f/',
+                    thumbnail_height: 640,
+                    thumbnail_width: 360,
+                },
+                layout: 'contained',
+            },
+        ]}
+    />
+);
+
+AspectRatio.story = {
+    parameters: { loki: { skip: true } },
+};
+
 export const WithoutIframeEmbedCode: Story = () => (
     <Renderer
         nodes={[
