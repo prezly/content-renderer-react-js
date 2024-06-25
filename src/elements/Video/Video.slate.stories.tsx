@@ -205,7 +205,7 @@ export const VerticalVideo: Story = () => (
     />
 );
 
-AspectRatio.story = {
+VerticalVideo.story = {
     parameters: { loki: { skip: true } },
 };
 
