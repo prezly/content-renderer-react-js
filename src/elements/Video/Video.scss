@@ -43,6 +43,11 @@
                 width: 100%;
             }
         }
+
+        > *:only-child {
+            margin-left: auto;
+            margin-right: auto;
+        }
     }
 
     &__thumbnail-image {
