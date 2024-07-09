@@ -31,11 +31,13 @@ export function useTableContext() {
 }
 
 function isFirstRow(table: TableNode, cell: TableCellNode): boolean {
-    return table.children[0]?.children.includes(cell);
+    return table.children[0]?.children.some(
+        (node) => JSON.stringify(node) === JSON.stringify(cell),
+    );
 }
 
 function isFirstColumn(table: TableNode, cell: TableCellNode): boolean {
-    return table.children.some((row) => row.children[0] === cell);
+    return table.children.some((row) => JSON.stringify(row.children[0]) === JSON.stringify(cell));
 }
 
 function isHeaderCell(table: TableNode, cell: TableCellNode): boolean {
