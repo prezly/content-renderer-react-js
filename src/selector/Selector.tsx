@@ -1,5 +1,5 @@
 import { ComposedElement, type Node } from '@prezly/story-content-format';
-import { Fragment, type ReactNode } from 'react';
+import type { Key, ReactNode } from 'react';
 
 import { createComponentsRenderersFromChildren } from './lib';
 
@@ -12,15 +12,16 @@ export function Selector({ nodes: rootNodes, children }: Props) {
     const renderers = createComponentsRenderersFromChildren(children);
 
     function renderNodes(nodes: Node[]): ReactNode {
-        return nodes.map((node, index) => <Fragment key={index}>{renderNode(node)}</Fragment>);
+        return nodes.map((node, index) => renderNode(node, index));
     }
 
-    function renderNode(node: Node) {
+    function renderNode(node: Node, key?: Key) {
         for (const { match, component: ComponentRenderer, ...extraProps } of renderers) {
             if (match(node)) {
                 return (
                     <ComponentRenderer
                         {...extraProps}
+                        key={key}
                         node={node}
                         // eslint-disable-next-line react/no-children-prop
                         children={

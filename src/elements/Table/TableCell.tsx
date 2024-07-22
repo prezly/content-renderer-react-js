@@ -1,26 +1,14 @@
-'use client';
-
 import type { TableCellNode } from '@prezly/story-content-format';
 import classNames from 'classnames';
 import type { HTMLAttributes } from 'react';
-import { useMemo } from 'react';
-
-import { useTableContext } from './TableContext';
 
 interface Props extends HTMLAttributes<HTMLTableCellElement> {
+    isHeader?: (node: TableCellNode) => boolean;
     node: TableCellNode;
 }
 
-export function TableCell({ children, node }: Props) {
-    const ctx = useTableContext();
-
-    if (!ctx) {
-        // eslint-disable-next-line no-console
-        console.warn(`${TableCell.name} requires wrapping in TableContext.`);
-    }
-
-    const isHeaderCell = useMemo(() => ctx?.isHeaderCell(node), [node, ctx]);
-
+export function TableCell({ children, isHeader, node }: Props) {
+    const isHeaderCell = isHeader?.(node);
     const Cell = isHeaderCell ? 'th' : 'td';
 
     return (
