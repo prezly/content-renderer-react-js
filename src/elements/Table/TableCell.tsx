@@ -1,32 +1,18 @@
-'use client';
-
 import type { TableCellNode } from '@prezly/story-content-format';
 import classNames from 'classnames';
 import type { HTMLAttributes } from 'react';
-import { useMemo } from 'react';
-
-import { useTableContext } from './TableContext';
 
 interface Props extends HTMLAttributes<HTMLTableCellElement> {
-    node: TableCellNode;
+    node: TableCell.Node;
 }
 
 export function TableCell({ children, node }: Props) {
-    const ctx = useTableContext();
-
-    if (!ctx) {
-        // eslint-disable-next-line no-console
-        console.warn(`${TableCell.name} requires wrapping in TableContext.`);
-    }
-
-    const isHeaderCell = useMemo(() => ctx?.isHeaderCell(node), [node, ctx]);
-
-    const Cell = isHeaderCell ? 'th' : 'td';
+    const Cell = node.isHeader ? 'th' : 'td';
 
     return (
         <Cell
             className={classNames('prezly-slate-table-cell', {
-                'prezly-slate-table-cell--header': isHeaderCell,
+                'prezly-slate-table-cell--header': node.isHeader,
             })}
             colSpan={node.colspan}
             rowSpan={node.rowspan}
@@ -34,4 +20,8 @@ export function TableCell({ children, node }: Props) {
             {children}
         </Cell>
     );
+}
+
+export namespace TableCell {
+    export type Node = TableCellNode & { isHeader: boolean };
 }
