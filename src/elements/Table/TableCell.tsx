@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import type { HTMLAttributes } from 'react';
 
 interface Props extends HTMLAttributes<HTMLTableCellElement> {
-    node: TableCellNode & { isHeader?: boolean };
+    node: TableCell.Node;
 }
 
 export function TableCell({ children, node }: Props) {
@@ -20,4 +20,8 @@ export function TableCell({ children, node }: Props) {
             {children}
         </Cell>
     );
+}
+
+export namespace TableCell {
+    export type Node = TableCellNode & { isHeader: boolean };
 }

@@ -100,10 +100,7 @@ export function Renderer<N extends Node | Node[]>({
                     <Component match={VideoNode.isVideoNode} component={Elements.Video} />
                     <Component match={TableNode.isTableNode} component={Elements.Table} />
                     <Component match={TableRowNode.isTableRowNode} component={Elements.TableRow} />
-                    <Component
-                        match={TableCellNode.isTableCellNode}
-                        component={Elements.TableCell}
-                    />
+                    <Component match={isTableCellNode} component={Elements.TableCell} />
                 </>
             )}
             <Component match={isAnyNode} component={fallback(defaultFallback)} />
@@ -120,4 +117,8 @@ function fallback(defaultFallback: Fallback): ComponentType<{ node: Node }> {
 
 function isAnyNode(_: Node): _ is Node {
     return true;
+}
+
+function isTableCellNode(node: any): node is Elements.TableCell.Node {
+    return TableCellNode.isTableCellNode(node);
 }
