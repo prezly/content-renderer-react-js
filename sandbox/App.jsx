@@ -4,13 +4,25 @@ import { StoryBookmarkNode } from '@prezly/story-content-format';
 import '@prezly/content-renderer-react-js/styles.css';
 
 import './styles.css';
-import story from './story.json';
+import referencedCoverage from './referencedCoverage.json';
 import referencedStory from './referencedStory.json';
+import story from './story.json';
+
+const coverageEntries = {
+    123456: referencedCoverage,
+};
 
 export const App = () => (
     <div className="App">
-        <Renderer nodes={story.children} defaultFallback="warning">
-            <Component match={StoryBookmarkNode.isStoryBookmarkNode} component={PrefetchedStoryBookmark} />
+        <Renderer
+            coverageEntries={coverageEntries}
+            nodes={story.children}
+            defaultFallback="warning"
+        >
+            <Component
+                match={StoryBookmarkNode.isStoryBookmarkNode}
+                component={PrefetchedStoryBookmark}
+            />
         </Renderer>
     </div>
 );

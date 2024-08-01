@@ -2545,6 +2545,106 @@
             "show_thumbnail": false,
             "layout": "horizontal",
             "new_tab": true
+        },
+        {
+            "type": "heading-one",
+            "children": [
+                {
+                    "text": "Coverage"
+                }
+            ]
+        },
+        {
+            "type": "paragraph",
+            "children": [
+                {
+                    "text": "Coverage card with horizontal layout"
+                }
+            ]
+        },
+        {
+            "type": "coverage",
+            "children": [
+                {
+                    "text": ""
+                }
+            ],
+            "coverage": {
+                "id": 123456
+            },
+            "uuid": "fd96d58e-0926-43c7-80af-28a17c8f7f77",
+            "show_thumbnail": false,
+            "layout": "horizontal",
+            "new_tab": true
+        },
+        {
+            "type": "paragraph",
+            "children": [
+                {
+                    "text": "Coverage card with horizontal layout and thumbnail"
+                }
+            ]
+        },
+        {
+            "type": "coverage",
+            "children": [
+                {
+                    "text": ""
+                }
+            ],
+            "coverage": {
+                "id": 123456
+            },
+            "uuid": "fd96d58e-0926-43c7-80af-28a17c8f7f77",
+            "show_thumbnail": true,
+            "layout": "horizontal",
+            "new_tab": true
+        },
+        {
+            "type": "paragraph",
+            "children": [
+                {
+                    "text": "Coverage card with vertical layout"
+                }
+            ]
+        },
+        {
+            "type": "coverage",
+            "children": [
+                {
+                    "text": ""
+                }
+            ],
+            "coverage": {
+                "id": 123456
+            },
+            "uuid": "fd96d58e-0926-43c7-80af-28a17c8f7f77",
+            "show_thumbnail": false,
+            "layout": "horizontal",
+            "new_tab": true
+        },
+        {
+            "type": "paragraph",
+            "children": [
+                {
+                    "text": "Coverage card with vertical layout and thumbnail"
+                }
+            ]
+        },
+        {
+            "type": "coverage",
+            "children": [
+                {
+                    "text": ""
+                }
+            ],
+            "coverage": {
+                "id": 123456
+            },
+            "uuid": "fd96d58e-0926-43c7-80af-28a17c8f7f77",
+            "show_thumbnail": true,
+            "layout": "vertical",
+            "new_tab": true
         }
     ],
     "version": "0.50"

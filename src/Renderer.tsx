@@ -1,3 +1,4 @@
+import type { CoverageEntry } from '@prezly/sdk';
 import type { Node } from '@prezly/story-content-format';
 import {
     AttachmentNode,
@@ -5,6 +6,7 @@ import {
     ButtonBlockNode,
     CalloutNode,
     ContactNode,
+    CoverageNode,
     DividerNode,
     DocumentNode,
     EmbedNode,
@@ -38,23 +40,37 @@ type Fallback = 'ignore' | 'warning' | 'passthru' | ComponentType<{ node: Node }
 
 interface Props<N extends Node | Node[]> {
     children?: ReactNode;
+    coverageEntries?: Record<number, CoverageEntry>;
     defaultComponents?: boolean;
     defaultFallback?: Fallback;
     nodes: N;
+    renderDate?: (date: string) => ReactNode;
     transformations?: Transformation[];
+}
+
+interface RenderProps<T extends Node> {
+    children?: ReactNode;
+    node: T;
 }
 
 export function Renderer<N extends Node | Node[]>({
     children,
+    coverageEntries = {},
     defaultComponents = true,
     defaultFallback = 'warning',
     nodes,
+    renderDate = defaultRenderDate,
     transformations = Object.values(Transformations),
 }: Props<N>) {
     const transformedNodes = applyTransformations<Node>(
         Array.isArray(nodes) ? nodes : [nodes],
         transformations,
     );
+
+    function renderCoverageNode(props: RenderProps<CoverageNode>) {
+        const coverage: CoverageEntry | undefined = coverageEntries[props.node.coverage.id];
+        return <Elements.Coverage coverage={coverage} node={props.node} renderDate={renderDate} />;
+    }
 
     return (
         <Selector nodes={transformedNodes}>
@@ -72,6 +88,7 @@ export function Renderer<N extends Node | Node[]>({
                     <Component match={BookmarkNode.isBookmarkNode} component={Elements.Bookmark} />
                     <Component match={CalloutNode.isCalloutNode} component={Elements.Callout} />
                     <Component match={ContactNode.isContactNode} component={Elements.Contact} />
+                    <Component match={CoverageNode.isCoverageNode} component={renderCoverageNode} />
                     <Component match={DividerNode.isDividerNode} component={Elements.Divider} />
                     <Component match={DocumentNode.isDocumentNode} component={Elements.Document} />
                     <Component match={EmbedNode.isEmbedNode} component={Elements.Embed} />
@@ -113,6 +130,10 @@ function fallback(defaultFallback: Fallback): ComponentType<{ node: Node }> {
     if (defaultFallback === 'passthru') return Elements.Passthru;
     if (defaultFallback === 'warning') return Elements.Unknown;
     return defaultFallback;
+}
+
+function defaultRenderDate(date: string) {
+    return new Date(date).toLocaleDateString();
 }
 
 function isAnyNode(_: Node): _ is Node {
