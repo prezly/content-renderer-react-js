@@ -10,11 +10,19 @@ interface Props {
     className?: string;
     coverage: CoverageEntry;
     layout: 'vertical' | 'horizontal';
+    newTab: boolean;
     renderDate: (date: string) => ReactNode;
     withThumbnail: boolean;
 }
 
-export function CoverageCard({ className, coverage, layout, renderDate, withThumbnail }: Props) {
+export function CoverageCard({
+    className,
+    coverage,
+    layout,
+    newTab,
+    renderDate,
+    withThumbnail,
+}: Props) {
     const imageUrl = getCoverageImageUrl(coverage);
     const href = coverage.attachment_oembed?.url || coverage.url;
     const autoLayout = withThumbnail && imageUrl ? layout : 'horizontal';
@@ -26,10 +34,10 @@ export function CoverageCard({ className, coverage, layout, renderDate, withThum
                 vertical: autoLayout === 'vertical',
             })}
         >
-            {imageUrl && withThumbnail && <Thumbnail src={imageUrl} href={href} />}
+            {imageUrl && withThumbnail && <Thumbnail src={imageUrl} href={href} newTab={newTab} />}
 
             <div className="prezly-slate-coverage-card-component__details">
-                <Title coverage={coverage} href={href} />
+                <Title coverage={coverage} href={href} newTab={newTab} />
 
                 <Description coverage={coverage} />
 
@@ -44,8 +52,8 @@ export function CoverageCard({ className, coverage, layout, renderDate, withThum
     );
 }
 
-function Thumbnail(props: { href: string | null; src: string }) {
-    const { href, src } = props;
+function Thumbnail(props: { href: string | null; newTab: boolean; src: string }) {
+    const { href, newTab, src } = props;
     const Tag = href ? 'a' : 'div';
 
     return (
@@ -53,6 +61,7 @@ function Thumbnail(props: { href: string | null; src: string }) {
             href={href || undefined}
             className="prezly-slate-coverage-card-component__thumbnail"
             style={{ backgroundImage: `url("${src}")` }}
+            target={newTab ? '_blank' : undefined}
         >
             <img
                 className="prezly-slate-coverage-card-component__thumbnail-image"
@@ -63,8 +72,8 @@ function Thumbnail(props: { href: string | null; src: string }) {
     );
 }
 
-function Title(props: { coverage: CoverageEntry; href: string | null }) {
-    const { coverage, href } = props;
+function Title(props: { coverage: CoverageEntry; href: string | null; newTab: boolean }) {
+    const { coverage, href, newTab } = props;
     const title =
         coverage.headline ||
         coverage.attachment_oembed?.title ||
@@ -73,7 +82,11 @@ function Title(props: { coverage: CoverageEntry; href: string | null }) {
     const Tag = href ? 'a' : 'div';
 
     return (
-        <Tag className="prezly-slate-coverage-card-component__title" href={href || undefined}>
+        <Tag
+            className="prezly-slate-coverage-card-component__title"
+            href={href || undefined}
+            target={newTab ? '_blank' : undefined}
+        >
             {title}
         </Tag>
     );

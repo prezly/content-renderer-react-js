@@ -19,6 +19,7 @@ export function Coverage({ coverage, node, renderDate }: Props) {
             className="prezly-slate-coverage"
             coverage={coverage}
             layout={node.layout}
+            newTab={node.new_tab}
             renderDate={renderDate}
             withThumbnail={node.show_thumbnail}
         />
