@@ -9,6 +9,7 @@ import { getCoverageImageUrl } from './getCoverageImageUrl';
 interface Props {
     className?: string;
     coverage: CoverageEntry;
+    id: string;
     layout: 'vertical' | 'horizontal';
     newTab: boolean;
     renderDate: (date: string) => ReactNode;
@@ -18,6 +19,7 @@ interface Props {
 export function CoverageCard({
     className,
     coverage,
+    id,
     layout,
     newTab,
     renderDate,
@@ -37,7 +39,7 @@ export function CoverageCard({
             {imageUrl && withThumbnail && <Thumbnail src={imageUrl} href={href} newTab={newTab} />}
 
             <div className="prezly-slate-coverage-card-component__details">
-                <Title coverage={coverage} href={href} newTab={newTab} />
+                <Title coverage={coverage} href={href} id={id} newTab={newTab} />
 
                 <Description coverage={coverage} />
 
@@ -72,8 +74,13 @@ function Thumbnail(props: { href: string | null; newTab: boolean; src: string })
     );
 }
 
-function Title(props: { coverage: CoverageEntry; href: string | null; newTab: boolean }) {
-    const { coverage, href, newTab } = props;
+function Title(props: {
+    coverage: CoverageEntry;
+    href: string | null;
+    id: string;
+    newTab: boolean;
+}) {
+    const { coverage, href, id, newTab } = props;
     const title =
         coverage.headline ||
         coverage.attachment_oembed?.title ||
@@ -85,6 +92,7 @@ function Title(props: { coverage: CoverageEntry; href: string | null; newTab: bo
         <Tag
             className="prezly-slate-coverage-card-component__title"
             href={href || undefined}
+            id={id}
             target={newTab ? '_blank' : undefined}
         >
             {title}

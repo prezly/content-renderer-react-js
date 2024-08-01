@@ -18,6 +18,7 @@ export function Coverage({ coverage, node, renderDate }: Props) {
         <CoverageCard
             className="prezly-slate-coverage"
             coverage={coverage}
+            id={`coverage-${node.uuid}`}
             layout={node.layout}
             newTab={node.new_tab}
             renderDate={renderDate}
