@@ -1,3 +1,4 @@
+import type { CoverageEntry } from '@prezly/sdk';
 import type { Node } from '@prezly/story-content-format';
 import {
     AttachmentNode,
@@ -5,6 +6,7 @@ import {
     ButtonBlockNode,
     CalloutNode,
     ContactNode,
+    CoverageNode,
     DividerNode,
     DocumentNode,
     EmbedNode,
@@ -38,14 +40,23 @@ type Fallback = 'ignore' | 'warning' | 'passthru' | ComponentType<{ node: Node }
 
 interface Props<N extends Node | Node[]> {
     children?: ReactNode;
+    coverageEntries?: Record<number, CoverageEntry>;
+    dateFormat?: string;
     defaultComponents?: boolean;
     defaultFallback?: Fallback;
     nodes: N;
     transformations?: Transformation[];
 }
 
+interface RenderProps<T extends Node> {
+    children?: ReactNode;
+    node: T;
+}
+
 export function Renderer<N extends Node | Node[]>({
     children,
+    coverageEntries = {},
+    dateFormat = 'DD/MM/YYYY',
     defaultComponents = true,
     defaultFallback = 'warning',
     nodes,
@@ -55,6 +66,11 @@ export function Renderer<N extends Node | Node[]>({
         Array.isArray(nodes) ? nodes : [nodes],
         transformations,
     );
+
+    function renderCoverageNode(props: RenderProps<CoverageNode>) {
+        const coverage: CoverageEntry | undefined = coverageEntries[props.node.coverage.id];
+        return <Elements.Coverage coverage={coverage} dateFormat={dateFormat} node={props.node} />;
+    }
 
     return (
         <Selector nodes={transformedNodes}>
@@ -72,6 +88,7 @@ export function Renderer<N extends Node | Node[]>({
                     <Component match={BookmarkNode.isBookmarkNode} component={Elements.Bookmark} />
                     <Component match={CalloutNode.isCalloutNode} component={Elements.Callout} />
                     <Component match={ContactNode.isContactNode} component={Elements.Contact} />
+                    <Component match={CoverageNode.isCoverageNode} component={renderCoverageNode} />
                     <Component match={DividerNode.isDividerNode} component={Elements.Divider} />
                     <Component match={DocumentNode.isDocumentNode} component={Elements.Document} />
                     <Component match={EmbedNode.isEmbedNode} component={Elements.Embed} />

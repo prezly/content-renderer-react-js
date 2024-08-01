@@ -8,6 +8,7 @@ export { Bookmark } from './Bookmark';
 export { ButtonBlock } from './ButtonBlock';
 export { Callout } from './Callout';
 export { Contact } from './Contact';
+export { Coverage } from './Coverage';
 export { Divider } from './Divider';
 export { Embed } from './Embed';
 export { Gallery } from './Gallery';
