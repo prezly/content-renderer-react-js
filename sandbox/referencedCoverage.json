@@ -1,0 +1,297 @@
+{
+    "uuid": "be074457-33e9-4f8c-81e5-7b17a9af069d",
+    "id": 667566,
+    "display_name": "Public Relations Tactics & Strategy Examples (Anyone Can Do)",
+    "is_deleted": false,
+    "headline": "Public Relations Tactics & Strategy Examples (Anyone Can Do)",
+    "story": null,
+    "newsroom": null,
+    "author_contact": {
+        "id": 12612724,
+        "contact_type": "person",
+        "is_person": true,
+        "is_deleted": false,
+        "salutation": "",
+        "company_name": "Destin Nikolaus",
+        "domain": null,
+        "first_name": "Destin",
+        "last_name": "Nikolaus",
+        "gender": "female",
+        "display_name": "Destin Nikolaus",
+        "avatar_url": "http://avatars-cdn.prezly.test/initials/494fbdccee10ca0252cfa7ade542e52a136a0740a619f53e797dfa1fe6e389e5.svg?bg=%2327ae60&text=DN&v=2",
+        "avatar_image": null,
+        "bio": "",
+        "languages": [
+            {
+                "code": "NL",
+                "locale": "nl",
+                "name": "Dutch",
+                "direction": "ltr"
+            }
+        ],
+        "primary_email": "bernie14@feeney.biz",
+        "emails": [
+            "bernie14@feeney.biz",
+            "rod63@jakubowski.org",
+            "rfriesen@torp.net",
+            "cassie06@hotmail.com",
+            "izaiah64@gmail.com"
+        ],
+        "phone_numbers": [
+            {
+                "type": "tel",
+                "number": "209-304-5821"
+            },
+            {
+                "type": "cell",
+                "number": "+1-870-513-9269"
+            },
+            {
+                "type": "tel",
+                "number": "+1.234.965.5705"
+            },
+            {
+                "type": "cell",
+                "number": "1-773-943-6015"
+            }
+        ],
+        "social": [
+            {
+                "type": "twitter",
+                "username": "camila13"
+            },
+            {
+                "type": "twitter",
+                "username": "lula38"
+            }
+        ],
+        "urls": [],
+        "function_name": "Fitness Trainer",
+        "periodicity": "daily",
+        "medium_types": [
+            "print",
+            "print",
+            "print",
+            "print"
+        ],
+        "address": {
+            "street": "Stark Forge",
+            "number": "",
+            "box": "",
+            "zip": "6771",
+            "city": "Rayshire",
+            "region": "doloremque",
+            "country": "Palestinian Territories"
+        },
+        "address_text": "Stark Forge\n6771 Rayshire\ndoloremque, Palestinian Territories",
+        "engagement_rating": {
+            "stars": 2,
+            "last_diff": 0
+        },
+        "rating": {
+            "stars": 2,
+            "tendency": 0
+        },
+        "coverage_number": 1,
+        "last_coverage_at": "2024-07-24T22:00:00+00:00",
+        "organisations_number": 1,
+        "organisations": [
+            {
+                "id": 12612721,
+                "display_name": "Collins-Kuphal",
+                "links": {
+                    "view": "http://rock.prezly.test/accounts/product-teams-space/contacts/12612721"
+                }
+            }
+        ],
+        "employees_number": 0,
+        "tags": [
+            "business",
+            "innovation",
+            "technology"
+        ],
+        "tag_entities": [
+            {
+                "id": 217558,
+                "name": "business",
+                "group": {
+                    "id": 1,
+                    "name": "beat",
+                    "color": "lime"
+                }
+            },
+            {
+                "id": 217556,
+                "name": "innovation",
+                "group": null
+            },
+            {
+                "id": 217555,
+                "name": "technology",
+                "group": {
+                    "id": 1,
+                    "name": "beat",
+                    "color": "lime"
+                }
+            }
+        ],
+        "is_bounced": false,
+        "is_duplicated": false,
+        "is_unsubscribed": false,
+        "is_unsubscribed_from_all_communications": false,
+        "is_spam_reported": false,
+        "has_enrichments": false,
+        "unsubscribed_newsrooms": [],
+        "newsroom_unsubscribes": [],
+        "duplicate_contacts": [],
+        "last_contacted_at": null,
+        "created_at": "2023-12-13T14:08:49+00:00",
+        "modified_at": "2024-04-29T15:45:05+00:00",
+        "is_demo": false,
+        "stats": {
+            "sent": 0,
+            "delivered": 0,
+            "clicked": 0,
+            "clicked_rate": 0,
+            "opened": 0,
+            "opened_rate": 0
+        },
+        "meta": {
+            "is_unsubscribed": false,
+            "is_bounced": false,
+            "is_duplicated": false
+        },
+        "links": {
+            "api": "http://api.prezly.test/v1/contacts/12612724",
+            "view": "http://rock.prezly.test/accounts/product-teams-space/contacts/12612724",
+            "edit": "http://rock.prezly.test/accounts/product-teams-space/contacts/12612724/edit",
+            "convert": "",
+            "organisations_api": "http://api.prezly.test/v1/contacts/12612724/organisations",
+            "employees_api": "http://api.prezly.test/v1/contacts/12612724/employees",
+            "enrichments_api": "http://api.prezly.test/v2/contacts/12612724/enrichments/relations",
+            "duplicates_api": "http://api.prezly.test/v1/contacts/12612724/duplicates",
+            "data_privacy_requests_api": "http://api.prezly.test/v1/contacts/12612724/data_privacy_requests",
+            "export_personal_data_api": "http://api.prezly.test/v1/contacts/12612724/personal-data-exports"
+        }
+    },
+    "organisation_contact": {
+        "id": 12612721,
+        "contact_type": "organisation",
+        "is_person": false,
+        "is_deleted": false,
+        "salutation": "",
+        "company_name": "Collins-Kuphal",
+        "domain": null,
+        "first_name": "",
+        "last_name": "",
+        "gender": "unspecified",
+        "display_name": "Collins-Kuphal",
+        "avatar_url": "http://avatars-cdn.prezly.test/initials/f8f6602a81b9ba8aac742a8bdd24ad810330aceb5614f42b01b76584c3f073ab.svg?bg=%23f1c40f&text=C&v=2",
+        "avatar_image": null,
+        "bio": "",
+        "languages": [],
+        "primary_email": null,
+        "emails": [],
+        "phone_numbers": [],
+        "social": [],
+        "urls": [],
+        "function_name": "",
+        "periodicity": null,
+        "medium_types": [],
+        "address": {
+            "street": "",
+            "number": "",
+            "box": "",
+            "zip": "",
+            "city": "",
+            "region": "",
+            "country": null
+        },
+        "address_text": "",
+        "engagement_rating": {
+            "stars": 2,
+            "last_diff": 0
+        },
+        "rating": {
+            "stars": 2,
+            "tendency": 0
+        },
+        "coverage_number": 2,
+        "last_coverage_at": "2024-07-24T22:00:00+00:00",
+        "organisations_number": 0,
+        "organisations": [],
+        "employees_number": 2,
+        "tags": [],
+        "tag_entities": [],
+        "is_bounced": false,
+        "is_duplicated": false,
+        "is_unsubscribed": false,
+        "is_unsubscribed_from_all_communications": false,
+        "is_spam_reported": false,
+        "has_enrichments": false,
+        "unsubscribed_newsrooms": [],
+        "newsroom_unsubscribes": [],
+        "duplicate_contacts": [],
+        "last_contacted_at": null,
+        "created_at": "2023-12-13T14:08:13+00:00",
+        "modified_at": "2023-12-13T14:08:13+00:00",
+        "is_demo": false,
+        "stats": {
+            "sent": 0,
+            "delivered": 0,
+            "clicked": 0,
+            "clicked_rate": 0,
+            "opened": 0,
+            "opened_rate": 0
+        },
+        "meta": {
+            "is_unsubscribed": false,
+            "is_bounced": false,
+            "is_duplicated": false
+        },
+        "links": {
+            "api": "http://api.prezly.test/v1/contacts/12612721",
+            "view": "http://rock.prezly.test/accounts/product-teams-space/contacts/12612721",
+            "edit": "http://rock.prezly.test/accounts/product-teams-space/contacts/12612721/edit",
+            "convert": "",
+            "organisations_api": "http://api.prezly.test/v1/contacts/12612721/organisations",
+            "employees_api": "http://api.prezly.test/v1/contacts/12612721/employees",
+            "enrichments_api": "http://api.prezly.test/v2/contacts/12612721/enrichments/relations",
+            "duplicates_api": "http://api.prezly.test/v1/contacts/12612721/duplicates",
+            "data_privacy_requests_api": "http://api.prezly.test/v1/contacts/12612721/data_privacy_requests",
+            "export_personal_data_api": "http://api.prezly.test/v1/contacts/12612721/personal-data-exports"
+        }
+    },
+    "url": "https://www.prezly.com/academy/budget-friendly-pr-tactics",
+    "avatar_url": "https://prezly.imgix.net/https%3A%2F%2Fcdn.uc.assets.prezly.com%2F5da930b6-7db8-4e3d-8ddf-f55e4de5245c%2F-%2Fscale_crop%2F3000x1500%2F-%2Fquality%2Fbest%2F-%2Fformat%2Fpng%2Fopengraphimage.png?w=360&h=360&fit=crop&s=707197f13b04cd0db1071119ae49affb",
+    "view_url": "http://rock.prezly.test/accounts/product-teams-space/coverage?overlay=coverage-667566",
+    "note_content_json": "{\"type\":\"document\",\"children\":[{\"type\":\"paragraph\",\"children\":[{\"text\":\"\"}]}],\"version\":\"0.50\"}",
+    "note_content_html": "<p>&nbsp;</p>",
+    "note_content_text": "  \n",
+    "attachment": null,
+    "attachment_oembed": {
+        "url": "https://www.prezly.com/academy/budget-friendly-pr-tactics",
+        "type": "link",
+        "title": "Public Relations Tactics & Strategy Examples (Anyone Can Do)",
+        "version": "1.0",
+        "cache_age": 86400,
+        "description": "Steal these tactics for your PR and marketing strategy - Let me tell you a secret: you don't have to have advanced degrees in public relations in order to be smart about how you use PR tactics.",
+        "provider_name": "Prezly.com",
+        "thumbnail_url": "https://cdn.uc.assets.prezly.com/5da930b6-7db8-4e3d-8ddf-f55e4de5245c/-/scale_crop/3000x1500/-/quality/best/-/format/png/opengraphimage.png",
+        "thumbnail_width": 3000,
+        "thumbnail_height": 1500
+    },
+    "published_at": "2024-07-24T22:00:00+00:00",
+    "created_at": "2024-07-25T15:45:22+00:00",
+    "updated_at": "2024-07-25T15:45:46+00:00",
+    "edited_at": "2024-07-25T15:45:46+00:00",
+    "type": "online",
+    "country": null,
+    "culture": null,
+    "management_url": null,
+    "provider": null,
+    "fragment_duration": null,
+    "fragment_start_time": null,
+    "fragment_end_time": null,
+    "page": null
+}
