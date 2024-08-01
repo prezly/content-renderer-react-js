@@ -16,7 +16,7 @@ package-lock.json
 pnpm-lock.yaml
 
 # Tests
-coverage/
+/coverage
 storybook-static
 .loki/current
 .loki/difference
