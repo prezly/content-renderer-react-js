@@ -1,5 +1,6 @@
 import type { Contact, CoverageEntry } from '@prezly/sdk';
 import classNames from 'classnames';
+import type { ReactNode } from 'react';
 
 import { formatBytes } from '../../lib';
 
@@ -8,15 +9,12 @@ import { getCoverageImageUrl } from './getCoverageImageUrl';
 interface Props {
     className?: string;
     coverage: CoverageEntry;
-    /**
-     * Moment.js-compatible format
-     */
-    dateFormat: string;
     layout: 'vertical' | 'horizontal';
+    renderDate: (date: string) => ReactNode;
     withThumbnail: boolean;
 }
 
-export function CoverageCard({ className, coverage, dateFormat, layout, withThumbnail }: Props) {
+export function CoverageCard({ className, coverage, layout, renderDate, withThumbnail }: Props) {
     const imageUrl = getCoverageImageUrl(coverage);
     const href = coverage.attachment_oembed?.url || coverage.url;
     const autoLayout = withThumbnail && imageUrl ? layout : 'horizontal';
@@ -38,8 +36,8 @@ export function CoverageCard({ className, coverage, dateFormat, layout, withThum
                 <Meta
                     author={coverage.author_contact}
                     date={coverage.published_at}
-                    dateFormat={dateFormat}
                     outlet={coverage.organisation_contact}
+                    renderDate={renderDate}
                 />
             </div>
         </div>
@@ -106,10 +104,10 @@ function Description(props: { coverage: CoverageEntry }) {
 function Meta(props: {
     author: Contact | null;
     date: string | null;
-    dateFormat: string;
     outlet: Contact | null;
+    renderDate: (date: string) => ReactNode;
 }) {
-    const { author, date, outlet } = props;
+    const { author, date, outlet, renderDate } = props;
 
     const hasOutlet = outlet !== null;
     const hasAuthor = author !== null;
@@ -147,7 +145,7 @@ function Meta(props: {
             )}
             {hasDate && (
                 <span className="prezly-slate-coverage-card-component__publication-date">
-                    {new Date(date).toLocaleDateString()}
+                    {renderDate(date)}
                 </span>
             )}
         </div>

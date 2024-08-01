@@ -41,10 +41,10 @@ type Fallback = 'ignore' | 'warning' | 'passthru' | ComponentType<{ node: Node }
 interface Props<N extends Node | Node[]> {
     children?: ReactNode;
     coverageEntries?: Record<number, CoverageEntry>;
-    dateFormat?: string;
     defaultComponents?: boolean;
     defaultFallback?: Fallback;
     nodes: N;
+    renderDate?: (date: string) => ReactNode;
     transformations?: Transformation[];
 }
 
@@ -56,10 +56,10 @@ interface RenderProps<T extends Node> {
 export function Renderer<N extends Node | Node[]>({
     children,
     coverageEntries = {},
-    dateFormat = 'DD/MM/YYYY',
     defaultComponents = true,
     defaultFallback = 'warning',
     nodes,
+    renderDate = defaultRenderDate,
     transformations = Object.values(Transformations),
 }: Props<N>) {
     const transformedNodes = applyTransformations<Node>(
@@ -69,7 +69,7 @@ export function Renderer<N extends Node | Node[]>({
 
     function renderCoverageNode(props: RenderProps<CoverageNode>) {
         const coverage: CoverageEntry | undefined = coverageEntries[props.node.coverage.id];
-        return <Elements.Coverage coverage={coverage} dateFormat={dateFormat} node={props.node} />;
+        return <Elements.Coverage coverage={coverage} node={props.node} renderDate={renderDate} />;
     }
 
     return (
@@ -130,6 +130,10 @@ function fallback(defaultFallback: Fallback): ComponentType<{ node: Node }> {
     if (defaultFallback === 'passthru') return Elements.Passthru;
     if (defaultFallback === 'warning') return Elements.Unknown;
     return defaultFallback;
+}
+
+function defaultRenderDate(date: string) {
+    return new Date(date).toLocaleDateString();
 }
 
 function isAnyNode(_: Node): _ is Node {
