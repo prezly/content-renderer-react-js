@@ -8,12 +8,14 @@ interface Props extends HTMLAttributes<HTMLTableElement> {
 
 export function Table({ children, node }: Props) {
     return (
-        <table
-            className={classNames('prezly-slate-table', {
-                'prezly-slate-table--withBorders': node.border,
-            })}
-        >
-            <tbody>{children}</tbody>
-        </table>
+        <div className="prezly-slate-table-container">
+            <table
+                className={classNames('prezly-slate-table', {
+                    'prezly-slate-table--withBorders': node.border,
+                })}
+            >
+                <tbody>{children}</tbody>
+            </table>
+        </div>
     );
 }
