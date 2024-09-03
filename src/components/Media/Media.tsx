@@ -14,7 +14,6 @@ interface Props {
 export function Media({ className, image, style, title }: Props) {
     const computedClassName = classNames('prezly-slate-media', className, {
         'prezly-slate-media--image': !image.isGif(),
-        'prezly-slate-media--video': image.isGif(),
     });
 
     if (image.isGif()) {
