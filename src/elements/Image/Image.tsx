@@ -63,7 +63,6 @@ export function Image({ children, className, node, onDownload, onPreviewOpen, ..
                 'prezly-slate-image--full-width': layout === 'full-width',
                 'prezly-slate-image--align-left': align === 'left',
                 'prezly-slate-image--align-right': align === 'right',
-                'prezly-slate-image--gif': image.isGif(),
             })}
             {...props}
         >

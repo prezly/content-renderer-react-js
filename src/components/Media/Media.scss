@@ -1,17 +1,14 @@
 @import "styles/mixins";
 @import "styles/variables";
 
-.prezly-slate {
-    &-media {
-        display: block;
-        max-width: 100%;
-        height: auto;
-        margin: 0 auto;
+.prezly-slate-media {
+    display: block;
+    max-width: 100%;
+    height: auto;
 
-        &--image {
-            @media print {
-                print-color-adjust: exact;
-            }
+    &--image {
+        @media print {
+            print-color-adjust: exact;
         }
     }
 }
