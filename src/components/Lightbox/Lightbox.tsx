@@ -130,8 +130,9 @@ export function Lightbox({
                     <div className="prezly-slate-lightbox__actions">
                         <a
                             className="prezly-slate-lightbox__download"
+                            download
                             href={image.downloadUrl}
-                            rel="noreferrer noopener"
+                            rel="nofollow noreferrer noopener"
                             target="_blank"
                             title="Download full-size"
                             onClick={() => onDownload(image)}
@@ -141,7 +142,7 @@ export function Lightbox({
 
                         <PinterestButton
                             className="prezly-slate-lightbox__pinterest"
-                            image={image.downloadUrl}
+                            image={previewImage(image).cdnUrl}
                         />
                     </div>
                 </div>
