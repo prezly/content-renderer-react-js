@@ -21,7 +21,9 @@ export function Attachment({ className, node, ...props }: Props) {
         <a
             id={`attachment-${file.uuid}`}
             className={classNames('prezly-slate-attachment', className)}
+            download
             href={attachment.downloadUrl}
+            rel="nofollow"
             {...props}
         >
             <div className="prezly-slate-attachment__content">

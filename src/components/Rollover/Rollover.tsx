@@ -42,7 +42,7 @@ export function Rollover({
     return (
         <a
             className={classNames('prezly-slate-image-rollover', className)}
-            onClick={function (event) {
+            onClick={(event) => {
                 event.preventDefault();
                 onClick();
             }}
