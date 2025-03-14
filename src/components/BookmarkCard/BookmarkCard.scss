@@ -12,6 +12,7 @@
 
         &.vertical {
             flex-flow: column;
+            align-items: start;
         }
 
         &.horizontal {
