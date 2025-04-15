@@ -31,6 +31,7 @@
     outline: none !important;
     text-align: left;
     vertical-align: middle;
+    word-break: keep-all;
 
     > *:first-child {
         margin-top: 0;
