@@ -113,6 +113,7 @@ body.ReactModal__Body--open {
             font-style: italic;
             text-align: center;
             color: $color-text-2;
+            z-index: 10;
 
             &:empty {
                 display: none;
