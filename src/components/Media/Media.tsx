@@ -46,7 +46,7 @@ export function Media({ className, image, style, title }: Props) {
 
     return (
         <img
-            alt={title}
+            alt={title ?? ''}
             className={computedClassName}
             src={image.format().cdnUrl}
             srcSet={[image.srcSet(1200), image.srcSet(800), image.srcSet(400)]
