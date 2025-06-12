@@ -32,11 +32,7 @@ export function GalleryImage({
             onClick={() => onClick(originalImage)}
             style={style}
         >
-            <Media
-                className="prezly-slate-gallery-image__media"
-                image={previewImage}
-                title={originalImage.caption}
-            />
+            <Media className="prezly-slate-gallery-image__media" image={previewImage} />
         </Rollover>
     );
 }

@@ -74,7 +74,7 @@ export function Image({ children, className, node, onDownload, onPreviewOpen, ..
                     {...(isNewTab ? NEW_TAB_ATTRIBUTES : {})}
                     style={containerStyle}
                 >
-                    <Media className="prezly-slate-image__media" image={image} title={title} />
+                    <Media className="prezly-slate-image__media" image={image} />
                 </a>
             )}
 
@@ -86,7 +86,7 @@ export function Image({ children, className, node, onDownload, onPreviewOpen, ..
                     onClick={handleRolloverClick}
                     style={containerStyle}
                 >
-                    <Media className="prezly-slate-image__media" image={image} title={title} />
+                    <Media className="prezly-slate-image__media" image={image} />
                 </Rollover>
             )}
 
