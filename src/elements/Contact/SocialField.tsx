@@ -20,7 +20,7 @@ export function SocialField({ children, className, href, Icon }: Props) {
                 rel="noreferrer noopener"
                 target="_blank"
             >
-                {Icon && <Icon className="prezly-slate-social-field__icon" />}
+                {Icon && <Icon aria-hidden="true" className="prezly-slate-social-field__icon" />}
                 {children && <span className="prezly-slate-social-field__value">{children}</span>}
             </a>
         </li>
