@@ -41,6 +41,7 @@ export function Rollover({
 
     return (
         <a
+            aria-label={caption || 'View image'}
             className={classNames('prezly-slate-image-rollover', className)}
             onClick={(event) => {
                 event.preventDefault();
@@ -59,7 +60,10 @@ export function Rollover({
                     })}
                 >
                     <span className="prezly-slate-image-rollover__caption-icon-container">
-                        <ArrowsAngleExpand className="prezly-slate-image-rollover__caption-icon" />
+                        <ArrowsAngleExpand
+                            aria-hidden="true"
+                            className="prezly-slate-image-rollover__caption-icon"
+                        />
                     </span>
 
                     <span className="prezly-slate-image-rollover__caption-text" ref={ref}>
