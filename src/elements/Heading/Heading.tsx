@@ -19,6 +19,7 @@ export function Heading({ children, className, node, ...props }: Props) {
                 'prezly-slate-heading--align-left': node.align === HeadingNode.Alignment.LEFT,
                 'prezly-slate-heading--align-center': node.align === HeadingNode.Alignment.CENTER,
                 'prezly-slate-heading--align-right': node.align === HeadingNode.Alignment.RIGHT,
+                'prezly-slate-heading--align-justify': node.align === HeadingNode.Alignment.JUSTIFY,
             })}
             {...props}
         >
