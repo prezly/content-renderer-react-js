@@ -38,6 +38,11 @@
         flex-direction: row-reverse;
     }
 
+    &--align-justify {
+        text-align: justify;
+        flex-direction: row;
+    }
+
     > p {
         margin: 0;
     }

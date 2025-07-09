@@ -24,6 +24,7 @@ export function Callout({ children, className, node, ...props }: Props) {
                 'prezly-slate-callout--align-left': node.align === CalloutNode.Alignment.LEFT,
                 'prezly-slate-callout--align-center': node.align === CalloutNode.Alignment.CENTER,
                 'prezly-slate-callout--align-right': node.align === CalloutNode.Alignment.RIGHT,
+                'prezly-slate-callout--align-justify': node.align === CalloutNode.Alignment.JUSTIFY,
             })}
             data-icon={node.icon || undefined}
             {...props}

@@ -17,6 +17,8 @@ export function Paragraph({ children, className, node, ...props }: Props) {
                 'prezly-slate-paragraph--align-center':
                     node.align === ParagraphNode.Alignment.CENTER,
                 'prezly-slate-paragraph--align-right': node.align === ParagraphNode.Alignment.RIGHT,
+                'prezly-slate-paragraph--align-justify':
+                    node.align === ParagraphNode.Alignment.JUSTIFY,
             })}
             {...props}
         >

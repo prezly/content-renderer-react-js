@@ -19,6 +19,7 @@ export function List({ node, children, className, ...props }: Props) {
                 'prezly-slate-list--align-left': node.align === ListNode.Alignment.LEFT,
                 'prezly-slate-list--align-center': node.align === ListNode.Alignment.CENTER,
                 'prezly-slate-list--align-right': node.align === ListNode.Alignment.RIGHT,
+                'prezly-slate-list--align-justify': node.align === ListNode.Alignment.JUSTIFY,
             })}
             {...props}
         >

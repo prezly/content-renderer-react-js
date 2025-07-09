@@ -16,6 +16,7 @@ export function Quote({ children, className, node, ...props }: Props) {
                 'prezly-slate-quote--align-left': node.align === QuoteNode.Alignment.LEFT,
                 'prezly-slate-quote--align-center': node.align === QuoteNode.Alignment.CENTER,
                 'prezly-slate-quote--align-right': node.align === QuoteNode.Alignment.RIGHT,
+                'prezly-slate-quote--align-justify': node.align === QuoteNode.Alignment.JUSTIFY,
             })}
             {...props}
         >

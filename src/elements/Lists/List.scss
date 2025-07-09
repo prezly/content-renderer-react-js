@@ -10,7 +10,8 @@
 
     &--align-left,
     &--align-right,
-    &--align-center {
+    &--align-center,
+    &--align-justify {
         list-style-position: inside;
     }
 
@@ -24,6 +25,10 @@
 
     &--align-right {
         text-align: right;
+    }
+
+    &--align-justify {
+        text-align: justify;
     }
 
     .prezly-slate-list {
