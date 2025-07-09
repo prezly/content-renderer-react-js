@@ -6,7 +6,6 @@
         "emitDeclarationOnly": true,
         "esModuleInterop": true,
         "isolatedModules": true,
-        "importsNotUsedAsValues": "error",
         "forceConsistentCasingInFileNames": true,
         "lib": ["dom", "dom.iterable", "esnext"],
         "resolveJsonModule": true,
