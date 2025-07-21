@@ -14,8 +14,12 @@ export function TableCell({ children, node }: Props) {
             className={classNames('prezly-slate-table-cell', {
                 'prezly-slate-table-cell--header': node.isHeader,
             })}
-            colSpan={node.colspan}
-            rowSpan={node.rowspan}
+            colSpan={node.colSpan ?? node.colspan}
+            rowSpan={node.rowSpan ?? node.rowspan}
+            style={{
+                minWidth: node.width,
+                maxWidth: node.width,
+            }}
         >
             {children}
         </Cell>
@@ -23,5 +27,5 @@ export function TableCell({ children, node }: Props) {
 }
 
 export namespace TableCell {
-    export type Node = TableCellNode & { isHeader: boolean };
+    export type Node = TableCellNode & { isHeader: boolean; width: number | undefined };
 }
