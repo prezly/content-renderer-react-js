@@ -17,6 +17,12 @@
             border: 1px solid $color-grey-300;
         }
     }
+
+    &--withFixedColumns {
+        width: initial;
+        table-layout: fixed;
+        overflow-y: auto;
+    }
 }
 
 .prezly-slate-table-row {

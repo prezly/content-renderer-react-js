@@ -1,6 +1,6 @@
 import { type Node, TableNode } from '@prezly/story-content-format';
 
-export function provideIsHeaderToTableCells<T extends Node>(node: T): T {
+export function provideExtraDataToTableCells<T extends Node>(node: T): T {
     if (TableNode.isTableNode(node)) {
         const isHeaderFirstRow =
             node.header &&
@@ -18,6 +18,7 @@ export function provideIsHeaderToTableCells<T extends Node>(node: T): T {
                 ...row,
                 children: row.children.map((cell, cellIndex) => ({
                     ...cell,
+                    width: node.colSizes?.[cellIndex],
                     isHeader:
                         (isHeaderFirstRow && rowIndex === 0) ||
                         (isHeaderFirstColumn && cellIndex === 0),

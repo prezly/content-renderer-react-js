@@ -1,3 +1,3 @@
 export { preventEmptyBlockCollapsing } from './preventEmptyBlockCollapsing';
 export { preventWhitespaceCollapsing } from './preventWhitepaceCollapsing';
-export { provideIsHeaderToTableCells } from './provideIsHeaderToTableCells';
+export { provideExtraDataToTableCells } from './provideExtraDataToTableCells';
