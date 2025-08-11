@@ -11,7 +11,6 @@ export function Table({ children, node }: Props) {
         <div className="prezly-slate-table-container">
             <table
                 className={classNames('prezly-slate-table', {
-                    'prezly-slate-table--withBorders': node.border,
                     'prezly-slate-table--withFixedColumns': node.colSizes !== undefined,
                 })}
             >
