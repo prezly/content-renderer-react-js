@@ -9,23 +9,19 @@ export default {
     decorators: [StoryNameDecorator],
 } as Meta;
 
-export const NoBorder: Story = () => <Renderer nodes={[createTableNode({})]} />;
+export const NoBorder: Story = () => <Renderer nodes={[createTableNode()]} />;
 
-export const WithBorder: Story = () => <Renderer nodes={[createTableNode({ border: true })]} />;
+export const WithBorder: Story = () => <Renderer nodes={[createTableNode()]} />;
 
 export const WithRowHeader: Story = () => (
-    <Renderer
-        nodes={[createTableNode({ border: true, header: [TableNode.TableHeader.FIRST_ROW] })]}
-    />
+    <Renderer nodes={[createTableNode({ header: [TableNode.TableHeader.FIRST_ROW] })]} />
 );
 
 export const WithColumnHeader: Story = () => (
-    <Renderer
-        nodes={[createTableNode({ border: true, header: [TableNode.TableHeader.FIRST_COLUMN] })]}
-    />
+    <Renderer nodes={[createTableNode({ header: [TableNode.TableHeader.FIRST_COLUMN] })]} />
 );
 
-function createTableNode(props: Omit<TableNode, 'children' | 'type'>): TableNode {
+function createTableNode(props?: Omit<TableNode, 'children' | 'type'>): TableNode {
     return {
         type: 'table',
         ...props,

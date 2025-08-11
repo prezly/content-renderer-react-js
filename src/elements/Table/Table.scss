@@ -11,13 +11,6 @@
     border-collapse: collapse;
     table-layout: auto;
 
-    &--withBorders {
-        .prezly-slate-table-row,
-        .prezly-slate-table-cell {
-            border: 1px solid $color-grey-300;
-        }
-    }
-
     &--withFixedColumns {
         width: initial;
         table-layout: fixed;
@@ -28,6 +21,7 @@
 .prezly-slate-table-row {
     color: $color-grey-700;
     font-size: $font-size-s;
+    border: 1px solid $color-grey-300;
 }
 
 .prezly-slate-table-cell {
@@ -38,6 +32,7 @@
     text-align: left;
     vertical-align: middle;
     word-break: keep-all;
+    border: 1px solid $color-grey-300;
 
     > *:first-child {
         margin-top: 0;
