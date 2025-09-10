@@ -1,6 +1,5 @@
 import type { TableNode } from '@prezly/story-content-format';
 import classNames from 'classnames';
-import { useRef } from 'react';
 import type { CSSProperties, HTMLAttributes } from 'react';
 
 interface Props extends HTMLAttributes<HTMLTableElement> {
@@ -10,7 +9,6 @@ interface Props extends HTMLAttributes<HTMLTableElement> {
 const BORDER_WIDTH = 1;
 
 export function Table({ children, node }: Props) {
-    const ref = useRef<HTMLDivElement>(null);
     const withFixedColumns = node.colSizes !== undefined;
 
     const width =
@@ -23,7 +21,6 @@ export function Table({ children, node }: Props) {
             className={classNames('prezly-slate-table-container', {
                 'prezly-slate-table-container--withFixedColumns': withFixedColumns,
             })}
-            ref={ref}
             style={{ '--width': `${width}px` } as CSSProperties}
         >
             <table
