@@ -3,6 +3,12 @@
 .prezly-slate-table-container {
     width: 100%;
     overflow-x: auto;
+
+    &--withFixedColumns {
+        width: min(var(--width), 100vw);
+        margin-left: 50%;
+        transform: translateX(-50%);
+    }
 }
 
 .prezly-slate-table {
@@ -13,8 +19,10 @@
 
     &--withFixedColumns {
         width: initial;
+        max-width: none;
+        margin-left: auto;
+        margin-right: auto;
         table-layout: fixed;
-        overflow-y: auto;
     }
 }
 
