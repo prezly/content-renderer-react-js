@@ -27,7 +27,6 @@ export function Table({ children, node }: Props) {
                 className={classNames('prezly-slate-table', {
                     'prezly-slate-table--withFixedColumns': withFixedColumns,
                 })}
-                style={{ width }}
             >
                 <tbody>{children}</tbody>
             </table>
