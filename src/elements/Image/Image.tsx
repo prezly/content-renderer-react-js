@@ -82,7 +82,7 @@ export function Image({ children, className, node, onDownload, onPreviewOpen, ..
                 <Rollover
                     id={`image-${file.uuid}`}
                     disabled={image.isGif()}
-                    href={image.cdnUrl}
+                    href={image.preview().format().cdnUrl}
                     onClick={handleRolloverClick}
                     style={containerStyle}
                 >
