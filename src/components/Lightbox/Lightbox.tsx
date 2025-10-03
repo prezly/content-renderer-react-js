@@ -142,7 +142,7 @@ export function Lightbox({
 
                         <PinterestButton
                             className="prezly-slate-lightbox__pinterest"
-                            image={previewImage(image).cdnUrl}
+                            image={previewImage(image).format().cdnUrl}
                         />
                     </div>
                 </div>

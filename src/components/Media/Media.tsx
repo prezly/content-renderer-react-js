@@ -48,7 +48,7 @@ export function Media({ className, image, style, title }: Props) {
         <img
             alt={title ?? ''}
             className={computedClassName}
-            src={image.format().cdnUrl}
+            src={image.preview().format().cdnUrl}
             srcSet={[image.srcSet(1200), image.srcSet(800), image.srcSet(400)]
                 .filter(Boolean)
                 .join(', ')}
