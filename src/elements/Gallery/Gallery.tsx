@@ -129,13 +129,13 @@ function Row(props: {
 }
 
 function extractImages(node: GalleryNode, baseCdnUrl: string | undefined): UploadcareImage[] {
-    return node.images.map(({ caption, file }) => {
-        return baseCdnUrl
+    return node.images.map(({ caption, file }) =>
+        baseCdnUrl
             ? UploadcareImage.createFromPrezlyStoragePayload(file, caption).withBaseCdnUrl(
                   baseCdnUrl,
               )
-            : UploadcareImage.createFromPrezlyStoragePayload(file, caption);
-    });
+            : UploadcareImage.createFromPrezlyStoragePayload(file, caption),
+    );
 }
 
 /**

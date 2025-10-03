@@ -55,11 +55,13 @@ export function Image({
 
     const [isPreviewOpen, setIsPreviewOpen] = useState<boolean>(false);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    const image = useMemo(() => {
-        return baseCdnUrl
-            ? UploadcareImage.createFromPrezlyStoragePayload(file).withBaseCdnUrl(baseCdnUrl)
-            : UploadcareImage.createFromPrezlyStoragePayload(file);
-    }, [file.uuid, baseCdnUrl]);
+    const image = useMemo(
+        () =>
+            baseCdnUrl
+                ? UploadcareImage.createFromPrezlyStoragePayload(file).withBaseCdnUrl(baseCdnUrl)
+                : UploadcareImage.createFromPrezlyStoragePayload(file),
+        [file, baseCdnUrl],
+    );
 
     function handleRolloverClick() {
         setIsPreviewOpen(true);
