@@ -4,7 +4,10 @@ import { UploadcareImage } from '@prezly/uploadcare';
 
 const IMAGE_WIDTH = 580 * 2;
 
-export function getCoverageImageUrl(coverage: CoverageEntry, baseCdnUrl: string | undefined): string | null {
+export function getCoverageImageUrl(
+    coverage: CoverageEntry,
+    baseCdnUrl: string | undefined,
+): string | null {
     if (coverage.attachment_oembed && coverage.attachment_oembed.thumbnail_url) {
         return coverage.attachment_oembed.thumbnail_url;
     }

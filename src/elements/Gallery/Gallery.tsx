@@ -27,7 +27,14 @@ interface Tile {
     height: number;
 }
 
-export function Gallery({ className, node, onImageDownload, onPreviewOpen, baseCdnUrl, ...props }: Props) {
+export function Gallery({
+    className,
+    node,
+    onImageDownload,
+    onPreviewOpen,
+    baseCdnUrl,
+    ...props
+}: Props) {
     const [rect, ref] = useMeasure<HTMLDivElement>();
     const galleryWidth = rect?.width || DEFAULT_GALLERY_WIDTH_SSR[node.layout];
     const margin = IMAGE_PADDING[node.padding];
@@ -124,7 +131,9 @@ function Row(props: {
 function extractImages(node: GalleryNode, baseCdnUrl: string | undefined): UploadcareImage[] {
     return node.images.map(({ caption, file }) => {
         return baseCdnUrl
-            ? UploadcareImage.createFromPrezlyStoragePayload(file, caption).withBaseCdnUrl(baseCdnUrl)
+            ? UploadcareImage.createFromPrezlyStoragePayload(file, caption).withBaseCdnUrl(
+                  baseCdnUrl,
+              )
             : UploadcareImage.createFromPrezlyStoragePayload(file, caption);
     });
 }
