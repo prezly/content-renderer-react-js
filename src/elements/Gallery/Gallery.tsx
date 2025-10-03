@@ -18,6 +18,7 @@ interface Props extends HTMLAttributes<HTMLElement> {
     node: GalleryNode;
     onImageDownload?: (image: UploadcareImage) => void;
     onPreviewOpen?: (image: UploadcareImage) => void;
+    baseCdnUrl?: string;
 }
 
 interface Tile {
@@ -26,12 +27,12 @@ interface Tile {
     height: number;
 }
 
-export function Gallery({ className, node, onImageDownload, onPreviewOpen, ...props }: Props) {
+export function Gallery({ className, node, onImageDownload, onPreviewOpen, baseCdnUrl, ...props }: Props) {
     const [rect, ref] = useMeasure<HTMLDivElement>();
     const galleryWidth = rect?.width || DEFAULT_GALLERY_WIDTH_SSR[node.layout];
     const margin = IMAGE_PADDING[node.padding];
     const idealHeight = IMAGE_SIZE[node.thumbnail_size] + 2 * margin;
-    const originalImages = useMemo(() => extractImages(node), [node]);
+    const originalImages = useMemo(() => extractImages(node, baseCdnUrl), [node, baseCdnUrl]);
     const calculatedLayout = calculateLayout({
         idealHeight,
         images: originalImages,
@@ -120,10 +121,12 @@ function Row(props: {
     );
 }
 
-function extractImages(node: GalleryNode): UploadcareImage[] {
-    return node.images.map(({ caption, file }) =>
-        UploadcareImage.createFromPrezlyStoragePayload(file, caption),
-    );
+function extractImages(node: GalleryNode, baseCdnUrl: string | undefined): UploadcareImage[] {
+    return node.images.map(({ caption, file }) => {
+        return baseCdnUrl
+            ? UploadcareImage.createFromPrezlyStoragePayload(file, caption).withBaseCdnUrl(baseCdnUrl)
+            : UploadcareImage.createFromPrezlyStoragePayload(file, caption);
+    });
 }
 
 /**

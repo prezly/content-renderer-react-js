@@ -14,6 +14,7 @@ interface Props {
     newTab: boolean;
     renderDate: (date: string) => ReactNode;
     withThumbnail: boolean;
+    baseCdnUrl?: string;
 }
 
 export function CoverageCard({
@@ -24,8 +25,9 @@ export function CoverageCard({
     newTab,
     renderDate,
     withThumbnail,
+    baseCdnUrl,
 }: Props) {
-    const imageUrl = getCoverageImageUrl(coverage);
+    const imageUrl = getCoverageImageUrl(coverage, baseCdnUrl);
     const href = coverage.attachment_oembed?.url || coverage.url;
     const autoLayout = withThumbnail && imageUrl ? layout : 'horizontal';
 

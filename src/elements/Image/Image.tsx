@@ -15,6 +15,7 @@ interface Props extends HTMLAttributes<HTMLElement> {
     node: ImageNode;
     onDownload?: (image: UploadcareImage) => void;
     onPreviewOpen?: (image: UploadcareImage) => void;
+    baseCdnUrl?: string;
 }
 
 function getContainerStyle(node: ImageNode): CSSProperties {
@@ -37,7 +38,7 @@ const NEW_TAB_ATTRIBUTES: Partial<AnchorHTMLAttributes<HTMLAnchorElement>> = {
     rel: 'noopener noreferrer',
 };
 
-export function Image({ children, className, node, onDownload, onPreviewOpen, ...props }: Props) {
+export function Image({ children, className, node, onDownload, onPreviewOpen, baseCdnUrl, ...props }: Props) {
     const { file, href, align, layout } = node;
 
     const isNewTab = node.new_tab ?? true;
@@ -46,7 +47,11 @@ export function Image({ children, className, node, onDownload, onPreviewOpen, ..
 
     const [isPreviewOpen, setIsPreviewOpen] = useState<boolean>(false);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    const image = useMemo(() => UploadcareImage.createFromPrezlyStoragePayload(file), [file.uuid]);
+    const image = useMemo(() => {
+        return baseCdnUrl
+            ? UploadcareImage.createFromPrezlyStoragePayload(file).withBaseCdnUrl(baseCdnUrl)
+            : UploadcareImage.createFromPrezlyStoragePayload(file);
+    }, [file.uuid, baseCdnUrl]);
 
     function handleRolloverClick() {
         setIsPreviewOpen(true);

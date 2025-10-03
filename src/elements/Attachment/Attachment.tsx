@@ -10,11 +10,14 @@ import './Attachment.scss';
 
 interface Props extends Omit<HTMLAttributes<HTMLAnchorElement>, 'children'> {
     node: AttachmentNode;
+    baseCdnUrl?: string;
 }
 
-export function Attachment({ className, node, ...props }: Props) {
+export function Attachment({ className, node, baseCdnUrl, ...props }: Props) {
     const { description, file } = node;
-    const attachment = UploadcareFile.createFromPrezlyStoragePayload(file);
+    const attachment = baseCdnUrl
+        ? UploadcareFile.createFromPrezlyStoragePayload(file).withBaseCdnUrl(baseCdnUrl)
+        : UploadcareFile.createFromPrezlyStoragePayload(file);
     const isUsingCustomTitle = Boolean(description);
 
     return (
