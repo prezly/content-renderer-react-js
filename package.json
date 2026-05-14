@@ -1,6 +1,6 @@
 {
     "name": "@prezly/content-renderer-react-js",
-    "version": "0.43.3",
+    "version": "0.44.1",
     "description": "Render Prezly Content Format documents with React.js",
     "license": "MIT",
     "main": "build/cjs/index.cjs",
@@ -75,8 +75,14 @@
         "build-storybook": "build-storybook"
     },
     "devEngines": {
-        "node": ">=20",
-        "npm": ">=10"
+        "runtime": {
+            "name": "node",
+            "version": ">=20"
+        },
+        "packageManager": {
+            "name": "npm",
+            "version": ">=10"
+        }
     },
     "peerDependencies": {
         "react": "18",

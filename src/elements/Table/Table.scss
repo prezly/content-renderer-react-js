@@ -56,3 +56,8 @@
         }
     }
 }
+
+.prezly-slate-table:not(.prezly-slate-table--withFixedColumns) .prezly-slate-table-cell {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
