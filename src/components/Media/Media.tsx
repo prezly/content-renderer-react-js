@@ -55,6 +55,8 @@ export function Media({ className, image, style, title }: Props) {
             sizes={`(max-width: 992px) 800px, (max-width: 576px) 400px, 1200px`}
             style={style}
             title={title}
+            loading="lazy"
+            decoding="async"
         />
     );
 }
