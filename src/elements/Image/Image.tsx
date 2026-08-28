@@ -89,7 +89,7 @@ export function Image({
                     {...(isNewTab ? NEW_TAB_ATTRIBUTES : {})}
                     style={containerStyle}
                 >
-                    <Media className="prezly-slate-image__media" image={image} />
+                    <Media className="prezly-slate-image__media" image={image} title={title} />
                 </a>
             )}
 
@@ -101,7 +101,7 @@ export function Image({
                     onClick={handleRolloverClick}
                     style={containerStyle}
                 >
-                    <Media className="prezly-slate-image__media" image={image} />
+                    <Media className="prezly-slate-image__media" image={image} title={title} />
                 </Rollover>
             )}
 
