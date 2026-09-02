@@ -6,5 +6,5 @@
     "rootDir": "."
   },
 
-  "include": ["./src", "./example", "./sandbox", "./.storybook/*.js", "./*.js", "./*.cjs", "./*.mjs"]
+  "include": ["./src", "./example", "./sandbox", "./.storybook/*.js", "./.storybook/*.mjs", "./*.js", "./*.cjs", "./*.mjs"]
 }
