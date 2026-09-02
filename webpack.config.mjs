@@ -10,7 +10,6 @@ export default {
         main: './sandbox/index.jsx',
     },
     resolve: {
-        symlinks: false,
         extensions: ['.js', '.jsx', '.mjs', '.cjs'],
         fallback: { url: 'url-polyfill' },
         alias: {

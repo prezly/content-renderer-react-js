@@ -28,6 +28,6 @@ jobs:
       env:
         CI: true
 
-    - run: pnpm exec webpack build
+    - run: pnpm build:sandbox
       env:
         CI: true

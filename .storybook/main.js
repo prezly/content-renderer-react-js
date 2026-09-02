@@ -12,6 +12,9 @@ module.exports = {
     core: {
         builder: 'webpack5',
     },
+    typescript: {
+        reactDocgen: false,
+    },
     webpackFinal: (/** @type {import("webpack").Configuration} */ config, { configType }) => {
         // `configType` has a value of 'DEVELOPMENT' or 'PRODUCTION'
         // You can change the configuration based on that.

@@ -9,3 +9,6 @@ allowBuilds:
   es5-ext: true
   fsevents: false
   unrs-resolver: true
+
+minimumReleaseAgeExclude:
+  - webpack@5.110.3

@@ -8,7 +8,7 @@ import map from 'gulp-map';
 import postcss from 'gulp-postcss';
 import rename from 'gulp-rename';
 import createSassProcessor from 'gulp-sass';
-import sassBackend from 'sass';
+import * as sassBackend from 'sass';
 
 const sass = createSassProcessor(sassBackend);
 
