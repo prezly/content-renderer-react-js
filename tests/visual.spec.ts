@@ -36,13 +36,72 @@ function readStories(): StoryEntry[] {
 }
 
 for (const story of readStories()) {
-    test(`${story.title} — ${story.name}`, async ({ page }) => {
+    test(`${story.title} — ${story.name}`, async ({ page, baseURL }) => {
+        // A stale or partial Storybook build serves 404s for its chunks and renders
+        // Storybook's error screen — which would otherwise be captured as a baseline.
+        const brokenAssets: string[] = [];
+
+        page.on('response', (response) => {
+            if (response.url().startsWith(String(baseURL)) && response.status() >= 400) {
+                brokenAssets.push(`${response.status()} ${response.url()}`);
+            }
+        });
+
         await page.goto(`/iframe.html?id=${story.id}&viewMode=story`);
 
         // Some stories render nothing on purpose, so wait for the root to be attached
         // rather than visible. `toHaveScreenshot` then waits for the pixels to settle.
         await page.waitForSelector('#storybook-root', { state: 'attached' });
+
+        // Bookmark, gallery and image stories load their artwork from external CDNs, and the
+        // components only insert the <img> tags once they have measured themselves. Settle the
+        // network first — otherwise the images-complete check below passes against an empty
+        // list and the screenshot captures placeholder boxes at the wrong page height.
+        await page.waitForLoadState('networkidle').catch(() => {});
+
+        // A full-page screenshot scrolls the viewport, which is what triggers lazy-loaded
+        // gallery images. Walk the page first so they are already settled by capture time.
+        await page.evaluate(async () => {
+            for (let y = 0; y < document.body.scrollHeight; y += window.innerHeight) {
+                window.scrollTo(0, y);
+                await new Promise((resolve) => requestAnimationFrame(() => resolve(null)));
+            }
+            window.scrollTo(0, 0);
+        });
+
+        await page.waitForLoadState('networkidle').catch(() => {});
+
+        await page
+            .waitForFunction(
+                () => Array.from(document.images).every((image) => image.complete),
+                null,
+                { timeout: 20_000 },
+            )
+            .catch(() => {
+                // A single unreachable third-party asset shouldn't fail the whole story.
+            });
+
         await page.evaluate(() => document.fonts.ready);
+
+        // The gallery lays itself out from a ResizeObserver measurement, so the page can
+        // still reflow after the images land. Wait until its height stops moving.
+        await page
+            .waitForFunction(
+                () => {
+                    const store = window as unknown as { __lastHeight?: number };
+                    const height = document.documentElement.scrollHeight;
+                    const settled = store.__lastHeight === height;
+
+                    store.__lastHeight = height;
+
+                    return settled;
+                },
+                null,
+                { polling: 250, timeout: 15_000 },
+            )
+            .catch(() => {});
+
+        expect(brokenAssets, 'Storybook failed to serve its own assets').toEqual([]);
 
         await expect(page).toHaveScreenshot(`${story.id}.png`, { fullPage: true });
     });

@@ -14,7 +14,11 @@ export default defineConfig({
     retries: process.env.CI ? 2 : 0,
     reporter: process.env.CI ? [['github'], ['html', { open: 'never' }]] : [['list']],
 
+    timeout: 90_000,
+
     expect: {
+        // Image-heavy stories need more than the 5s default to settle.
+        timeout: 20_000,
         toHaveScreenshot: {
             // Anti-aliasing and font hinting differ slightly between runs.
             maxDiffPixelRatio: 0.01,

@@ -70,8 +70,9 @@
         "test:watch": "pnpm test:unit --watch",
         "react:install-version": "pnpm add --save-dev react@$REACT_VERSION react-dom@$REACT_VERSION @types/react@$REACT_VERSION @types/react-dom@$REACT_VERSION",
         "react:uninstall": "pnpm remove react react-dom @types/react @types/react-dom",
-        "test:visual": "pnpm build-storybook && playwright test",
+        "test:visual": "pnpm build-storybook && pnpm test:visual:docker",
         "test:visual:update": "pnpm test:visual --update-snapshots",
+        "test:visual:docker": "docker run --rm --platform linux/amd64 --volume \"$PWD\":/work --volume /work/node_modules --volume /work/example/node_modules --workdir /work mcr.microsoft.com/playwright:v1.62.1-noble bash -lc 'corepack enable && pnpm install --frozen-lockfile && pnpm exec playwright test \"$@\"' --",
         "storybook": "storybook dev -p 6006",
         "build-storybook": "storybook build"
     },
