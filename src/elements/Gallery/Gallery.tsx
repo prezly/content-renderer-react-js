@@ -4,7 +4,7 @@ import type { GalleryNode } from '@prezly/story-content-format';
 import { UploadcareImage } from '@prezly/uploadcare';
 import { useMeasure } from '@react-hookz/web';
 import classNames from 'classnames';
-import type { HTMLAttributes } from 'react';
+import type { HTMLAttributes, RefObject } from 'react';
 import { useMemo } from 'react';
 
 import { Lightbox } from '../../components';
@@ -62,7 +62,11 @@ export function Gallery({
             })}
             {...props}
         >
-            <div className="prezly-slate-gallery__images" ref={ref} style={{ margin: -margin }}>
+            <div
+                className="prezly-slate-gallery__images"
+                ref={ref as RefObject<HTMLDivElement>}
+                style={{ margin: -margin }}
+            >
                 {calculatedLayout.map((tiles, index) => (
                     <Row
                         key={index}

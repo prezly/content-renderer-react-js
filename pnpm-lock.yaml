@@ -208,37 +208,40 @@ importers:
   .:
     dependencies:
       '@prezly/linear-partition':
-        specifier: ^1.0.2
+        specifier: ^1.0.3
         version: 1.0.3
       '@prezly/sdk':
-        specifier: ^23.10.0
-        version: 23.20.0
+        specifier: ^26.8.0
+        version: 26.8.0
       '@prezly/story-content-format':
-        specifier: ^0.70.1
-        version: 0.70.1
+        specifier: ^0.71.0
+        version: 0.71.0
       '@prezly/uploadcare':
         specifier: ^2.6.0
         version: 2.6.0
       '@react-hookz/web':
-        specifier: ^12.0.0
-        version: 12.3.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: ^26.1.0
+        version: 26.1.0(js-cookie@3.0.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       classnames:
-        specifier: ^2.2.6
+        specifier: ^2.5.1
         version: 2.5.1
+      js-cookie:
+        specifier: ^3.0.8
+        version: 3.0.8
       player.js:
         specifier: ^0.1.0
         version: 0.1.0
       react-modal:
-        specifier: ^3.15.1
+        specifier: ^3.16.3
         version: 3.16.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       resize-observer-polyfill:
         specifier: ^1.5.1
         version: 1.5.1
       shave:
-        specifier: ^2.5.10
-        version: 2.5.10
+        specifier: ^5.1.0
+        version: 5.1.0
       social-links:
-        specifier: ^1.10.0
+        specifier: ^1.15.1
         version: 1.15.1
     devDependencies:
       '@babel/cli':
@@ -1810,8 +1813,8 @@ packages:
       webpack-plugin-serve:
         optional: true
 
-  '@prezly/content-format@0.70.1':
-    resolution: {integrity: sha512-qnD+ghv7MYDNtJ5F5N/ZUU7os+dflmoXzGKq3cqmbQ1vX9tZXJ0Hr27RsDHe/mAeTkHqV/UtezGuD06o2/e3kA==}
+  '@prezly/content-format@0.71.0':
+    resolution: {integrity: sha512-aBU7l8BWMMVQkXDJvrQRQQRLzWd+UWtXTHHx+EAchWMBy2H4rey1hX8uR+LDH6JRUeig7qLo+5BL0g1cwafFCQ==}
 
   '@prezly/eslint-config@5.4.5':
     resolution: {integrity: sha512-k7UpwHbtLZDDE7uVSYWAzvnCx3ADx5Z2vsz3rmW2DeyCEy11eihy1oqaimkhjHJAnJCKZ9rDu6czi8Ctuh/FGg==}
@@ -1832,12 +1835,12 @@ packages:
   '@prezly/progress-promise@2.0.1':
     resolution: {integrity: sha512-uKBTA1gZ90ckKK/4wVoVORC3VUTkOgFwhZWwWsceKxVoAgDxqS5s0NXP5V7J+niEdvCkcoEVeCc25kCs+Hr/uQ==}
 
-  '@prezly/sdk@23.20.0':
-    resolution: {integrity: sha512-D4sOUkqoRyKJ4vKruJTeZE2MyBF0bjPKX790PGpXow9H7R+B8gYXAc6VH86VPpQcB66jVtZJSN3vIOK57awzTw==}
-    engines: {node: '>= 16'}
+  '@prezly/sdk@26.8.0':
+    resolution: {integrity: sha512-8Uqyl5tS7W+gi4gIuxM6eoc6K1Etr5eSFpUyCBBTwGJ+3OnM+3QnR3wP67mh+UB1MXLaj9El7FDmY3ns8Bh8Bg==}
+    engines: {node: '>=22'}
 
-  '@prezly/story-content-format@0.70.1':
-    resolution: {integrity: sha512-q5nwvlz161PsSB0nTBUBzXPHIgV+8euCCPHGB6NUUNpIpkM2JD9lp8zJnETs2REcOhsTaPMw/oum9Mbp2Qvk4A==}
+  '@prezly/story-content-format@0.71.0':
+    resolution: {integrity: sha512-sjjGuK9ngAhO00JG/vdId6QwQzYQsUL990NzrmOwpXTut1Gncw83excnI9LkpiZUmzeoOoPPCRhhaHtkVOQJMw==}
 
   '@prezly/uploadcare-widget@3.16.1':
     resolution: {integrity: sha512-qfxUdpL4BW0M+q0WGQwCkL0H4UPwFA+prUx95VkQ43gT7/YNUnYriZfDnRMXpBOOxC28N1tVFgS7NPJSOzIsLA==}
@@ -1851,16 +1854,13 @@ packages:
   '@prezly/uploads@0.3.2':
     resolution: {integrity: sha512-bUIRPKC8bfjJgmKFG9T4CZssAb1jZu9XrYBQX3vgXOmN6ot+mK2rMwm0Lp7guUS4xMKvrnDAqz6si360RUCDCA==}
 
-  '@react-hookz/deep-equal@1.0.4':
-    resolution: {integrity: sha512-N56fTrAPUDz/R423pag+n6TXWbvlBZDtTehaGFjK0InmN+V2OFWLE/WmORhmn6Ce7dlwH5+tQN1LJFw3ngTJVg==}
-    deprecated: PACKAGE IS DEPRECATED AND WILL BE DETED SOON, USE @ver0/deep-equal INSTEAD
-
-  '@react-hookz/web@12.3.0':
-    resolution: {integrity: sha512-Uujp2RfX/oDEtAbdkV0W/nhiQ5ZYVH+MEq04T7/8TstyiwoIlvsRbEic6c6gQA6sQ/lw93cZ8NP8R7AYjiqDvg==}
+  '@react-hookz/web@26.1.0':
+    resolution: {integrity: sha512-GKErtGGoaPNWc8rp4SE/rVgJT1kJ/3s6n3q+Vs6DM4TRVsLqbsIGU9u3jTwcV3tCYgxAwz9DqJZxCaal89Lxqg==}
+    engines: {node: '>=18.0.0'}
     peerDependencies:
-      js-cookie: ^3.0.1
-      react: ^16.8 || ^17 || ^18
-      react-dom: ^16.8 || ^17 || ^18
+      js-cookie: ^3.0.5
+      react: ^16.8 || ^17 || ^18 || ^19
+      react-dom: ^16.8 || ^17 || ^18 || ^19
     peerDependenciesMeta:
       js-cookie:
         optional: true
@@ -2870,6 +2870,10 @@ packages:
   '@uploadcare/cname-prefix@6.21.0':
     resolution: {integrity: sha512-DSFjfu3RZR3iX+tKYbqezEP0nMExIJy+xm76gH3D+mk2NomaAOCKxVo89nU1OQNp9TSUyiTs0EweWimUoLNAhg==}
     engines: {node: '>=16'}
+
+  '@ver0/deep-equal@2.0.1':
+    resolution: {integrity: sha512-JVSbDwzKASqorJum+ATnnZNIkni4K4G3aeJDsTgEhHcm0CiCwAVaLbhFByeNAir1HExEWjHxhIXVR+d8ZzeJGw==}
+    engines: {node: '>=20'}
 
   '@webassemblyjs/ast@1.14.1':
     resolution: {integrity: sha512-nuBEDgQfm1ccRp/8bCQrx1frohyufl4JlbMMZ4P1wpeOfDhF6FQkxZJ1b/e+PLwr6X1Nhw6OLme5usuBWYBvuQ==}
@@ -6488,6 +6492,9 @@ packages:
   jquery@3.7.1:
     resolution: {integrity: sha512-m4avr8yL8kmFN8psrbFFFmB/If14iN5o9nw/NgnnM+kybDJpRsAynV2BsfpTYrTRysYUdADVD7CkUUizgkpLfg==}
 
+  js-cookie@3.0.8:
+    resolution: {integrity: sha512-yeJd4aNAdYZQjaon2bpD/Gb0B/omw7HQOsynXXcOiWVCacbBcPlgn8S/d1X6blFSaHao7ozqtW7NZW19xpCtIw==}
+
   js-string-escape@1.0.1:
     resolution: {integrity: sha512-Smw4xcfIQ5LVjAOuJCvN/zIodzA/BBSsluuoSykP+lUvScIi4U6RJLfwHet5cxFnCswUjISV8oAXaqaJDY3chg==}
     engines: {node: '>= 0.8'}
@@ -8591,8 +8598,8 @@ packages:
     resolution: {integrity: sha512-/6KqX+GVUdqPuPPd2LxDDxzX6CAbjJehAAOKlNpqqUpAqPM6HeL8f+o3a+JsyGjn2lv0WY8UsTgUJjU9Ok55NA==}
     engines: {node: '>=8'}
 
-  shave@2.5.10:
-    resolution: {integrity: sha512-D35tlzDWSCdgBBNzuV3R72SkxIpCupB4WIpJBzbZ1lQYwGsJQP51uG39Xr7S1ISZKh890X10zLWOPwjyf3iQUw==}
+  shave@5.1.0:
+    resolution: {integrity: sha512-WLL/4JZyRpfvRP/n+rODovGQuieF+m4QTp4gThKTx69ATLIq7wX3vWvo+iPBjG5JVvzsOA5pNc2rSniGcP3hUg==}
 
   shebang-command@1.2.0:
     resolution: {integrity: sha512-EV3L1+UQWGor21OmnvojK36mhg+TyIKDh3iFBKBohr5xeXIhNBcx8oWdgkTEEQ+BEFFYdLRuqMfd5L84N1V5Vg==}
@@ -11866,7 +11873,7 @@ snapshots:
       webpack-dev-server: 4.15.2(debug@4.4.3(supports-color@8.1.1))(supports-color@8.1.1)(webpack-cli@4.10.0)(webpack@5.110.2)
       webpack-hot-middleware: 2.26.1
 
-  '@prezly/content-format@0.70.1':
+  '@prezly/content-format@0.71.0':
     dependencies:
       '@prezly/uploads': 0.2.1
       is-plain-object: 5.1.0
@@ -11904,15 +11911,15 @@ snapshots:
 
   '@prezly/progress-promise@2.0.1': {}
 
-  '@prezly/sdk@23.20.0':
+  '@prezly/sdk@26.8.0':
     dependencies:
       '@prezly/progress-promise': 2.0.1
-      '@prezly/uploads': 0.2.1
+      '@prezly/uploads': 0.3.2
       query-string: 6.14.1
 
-  '@prezly/story-content-format@0.70.1':
+  '@prezly/story-content-format@0.71.0':
     dependencies:
-      '@prezly/content-format': 0.70.1
+      '@prezly/content-format': 0.71.0
       '@prezly/uploads': 0.2.1
       is-plain-object: 5.1.0
 
@@ -11937,13 +11944,13 @@ snapshots:
     dependencies:
       is-plain-object: 5.1.0
 
-  '@react-hookz/deep-equal@1.0.4': {}
-
-  '@react-hookz/web@12.3.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@react-hookz/web@26.1.0(js-cookie@3.0.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
-      '@react-hookz/deep-equal': 1.0.4
+      '@ver0/deep-equal': 2.0.1
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
+    optionalDependencies:
+      js-cookie: 3.0.8
 
   '@rtsao/scc@1.1.0': {}
 
@@ -13665,6 +13672,8 @@ snapshots:
     optional: true
 
   '@uploadcare/cname-prefix@6.21.0': {}
+
+  '@ver0/deep-equal@2.0.1': {}
 
   '@webassemblyjs/ast@1.14.1':
     dependencies:
@@ -18313,6 +18322,8 @@ snapshots:
 
   jquery@3.7.1: {}
 
+  js-cookie@3.0.8: {}
+
   js-string-escape@1.0.1: {}
 
   js-tokens@4.0.0: {}
@@ -20682,7 +20693,7 @@ snapshots:
     dependencies:
       kind-of: 6.0.3
 
-  shave@2.5.10: {}
+  shave@5.1.0: {}
 
   shebang-command@1.2.0:
     dependencies:
