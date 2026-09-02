@@ -17,6 +17,7 @@ export function HtmlInjection(props: Props) {
 
     const strippedHtml = useScripts(html, onError);
 
+    // biome-ignore lint/correctness/useExhaustiveDependencies: the effect is meant to re-run on html changes only
     useEffect(() => {
         if (!containerRef.current || !onPlay) {
             return;
@@ -74,6 +75,7 @@ function useScripts(html: Props['html'], onError: Props['onError']) {
         return [resultHtml, attributes];
     }, [html]);
 
+    // biome-ignore lint/correctness/useExhaustiveDependencies: the effect is meant to re-run on html changes only
     useEffect(() => {
         scriptsAttributes.forEach((attributes) => {
             if (attributes.src && document.querySelector(`script[src="${attributes.src}"]`)) {
@@ -88,7 +90,7 @@ function useScripts(html: Props['html'], onError: Props['onError']) {
             // Iframely docs advise to insert their embed script before other scripts
             if (attributes.src === IFRAMELY_EMBED_SCRIPT_SRC) {
                 const firstScript = document.querySelectorAll('body > script')[0];
-                if (firstScript && firstScript.parentNode) {
+                if (firstScript?.parentNode) {
                     firstScript.parentNode.insertBefore(script, firstScript);
                     return;
                 }
@@ -101,7 +103,6 @@ function useScripts(html: Props['html'], onError: Props['onError']) {
             iframely.load();
         }
         // TODO: Address this. Simply adding `onError` to the deps might introduce an infinite loop.
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [scriptsAttributes]);
 
     return strippedHtml;

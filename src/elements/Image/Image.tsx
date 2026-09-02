@@ -54,7 +54,6 @@ export function Image({
     const containerStyle = getContainerStyle(node);
 
     const [isPreviewOpen, setIsPreviewOpen] = useState<boolean>(false);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     const image = useMemo(
         () =>
             baseCdnUrl

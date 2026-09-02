@@ -35,7 +35,6 @@ export function Media({ className, image, style, title }: Props) {
                 style={style}
                 title={title}
                 // TODO: Some browsers are complaining about this property
-                // eslint-disable-next-line react/no-unknown-property
                 webkit-playsinline="true"
             >
                 <source src={sourceWebm} type="video/webm" />

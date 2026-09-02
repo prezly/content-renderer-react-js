@@ -21,8 +21,8 @@ const TYPESCRIPT_SOURCES = ['src/**/*.{ts,tsx}', '!src/**/*.test.*'];
 const createCommonjsCompiler = () => babel({ extends: './babel.commonjs.config.cjs' });
 const createEsmCompiler = () => babel({ extends: './babel.esm.config.cjs' });
 
-gulp.task('build:cjs', function () {
-    return gulp
+gulp.task('build:cjs', () =>
+    gulp
         .src([...TYPESCRIPT_SOURCES, SVG_ICONS])
         .pipe(
             branch.obj((src) => [
@@ -37,13 +37,13 @@ gulp.task('build:cjs', function () {
                     .pipe(rename((file) => (file.extname = '.svg.cjs'))),
             ]),
         )
-        .pipe(gulp.dest('build/cjs/'));
-});
+        .pipe(gulp.dest('build/cjs/')),
+);
 
 gulp.task('watch:cjs', watch([...TYPESCRIPT_SOURCES, SVG_ICONS], 'build:cjs'));
 
-gulp.task('build:esm', function () {
-    return gulp
+gulp.task('build:esm', () =>
+    gulp
         .src([...TYPESCRIPT_SOURCES, SVG_ICONS])
         .pipe(
             branch.obj((src) => [
@@ -58,17 +58,17 @@ gulp.task('build:esm', function () {
                     .pipe(rename((file) => (file.extname = '.svg.mjs'))),
             ]),
         )
-        .pipe(gulp.dest('build/esm/'));
-});
+        .pipe(gulp.dest('build/esm/')),
+);
 
 gulp.task('watch:esm', watch([...TYPESCRIPT_SOURCES, SVG_ICONS], 'build:esm'));
 
-gulp.task('build:sass', function () {
-    return gulp
+gulp.task('build:sass', () =>
+    gulp
         .src(SASS_SOURCES)
         .pipe(branch.obj((src) => [copySassDeclarations(src), compileComponentsStylesheets(src)]))
-        .pipe(gulp.dest('build/'));
-});
+        .pipe(gulp.dest('build/')),
+);
 
 gulp.task('watch:sass', watch(SASS_SOURCES, 'build:sass'));
 
@@ -78,12 +78,12 @@ gulp.task('watch:sass', watch(SASS_SOURCES, 'build:sass'));
  * @returns {*}
  */
 function watch(files, build) {
-    return gulp.series(build, function () {
-        return gulp
+    return gulp.series(build, () =>
+        gulp
             .watch(files, gulp.series(build))
             .on('ready', () => console.log('Watching files'))
-            .on('all', (event, path) => console.log(`[${event}] ${path}`));
-    });
+            .on('all', (event, path) => console.log(`[${event}] ${path}`)),
+    );
 }
 
 /**

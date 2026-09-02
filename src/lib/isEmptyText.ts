@@ -1,3 +1,3 @@
 export function isEmptyText(text: string | null | undefined) {
-    return !(text && text.replace(/\s+/g, ''));
+    return !text?.replace(/\s+/g, '');
 }
