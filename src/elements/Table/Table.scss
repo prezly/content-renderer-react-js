@@ -59,5 +59,6 @@
 
 .prezly-slate-table:not(.prezly-slate-table--withFixedColumns) .prezly-slate-table-cell {
     overflow-wrap: anywhere;
+    /* stylelint-disable-next-line declaration-property-value-keyword-no-deprecated -- legacy fallback for browsers without `overflow-wrap: anywhere` */
     word-break: break-word;
 }
