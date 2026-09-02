@@ -1,5 +1,5 @@
 import type { ImageNode } from '@prezly/story-content-format';
-import renderer from 'react-test-renderer';
+import { render } from '@testing-library/react';
 import ResizeObserver from 'resize-observer-polyfill';
 
 import { Image } from './Image';
@@ -32,18 +32,18 @@ function createImageNode(href: string, mimeType = 'image/jpeg'): ImageNode {
 
 describe('Image', () => {
     it('uses the caption as alt text for linked images', () => {
-        const component = renderer.create(
+        const { container } = render(
             <Image node={createImageNode('https://example.com')}>{CAPTION}</Image>,
         );
 
-        expect(component.root.findByType('img').props.alt).toBe(CAPTION);
+        expect(container.querySelector('img')?.getAttribute('alt')).toBe(CAPTION);
     });
 
     it('passes the caption title to previewable media', () => {
-        const component = renderer.create(
+        const { container } = render(
             <Image node={createImageNode('', 'image/gif')}>{CAPTION}</Image>,
         );
 
-        expect(component.root.findByType('video').props.title).toBe(CAPTION);
+        expect(container.querySelector('video')?.getAttribute('title')).toBe(CAPTION);
     });
 });
