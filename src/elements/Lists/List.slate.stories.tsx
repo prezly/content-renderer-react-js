@@ -1,4 +1,4 @@
-import type { Meta, Story } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 
 import { StoryNameDecorator } from '../../dev/StoryNameDecorator';
 import { Renderer } from '../../Renderer';
@@ -8,7 +8,7 @@ export default {
     decorators: [StoryNameDecorator],
 } as Meta;
 
-export const Bullet: Story = () => (
+export const Bullet: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -113,7 +113,7 @@ export const Bullet: Story = () => (
     />
 );
 
-export const Numbered: Story = () => (
+export const Numbered: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -167,7 +167,7 @@ export const Numbered: Story = () => (
     />
 );
 
-export const Nested: Story = () => (
+export const Nested: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -376,7 +376,7 @@ export const Nested: Story = () => (
     />
 );
 
-export const Alignment: Story = () => (
+export const Alignment: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -473,7 +473,7 @@ export const Alignment: Story = () => (
     />
 );
 
-export const WithSpacesBetweenItems: Story = () => (
+export const WithSpacesBetweenItems: StoryFn = () => (
     <Renderer
         nodes={[
             {

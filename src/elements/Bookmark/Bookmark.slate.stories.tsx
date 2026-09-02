@@ -1,5 +1,5 @@
 import createAsyncCallback from '@loki/create-async-callback';
-import type { Meta, Story } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 
 import { StoryNameDecorator } from '../../dev/StoryNameDecorator';
 import { Renderer } from '../../Renderer';
@@ -20,7 +20,7 @@ export default {
     ],
 } as Meta;
 
-export const BigVertical: Story = () => (
+export const BigVertical: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -72,7 +72,7 @@ export const BigVertical: Story = () => (
     />
 );
 
-export const SmallHorizontal: Story = () => (
+export const SmallHorizontal: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -124,7 +124,7 @@ export const SmallHorizontal: Story = () => (
     />
 );
 
-export const SmallHorizontalWithLongTexts: Story = () => (
+export const SmallHorizontalWithLongTexts: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -177,7 +177,7 @@ export const SmallHorizontalWithLongTexts: Story = () => (
     />
 );
 
-export const HorizontalWithoutThumbnail: Story = () => (
+export const HorizontalWithoutThumbnail: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -229,7 +229,7 @@ export const HorizontalWithoutThumbnail: Story = () => (
     />
 );
 
-export const HorizontalWithoutDescriptionNewTab: Story = () => (
+export const HorizontalWithoutDescriptionNewTab: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -279,7 +279,7 @@ export const HorizontalWithoutDescriptionNewTab: Story = () => (
     />
 );
 
-export const VerticalNewTab: Story = () => (
+export const VerticalNewTab: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -321,7 +321,7 @@ export const VerticalNewTab: Story = () => (
     />
 );
 
-export const Minimal: Story = () => (
+export const Minimal: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -358,7 +358,7 @@ export const Minimal: Story = () => (
     />
 );
 
-export const VerticalLongTitleShortDescription: Story = () => (
+export const VerticalLongTitleShortDescription: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -409,7 +409,7 @@ export const VerticalLongTitleShortDescription: Story = () => (
     />
 );
 
-export const VerticalShortTitleLongDescription: Story = () => (
+export const VerticalShortTitleLongDescription: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -461,7 +461,7 @@ export const VerticalShortTitleLongDescription: Story = () => (
     />
 );
 
-export const HorizontalLongTitleShortDescription: Story = () => (
+export const HorizontalLongTitleShortDescription: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -512,7 +512,7 @@ export const HorizontalLongTitleShortDescription: Story = () => (
     />
 );
 
-export const HorizontalShortTitleLongDescription: Story = () => (
+export const HorizontalShortTitleLongDescription: StoryFn = () => (
     <Renderer
         nodes={[
             {

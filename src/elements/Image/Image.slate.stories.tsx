@@ -1,4 +1,4 @@
-import type { Meta, Story } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 
 import { ContainerDecorator } from '../../dev/ContainerDecorator';
 import { StoryNameDecorator } from '../../dev/StoryNameDecorator';
@@ -9,7 +9,7 @@ export default {
     decorators: [ContainerDecorator, StoryNameDecorator],
 } as Meta;
 
-export const WithoutCaption: Story = () => (
+export const WithoutCaption: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -39,7 +39,7 @@ export const WithoutCaption: Story = () => (
     />
 );
 
-export const WithCaption: Story = () => (
+export const WithCaption: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -69,7 +69,7 @@ export const WithCaption: Story = () => (
     />
 );
 
-export const Width100: Story = () => (
+export const Width100: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -126,7 +126,7 @@ export const Width100: Story = () => (
 /**
  * @see https://linear.app/prezly/issue/CARE-2063/image-resized-in-published-story-different-to-editor-option#comment-ee5bbe02
  */
-export const Width100SmallImage: Story = () => (
+export const Width100SmallImage: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -156,7 +156,7 @@ export const Width100SmallImage: Story = () => (
     />
 );
 
-export const Width45: Story = () => (
+export const Width45: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -187,7 +187,7 @@ export const Width45: Story = () => (
     />
 );
 
-export const FullWidth: Story = () => (
+export const FullWidth: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -217,7 +217,7 @@ export const FullWidth: Story = () => (
     />
 );
 
-export const LeftAligned: Story = () => (
+export const LeftAligned: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -248,7 +248,7 @@ export const LeftAligned: Story = () => (
     />
 );
 
-export const RightAligned: Story = () => (
+export const RightAligned: StoryFn = () => (
     <Renderer
         nodes={[
             {

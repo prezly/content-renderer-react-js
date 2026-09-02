@@ -1,5 +1,5 @@
 import { TableNode } from '@prezly/story-content-format';
-import type { Meta, Story } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 
 import { StoryNameDecorator } from '../../dev/StoryNameDecorator';
 import { Renderer } from '../../Renderer';
@@ -9,15 +9,15 @@ export default {
     decorators: [StoryNameDecorator],
 } as Meta;
 
-export const NoBorder: Story = () => <Renderer nodes={[createTableNode()]} />;
+export const NoBorder: StoryFn = () => <Renderer nodes={[createTableNode()]} />;
 
-export const WithBorder: Story = () => <Renderer nodes={[createTableNode()]} />;
+export const WithBorder: StoryFn = () => <Renderer nodes={[createTableNode()]} />;
 
-export const WithRowHeader: Story = () => (
+export const WithRowHeader: StoryFn = () => (
     <Renderer nodes={[createTableNode({ header: [TableNode.TableHeader.FIRST_ROW] })]} />
 );
 
-export const WithColumnHeader: Story = () => (
+export const WithColumnHeader: StoryFn = () => (
     <Renderer nodes={[createTableNode({ header: [TableNode.TableHeader.FIRST_COLUMN] })]} />
 );
 

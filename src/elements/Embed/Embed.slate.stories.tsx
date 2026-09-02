@@ -1,5 +1,5 @@
 import { EmbedNode } from '@prezly/story-content-format';
-import type { Meta, Story, StoryFn } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 
 import { StoryNameDecorator } from '../../dev/StoryNameDecorator';
 import { Renderer } from '../../Renderer';
@@ -68,7 +68,7 @@ VideoEmbedIframe.story = {
     },
 };
 
-export const TwitterPostIframe: Story = () => (
+export const TwitterPostIframe: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -109,7 +109,7 @@ TwitterPostIframe.story = {
     },
 };
 
-export const RichWebsiteCardIframe: Story = () => (
+export const RichWebsiteCardIframe: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -152,7 +152,7 @@ RichWebsiteCardIframe.story = {
     },
 };
 
-export const Minimal: Story = () => (
+export const Minimal: StoryFn = () => (
     <Renderer
         nodes={[
             {

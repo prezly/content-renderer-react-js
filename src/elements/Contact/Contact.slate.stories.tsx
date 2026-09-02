@@ -1,4 +1,4 @@
-import type { Meta, Story } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 
 import { StoryNameDecorator } from '../../dev/StoryNameDecorator';
 import { Renderer } from '../../Renderer';
@@ -8,7 +8,7 @@ export default {
     decorators: [StoryNameDecorator],
 } as Meta;
 
-export const Card: Story = () => (
+export const Card: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -41,7 +41,7 @@ export const Card: Story = () => (
     />
 );
 
-export const CardWithoutAvatar: Story = () => (
+export const CardWithoutAvatar: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -74,7 +74,7 @@ export const CardWithoutAvatar: Story = () => (
     />
 );
 
-export const Signature: Story = () => (
+export const Signature: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -107,7 +107,7 @@ export const Signature: Story = () => (
     />
 );
 
-export const SignatureWithoutAvatar: Story = () => (
+export const SignatureWithoutAvatar: StoryFn = () => (
     <Renderer
         nodes={[
             {

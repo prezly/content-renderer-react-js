@@ -1,5 +1,5 @@
 import { ButtonBlockNode } from '@prezly/story-content-format';
-import type { Meta, Story } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 
 import { ContainerDecorator } from '../../dev/ContainerDecorator';
 import { StoryNameDecorator } from '../../dev/StoryNameDecorator';
@@ -12,7 +12,7 @@ export default {
 
 const TEST_UUID = '3d497238-9bb3-478c-89e0-13dda44977cd';
 
-export const WithOutlineVariant: Story = () => (
+export const WithOutlineVariant: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -28,7 +28,7 @@ export const WithOutlineVariant: Story = () => (
     />
 );
 
-export const WithDefaultVariant: Story = () => (
+export const WithDefaultVariant: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -44,7 +44,7 @@ export const WithDefaultVariant: Story = () => (
     />
 );
 
-export const WithLeftLayout: Story = () => (
+export const WithLeftLayout: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -60,7 +60,7 @@ export const WithLeftLayout: Story = () => (
     />
 );
 
-export const WithRightLayout: Story = () => (
+export const WithRightLayout: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -76,7 +76,7 @@ export const WithRightLayout: Story = () => (
     />
 );
 
-export const WithCenterLayout: Story = () => (
+export const WithCenterLayout: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -92,7 +92,7 @@ export const WithCenterLayout: Story = () => (
     />
 );
 
-export const WithWideLayout: Story = () => (
+export const WithWideLayout: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -108,7 +108,7 @@ export const WithWideLayout: Story = () => (
     />
 );
 
-export const WithoutHref: Story = () => (
+export const WithoutHref: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -124,7 +124,7 @@ export const WithoutHref: Story = () => (
     />
 );
 
-export const WithCenterLayoutButLongText: Story = () => (
+export const WithCenterLayoutButLongText: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -140,7 +140,7 @@ export const WithCenterLayoutButLongText: Story = () => (
     />
 );
 
-export const WithWideLayoutButLongText: Story = () => (
+export const WithWideLayoutButLongText: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -156,7 +156,7 @@ export const WithWideLayoutButLongText: Story = () => (
     />
 );
 
-export const WithRightLayoutButLongText: Story = () => (
+export const WithRightLayoutButLongText: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -172,7 +172,7 @@ export const WithRightLayoutButLongText: Story = () => (
     />
 );
 
-export const WithLeftLayoutButLongText: Story = () => (
+export const WithLeftLayoutButLongText: StoryFn = () => (
     <Renderer
         nodes={[
             {

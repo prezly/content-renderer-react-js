@@ -1,4 +1,4 @@
-import type { Meta, Story } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 
 import { StoryNameDecorator } from '../../dev/StoryNameDecorator';
 import { Renderer } from '../../Renderer';
@@ -12,7 +12,7 @@ const TEXT = {
     text: 'I love how Prezly has been created by people who really understand the needs of PR professionals. Its features and functionality are just right for our business.',
 };
 
-export const Callout: Story = () => (
+export const Callout: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -24,7 +24,7 @@ export const Callout: Story = () => (
     />
 );
 
-export const CenterAligned: Story = () => (
+export const CenterAligned: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -36,7 +36,7 @@ export const CenterAligned: Story = () => (
         ]}
     />
 );
-export const RightAligned: Story = () => (
+export const RightAligned: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -49,7 +49,7 @@ export const RightAligned: Story = () => (
     />
 );
 
-export const NoIcon: Story = () => (
+export const NoIcon: StoryFn = () => (
     <Renderer
         nodes={[
             {

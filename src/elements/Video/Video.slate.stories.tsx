@@ -1,4 +1,4 @@
-import type { Meta, Story } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 
 import { ContainerDecorator } from '../../dev/ContainerDecorator';
 import { StoryNameDecorator } from '../../dev/StoryNameDecorator';
@@ -9,7 +9,7 @@ export default {
     decorators: [ContainerDecorator, StoryNameDecorator],
 } as Meta;
 
-export const WithLayoutContained: Story = () => (
+export const WithLayoutContained: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -49,7 +49,7 @@ WithLayoutContained.story = {
     parameters: { loki: { skip: true } },
 };
 
-export const WithLayoutExpanded: Story = () => (
+export const WithLayoutExpanded: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -89,7 +89,7 @@ WithLayoutExpanded.story = {
     parameters: { loki: { skip: true } },
 };
 
-export const WithLayoutFullWidth: Story = () => (
+export const WithLayoutFullWidth: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -129,7 +129,7 @@ WithLayoutFullWidth.story = {
     parameters: { loki: { skip: true } },
 };
 
-export const AspectRatio: Story = () => (
+export const AspectRatio: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -168,7 +168,7 @@ AspectRatio.story = {
     parameters: { loki: { skip: true } },
 };
 
-export const VerticalVideo: Story = () => (
+export const VerticalVideo: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -209,7 +209,7 @@ VerticalVideo.story = {
     parameters: { loki: { skip: true } },
 };
 
-export const WithoutIframeEmbedCode: Story = () => (
+export const WithoutIframeEmbedCode: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -247,7 +247,7 @@ WithoutIframeEmbedCode.story = {
     parameters: { loki: { skip: true } },
 };
 
-export const WithoutThumbnailAndIframeEmbedCode: Story = () => (
+export const WithoutThumbnailAndIframeEmbedCode: StoryFn = () => (
     <Renderer
         nodes={[
             {
