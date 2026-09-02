@@ -1,11 +1,9 @@
 import type { Meta, StoryFn } from '@storybook/react';
 
-import { StoryNameDecorator } from '../../dev/StoryNameDecorator';
 import { Renderer } from '../../Renderer';
 
 export default {
     title: 'Elements/Attachment',
-    decorators: [StoryNameDecorator],
 } as Meta;
 
 export const File: StoryFn = () => (

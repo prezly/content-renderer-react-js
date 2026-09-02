@@ -1,12 +1,11 @@
 import type { Meta, StoryFn } from '@storybook/react';
 
 import { ContainerDecorator } from '../../dev/ContainerDecorator';
-import { StoryNameDecorator } from '../../dev/StoryNameDecorator';
 import { Renderer } from '../../Renderer';
 
 export default {
     title: 'Elements/Video',
-    decorators: [ContainerDecorator, StoryNameDecorator],
+    decorators: [ContainerDecorator],
 } as Meta;
 
 export const WithLayoutContained: StoryFn = () => (
@@ -46,7 +45,7 @@ export const WithLayoutContained: StoryFn = () => (
 );
 
 WithLayoutContained.story = {
-    parameters: { loki: { skip: true } },
+    tags: ['skip-visual-test'],
 };
 
 export const WithLayoutExpanded: StoryFn = () => (
@@ -86,7 +85,7 @@ export const WithLayoutExpanded: StoryFn = () => (
 );
 
 WithLayoutExpanded.story = {
-    parameters: { loki: { skip: true } },
+    tags: ['skip-visual-test'],
 };
 
 export const WithLayoutFullWidth: StoryFn = () => (
@@ -126,7 +125,7 @@ export const WithLayoutFullWidth: StoryFn = () => (
 );
 
 WithLayoutFullWidth.story = {
-    parameters: { loki: { skip: true } },
+    tags: ['skip-visual-test'],
 };
 
 export const AspectRatio: StoryFn = () => (
@@ -165,7 +164,7 @@ export const AspectRatio: StoryFn = () => (
 );
 
 AspectRatio.story = {
-    parameters: { loki: { skip: true } },
+    tags: ['skip-visual-test'],
 };
 
 export const VerticalVideo: StoryFn = () => (
@@ -206,7 +205,7 @@ export const VerticalVideo: StoryFn = () => (
 );
 
 VerticalVideo.story = {
-    parameters: { loki: { skip: true } },
+    tags: ['skip-visual-test'],
 };
 
 export const WithoutIframeEmbedCode: StoryFn = () => (
@@ -244,7 +243,7 @@ export const WithoutIframeEmbedCode: StoryFn = () => (
 );
 
 WithoutIframeEmbedCode.story = {
-    parameters: { loki: { skip: true } },
+    tags: ['skip-visual-test'],
 };
 
 export const WithoutThumbnailAndIframeEmbedCode: StoryFn = () => (
@@ -280,5 +279,5 @@ export const WithoutThumbnailAndIframeEmbedCode: StoryFn = () => (
 );
 
 WithoutThumbnailAndIframeEmbedCode.story = {
-    parameters: { loki: { skip: true } },
+    tags: ['skip-visual-test'],
 };

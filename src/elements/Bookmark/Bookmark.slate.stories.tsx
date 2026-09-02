@@ -1,23 +1,9 @@
-import createAsyncCallback from '@loki/create-async-callback';
 import type { Meta, StoryFn } from '@storybook/react';
 
-import { StoryNameDecorator } from '../../dev/StoryNameDecorator';
 import { Renderer } from '../../Renderer';
 
 export default {
     title: 'Elements/Bookmark',
-    decorators: [
-        StoryNameDecorator,
-        (Story) => {
-            const callback = createAsyncCallback();
-
-            setTimeout(() => {
-                callback();
-            }, 1000);
-
-            return <Story />;
-        },
-    ],
 } as Meta;
 
 export const BigVertical: StoryFn = () => (

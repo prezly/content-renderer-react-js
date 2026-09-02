@@ -1,12 +1,10 @@
 import { EmbedNode } from '@prezly/story-content-format';
 import type { Meta, StoryFn } from '@storybook/react';
 
-import { StoryNameDecorator } from '../../dev/StoryNameDecorator';
 import { Renderer } from '../../Renderer';
 
 export default {
     title: 'Elements/Embed',
-    decorators: [StoryNameDecorator],
     argTypes: {
         layout: {
             control: { type: 'radio' },
@@ -60,9 +58,7 @@ export const VideoEmbedIframe: StoryFn<{ layout: `${EmbedNode.Layout}` }> = ({ l
 );
 
 VideoEmbedIframe.story = {
-    parameters: {
-        loki: { skip: true },
-    },
+    tags: ['skip-visual-test'],
     args: {
         layout: EmbedNode.Layout.CONTAINED,
     },
@@ -104,9 +100,7 @@ export const TwitterPostIframe: StoryFn = () => (
 );
 
 TwitterPostIframe.story = {
-    parameters: {
-        loki: { skip: true },
-    },
+    tags: ['skip-visual-test'],
 };
 
 export const RichWebsiteCardIframe: StoryFn = () => (
@@ -147,9 +141,7 @@ export const RichWebsiteCardIframe: StoryFn = () => (
 );
 
 RichWebsiteCardIframe.story = {
-    parameters: {
-        loki: { skip: true },
-    },
+    tags: ['skip-visual-test'],
 };
 
 export const Minimal: StoryFn = () => (
@@ -182,7 +174,5 @@ export const Minimal: StoryFn = () => (
 );
 
 Minimal.story = {
-    parameters: {
-        loki: { skip: true },
-    },
+    tags: ['skip-visual-test'],
 };

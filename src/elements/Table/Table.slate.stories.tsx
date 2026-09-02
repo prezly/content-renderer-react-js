@@ -1,12 +1,10 @@
 import { TableNode } from '@prezly/story-content-format';
 import type { Meta, StoryFn } from '@storybook/react';
 
-import { StoryNameDecorator } from '../../dev/StoryNameDecorator';
 import { Renderer } from '../../Renderer';
 
 export default {
     title: 'Elements/Table',
-    decorators: [StoryNameDecorator],
 } as Meta;
 
 export const NoBorder: StoryFn = () => <Renderer nodes={[createTableNode()]} />;

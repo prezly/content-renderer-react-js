@@ -1,12 +1,11 @@
 import type { Meta, StoryFn } from '@storybook/react';
 
 import { ContainerDecorator } from '../../dev/ContainerDecorator';
-import { StoryNameDecorator } from '../../dev/StoryNameDecorator';
 import { Renderer } from '../../Renderer';
 
 export default {
     title: 'Elements/Image',
-    decorators: [ContainerDecorator, StoryNameDecorator],
+    decorators: [ContainerDecorator],
 } as Meta;
 
 export const WithoutCaption: StoryFn = () => (

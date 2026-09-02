@@ -2,12 +2,11 @@ import { ButtonBlockNode } from '@prezly/story-content-format';
 import type { Meta, StoryFn } from '@storybook/react';
 
 import { ContainerDecorator } from '../../dev/ContainerDecorator';
-import { StoryNameDecorator } from '../../dev/StoryNameDecorator';
 import { Renderer } from '../../Renderer';
 
 export default {
     title: 'Elements/ButtonBlock',
-    decorators: [ContainerDecorator, StoryNameDecorator],
+    decorators: [ContainerDecorator],
 } as Meta;
 
 const TEST_UUID = '3d497238-9bb3-478c-89e0-13dda44977cd';

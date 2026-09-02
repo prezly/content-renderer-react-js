@@ -3,13 +3,11 @@ import type { Meta, StoryFn } from '@storybook/react';
 
 import { Elements } from '../..';
 import * as mock from '../../dev/mocks';
-import { StoryNameDecorator } from '../../dev/StoryNameDecorator';
 import { Renderer } from '../../Renderer';
 import { Component } from '../../selector';
 
 export default {
     title: 'Elements/StoryBookmark',
-    decorators: [StoryNameDecorator],
 } as Meta;
 
 export const VerticalWithThumbnail: StoryFn = () => (
