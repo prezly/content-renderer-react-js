@@ -12,5 +12,6 @@ export default {
         '\\.(scss|svg)$': '<rootDir>/universalMock.mjs',
     },
     testEnvironment: 'jsdom',
-    testPathIgnorePatterns: ['/node_modules/', '/build/'],
+    // `tests/` holds the Playwright visual specs, which Jest must not pick up.
+    testPathIgnorePatterns: ['/node_modules/', '/build/', '<rootDir>/tests/'],
 };

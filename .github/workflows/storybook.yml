@@ -3,9 +3,13 @@ name: Storybook
 on: [push]
 
 jobs:
-  e2e:
+  visual:
 
     runs-on: ubuntu-latest
+
+    # Screenshots are compared against baselines rendered in this exact image.
+    container:
+      image: mcr.microsoft.com/playwright:v1.62.1-noble
 
     strategy:
       matrix:
@@ -28,14 +32,14 @@ jobs:
       env:
         NODE_ENV: production
 
-    - run: pnpm loki:static-build
+    - run: pnpm exec playwright test
       env:
         CI: true
 
     - uses: actions/upload-artifact@v4
       if: failure()
       with:
-        name: loki
+        name: playwright-report
         path: |
-          .loki
-          !.loki/reference
+          playwright-report
+          test-results

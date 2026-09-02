@@ -18,6 +18,6 @@ package-lock.json
 # Tests
 /coverage
 storybook-static
-.loki/current
-.loki/difference
-.loki/.gitignore
+test-results/
+playwright-report/
+blob-report/

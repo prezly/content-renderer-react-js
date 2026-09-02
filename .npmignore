@@ -11,4 +11,7 @@ example/
 *.test.tsx
 *.stories.tsx
 *.test.*.snap
-.loki
+tests/
+playwright.config.ts
+playwright-report/
+test-results/
