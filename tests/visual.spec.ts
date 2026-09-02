@@ -19,6 +19,14 @@ interface StoryEntry {
 
 const indexPath = join(__dirname, '../storybook-static/index.json');
 
+/**
+ * Fallback for bookmark provider icons. avatars-cdn redirects to whatever icon the linked site
+ * advertises, and those redirects go stale — washingtonpost.com now blocks every static icon
+ * path, which would bake a broken-image glyph into the baselines. Icons that still resolve are
+ * passed through untouched; only genuinely dead ones fall back to this placeholder.
+ */
+const PROVIDER_ICON = readFileSync(join(__dirname, 'fixtures/provider-icon.png'));
+
 function readStories(): StoryEntry[] {
     let index: { entries: Record<string, StoryEntry> };
 
@@ -45,6 +53,22 @@ for (const story of readStories()) {
             if (response.url().startsWith(String(baseURL)) && response.status() >= 400) {
                 brokenAssets.push(`${response.status()} ${response.url()}`);
             }
+        });
+
+        await page.route(/avatars-cdn\.prezly\.com\/favicon/, async (route) => {
+            try {
+                // Capped, because a dead redirect target hangs until the connection times out.
+                const response = await route.fetch({ timeout: 5_000 });
+
+                if (response.ok()) {
+                    await route.fulfill({ response });
+                    return;
+                }
+            } catch {
+                // The icon the service redirects to is unreachable — fall back below.
+            }
+
+            await route.fulfill({ contentType: 'image/png', body: PROVIDER_ICON });
         });
 
         await page.goto(`/iframe.html?id=${story.id}&viewMode=story`);
@@ -83,8 +107,18 @@ for (const story of readStories()) {
 
         await page.evaluate(() => document.fonts.ready);
 
-        // The gallery lays itself out from a ResizeObserver measurement, so the page can
-        // still reflow after the images land. Wait until its height stops moving.
+        // The gallery lays out against `DEFAULT_GALLERY_WIDTH_SSR` (720/840/1280px) until its
+        // ResizeObserver delivers the real width, so it has two stable layouts and which one
+        // you get is a race. Nudge the viewport now that everything is mounted and observed,
+        // which guarantees the observer fires and the measured layout wins.
+        const viewport = page.viewportSize();
+
+        if (viewport) {
+            await page.setViewportSize({ ...viewport, width: viewport.width - 1 });
+            await page.setViewportSize(viewport);
+        }
+
+        // The reflow above is asynchronous, so wait until the page height stops moving.
         await page
             .waitForFunction(
                 () => {
