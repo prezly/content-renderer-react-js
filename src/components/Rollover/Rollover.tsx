@@ -3,9 +3,8 @@
 import { useMeasure } from '@react-hookz/web';
 import classNames from 'classnames';
 import type { ButtonHTMLAttributes, RefObject } from 'react';
-
-import { MultilineEllipsis } from '..';
 import { ArrowsAngleExpand } from '../../icons';
+import { MultilineEllipsis } from '..';
 
 import './Rollover.scss';
 
