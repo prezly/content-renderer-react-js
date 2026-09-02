@@ -7,10 +7,10 @@ Render [Prezly Content Format][prezly-content-format] documents used at [Prezly]
 
 ## Installation
 
-### npm
+### pnpm
 
 ```Shell
-npm install --save @prezly/content-renderer-react-js
+pnpm add @prezly/content-renderer-react-js
 ```
 
 #### peerDependencies
@@ -18,8 +18,8 @@ npm install --save @prezly/content-renderer-react-js
 Make sure all peer dependencies are met (`react`, `react-dom`).
 
 ```Shell
-npm install --save react react-dom
-npm install --save-dev @types/react @types/react-dom
+pnpm add react react-dom
+pnpm add --save-dev @types/react @types/react-dom
 ```
 
 ### object-fit-images polyfill
@@ -72,11 +72,11 @@ export function ContentWithCustomHeadings() {
 
 There is a sandbox app in this repository with Hot Module Replacement.
 It will automatically include updates of any code changes you make locally.
-To start it, simply run `npm run start`:
+To start it, simply run `pnpm start`:
 
 ```shell
-npm install
-npm run start
+pnpm install
+pnpm start
 ```
 
 ## Loki

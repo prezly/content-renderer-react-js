@@ -15,35 +15,25 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Cache node modules
-      uses: actions/cache@v4
-      env:
-        cache-name: cache-node-modules
-      with:
-        path: "**/node_modules"
-        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ matrix.react-version }}-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-build-${{ env.cache-name }}-${{ matrix.react-version }}-
-          ${{ runner.os }}-build-${{ env.cache-name }}-
-          ${{ runner.os }}-build-
-          ${{ runner.os }}-
+    - uses: pnpm/action-setup@v4
 
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
+        cache: pnpm
 
-    - run: npm install
+    - run: pnpm install --frozen-lockfile
 
     - name: Install React ${{ matrix.react-version }}
       env:
         REACT_VERSION: ${{ matrix.react-version }}
       run: |
-        npm run react:uninstall \
-          && npm run react:install-version
+        pnpm react:uninstall \
+          && pnpm react:install-version
 
-    - run: npm run build
+    - run: pnpm build
 
-    - run: npm run test
+    - run: pnpm test
       env:
         CI: true

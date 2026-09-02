@@ -1,0 +1,11 @@
+packages:
+  - example
+
+allowBuilds:
+  '@parcel/watcher': true
+  aws-sdk: false
+  core-js: false
+  core-js-pure: false
+  es5-ext: true
+  fsevents: false
+  unrs-resolver: true
