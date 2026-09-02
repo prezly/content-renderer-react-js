@@ -1,5 +1,5 @@
-const path = require('path');
 const ReactRefreshPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+const path = require('path');
 
 module.exports = {
     stories: ['../src/**/*.stories.@(js|jsx|ts|tsx)'],

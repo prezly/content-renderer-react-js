@@ -2,18 +2,14 @@
 
 .prezly-slate-callout {
     margin: $spacing-4 0;
-
     color: $color-text;
     font-weight: 500;
     font-size: $font-size-m;
     line-height: $line-height;
-
     display: flex;
     flex-direction: row;
-
     padding: $spacing-3;
     gap: $spacing-1-5;
-
     background: rgba($color-link, 0.08);
     border: 1px solid rgba($color-link, 0.6);
     border-radius: $spacing-half;

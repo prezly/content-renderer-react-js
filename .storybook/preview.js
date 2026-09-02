@@ -1,4 +1,5 @@
 import React, { StrictMode } from 'react';
+
 import { importAll } from '../src/dev/importAll';
 
 importAll(require.context('../src', true, /\.scss$/));

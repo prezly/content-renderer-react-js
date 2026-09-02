@@ -1,5 +1,10 @@
 {
   "extends": "./tsconfig.json",
 
-  "include": ["./src", "./example", "./sandbox", ".eslintrc.js", ".prettierrc.js"]
+  "compilerOptions": {
+    "allowJs": true,
+    "rootDir": "."
+  },
+
+  "include": ["./src", "./example", "./sandbox", "./.storybook/*.js", "./*.js", "./*.cjs", "./*.mjs"]
 }

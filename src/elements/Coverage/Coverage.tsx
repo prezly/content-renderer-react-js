@@ -1,7 +1,8 @@
+import type { CoverageEntry } from '@prezly/sdk';
 import type { CoverageNode } from '@prezly/story-content-format';
-import type { CoverageEntry } from "@prezly/sdk";
-import { CoverageCard } from "../../components";
-import type { ReactNode } from "react";
+import type { ReactNode } from 'react';
+
+import { CoverageCard } from '../../components';
 
 interface Props {
     coverage: CoverageEntry | undefined;

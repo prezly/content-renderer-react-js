@@ -1,18 +1,14 @@
-// General imports
 import autoprefixer from 'autoprefixer';
 import branch from 'branch-pipe';
 import gulp from 'gulp';
-import sassBackend from 'sass';
-import { Transform } from 'stream';
-
-// Processors
 import babel from 'gulp-babel';
 import concat from 'gulp-concat';
 import filter from 'gulp-filter';
 import map from 'gulp-map';
-import rename from 'gulp-rename';
 import postcss from 'gulp-postcss';
+import rename from 'gulp-rename';
 import createSassProcessor from 'gulp-sass';
+import sassBackend from 'sass';
 
 const sass = createSassProcessor(sassBackend);
 
@@ -91,16 +87,16 @@ function watch(files, build) {
 }
 
 /**
- * @param {Transform} stream
- * @returns {Transform}
+ * @param {import('stream').Transform} stream
+ * @returns {import('stream').Transform}
  */
 function copySassDeclarations(stream) {
     return stream.pipe(filter(SASS_DECLARATIONS));
 }
 
 /**
- * @param {Transform} stream
- * @returns {Transform}
+ * @param {import('stream').Transform} stream
+ * @returns {import('stream').Transform}
  */
 function compileComponentsStylesheets(stream) {
     /**

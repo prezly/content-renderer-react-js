@@ -1,6 +1,6 @@
-import path from 'path';
 import ReactRefreshPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import path from 'path';
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
