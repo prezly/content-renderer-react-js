@@ -10,7 +10,7 @@ jobs:
     strategy:
       matrix:
         node-version: [ 22.x ]
-        react-version: [ 18 ]
+        react-version: [ 18, 19 ]
 
     steps:
     - uses: actions/checkout@v4
