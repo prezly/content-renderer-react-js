@@ -23,7 +23,7 @@ const createEsmCompiler = () => babel({ extends: './babel.esm.config.cjs' });
 
 gulp.task('build:cjs', () =>
     gulp
-        .src([...TYPESCRIPT_SOURCES, SVG_ICONS])
+        .src([...TYPESCRIPT_SOURCES, SVG_ICONS], { base: 'src' })
         .pipe(
             branch.obj((src) => [
                 src
@@ -44,7 +44,7 @@ gulp.task('watch:cjs', watch([...TYPESCRIPT_SOURCES, SVG_ICONS], 'build:cjs'));
 
 gulp.task('build:esm', () =>
     gulp
-        .src([...TYPESCRIPT_SOURCES, SVG_ICONS])
+        .src([...TYPESCRIPT_SOURCES, SVG_ICONS], { base: 'src' })
         .pipe(
             branch.obj((src) => [
                 src
