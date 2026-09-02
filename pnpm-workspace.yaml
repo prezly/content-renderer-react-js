@@ -7,6 +7,7 @@ allowBuilds:
   core-js: false
   core-js-pure: false
   es5-ext: true
+  esbuild: true
   fsevents: false
   unrs-resolver: true
 
