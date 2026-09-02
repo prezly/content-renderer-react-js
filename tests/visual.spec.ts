@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
-import { expect, test } from '@playwright/test';
+import { expect, type Page, test } from '@playwright/test';
 
 /**
  * Stories tagged with this are rendered from third-party iframes (video and embed providers),
@@ -19,13 +19,32 @@ interface StoryEntry {
 
 const indexPath = join(__dirname, '../storybook-static/index.json');
 
-/**
- * Fallback for bookmark provider icons. avatars-cdn redirects to whatever icon the linked site
- * advertises, and those redirects go stale — washingtonpost.com now blocks every static icon
- * path, which would bake a broken-image glyph into the baselines. Icons that still resolve are
- * passed through untouched; only genuinely dead ones fall back to this placeholder.
- */
-const PROVIDER_ICON = readFileSync(join(__dirname, 'fixtures/provider-icon.png'));
+const EXTERNAL_IMAGE_DIMENSIONS: Record<string, [width: number, height: number]> = {
+    'cb4879f8-d3ad-4a65-b74f-0afa09c913d5': [6000, 4000],
+    'd0bdf122-a96a-425b-93e8-e3f1a052d413': [300, 300],
+    '90a308d7-411c-459f-8772-f83de2dae1db': [1024, 2968],
+    'da42f9f4-6bc2-4b42-8c8e-04a0d0db9aee': [1200, 1199],
+    '52a78e73-cea4-43d5-91a3-fd9182160f5b': [3994, 1359],
+    '9fba656c-9203-4e8a-8b69-e0a2e9e622e0': [1024, 2968],
+    '4cc29f43-6cb6-4138-a832-f855cf7a403c': [300, 300],
+    'dac5a11b-300f-459e-900a-8bb1ee64abae': [870, 260],
+    '432bdfeb-a3b5-4c66-9979-c5f2411ba5f7': [1200, 1199],
+};
+
+function createExternalImage(url: string): Buffer {
+    const [, dimensions = [1200, 800]] =
+        Object.entries(EXTERNAL_IMAGE_DIMENSIONS).find(([uuid]) => url.includes(uuid)) ?? [];
+    const [width, height] = dimensions;
+
+    return Buffer.from(`
+        <svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}"
+            viewBox="0 0 1200 800" preserveAspectRatio="none">
+            <rect width="1200" height="800" fill="#e9eef5" />
+            <path d="M0 800 420 320l220 240 160-160 400 400Z" fill="#8ba3bf" />
+            <circle cx="900" cy="220" r="110" fill="#f0b35a" />
+        </svg>
+    `);
+}
 
 function readStories(): StoryEntry[] {
     let index: { entries: Record<string, StoryEntry> };
@@ -43,6 +62,27 @@ function readStories(): StoryEntry[] {
     );
 }
 
+function getGalleryLayout(page: Page): Promise<string> {
+    return page.locator('.prezly-slate-gallery__images').evaluateAll((galleries) =>
+        JSON.stringify(
+            galleries.map((gallery) =>
+                Array.from(gallery.children).map((row) =>
+                    Array.from(row.children).map((image) => {
+                        const bounds = image.getBoundingClientRect();
+
+                        return {
+                            style: image.getAttribute('style'),
+                            width: bounds.width,
+                            height: bounds.height,
+                            source: image.querySelector('img, video')?.getAttribute('src'),
+                        };
+                    }),
+                ),
+            ),
+        ),
+    );
+}
+
 for (const story of readStories()) {
     test(`${story.title} — ${story.name}`, async ({ page, baseURL }) => {
         // A stale or partial Storybook build serves 404s for its chunks and renders
@@ -55,20 +95,25 @@ for (const story of readStories()) {
             }
         });
 
-        await page.route(/avatars-cdn\.prezly\.com\/favicon/, async (route) => {
-            try {
-                // Capped, because a dead redirect target hangs until the connection times out.
-                const response = await route.fetch({ timeout: 5_000 });
+        const storybookOrigin = new URL(String(baseURL)).origin;
 
-                if (response.ok()) {
-                    await route.fulfill({ response });
-                    return;
-                }
-            } catch {
-                // The icon the service redirects to is unreachable — fall back below.
+        await page.route(/^https?:\/\//, async (route) => {
+            const request = route.request();
+
+            if (
+                request.resourceType() !== 'image' ||
+                new URL(request.url()).origin === storybookOrigin
+            ) {
+                await route.continue();
+                return;
             }
 
-            await route.fulfill({ contentType: 'image/png', body: PROVIDER_ICON });
+            await route.fulfill({
+                status: 200,
+                contentType: 'image/svg+xml',
+                headers: { 'access-control-allow-origin': '*' },
+                body: createExternalImage(request.url()),
+            });
         });
 
         await page.goto(`/iframe.html?id=${story.id}&viewMode=story`);
@@ -83,8 +128,49 @@ for (const story of readStories()) {
         // list and the screenshot captures placeholder boxes at the wrong page height.
         await page.waitForLoadState('networkidle').catch(() => {});
 
-        // A full-page screenshot scrolls the viewport, which is what triggers lazy-loaded
-        // gallery images. Walk the page first so they are already settled by capture time.
+        // The gallery lays out against `DEFAULT_GALLERY_WIDTH_SSR` (720/840/1280px) until its
+        // ResizeObserver delivers the real width. Nudge the observed element itself, then wait
+        // for React to apply both measurements so the real layout always wins. Resizing the
+        // emulated viewport here makes mobile screenshots race against browser viewport updates.
+        const initialGalleryLayout = await getGalleryLayout(page);
+
+        if (initialGalleryLayout !== '[]') {
+            await page.locator('.prezly-slate-gallery__images').evaluateAll((galleries) => {
+                for (const gallery of galleries) {
+                    const element = gallery as HTMLElement;
+                    element.style.width = `${element.getBoundingClientRect().width - 1}px`;
+                }
+            });
+            await expect.poll(() => getGalleryLayout(page)).not.toBe(initialGalleryLayout);
+
+            const nudgedGalleryLayout = await getGalleryLayout(page);
+            await page.locator('.prezly-slate-gallery__images').evaluateAll((galleries) => {
+                for (const gallery of galleries) {
+                    (gallery as HTMLElement).style.removeProperty('width');
+                }
+            });
+            await expect.poll(() => getGalleryLayout(page)).not.toBe(nudgedGalleryLayout);
+
+            let previousLayout = '';
+            let stableMeasurements = 0;
+
+            await expect
+                .poll(
+                    async () => {
+                        const layout = await getGalleryLayout(page);
+
+                        stableMeasurements = layout === previousLayout ? stableMeasurements + 1 : 0;
+                        previousLayout = layout;
+
+                        return stableMeasurements;
+                    },
+                    { intervals: [250], timeout: 15_000 },
+                )
+                .toBeGreaterThanOrEqual(4);
+        }
+
+        // A full-page screenshot scrolls the viewport, which triggers lazy-loaded images.
+        // Walk the final layout so every image URL produced by the resize above has loaded.
         await page.evaluate(async () => {
             for (let y = 0; y < document.body.scrollHeight; y += window.innerHeight) {
                 window.scrollTo(0, y);
@@ -95,45 +181,16 @@ for (const story of readStories()) {
 
         await page.waitForLoadState('networkidle').catch(() => {});
 
-        await page
-            .waitForFunction(
-                () => Array.from(document.images).every((image) => image.complete),
-                null,
-                { timeout: 20_000 },
-            )
-            .catch(() => {
-                // A single unreachable third-party asset shouldn't fail the whole story.
-            });
+        await page.waitForFunction(
+            () =>
+                Array.from(document.images).every(
+                    (image) => image.complete && image.naturalWidth > 0,
+                ),
+            null,
+            { timeout: 20_000 },
+        );
 
         await page.evaluate(() => document.fonts.ready);
-
-        // The gallery lays out against `DEFAULT_GALLERY_WIDTH_SSR` (720/840/1280px) until its
-        // ResizeObserver delivers the real width, so it has two stable layouts and which one
-        // you get is a race. Nudge the viewport now that everything is mounted and observed,
-        // which guarantees the observer fires and the measured layout wins.
-        const viewport = page.viewportSize();
-
-        if (viewport) {
-            await page.setViewportSize({ ...viewport, width: viewport.width - 1 });
-            await page.setViewportSize(viewport);
-        }
-
-        // The reflow above is asynchronous, so wait until the page height stops moving.
-        await page
-            .waitForFunction(
-                () => {
-                    const store = window as unknown as { __lastHeight?: number };
-                    const height = document.documentElement.scrollHeight;
-                    const settled = store.__lastHeight === height;
-
-                    store.__lastHeight = height;
-
-                    return settled;
-                },
-                null,
-                { polling: 250, timeout: 15_000 },
-            )
-            .catch(() => {});
 
         expect(brokenAssets, 'Storybook failed to serve its own assets').toEqual([]);
 
