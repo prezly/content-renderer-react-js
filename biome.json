@@ -53,6 +53,14 @@
     },
     "overrides": [
         {
+            "includes": ["example/next-env.d.ts"],
+            "javascript": {
+                "formatter": {
+                    "quoteStyle": "double"
+                }
+            }
+        },
+        {
             "includes": ["src/@types/**"],
             "linter": {
                 "rules": {
