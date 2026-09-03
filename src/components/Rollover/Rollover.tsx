@@ -2,10 +2,9 @@
 
 import { useMeasure } from '@react-hookz/web';
 import classNames from 'classnames';
-import type { ButtonHTMLAttributes } from 'react';
-
-import { MultilineEllipsis } from '..';
+import type { ButtonHTMLAttributes, RefObject } from 'react';
 import { ArrowsAngleExpand } from '../../icons';
+import { MultilineEllipsis } from '..';
 
 import './Rollover.scss';
 
@@ -66,7 +65,10 @@ export function Rollover({
                         />
                     </span>
 
-                    <span className="prezly-slate-image-rollover__caption-text" ref={ref}>
+                    <span
+                        className="prezly-slate-image-rollover__caption-text"
+                        ref={ref as RefObject<HTMLSpanElement>}
+                    >
                         <MultilineEllipsis maxHeight={maxHeight}>
                             {caption.trim()}
                         </MultilineEllipsis>

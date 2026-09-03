@@ -22,7 +22,7 @@ export function Selector({ nodes: rootNodes, children }: Props) {
                     <ComponentRenderer
                         {...extraProps}
                         node={node}
-                        // eslint-disable-next-line react/no-children-prop
+                        // biome-ignore lint/correctness/noChildrenProp: children are passed explicitly to keep the renderer generic
                         children={
                             ComposedElement.isComposedElement(node)
                                 ? renderNodes(node.children as Node[])

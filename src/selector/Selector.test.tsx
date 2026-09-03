@@ -1,5 +1,5 @@
 import { DividerNode, DocumentNode, HeadingNode } from '@prezly/story-content-format';
-import renderer from 'react-test-renderer';
+import { render } from '@testing-library/react';
 
 import { Divider, Document, Heading } from '../elements';
 
@@ -22,16 +22,14 @@ const documentNode: DocumentNode = {
 
 describe('Selector', () => {
     it('should render <h1> for a heading and <hr> for a divider', () => {
-        const tree = renderer
-            .create(
-                <Selector nodes={documentNode}>
-                    <Component match={DividerNode.isDividerNode} component={Divider} />
-                    <Component match={HeadingNode.isHeadingNode} component={Heading} />
-                    <Component match={DocumentNode.isDocumentNode} component={Document} />
-                </Selector>,
-            )
-            .toJSON();
+        const { container } = render(
+            <Selector nodes={documentNode}>
+                <Component match={DividerNode.isDividerNode} component={Divider} />
+                <Component match={HeadingNode.isHeadingNode} component={Heading} />
+                <Component match={DocumentNode.isDocumentNode} component={Document} />
+            </Selector>,
+        );
 
-        expect(tree).toMatchSnapshot();
+        expect(container.firstChild).toMatchSnapshot();
     });
 });

@@ -24,7 +24,9 @@ export function createComponentsRenderersFromChildren(children: ReactNode): Comp
     const renderers: ComponentRenderer[] = [];
 
     Children.forEach(children, (element) => {
-        if (!isValidElement(element)) {
+        // React 19 types the props of an unspecialized element as `unknown`.
+        // The `invariant()` below is what actually proves the shape at runtime.
+        if (!isValidElement<ComponentRenderer>(element)) {
             // Ignore non-elements. This allows people to more easily
             // inline conditionals in their renderer config.
             return;

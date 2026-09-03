@@ -1,4 +1,4 @@
-import path from 'path';
+import path from 'node:path';
 import ReactRefreshPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
@@ -10,7 +10,6 @@ export default {
         main: './sandbox/index.jsx',
     },
     resolve: {
-        symlinks: false,
         extensions: ['.js', '.jsx', '.mjs', '.cjs'],
         fallback: { url: 'url-polyfill' },
         alias: {

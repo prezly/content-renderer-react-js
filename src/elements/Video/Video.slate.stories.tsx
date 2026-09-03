@@ -1,15 +1,14 @@
-import type { Meta, Story } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 
 import { ContainerDecorator } from '../../dev/ContainerDecorator';
-import { StoryNameDecorator } from '../../dev/StoryNameDecorator';
 import { Renderer } from '../../Renderer';
 
 export default {
     title: 'Elements/Video',
-    decorators: [ContainerDecorator, StoryNameDecorator],
+    decorators: [ContainerDecorator],
 } as Meta;
 
-export const WithLayoutContained: Story = () => (
+export const WithLayoutContained: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -46,10 +45,10 @@ export const WithLayoutContained: Story = () => (
 );
 
 WithLayoutContained.story = {
-    parameters: { loki: { skip: true } },
+    tags: ['skip-visual-test'],
 };
 
-export const WithLayoutExpanded: Story = () => (
+export const WithLayoutExpanded: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -86,10 +85,10 @@ export const WithLayoutExpanded: Story = () => (
 );
 
 WithLayoutExpanded.story = {
-    parameters: { loki: { skip: true } },
+    tags: ['skip-visual-test'],
 };
 
-export const WithLayoutFullWidth: Story = () => (
+export const WithLayoutFullWidth: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -126,10 +125,10 @@ export const WithLayoutFullWidth: Story = () => (
 );
 
 WithLayoutFullWidth.story = {
-    parameters: { loki: { skip: true } },
+    tags: ['skip-visual-test'],
 };
 
-export const AspectRatio: Story = () => (
+export const AspectRatio: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -165,10 +164,10 @@ export const AspectRatio: Story = () => (
 );
 
 AspectRatio.story = {
-    parameters: { loki: { skip: true } },
+    tags: ['skip-visual-test'],
 };
 
-export const VerticalVideo: Story = () => (
+export const VerticalVideo: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -206,10 +205,10 @@ export const VerticalVideo: Story = () => (
 );
 
 VerticalVideo.story = {
-    parameters: { loki: { skip: true } },
+    tags: ['skip-visual-test'],
 };
 
-export const WithoutIframeEmbedCode: Story = () => (
+export const WithoutIframeEmbedCode: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -244,10 +243,10 @@ export const WithoutIframeEmbedCode: Story = () => (
 );
 
 WithoutIframeEmbedCode.story = {
-    parameters: { loki: { skip: true } },
+    tags: ['skip-visual-test'],
 };
 
-export const WithoutThumbnailAndIframeEmbedCode: Story = () => (
+export const WithoutThumbnailAndIframeEmbedCode: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -280,5 +279,5 @@ export const WithoutThumbnailAndIframeEmbedCode: Story = () => (
 );
 
 WithoutThumbnailAndIframeEmbedCode.story = {
-    parameters: { loki: { skip: true } },
+    tags: ['skip-visual-test'],
 };

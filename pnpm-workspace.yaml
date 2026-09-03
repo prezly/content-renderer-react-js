@@ -1,0 +1,18 @@
+packages:
+  - example
+
+overrides:
+  '@types/react-modal>@types/react': '-'
+
+allowBuilds:
+  '@parcel/watcher': true
+  aws-sdk: false
+  core-js: false
+  core-js-pure: false
+  es5-ext: true
+  esbuild: true
+  fsevents: false
+  unrs-resolver: true
+
+minimumReleaseAgeExclude:
+  - webpack@5.110.3

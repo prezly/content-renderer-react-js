@@ -1,21 +1,20 @@
 {
-    "extends": "../tsconfig.json",
     "compilerOptions": {
-        "composite": true,
-        "jsx": "react-jsx",
-        "outDir": "./build",
-        "rootDir": "./src",
+        "target": "ES2017",
+        "lib": ["dom", "dom.iterable", "esnext"],
         "allowJs": true,
         "skipLibCheck": true,
-        "emitDeclarationOnly": false,
+        "strict": true,
         "noEmit": true,
+        "esModuleInterop": true,
+        "module": "esnext",
+        "moduleResolution": "bundler",
         "resolveJsonModule": true,
         "isolatedModules": true,
-        "incremental": true
+        "jsx": "react-jsx",
+        "incremental": true,
+        "plugins": [{ "name": "next" }]
     },
     "exclude": ["node_modules", "**/*.test.*"],
-    "include": ["next-env.d.ts", "./src", "./src/**/*.json"],
-    "references": [
-        {"path": ".."}
-    ]
+    "include": ["next-env.d.ts", ".next/types/**/*.ts", "./src", "./src/**/*.json"]
 }

@@ -1,14 +1,12 @@
-import type { Meta, Story } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 
-import { StoryNameDecorator } from '../../dev/StoryNameDecorator';
 import { Renderer } from '../../Renderer';
 
 export default {
     title: 'Elements/Paragraph',
-    decorators: [StoryNameDecorator],
 } as Meta;
 
-export const RegularParagraphOfText: Story = () => (
+export const RegularParagraphOfText: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -23,7 +21,7 @@ export const RegularParagraphOfText: Story = () => (
     />
 );
 
-export const WhitespaceCollapsing: Story = () => (
+export const WhitespaceCollapsing: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -49,7 +47,7 @@ export const WhitespaceCollapsing: Story = () => (
     />
 );
 
-export const SoftLineBreaks: Story = () => (
+export const SoftLineBreaks: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -64,7 +62,7 @@ export const SoftLineBreaks: Story = () => (
     />
 );
 
-export const Placeholders: Story = () => (
+export const Placeholders: StoryFn = () => (
     <Renderer
         nodes={{
             type: 'paragraph',
@@ -89,7 +87,7 @@ export const Placeholders: Story = () => (
     />
 );
 
-export const StyledText: Story = () => (
+export const StyledText: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -221,7 +219,7 @@ export const StyledText: Story = () => (
     />
 );
 
-export const Alignment: Story = () => (
+export const Alignment: StoryFn = () => (
     <Renderer
         nodes={[
             {

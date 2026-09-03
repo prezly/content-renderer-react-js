@@ -43,14 +43,12 @@ export function calculateLayout({ idealHeight, images, viewportWidth }: Paramete
 
     for (const row of partition) {
         // TODO: Address this
-        // eslint-disable-next-line @typescript-eslint/no-loop-func
         const rowImages = row.map((_, index) => images[offset + index]);
         const aspectRatioSum = rowImages.reduce((sum, image) => sum + image.aspectRatio, 0);
         let availableWidth = viewportWidth;
         const computedRow: Tile[] = [];
 
         // TODO: Address this
-        // eslint-disable-next-line @typescript-eslint/no-loop-func
         rowImages.forEach((image, index) => {
             const width =
                 index === rowImages.length - 1

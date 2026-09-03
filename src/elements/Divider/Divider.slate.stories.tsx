@@ -1,14 +1,12 @@
-import type { Meta, Story } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 
-import { StoryNameDecorator } from '../../dev/StoryNameDecorator';
 import { Renderer } from '../../Renderer';
 
 export default {
     title: 'Elements/Divider',
-    decorators: [StoryNameDecorator],
 } as Meta;
 
-export const Divider: Story = () => (
+export const Divider: StoryFn = () => (
     <Renderer
         nodes={[
             {

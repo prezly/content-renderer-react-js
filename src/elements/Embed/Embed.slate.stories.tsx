@@ -1,12 +1,10 @@
 import { EmbedNode } from '@prezly/story-content-format';
-import type { Meta, Story, StoryFn } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 
-import { StoryNameDecorator } from '../../dev/StoryNameDecorator';
 import { Renderer } from '../../Renderer';
 
 export default {
     title: 'Elements/Embed',
-    decorators: [StoryNameDecorator],
     argTypes: {
         layout: {
             control: { type: 'radio' },
@@ -60,15 +58,13 @@ export const VideoEmbedIframe: StoryFn<{ layout: `${EmbedNode.Layout}` }> = ({ l
 );
 
 VideoEmbedIframe.story = {
-    parameters: {
-        loki: { skip: true },
-    },
+    tags: ['skip-visual-test'],
     args: {
         layout: EmbedNode.Layout.CONTAINED,
     },
 };
 
-export const TwitterPostIframe: Story = () => (
+export const TwitterPostIframe: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -104,12 +100,10 @@ export const TwitterPostIframe: Story = () => (
 );
 
 TwitterPostIframe.story = {
-    parameters: {
-        loki: { skip: true },
-    },
+    tags: ['skip-visual-test'],
 };
 
-export const RichWebsiteCardIframe: Story = () => (
+export const RichWebsiteCardIframe: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -147,12 +141,10 @@ export const RichWebsiteCardIframe: Story = () => (
 );
 
 RichWebsiteCardIframe.story = {
-    parameters: {
-        loki: { skip: true },
-    },
+    tags: ['skip-visual-test'],
 };
 
-export const Minimal: Story = () => (
+export const Minimal: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -182,7 +174,5 @@ export const Minimal: Story = () => (
 );
 
 Minimal.story = {
-    parameters: {
-        loki: { skip: true },
-    },
+    tags: ['skip-visual-test'],
 };

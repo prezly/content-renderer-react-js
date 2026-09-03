@@ -7,10 +7,10 @@ Render [Prezly Content Format][prezly-content-format] documents used at [Prezly]
 
 ## Installation
 
-### npm
+### pnpm
 
 ```Shell
-npm install --save @prezly/content-renderer-react-js
+pnpm add @prezly/content-renderer-react-js
 ```
 
 #### peerDependencies
@@ -18,8 +18,8 @@ npm install --save @prezly/content-renderer-react-js
 Make sure all peer dependencies are met (`react`, `react-dom`).
 
 ```Shell
-npm install --save react react-dom
-npm install --save-dev @types/react @types/react-dom
+pnpm add react react-dom
+pnpm add --save-dev @types/react @types/react-dom
 ```
 
 ### object-fit-images polyfill
@@ -72,23 +72,29 @@ export function ContentWithCustomHeadings() {
 
 There is a sandbox app in this repository with Hot Module Replacement.
 It will automatically include updates of any code changes you make locally.
-To start it, simply run `npm run start`:
+To start it, simply run `pnpm start`:
 
 ```shell
-npm install
-npm run start
+pnpm install
+pnpm start
 ```
 
-## Loki
+## Visual regression tests
 
-We use [Loki](https://loki.js.org/) visual testing library for storybook.
-There are several commands that you can use from `package.json`:
+Visual regression tests use Playwright against a static Storybook build. Docker keeps local
+screenshots consistent with CI.
 
-1. `loki` - checks that your current stories are matched with what you already have (Storybook server should run)
-1. `loki:update` - Regenerate all snapshots despite what you already have (Storybook server should run)
-1. `loki:static-build` - Performs checks like `loki` does, but over builded sources from storybook, no need to run Storybook server
+```shell
+pnpm test:visual
+```
 
-If Loki fails on CI you can download generated images like [here](https://github.com/actions/upload-artifact#where-does-the-upload-go)
+Regenerate the committed snapshots after an intentional visual change:
+
+```shell
+pnpm test:visual:update
+```
+
+Failed CI runs upload the Playwright report and image diffs in the `playwright-report` artifact.
 
 ---
 

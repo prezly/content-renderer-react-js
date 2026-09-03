@@ -1,15 +1,15 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Selector should render <h1> for a heading and <hr> for a divider 1`] = `
 <section
-  className="prezly-slate-document"
+  class="prezly-slate-document"
   data-version="0.50"
 >
   <h1
-    className="prezly-slate-heading prezly-slate-heading--heading-1 prezly-slate-heading--align-inherit"
+    class="prezly-slate-heading prezly-slate-heading--heading-1 prezly-slate-heading--align-inherit"
   />
   <hr
-    className="prezly-slate-divider"
+    class="prezly-slate-divider"
   />
 </section>
 `;

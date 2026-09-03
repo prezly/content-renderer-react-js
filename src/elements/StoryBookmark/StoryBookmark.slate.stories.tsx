@@ -1,18 +1,16 @@
 import { StoryBookmarkNode } from '@prezly/story-content-format';
-import type { Meta, Story } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 
 import { Elements } from '../..';
 import * as mock from '../../dev/mocks';
-import { StoryNameDecorator } from '../../dev/StoryNameDecorator';
 import { Renderer } from '../../Renderer';
 import { Component } from '../../selector';
 
 export default {
     title: 'Elements/StoryBookmark',
-    decorators: [StoryNameDecorator],
 } as Meta;
 
-export const VerticalWithThumbnail: Story = () => (
+export const VerticalWithThumbnail: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -47,7 +45,7 @@ export const VerticalWithThumbnail: Story = () => (
     </Renderer>
 );
 
-export const VerticalNewTab: Story = () => (
+export const VerticalNewTab: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -82,7 +80,7 @@ export const VerticalNewTab: Story = () => (
     </Renderer>
 );
 
-export const HorizontalWithThumbnail: Story = () => (
+export const HorizontalWithThumbnail: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -117,7 +115,7 @@ export const HorizontalWithThumbnail: Story = () => (
     </Renderer>
 );
 
-export const VerticalWithoutThumbnail: Story = () => (
+export const VerticalWithoutThumbnail: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -152,7 +150,7 @@ export const VerticalWithoutThumbnail: Story = () => (
     </Renderer>
 );
 
-export const HorizontalWithoutThumbnail: Story = () => (
+export const HorizontalWithoutThumbnail: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -187,7 +185,7 @@ export const HorizontalWithoutThumbnail: Story = () => (
     </Renderer>
 );
 
-export const VerticalLongTitleShortDescription: Story = () => (
+export const VerticalLongTitleShortDescription: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -222,7 +220,7 @@ export const VerticalLongTitleShortDescription: Story = () => (
     </Renderer>
 );
 
-export const VerticalShortTitleLongDescription: Story = () => (
+export const VerticalShortTitleLongDescription: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -257,7 +255,7 @@ export const VerticalShortTitleLongDescription: Story = () => (
     </Renderer>
 );
 
-export const HorizontalLongTitleShortDescription: Story = () => (
+export const HorizontalLongTitleShortDescription: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -292,7 +290,7 @@ export const HorizontalLongTitleShortDescription: Story = () => (
     </Renderer>
 );
 
-export const HorizontalShortTitleLongDescription: Story = () => (
+export const HorizontalShortTitleLongDescription: StoryFn = () => (
     <Renderer
         nodes={[
             {

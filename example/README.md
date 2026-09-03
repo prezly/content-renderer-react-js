@@ -5,8 +5,7 @@ http://localhost:3000/
 ## Setup
 
 ```shell
-npm install --workspace=..
-npm install
+pnpm install
 ```
 
 ## Scripts
@@ -14,7 +13,7 @@ npm install
 ### Run development server with hot-reload
 
 ```shell
-npm run dev
+pnpm dev
 ```
 
 ---

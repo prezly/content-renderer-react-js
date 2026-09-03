@@ -1,10 +1,12 @@
 {
-  "extends": ["@prezly/eslint-config/stylelint"],
+  "extends": ["stylelint-config-standard-scss"],
   "rules": {
-    "selector-class-pattern": null,
-    "no-descending-specificity": null,
+    "import-notation": "string",
     "max-nesting-depth": null,
     "media-feature-range-notation": null,
+    "no-descending-specificity": null,
+    "selector-class-pattern": null,
+    "selector-pseudo-class-no-unknown": [true, { "ignorePseudoClasses": ["global", "export"] }],
     "function-no-unknown": [true, { "ignoreFunctions": ["color.adjust", "adjust"] }]
   }
 }

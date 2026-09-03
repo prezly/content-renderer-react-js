@@ -1,15 +1,14 @@
-import type { Meta, Story } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 
 import { ContainerDecorator } from '../../dev/ContainerDecorator';
-import { StoryNameDecorator } from '../../dev/StoryNameDecorator';
 import { Renderer } from '../../Renderer';
 
 export default {
     title: 'Elements/Gallery',
-    decorators: [ContainerDecorator, StoryNameDecorator],
+    decorators: [ContainerDecorator],
 } as Meta;
 
-export const ContainedSmallPadding: Story = () => (
+export const ContainedSmallPadding: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -90,7 +89,7 @@ export const ContainedSmallPadding: Story = () => (
     />
 );
 
-export const Expanded: Story = () => (
+export const Expanded: StoryFn = () => (
     <Renderer
         nodes={[
             {
@@ -171,7 +170,7 @@ export const Expanded: Story = () => (
     />
 );
 
-export const FullWidth: Story = () => (
+export const FullWidth: StoryFn = () => (
     <Renderer
         nodes={[
             {

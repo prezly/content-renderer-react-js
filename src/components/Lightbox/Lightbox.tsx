@@ -65,12 +65,12 @@ export function Lightbox({
         },
     );
 
+    // biome-ignore lint/correctness/useExhaustiveDependencies: adding `onOpen` may introduce an infinite loop
     useEffect(() => {
         if (image) {
             onOpen(image);
         }
         // TODO: Address this. Simply adding `onOpen` to the deps might introduce an infinite loop.
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [image]);
 
     if (typeof window === 'undefined') {

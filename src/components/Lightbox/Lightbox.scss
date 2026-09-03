@@ -1,5 +1,4 @@
-@import "styles/mixins";
-@import "styles/variables";
+@use "styles" as *;
 
 $close-icon-size: 24px;
 $close-icon-padding: $spacing-2;
