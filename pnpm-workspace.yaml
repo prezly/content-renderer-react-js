@@ -1,6 +1,9 @@
 packages:
   - example
 
+overrides:
+  '@types/react-modal>@types/react': '-'
+
 allowBuilds:
   '@parcel/watcher': true
   aws-sdk: false

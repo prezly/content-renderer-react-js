@@ -28,9 +28,7 @@ jobs:
     - name: Install React ${{ matrix.react-version }}
       env:
         REACT_VERSION: ${{ matrix.react-version }}
-      run: |
-        pnpm react:uninstall \
-          && pnpm react:install-version
+      run: pnpm react:install-version
 
     - run: pnpm build
 

@@ -203,6 +203,9 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+overrides:
+  '@types/react-modal>@types/react': '-'
+
 importers:
 
   .:
@@ -9989,9 +9992,7 @@ snapshots:
     dependencies:
       '@types/react': 19.2.18
 
-  '@types/react-modal@3.16.3':
-    dependencies:
-      '@types/react': 19.2.18
+  '@types/react-modal@3.16.3': {}
 
   '@types/react@19.2.18':
     dependencies:
