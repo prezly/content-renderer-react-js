@@ -106,7 +106,7 @@ function compileComponentsStylesheets(stream) {
     function toSassIndex(file) {
         const path = file.path.replace(file.base, '.').replace(/\.scss$/, '');
         const index = file.clone({ contents: false });
-        index.contents = Buffer.from(`@import "${path}";\n`);
+        index.contents = Buffer.from(`@use "${path}";\n`);
         return index;
     }
 

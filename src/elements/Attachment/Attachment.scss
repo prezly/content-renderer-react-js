@@ -1,5 +1,4 @@
-@import "styles/mixins";
-@import "styles/variables";
+@use "styles" as *;
 
 .prezly-slate-attachment {
     display: block;

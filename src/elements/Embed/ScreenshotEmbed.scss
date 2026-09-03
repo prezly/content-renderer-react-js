@@ -1,5 +1,4 @@
-@import "styles/mixins";
-@import "styles/variables";
+@use "styles" as *;
 
 .prezly-slate-screenshot-embed {
     max-width: 100%;

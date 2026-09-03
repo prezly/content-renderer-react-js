@@ -1,8 +1,7 @@
-@import "styles/mixins";
-@import "styles/variables";
+@use "styles" as *;
 
 $background-color: #fff;
-$color-link: #0082db;
+$rollover-color-link: #0082db;
 
 .prezly-slate-image-rollover {
     position: relative;
@@ -80,7 +79,7 @@ $color-link: #0082db;
         display: flex;
         margin-top: auto;
         padding: $spacing-1;
-        background-color: $color-link;
+        background-color: $rollover-color-link;
         color: $background-color;
         border-radius: 50%;
 
