@@ -6,11 +6,12 @@ const LINE_BREAKS = /\r\n|\r|\n/;
 const ZERO_WIDTH_WHITE_SPACE = '\u200B';
 
 interface Props {
-    node: TextNode;
+    node: TextNode & { strikethrough?: boolean };
 }
 
 export function Text({ node }: Props) {
-    const { bold, italic, subscript, superscript, text, underlined, highlighted } = node;
+    const { bold, italic, subscript, superscript, text, underlined, highlighted, strikethrough } =
+        node;
     let children: ReactNode = Text.preserveSoftBreaks(text);
 
     if (bold) {
@@ -31,6 +32,10 @@ export function Text({ node }: Props) {
 
     if (underlined) {
         children = <u>{children}</u>;
+    }
+
+    if (strikethrough) {
+        children = <s>{children}</s>;
     }
 
     if (highlighted) {
