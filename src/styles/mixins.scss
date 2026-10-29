@@ -1,5 +1,11 @@
 @use "variables" as *;
 
+// Keep transparency visible without changing the image or its download.
+@mixin image-transparency-background {
+    background-image: repeating-conic-gradient(#e6e6e6 0% 25%, #fff 0% 50%);
+    background-size: 16px 16px;
+}
+
 @mixin mobile-down() {
     @media (max-width: $screen-xs-max) {
         @content;
