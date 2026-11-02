@@ -102,3 +102,15 @@ Brought to you by [Prezly][prezly].
 
 [prezly]: https://www.prezly.com/?utm_source=github&utm_campaign=@prezly/content-renderer-react-js
 [prezly-content-format]: https://developers.prezly.com/docs/api/ZG9jOjU2NjAyNTY-prezly-content-format
+
+### Transparent gallery previews
+
+Gallery thumbnails and lightbox images display a neutral CSS checkerboard behind
+transparent pixels. Opaque image pixels cover the pattern; image URLs and original
+downloads are unchanged. The pattern is limited to the image bounds and does not
+apply to inline story images outside the lightbox.
+
+Themes can customize `.prezly-slate-gallery-image__media` and
+`.prezly-slate-lightbox__image` backgrounds. Theme-owned gallery cover cards need
+the same treatment separately. Updating the renderer package does not update
+those covers or override a theme's hover-caption styles.

@@ -46,6 +46,8 @@ body.ReactModal__Body--open {
         }
 
         &__image {
+            @include image-transparency-background;
+
             max-height: 100%;
         }
 
