@@ -1,20 +1,34 @@
 import type { UploadcareImage } from '@prezly/uploadcare';
 import classNames from 'classnames';
 import type { CSSProperties } from 'react';
+import { useRef } from 'react';
+
+import { useTransparencyBackdrop } from '../../lib/transparency';
 
 import './Media.scss';
 
 interface Props {
     className?: string;
+    /**
+     * Show a checkerboard behind transparent images that would otherwise blend into
+     * the colour behind them (e.g. white artwork on a white page). Runs in the browser only.
+     */
+    detectTransparency?: boolean;
     image: UploadcareImage;
     style?: CSSProperties;
     title?: string;
 }
 
-export function Media({ className, image, style, title }: Props) {
+export function Media({ className, detectTransparency = false, image, style, title }: Props) {
+    const imageRef = useRef<HTMLImageElement>(null);
+    const hasTransparencyBackdrop = useTransparencyBackdrop(
+        detectTransparency && !image.isGif() ? image : null,
+        imageRef,
+    );
     const computedClassName = classNames('prezly-slate-media', className, {
         'prezly-slate-media--image': !image.isGif(),
         'prezly-slate-media--video': image.isGif(),
+        'prezly-slate-media--transparency-backdrop': hasTransparencyBackdrop,
     });
 
     if (image.isGif()) {
@@ -45,6 +59,7 @@ export function Media({ className, image, style, title }: Props) {
 
     return (
         <img
+            ref={imageRef}
             alt={title ?? ''}
             className={computedClassName}
             src={image.preview().format().cdnUrl}
