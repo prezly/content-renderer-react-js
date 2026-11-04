@@ -156,4 +156,13 @@ describe('useTransparencyBackdrop', () => {
             /cropped\/-\/crop\/50x50\/-\/preview\/64x64\/-\/format\/png\/logo$/,
         );
     });
+
+    it('samples from the CORS-enabled Uploadcare host, not a custom CDN domain', () => {
+        const image = createImage('custom', 'image/png').withBaseCdnUrl(
+            'https://cdn.assets.prezly.com',
+        );
+        expect(getTransparencySampleUrl(image)).toBe(
+            'https://cdn.uc.assets.prezly.com/custom/-/preview/64x64/-/format/png/logo',
+        );
+    });
 });

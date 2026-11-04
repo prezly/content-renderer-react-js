@@ -1,6 +1,6 @@
 'use client';
 
-import { UploadcareImage } from '@prezly/uploadcare';
+import { UPLOADCARE_CDN_URL, UploadcareImage } from '@prezly/uploadcare';
 import type { RefObject } from 'react';
 import { useEffect, useState } from 'react';
 
@@ -35,6 +35,10 @@ export function mayHaveTransparency(image: Pick<UploadcareImage, 'mimeType'>): b
 /**
  * The tiny PNG used to inspect an image's pixels. It keeps effects that change the shown
  * area (crops), but drops scaling ones, so every rendered size of an image shares one sample.
+ *
+ * The sample always comes from the Uploadcare CDN host, which sends CORS headers. Custom CDN
+ * domains (e.g. `cdn.assets.prezly.com`) redirect there without them, and a canvas cannot read
+ * pixels through such a redirect.
  */
 export function getTransparencySampleUrl(image: UploadcareImage): string {
     const base = new UploadcareImage({
@@ -45,7 +49,7 @@ export function getTransparencySampleUrl(image: UploadcareImage): string {
         originalWidth: image.originalWidth,
         originalHeight: image.originalHeight,
         effects: image.effects.filter((effect) => !SCALING_EFFECT.test(effect)),
-        baseCdnUrl: image.baseCdnUrl,
+        baseCdnUrl: UPLOADCARE_CDN_URL,
     });
     return base.preview(SAMPLE_SIZE, SAMPLE_SIZE).format('png').cdnUrl;
 }
