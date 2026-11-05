@@ -53,9 +53,6 @@
         "lint-styles:fix": "pnpm lint-styles --fix",
         "format": "biome format .",
         "format:fix": "biome format --write .",
-        "release": "np --test-script='release:check'",
-        "release:preview": "pnpm release --any-branch --tag preview --no-release-draft",
-        "release:check": "pnpm clean && pnpm install --frozen-lockfile && pnpm build && pnpm check",
         "test:with-all-react-versions": "pnpm test:with-react-18 && pnpm test:with-react-19",
         "test:with-react-18": "REACT_VERSION=18 pnpm test:with-react-version",
         "test:with-react-19": "REACT_VERSION=19 pnpm test:with-react-version",
@@ -73,7 +70,8 @@
         "test:visual:update": "pnpm test:visual --update-snapshots",
         "test:visual:docker": "docker run --rm --platform linux/amd64 --volume \"$PWD\":/work --volume /work/node_modules --volume /work/example/node_modules --workdir /work mcr.microsoft.com/playwright:v1.62.1-noble bash -lc 'corepack enable && pnpm install --frozen-lockfile && pnpm exec playwright test \"$@\"' --",
         "storybook": "storybook dev -p 6006",
-        "build-storybook": "storybook build"
+        "build-storybook": "storybook build",
+        "release": "node -e \"console.error('Use the manual publish.yml GitHub workflow. See README.md.'); process.exit(1)\""
     },
     "devEngines": {
         "runtime": {

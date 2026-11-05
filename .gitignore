@@ -21,3 +21,6 @@ storybook-static
 test-results/
 playwright-report/
 blob-report/
+
+# Validated release artifacts
+/.release/
