@@ -123,6 +123,7 @@ export function Lightbox({
                 <div className="prezly-slate-lightbox__image-container">
                     <Media
                         className="prezly-slate-lightbox__image"
+                        detectTransparency
                         image={previewImage(image)}
                         title={title}
                     />

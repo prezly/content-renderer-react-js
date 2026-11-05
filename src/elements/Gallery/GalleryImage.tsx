@@ -32,7 +32,11 @@ export function GalleryImage({
             onClick={() => onClick(originalImage)}
             style={style}
         >
-            <Media className="prezly-slate-gallery-image__media" image={previewImage} />
+            <Media
+                className="prezly-slate-gallery-image__media"
+                detectTransparency
+                image={previewImage}
+            />
         </Rollover>
     );
 }

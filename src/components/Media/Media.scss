@@ -5,6 +5,11 @@
     max-width: 100%;
     height: auto;
 
+    // Added at runtime only when transparent pixels would blend into the page.
+    &--transparency-backdrop {
+        @include image-transparency-background;
+    }
+
     &--image {
         @media print {
             print-color-adjust: exact;

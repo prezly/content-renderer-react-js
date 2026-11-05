@@ -105,12 +105,31 @@ Brought to you by [Prezly][prezly].
 
 ### Transparent gallery previews
 
-Gallery thumbnails and lightbox images display a neutral CSS checkerboard behind
-transparent pixels. Opaque image pixels cover the pattern; image URLs and original
-downloads are unchanged. The pattern is limited to the image bounds and does not
-apply to inline story images outside the lightbox.
+Gallery thumbnails and lightbox images show a neutral CSS checkerboard behind
+transparent pixels **only when the image would otherwise blend into the colour behind
+it** (for example white artwork on a white page). Other images render unchanged.
 
-Themes can customize `.prezly-slate-gallery-image__media` and
-`.prezly-slate-lightbox__image` backgrounds. Theme-owned gallery cover cards need
-the same treatment separately. Updating the renderer package does not update
-those covers or override a theme's hover-caption styles.
+The check runs in the browser once an image nears the viewport:
+
+1. JPEGs and GIFs are skipped; only formats that can carry transparency are checked.
+2. A 64px PNG sample of the image is read from the CDN through a canvas.
+3. The colour behind the image is resolved from the ancestors' computed
+   `background-color`. If an ancestor paints a background image or gradient, or the
+   sample cannot be read, the checkerboard is shown.
+4. The checkerboard is shown when at least 5% of the image is see-through and at least
+   50% of its visible (alpha-weighted) pixels have a contrast ratio below 1.25:1
+   against that colour.
+
+When needed, the `prezly-slate-media--transparency-backdrop` class is added to the
+image. Image URLs and original downloads are unchanged, and results are cached per
+image and background colour.
+
+Themes can apply the same check to their own images with `useTransparencyBackdrop`:
+
+```tsx
+const ref = useRef<HTMLImageElement>(null);
+const needsBackdrop = useTransparencyBackdrop(uploadcareImage, ref);
+```
+
+The pure `needsTransparencyBackdrop(pixels, background)` and `getBackgroundBehind(element)`
+helpers are exported as well.
