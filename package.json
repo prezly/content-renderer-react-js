@@ -98,7 +98,6 @@
         "@react-hookz/web": "^26.1.0",
         "classnames": "^2.5.1",
         "js-cookie": "^3.0.8",
-        "player.js": "^0.1.0",
         "react-modal": "^3.16.3",
         "resize-observer-polyfill": "^1.5.1",
         "shave": "^5.1.0",

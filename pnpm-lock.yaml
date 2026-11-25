@@ -231,9 +231,6 @@ importers:
       js-cookie:
         specifier: ^3.0.8
         version: 3.0.8
-      player.js:
-        specifier: ^0.1.0
-        version: 0.1.0
       react-modal:
         specifier: ^3.16.3
         version: 3.16.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
@@ -6024,9 +6021,6 @@ packages:
   pkijs@3.4.0:
     resolution: {integrity: sha512-emEcLuomt2j03vxD54giVB4SxTjnsqkU692xZOZXHDVoYyypEm+b3jpiTcc+Cf+myooc+/Ly0z01jqeNHVgJGw==}
     engines: {node: '>=16.0.0'}
-
-  player.js@0.1.0:
-    resolution: {integrity: sha512-pzWPiqw5b4kQCYhXyoLOZWidWcSySVJTqciDOtoH/MzY97piKnUme494dfczCAC7FLkMSPMH2HfhNJU9D/lVFw==}
 
   playwright-core@1.62.1:
     resolution: {integrity: sha512-wPYSwEBJY9GHraISXqyqtx0na0LpO3XEX7jNDhntbex7tzUS7kLnZsOlFruFJB4Hi/rhDMjXGqHewDZ68nYZVw==}
@@ -13510,8 +13504,6 @@ snapshots:
       pvtsutils: 1.3.6
       pvutils: 1.2.0
       tslib: 2.8.1
-
-  player.js@0.1.0: {}
 
   playwright-core@1.62.1: {}
 

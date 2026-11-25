@@ -1,8 +1,10 @@
 export { applyTransformations } from './applyTransformations';
 export { describeNode } from './describeNode';
+export { enableIframelyPlayerJs } from './enableIframelyPlayerJs';
 export { formatBytes } from './formatBytes';
 export { identity } from './identity';
 export { isEmptyText } from './isEmptyText';
+export { listenForPlayerJsPlay } from './listenForPlayerJsPlay';
 export { noop } from './noop';
 export { normalizeUrl } from './normalizeUrl';
 export { openWindow } from './openWindow';
