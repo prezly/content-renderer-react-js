@@ -1,9 +1,10 @@
 /**
- * Matches the address of an Iframely frame in an `src` or `data-iframely-url` attribute.
- * The Iframely embed script (`//cdn.iframe.ly/embed.js`) is not matched.
+ * Matches the address of an Iframely frame in an `src` or `data-iframely-url` attribute,
+ * on any Iframely host (the list in Iframely's embed.js). The embed script itself
+ * (e.g. `https://iframely.net/embed.js`) is not matched.
  */
 const IFRAMELY_FRAME_ADDRESS =
-    /\b(src|data-iframely-url)=(["'])((?:https?:)?\/\/(?:cdn\.)?iframe\.ly\/api\/iframe\?[^"']*)\2/gi;
+    /\b(src|data-iframely-url)=(["'])((?:https?:)?\/\/(?:cdn\.iframe\.ly|iframe\.ly|if-cdn\.com|iframely\.net)\/api\/iframe\?[^"']*)\2/gi;
 
 const PLAYERJS_OPTION = /[?&](?:amp;)?playerjs=/i;
 
