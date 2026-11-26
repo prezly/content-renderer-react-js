@@ -3,6 +3,8 @@
 import type { ForwardedRef, HTMLAttributes, ScriptHTMLAttributes } from 'react';
 import { forwardRef, memo, useEffect, useMemo, useRef } from 'react';
 
+import { enableIframelyPlayerJs, listenForPlayerJsPlay } from '../lib';
+
 interface Props extends HTMLAttributes<HTMLDivElement> {
     html: string;
     onError: () => void;
@@ -15,7 +17,13 @@ export function HtmlInjection(props: Props) {
     const { html, onError, onPlay, ...attrs } = props;
     const containerRef = useRef<HTMLDivElement>(null);
 
-    const strippedHtml = useScripts(html, onError);
+    const isPlayTracked = onPlay !== undefined;
+    const trackableHtml = useMemo(
+        () => (isPlayTracked ? enableIframelyPlayerJs(html) : html),
+        [html, isPlayTracked],
+    );
+
+    const strippedHtml = useScripts(trackableHtml, onError);
 
     // biome-ignore lint/correctness/useExhaustiveDependencies: the effect is meant to re-run on html changes only
     useEffect(() => {
@@ -23,16 +31,7 @@ export function HtmlInjection(props: Props) {
             return;
         }
 
-        import('player.js').then((playerjs) => {
-            const nodes = containerRef.current?.getElementsByTagName('iframe');
-            const iframes = Array.from(nodes ?? []);
-            iframes.forEach((iframe) => {
-                iframe.addEventListener('load', () => {
-                    const player = new playerjs.Player(iframe);
-                    player.on('play', onPlay);
-                });
-            });
-        });
+        return listenForPlayerJsPlay(containerRef.current, onPlay);
     }, [onPlay, strippedHtml]);
 
     return <MemoHtml ref={containerRef} {...attrs} html={strippedHtml} />;
